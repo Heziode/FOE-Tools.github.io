@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [2.30.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.29.1...v2.30.0) (2019-03-17)
+
+
+### Bug Fixes
+
+* **gb-investment:** take in consideration extra investors in preparation ([7d5d05d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/7d5d05d))
+
+
+### Features
+
+* **l10n:** add Polish language ([39da294](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/39da294))
+
+
+
 ## [2.29.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.29.0...v2.29.1) (2019-03-14)
 
 
