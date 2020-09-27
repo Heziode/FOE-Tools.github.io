@@ -1,17 +1,111 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"mime-version: 1.0\n"
+"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"POT-Creation-Date: 2020-08-21T21:00:51.910Z\n"
+"PO-Revision-Date: 2020-09-27 21:22+0000\n"
+"Last-Translator: cflorinc <florin_clau@yahoo.com>\n"
+"Language-Team: Romanian <https://translate.foe.tools/projects/"
+"foe-tools-website/website/ro/>\n"
+"Language: ro\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2)\n"
-"POT-Creation-Date: 2020-08-21T21:00:51.910Z\n"
-"PO-Revision-Date: 2020-08-21T21:00:51.910Z\n"
-"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2;\n"
+"X-Generator: Weblate 4.1.1\n"
+"mime-version: 1.0\n"
 
 msgid "main_menu.gb_investment"
 msgstr "@:(routes.gb_investment_gb_chooser.hero.title)"
 
 msgid "main_menu.home"
 msgstr "Acasă"
+
+msgid "components.campaign_cost.provinces"
+msgstr "Provincii"
+
+msgid "components.cf_calculator.block_cfc.fp_by_24h"
+msgstr "Productie la 24 ore"
+
+#, fuzzy
+msgid "main_menu.gb_statistics"
+msgstr "@:(routes.gb_statistics.hero.title)"
+
+#, fuzzy
+msgid "components.campaign_cost.message.haveUnknownCosts"
+msgstr ""
+"Aceasta provincie contine unul sau mai multe sectoare carora le lipsesc "
+"valorile"
+
+#, fuzzy
+msgid "main_menu.campaign_cost"
+msgstr "@:(routes.campaign_cost.hero.title)"
+
+msgid "footer_menu.about"
+msgstr "Despre"
+
+msgid "footer_menu.contributors"
+msgstr "Contribuitori"
+
+msgid "footer_menu.contact"
+msgstr "Contact"
+
+msgid "footer_menu.changelog"
+msgstr "Jurnal schimbari"
+
+msgid "components.campaign_cost.choose_province"
+msgstr "Alege o provincie"
+
+#, fuzzy
+msgid "main_menu.help_to_translate_the_site"
+msgstr "@:(routes.help_to_translate_the_site.hero.title)"
+
+#, fuzzy
+msgid "components.campaign_cost.title"
+msgstr "@:(routes.campaign_cost.hero.title)"
+
+msgid "components.campaign_cost.all_provinces"
+msgstr "Toate provinciile"
+
+#, fuzzy
+msgid "components.cf_calculator.block_cfc.title"
+msgstr "@:(routes.cf_calculator.hero.title)"
+
+msgid "components.cf_calculator.block_cfc.your_age"
+msgstr "Era ta"
+
+#, fuzzy
+msgid "components.cf_calculator.block_cfc.your_cf_boost"
+msgstr "Your @:(foe_data.gb.Chateau_Frontenac) Boost"
+
+msgid "components.cf_calculator.block_cfc.supplies_gathered"
+msgstr "Provizii obtinute"
+
+msgid "main_menu.secure_position"
+msgstr "@:(routes.secure_position.hero.title)"
+
+msgid "main_menu.cf_calculator"
+msgstr "@:(routes.cf_calculator.hero.title)"
+
+#, fuzzy
+msgid "main_menu.gb_forecast_cost"
+msgstr "@:(routes.gb_forecast_cost.hero.title)"
+
+#, fuzzy
+msgid "main_menu.trade"
+msgstr "@:(routes.trade.hero.title)"
+
+msgid "components.campaign_cost.all_ages"
+msgstr "Toate erele"
+
+#, fuzzy
+msgid "footer_menu.cookie_policy"
+msgstr "Politica de cookies"
+
+msgid "footer_menu.privacy_policy"
+msgstr "Politica de confidentialitate"
+
+msgid "components.cf_calculator.block_cfc.coins_supplies_info"
+msgstr ""
+"Aceasta valoare ar trebui sa fie mai mare sau egala decat {min} in caz "
+"contrar nu se poate garanta profit (statistic)"
