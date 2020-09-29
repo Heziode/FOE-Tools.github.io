@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
 "POT-Creation-Date: 2020-08-21T21:00:52.050Z\n"
-"PO-Revision-Date: 2020-09-09 09:56+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2020-09-30 06:30+0000\n"
+"Last-Translator: Robert Polak <rpolak@hotmail.com>\n"
 "Language-Team: Slovak <https://translate.foe.tools/projects/"
 "foe-tools-website/website/sk/>\n"
 "Language: sk\n"
@@ -556,9 +556,9 @@ msgstr ""
 
 msgid "components.gb_investment.tutorial.add_investors"
 msgstr ""
-"Máte vo Vašej VBčke náhodných investorov ktorý sú nižšie alebo vyššie ako "
-"je požadovaný stupeň?\n"
-"Vložte všetky aktuálne investície do políčka oddelene.\n"
+"Máte vo Vašej VB náhodných investorov ktorý sú nižšie alebo vyššie ako je "
+"požadovaný stupeň?\n"
+"Vložte všetky aktuálne nezvyčajné investície do políčka oddelene.\n"
 "Nástroj zráta ktoré miesta sú zabraté a koľko BV sa použilo na zaistenie "
 "nezabratých miest."
 
@@ -1204,7 +1204,7 @@ msgid "components.promotion_message_builder.variables.message.OP"
 msgstr "@:(components.gb_investment.gb_investment.table.tfoot.total_preparation)"
 
 msgid "components.promotion_message_builder.variables.message.PPx"
-msgstr "Počet bodov na vloženie majiteľom pre miesto \"x\" (\"x\" je od 1 to 5)"
+msgstr "Počet BV na vloženie majiteľom pre miesto \"x\" (\"x\" je od 1 to 5)"
 
 msgid "components.promotion_message_builder.variables.message.LF"
 msgstr "Riadok, pridajte nový riadok"
@@ -1685,7 +1685,7 @@ msgid "routes.donate.donation_options"
 msgstr "Dar cez @:(common.links.donorbox) alebo @:(common.links.paypal)."
 
 msgid "routes.donate.conversion"
-msgstr "Ak Vás moja práca oslovila, prosím zvážte dar."
+msgstr "Ak oceňujete moju prácu, prosím zvážte dar."
 
 msgid "routes.donate.donation_message"
 msgstr ""
@@ -3815,8 +3815,9 @@ msgid ""
 msgid_plural ""
 "components.gb_investment.gb_investment.table.tbody.button_show_"
 "extra_investor"
-msgstr[0] ""
+msgstr[0] "Ukáž ďalšieho prispievateľa"
 msgstr[1] "Ukáž ďalších prispievateľov"
+msgstr[2] ""
 
 msgid ""
 "components.gb_investment.gb_investment.table.tbody.button_hide_"
@@ -3824,28 +3825,33 @@ msgid ""
 msgid_plural ""
 "components.gb_investment.gb_investment.table.tbody.button_hide_"
 "extra_investor"
-msgstr[0] ""
+msgstr[0] "Skry ďalšieho prispievateľa"
 msgstr[1] "Skry ďalších prispievateľov"
+msgstr[2] "Skry ďalších prispievateľov"
 
 msgid "components.gb_investment.gb_investment.table.tbody.loss"
 msgid_plural "components.gb_investment.gb_investment.table.tbody.loss"
-msgstr[0] ""
+msgstr[0] "Tento hráč stratí BV"
 msgstr[1] "Tento hráč stratí viac BV"
+msgstr[2] "Tento hráč stratí viac BV"
 
 msgid "components.gb_forecast_cost.message.diff"
 msgid_plural "components.gb_forecast_cost.message.diff"
-msgstr[0] ""
+msgstr[0] "S bonusom investícií ušetríte {count} BV"
 msgstr[1] "S bonusom investícií ušetríte {count} BV"
+msgstr[2] "S bonusom investícií ušetríte {count} BV"
 
 msgid "components.secure_position.block_place.fp_to_complete_level"
 msgid_plural "components.secure_position.block_place.fp_to_complete_level"
-msgstr[0] ""
+msgstr[0] "BV zostávajúci do uzavretia úrovne:"
 msgstr[1] "BV zostávajúcich do uzavretia úrovne:"
+msgstr[2] "BV zostávajúce do uzavretia úrovne:"
 
 msgid "components.secure_position.block_place.place"
 msgid_plural "components.secure_position.block_place.place"
-msgstr[0] ""
+msgstr[0] "{place} ({count} BV)"
 msgstr[1] "{place} ({count} BV)"
+msgstr[2] "{place} ({count} BV)"
 
 msgid "components.secure_position.block_place.result.default"
 msgid_plural "components.secure_position.block_place.result.default"
@@ -3854,45 +3860,247 @@ msgstr[1] "Musíte mať celkovo {count} BV na zablokovanie pozície."
 
 msgid "components.secure_position.block_place.result.fp_need_to_lock"
 msgid_plural "components.secure_position.block_place.result.fp_need_to_lock"
-msgstr[0] ""
-msgstr[1] "Na zaistenie Vašej pozície potrebujete vložiť toľko BV:"
+msgstr[0] "BV potrebný vložiť na zaistenie Vašej pozície:"
+msgstr[1] "BV potrebných vložiť na zaistenie Vašej pozície:"
+msgstr[2] "BV potrebných vložiť na zaistenie Vašej pozície:"
 
 msgid "components.secure_position.block_place.result.roi.profit"
 msgid_plural "components.secure_position.block_place.result.roi.profit"
-msgstr[0] ""
+msgstr[0] "Váš zisk bude {count} BV"
 msgstr[1] "Váš zisk bude {count} BV"
+msgstr[2] "Váš zisk bude {count} BV"
 
 msgid "components.secure_position.block_place.result.roi.loss"
 msgid_plural "components.secure_position.block_place.result.roi.loss"
-msgstr[0] ""
+msgstr[0] "Vaša strata bude {count} BV"
 msgstr[1] "Vaša strata bude {count} BV"
+msgstr[2] "Vaša strata bude {count} BV"
 
 msgid "components.secure_position.block_place.result.fp_to_secure_html"
 msgid_plural "components.secure_position.block_place.result.fp_to_secure_html"
-msgstr[0] ""
+msgstr[0] "Musíte vložiť ešte {count} BV."
 msgstr[1] "Musíte vložiť ešte {count} BV."
+msgstr[2] "Musíte vložiť ešte {count} BV."
 
 msgid "components.site_layout.new_year.message"
 msgid_plural "components.site_layout.new_year.message"
-msgstr[0] ""
+msgstr[0] "@:(common.site_title) oslavuje svoje {count}  výročie"
 msgstr[1] "@:(common.site_title) oslavuje svoje {count}  výročie"
+msgstr[2] "@:(common.site_title) oslavuje svoje {count}  výročie"
 
 msgid "components.site_layout.update"
 msgid_plural "components.site_layout.update"
-msgstr[0] ""
+msgstr[0] "Jedna novinka od Vašej poslednej návštevy."
 msgstr[1] "{count} noviniek od Vašej poslednej návštevy."
+msgstr[2] "{count} noviniek od Vašej poslednej návštevy."
 
 msgid "utils.moment.year"
 msgid_plural "utils.moment.year"
-msgstr[0] ""
-msgstr[1] "{count} roky"
+msgstr[0] "{count} rok"
+msgstr[1] "{count} rokov"
+msgstr[2] "{count} roky"
 
 msgid "utils.moment.month"
 msgid_plural "utils.moment.month"
-msgstr[0] ""
-msgstr[1] "{count} mesiace"
+msgstr[0] "{count} mesiac"
+msgstr[1] "{count} mesiacov"
+msgstr[2] "{count} mesiace"
 
 msgid "utils.moment.day"
 msgid_plural "utils.moment.day"
-msgstr[0] ""
-msgstr[1] "{count} dni"
+msgstr[0] "{count} deň"
+msgstr[1] "{count} dní"
+msgstr[2] "{count} dni"
+
+msgid "components.campaign_cost.provinces"
+msgstr "Provincie"
+
+msgid "foe_data.gb_short.Space_Carrier"
+msgstr "Transportér"
+
+msgid "foe_data.province.Psyche"
+msgstr "Psyché"
+
+msgid "components.campaign_cost.all_ages"
+msgstr "Všetky éry"
+
+msgid "components.campaign_cost.all_provinces"
+msgstr "Všetky provincie"
+
+msgid "foe_data.province.Juno"
+msgstr "Juno"
+
+msgid "footer_menu.privacy_policy"
+msgstr "Politika súkromia"
+
+msgid "footer_menu.cookie_policy"
+msgstr "Politika Cookie"
+
+msgid "components.gb_forecast_cost.message.estimated_time_swap_threads"
+msgstr ""
+"Odhadovaný čas na dosiahnutie úrovne použitím zámeny vlákien (5/10/20/50/100 "
+"BV, atď.): {time}"
+
+msgid "routes.about.cookie.info.cookieConsent"
+msgstr "Vaše predvoľby cookies"
+
+msgid "routes.about.cookie.p2"
+msgstr "Viac informácií sa dozviete na týchto odkazoch:"
+
+msgid "cookieConsent.purposes.analytics"
+msgstr "Analýza"
+
+msgid "cookieConsent.purposes.necessary"
+msgstr "Nevyhnutné"
+
+msgid "cookieConsent.purposes.quality"
+msgstr "Kvalita"
+
+msgid "cookieConsent.title"
+msgstr "Ahoj! To sme my... Cookies!"
+
+msgid "cookieConsent.consentNotice.learnMore"
+msgstr "Prispôsobiť"
+
+msgid "cookieConsent.matomo.description"
+msgstr "Zhromažďovanie štatistík o návštevníkoch (vlastné riešenie)"
+
+msgid "cookieConsent.sentry.description"
+msgstr ""
+"Zhromažďovanie chýb na identifikáciu potenciálnych chýb (vlastné riešenie)"
+
+msgid "foe_data.province.Aurora"
+msgstr "Aurora"
+
+msgid "foe_data.province.Ceres_E_6"
+msgstr "Ceres E-6"
+
+msgid "foe_data.province.Ceres_G_7"
+msgstr "Ceres G-7"
+
+msgid "foe_data.province.Pales"
+msgstr "Pales"
+
+msgid "foe_data.province.Cybele_V_4"
+msgstr "Cybele V-4"
+
+msgid "foe_data.age.SpaceAgeAsteroidBelt"
+msgstr "Vesmírny vek: Pás asteroidov"
+
+msgid "utils.FP"
+msgid_plural "utils.FP"
+msgstr[0] "Počet BV"
+msgstr[1] "Počet BV"
+msgstr[2] "Počet BV"
+
+msgid "components.promotion_message_builder.variables.message.PVx"
+msgstr ""
+"Počet BV na vloženie prispievateľom pre miesto \"x\" (\"x\" je od 1 to 5)"
+
+msgid "foe_data.province.Hygiea_N_13"
+msgstr "Hygiea N-13"
+
+msgid "foe_data.province.Hygiea_O_14"
+msgstr "Hygiea O-14"
+
+msgid "foe_data.province.Vesta_L_15"
+msgstr "Vesta L-15"
+
+msgid "foe_data.province.Vesta_M_16"
+msgstr "Vesta M-16"
+
+msgid "foe_data.province.Fides"
+msgstr "Fides"
+
+msgid "foe_data.province.Ceres_K_18"
+msgstr "Ceres K-18"
+
+msgid "foe_data.province.Nemesis"
+msgstr "Nemesis"
+
+msgid "foe_data.province.Euphrosyne_A_20"
+msgstr "Euphrosyne A-20"
+
+msgid "foe_data.province.Loreley"
+msgstr "Loreley"
+
+msgid "foe_data.province.Euphrosyne_A_12"
+msgstr "Euphrosyne A-12"
+
+msgid "foe_data.province.Gyptis"
+msgstr "Gyptis"
+
+msgid "foe_data.province.Eunike"
+msgstr "Eunike"
+
+msgid "components.promotion_message_builder.variables.message.LC"
+msgstr "Cena úrovne"
+
+msgid "foe_data.province.Medea"
+msgstr "Medea"
+
+msgid "foe_data.gb.Space_Carrier"
+msgstr "Vesmírny transportér"
+
+msgid "foe_data.goods.nickel"
+msgstr "Nikel"
+
+msgid "foe_data.goods.processed_materials"
+msgstr "Spracované materiály"
+
+msgid "foe_data.goods.compound_fluid"
+msgstr "Zmiešaná tekutina"
+
+msgid "foe_data.goods.bromine"
+msgstr "Bróm"
+
+msgid "foe_data.goods.platinum_crystals"
+msgstr "Platinové kryštáliky"
+
+msgid "foe_data.province.Eros"
+msgstr "Eros"
+
+msgid "foe_data.province.Pallas_C_4"
+msgstr "Pallas C-4"
+
+msgid "foe_data.province.Pallas_D_5"
+msgstr "Pallas D-5"
+
+msgid "foe_data.province.Eunomia"
+msgstr "Eunomia"
+
+msgid "foe_data.province.TB_15_X_7"
+msgstr "TB-15 X-7"
+
+msgid "foe_data.province.Interamnia"
+msgstr "Interamnia"
+
+msgid "foe_data.province.Amphitrite"
+msgstr "Amphitrite"
+
+msgid "foe_data.province.Thisbe"
+msgstr "Thisbe"
+
+msgid "foe_data.province.Ino"
+msgstr "Ino"
+
+msgid "foe_data.province.Hektor"
+msgstr "Hektor"
+
+msgid "foe_data.province.Metis"
+msgstr "Metis"
+
+msgid "foe_data.province.Aletheia"
+msgstr "Aletheia"
+
+msgid "foe_data.province.Diotima"
+msgstr "Diotima"
+
+msgid "foe_data.province.Egeria"
+msgstr "Egeria"
+
+msgid "foe_data.province.Vesta_S_1"
+msgstr "Vesta S-1"
+
+msgid "foe_data.province.Cybele_F_3"
+msgstr "Cybele F-3"
