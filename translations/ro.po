@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.910Z\n"
-"PO-Revision-Date: 2020-09-27 21:22+0000\n"
+"PO-Revision-Date: 2020-10-01 05:12+0000\n"
 "Last-Translator: cflorinc <florin_clau@yahoo.com>\n"
 "Language-Team: Romanian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ro/>\n"
@@ -27,7 +27,6 @@ msgstr "Provincii"
 msgid "components.cf_calculator.block_cfc.fp_by_24h"
 msgstr "Productie la 24 ore"
 
-#, fuzzy
 msgid "main_menu.gb_statistics"
 msgstr "@:(routes.gb_statistics.hero.title)"
 
@@ -37,7 +36,6 @@ msgstr ""
 "Aceasta provincie contine unul sau mai multe sectoare carora le lipsesc "
 "valorile"
 
-#, fuzzy
 msgid "main_menu.campaign_cost"
 msgstr "@:(routes.campaign_cost.hero.title)"
 
@@ -56,11 +54,9 @@ msgstr "Jurnal schimbari"
 msgid "components.campaign_cost.choose_province"
 msgstr "Alege o provincie"
 
-#, fuzzy
 msgid "main_menu.help_to_translate_the_site"
 msgstr "@:(routes.help_to_translate_the_site.hero.title)"
 
-#, fuzzy
 msgid "components.campaign_cost.title"
 msgstr "@:(routes.campaign_cost.hero.title)"
 
@@ -87,18 +83,15 @@ msgstr "@:(routes.secure_position.hero.title)"
 msgid "main_menu.cf_calculator"
 msgstr "@:(routes.cf_calculator.hero.title)"
 
-#, fuzzy
 msgid "main_menu.gb_forecast_cost"
 msgstr "@:(routes.gb_forecast_cost.hero.title)"
 
-#, fuzzy
 msgid "main_menu.trade"
 msgstr "@:(routes.trade.hero.title)"
 
 msgid "components.campaign_cost.all_ages"
 msgstr "Toate erele"
 
-#, fuzzy
 msgid "footer_menu.cookie_policy"
 msgstr "Politica de cookies"
 
@@ -109,3 +102,23 @@ msgid "components.cf_calculator.block_cfc.coins_supplies_info"
 msgstr ""
 "Aceasta valoare ar trebui sa fie mai mare sau egala decat {min} in caz "
 "contrar nu se poate garanta profit (statistic)"
+
+msgid "components.cf_calculator.block_cfc.table_reward.thead.th2"
+msgstr "Medalii"
+
+msgid "components.cf_calculator.block_cfc.table_reward.thead.th3"
+msgstr "Bunuri"
+
+msgid "components.cf_calculator.block_cfc.table_return.thead.th_level"
+msgstr "Nivel"
+
+#, fuzzy
+msgid "components.cf_calculator.block_cfc.infinity_generator.message"
+msgstr ""
+"La bonusul curent pentru @:(foe_data.gb.Chateau_Frontenac), va mai multe "
+"monede si provizii decat vei folosi ca sa termini quest-ul. Alege numarul de "
+"\"@:(components.cf_calculator.block_cfc.infinity_generator.label)\" pe care "
+"vrei sa le faci."
+
+msgid "components.cf_calculator.block_cfc.reward_message.total_goods"
+msgstr "Total bunuri: {count}"
