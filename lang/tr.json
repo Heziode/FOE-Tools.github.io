@@ -238,7 +238,7 @@
   "components.import_promotion_message.errors.invalid_data": "Geçersiz veri",
   "components.import_promotion_message.template_imported": "Şablon dışarıdan alındı",
   "routes.home.title": "@:(common.site_title)",
-  "routes.about.title": " @:(common.site_title) Hakkında",
+  "routes.about.title": "@:(common.site_title) Hakkında",
   "routes.about.general_info.title": "Genel bilgi",
   "routes.about.general_info.p1_html": "Forge of Empires, FOE ve tüm ilişkili markalar ve içerik InnoGames GmbH'ye aittir. <br/> @:(common.site_title) ise resmi olmayan, üçüncü kişilere ait ve InnoGame ile bağlantılı değildir.",
   "routes.about.general_info.p2_html": "@:(common.site_title) Fransız oyuncu <strong class=\"has-text-weight-semibold\">Yoratheon</strong> tarafından yaratıldı.",

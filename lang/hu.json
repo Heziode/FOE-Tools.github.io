@@ -829,5 +829,7 @@
   "seo.keywords.fp": "fp",
   "seo.keywords.forge_point": "forge pont",
   "seo.keywords.medals": "medál",
-  "seo.keywords.military_units": "katonai egység"
+  "seo.keywords.military_units": "katonai egység",
+  "components.cf_calculator.tutorial.goods": "Add meg, hogy mennyi nyersanyagot gyűjtesz be az épületeidből vagy rabolsz másoktól.",
+  "components.cf_calculator.block_cfc.other_rq": "egyéb napi feltétel(ek)"
 }

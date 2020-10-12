@@ -802,10 +802,11 @@
   "components.secure_position.block_place.result.roi.profit": " | Вы получите {count} СО",
   "components.secure_position.block_place.result.roi.loss": " | Вы потеряете {count} СО",
   "components.secure_position.block_place.result.fp_to_secure_html": " | Вам нужно вложить еще {count} СО.",
-  "utils.moment.year": " | {count} лет",
-  "utils.moment.month": " | {count} месяцев",
-  "utils.moment.day": " | {count} дней",
+  "utils.moment.year": "{count} год | {count} года | {count} лет",
+  "utils.moment.month": "{count} месяц | {count} месяца | {count} месяцев",
+  "utils.moment.day": "{count} день | {count} дня | {count} дней",
   "routes.help_to_translate_the_site.hero.title": "Помогите перевести данный сайт",
   "footer_menu.cookie_policy": "Правила обработки «cookie»",
-  "footer_menu.privacy_policy": "Политика конфиденциальности"
+  "footer_menu.privacy_policy": "Политика конфиденциальности",
+  "components.cf_calculator.tutorial.checkSecondQuest": "Начиная с @:(foe_data.age.LateMiddleAges) вы можете выполнять второй повторяющийся квест. Выставите \"@:(utils.Yes)\" если вы хотите выполнять второй повторяющийся квест.\n\n<i><b>Замечание</b>: предполагается, что второй повторяющийся квест это: соберите X инструментов</i>."
 }
