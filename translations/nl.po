@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.519Z\n"
-"PO-Revision-Date: 2020-09-09 09:56+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2020-10-24 13:38+0000\n"
+"Last-Translator: Arno <arno@zweers.eu>\n"
 "Language-Team: Dutch <https://translate.foe.tools/projects/foe-tools-website/"
 "website/nl/>\n"
 "Language: nl\n"
@@ -60,7 +60,7 @@ msgid "components.campaign_cost.choose_province"
 msgstr "Kies een provincie"
 
 msgid "components.campaign_cost.message.haveUnknownCosts"
-msgstr "Deze provincie bevat één of meer sectoren met ontbrekende gegevens"
+msgstr "Deze provincie bevat één of meer sectoren met ontbrekende gegevens."
 
 msgid "components.campaign_cost.provinces"
 msgstr "Provincies"
@@ -89,7 +89,7 @@ msgstr ""
 "kan worden gegarandeerd (statistisch)"
 
 msgid "components.cf_calculator.block_cfc.supplies_to_use"
-msgstr "Voorraden voor de  NVF Quest"
+msgstr "Voorraden voor de NVF Quest"
 
 msgid "components.cf_calculator.block_cfc.gb_plunder_goods"
 msgstr "GG & Plunder Goederen"
@@ -170,18 +170,19 @@ msgstr ""
 
 msgid "components.cf_calculator.tutorial.checkSecondQuest"
 msgstr ""
-"From @:(foe_data.age.LateMiddleAges), you can do a second recurring quest. "
-"Set \"@:(utils.Yes)\" if you want to do the second recurring quest.\n"
+"Vanaf de @:(foe_data.age.LateMiddleAges), kun je een tweede herhaalmissie "
+"doen. Kies \"@:(utils.Yes)\" als je een tweede herhaalmissie wilt doen.\n"
 "\n"
-"<i><b>Note</b>: It suppose that the second reccuring quest are: gather X "
-"supplies.</i>."
+"<i><b>NB</b>: Er wordt vanuit gegaan dat de tweede herhaalmissie is: "
+"Verzamel X voorraden.</i>."
 
 msgid "components.cf_calculator.tutorial.fpBy24h"
 msgstr "Vul aantal FP's in die je per 24 uur verzamelt."
 
 msgid "components.cf_calculator.tutorial.goods"
 msgstr ""
-"Hoeveelheid Goederen welke je krijgt bij Plunderen & Incasseren van GG's."
+"Hoeveelheid goederen die je krijgt bij het plunderen en bij Incasseren van "
+"GG's."
 
 msgid "components.cf_calculator.tutorial.supplies"
 msgstr "Vul het aantal voorraden in dat je voor alle missies wenst te gebruiken."
@@ -199,7 +200,7 @@ msgid "components.cf_calculator.tutorial.yourAge"
 msgstr "Kies uw Tijdperk."
 
 msgid "components.cf_calculator.tutorial.cumulativeQuest"
-msgstr "In dat geval, moet je aangeven hoeveel Quests je wil doen."
+msgstr "In dat geval, moet je aangeven hoeveel missies je wilt doen."
 
 msgid "components.cf_calculator.tutorial.suppliesGathered"
 msgstr "Vul in hoeveel voorraden je wil gebruiken voor..."
@@ -217,7 +218,7 @@ msgstr "@:(routes.gb_investment_gb_chooser.hero.title)"
 
 msgid "components.gb_investment.gb_investment.description.p1"
 msgstr ""
-"Voer het level ( naar lvl) en  Arc bonus % in. De tabelwaarden worden "
+"Voer het level ( naar lvl) en Arc bonus % in. De tabelwaarden worden "
 "automatisch bijgewerkt."
 
 msgid "components.gb_investment.gb_investment.description.p2_html"
@@ -289,7 +290,7 @@ msgid "components.gb_investment.gb_investment.table.thead.th5"
 msgstr "% Arc bonus"
 
 msgid "components.gb_investment.gb_investment.table.thead.th6"
-msgstr "Positie vrij "
+msgstr "Positie vrij"
 
 msgid ""
 "components.gb_investment.gb_investment.table.thead.fp_already_"
@@ -510,7 +511,7 @@ msgstr ""
 "geval na (@:(foe_data.gb.Oracle_of_Delphi))."
 
 msgid "components.gb_statistics.represent"
-msgstr "Represent:"
+msgstr "Vertegenwoordigd:"
 
 msgid "components.gb_statistics.graph.title_1"
 msgstr "Evolutie van de kosten van de niveaus t.o.v. de niveaus"
@@ -530,8 +531,8 @@ msgstr ""
 
 msgid "components.secure_position.block_place.fp_to_complete_level"
 msgid_plural "components.secure_position.block_place.fp_to_complete_level"
-msgstr[0] "FP over om het niveau af te ronden: {count}"
-msgstr[1] "Hoeveelheid FP's over om het niveau af te ronden: {count}"
+msgstr[0] "FP's over om het niveau af te ronden:"
+msgstr[1] "Hoeveelheid FP's over om het niveau af te ronden:"
 
 msgid "components.secure_position.block_place.place"
 msgid_plural "components.secure_position.block_place.place"
@@ -648,7 +649,7 @@ msgid "components.site_layout.hero.title"
 msgstr "@:(common.site_title)"
 
 msgid "components.site_layout.hero.slogan_html"
-msgstr "Een set tools om het leven op @:(common.links.foe) te versimpelen."
+msgstr "Een set tools om het leven op @:(common.links.foe) te versimpelen"
 
 msgid "components.site_layout.cookie.link"
 msgstr "Meer informatie"
@@ -751,11 +752,11 @@ msgid "components.trade.split_message.common"
 msgstr "{count} × (@:(components.trade.split_message.msg))"
 
 msgid "components.trade.split_message.multi"
-msgstr "@:(components.trade.split_message.common) and {secondPart}"
+msgstr "@:(components.trade.split_message.common) en {secondPart}"
 
 msgid "components.trade.message.result"
 msgstr ""
-"Voor {to} goederen van {ageTo} heeft u {from}goederen van  {ageFrom} nodig "
+"Voor {to} goederen van {ageTo} heeft u {from}goederen van {ageFrom} nodig "
 "met aanbiedingen tot {count}:"
 
 msgid "components.trade.message.total"
@@ -872,7 +873,7 @@ msgstr "@:(components.gb_investment.gb_investment.table.tfoot.total_preparation)
 
 msgid "components.promotion_message_builder.variables.message.PPx"
 msgstr ""
-"Aantal PF's te storten door de eigenaar voor plaats \"x\" (met \"x\" van 1 "
+"Aantal FP's te storten door de eigenaar voor plaats \"x\" (met \"x\" van 1 "
 "tot 5)"
 
 msgid "components.promotion_message_builder.variables.message.LF"
@@ -1157,7 +1158,7 @@ msgid "routes.campaign_cost.hero.title"
 msgstr "Campagnekosten"
 
 msgid "routes.campaign_cost.hero.subtitle"
-msgstr "Deze tool berekend de kosten van een sector of provincie. "
+msgstr "Deze tool berekend de kosten van een sector of provincie."
 
 msgid "routes.cf_calculator.title"
 msgstr "@:(routes.cf_calculator.hero.title) | @:(common.site_title)"
@@ -1167,12 +1168,12 @@ msgstr "Château Frontenac Calculator"
 
 msgid "routes.cf_calculator.hero.subtitle"
 msgstr ""
-"En tool welke help om de goederen en FP productie te voorspellen, welke "
-"voortvloeien uit wederkerende quests en de nietverjaardagsfeest quests "
+"Een tool welke helpt om de goederen en FP productie te voorspellen, welke "
+"voortvloeien uit terugkerende quests en de niet verjaardagsfeest quests "
 "(Rinbin)."
 
 msgid "routes.changelog.title"
-msgstr "Changelog | @:(common.site_title)"
+msgstr "Wijzigingen log| @:(common.site_title)"
 
 msgid "routes.contributors.title"
 msgstr "@:(routes.contributors.hero.title) | @:(common.site_title)"
@@ -1291,9 +1292,8 @@ msgid "routes.help_to_translate_the_site.p2_html"
 msgstr ""
 "@:(common.site_title) wordt vertaald door gebruikers. We gebruiken het "
 "@:(common.links.translation_platform)-platform om het vertaalproces te "
-"vergemakkelijken. Om lid te worden van het team, stuur een e-mail (in het "
-"Engels) naar @:(common.links.contact_foe_tools) met de taal (talen) waarin "
-"u kunt vertalen, zodat we u een uitnodiging kunnen sturen."
+"vergemakkelijken. Om lid te worden van het team volg de link en registreer: "
+"@:(common.links.translation_platform)"
 
 msgid "routes.survey.title"
 msgstr "@:(routes.survey.hero.title)| @:(common.site_title)"
@@ -1566,7 +1566,7 @@ msgid "foe_data.gb.Terracotta_Army"
 msgstr "Terracotta Leger"
 
 msgid "foe_data.gb.Himeji_Castle"
-msgstr "Himeji Kasteel "
+msgstr "Himeji Kasteel"
 
 msgid "foe_data.gb.The_Virgo_Project"
 msgstr "Het Virgo Project"
@@ -1614,7 +1614,7 @@ msgid "foe_data.gb_short.Saint_Basil_s_Cathedral"
 msgstr "BK"
 
 msgid "foe_data.gb_short.Castel_del_Monte"
-msgstr "CDM"
+msgstr "CdM"
 
 msgid "foe_data.gb_short.Deal_Castle"
 msgstr "DC"
@@ -2890,8 +2890,8 @@ msgstr "Militaire bonus"
 
 msgid "foe_data.bonus.military_boost.gb_description"
 msgstr ""
-"Verhoogt de aanvals- en verdedigingsbonus voor eenheden in aanvallend "
-"leger. Wordt verhoogd met ieder level"
+"Verhoogt de aanvals- en verdedigingsbonus voor eenheden in aanvallend leger. "
+"Wordt verhoogd met ieder level."
 
 msgid "foe_data.bonus.fierce_resistance.name"
 msgstr "Felle tegenstand"
@@ -2899,19 +2899,21 @@ msgstr "Felle tegenstand"
 msgid "foe_data.bonus.fierce_resistance.gb_description"
 msgstr ""
 "Verhoogt de aanvals- en verdedigingsbonus voor eenheden in het verdedigende "
-"leger en verhoogt de gilde ondersteuningspoolbonus. "
+"leger en verhoogt de gilde ondersteuningspoolbonus."
 
 msgid "foe_data.bonus.coin_boost.name"
 msgstr "Muntenbonus"
 
 msgid "foe_data.bonus.coin_boost.gb_description"
-msgstr "Verhoogt de eerste 90 inzamelingen van munten met een bepaald percentage, "
+msgstr ""
+"Verhoogt de eerste 90 inzamelingen van munten met een bepaald percentage."
 
 msgid "foe_data.bonus.supply_boost.name"
 msgstr "Voorraadbonus"
 
 msgid "foe_data.bonus.supply_boost.gb_description"
-msgstr "Verhoogt de eerste x inzamelingen van voorraden met een bepaald percentage"
+msgstr ""
+"Verhoogt de eerste x inzamelingen van voorraden met een bepaald percentage."
 
 msgid "foe_data.bonus.good_production.name"
 msgstr "Goederen productie"
@@ -2988,7 +2990,7 @@ msgstr "ondersteuningspoolbonus"
 msgid "foe_data.bonus.support_pool_bonus.gb_description"
 msgstr ""
 "Verhoogt de ondersteuningspoolbonus van je gilde, Gaat omhoog met ieder "
-"level"
+"level."
 
 msgid "foe_data.bonus.aid_goods.name"
 msgstr "Hulpgoederen"
@@ -3276,7 +3278,7 @@ msgid "contributions.question"
 msgstr "Vragen beantwoorden"
 
 msgid "contributions.review"
-msgstr "Reviewed Pull Requests"
+msgstr "Beoordeelde Pull Requests"
 
 msgid "contributions.talk"
 msgstr "Talks"
@@ -3288,22 +3290,22 @@ msgid "contributions.tool"
 msgstr "Tools"
 
 msgid "contributions.translation"
-msgstr "Translation"
+msgstr "Vertaling"
 
 msgid "contributions.tutorial"
 msgstr "Tutorials"
 
 msgid "contributions.video"
-msgstr "Videos"
+msgstr "Video's"
 
 msgid "contributions.data"
 msgstr "Gegevens toevoegen of bijwerken"
 
 msgid "contributions.inspired_tool"
-msgstr "Tool inspired by his work"
+msgstr "Tool geïnspireerd door zijn werk"
 
 msgid "contributions.creator"
-msgstr "Creator of this project"
+msgstr "Maker van dit project"
 
 msgid "seo.keywords.gb"
 msgstr "GG"
@@ -3327,3 +3329,61 @@ msgid "components.site_layout.update"
 msgid_plural "components.site_layout.update"
 msgstr[0] ""
 msgstr[1] "{count}updates sinds uw laatste bezoek."
+
+msgid "components.gb_investment.tutorial.table.message"
+msgstr "Deze tabel toont je alle informatie die je nodig hebt."
+
+msgid "components.cf_calculator.tutorial.totalRqCompleted"
+msgstr "Het aantal herhalende missies die je (statistisch) kunt voltooien."
+
+msgid "components.cf_calculator.tutorial.totalFp"
+msgstr "Het aantal FP's dat je zult verdienen met missies, GG's, etc."
+
+msgid "components.cf_calculator.tutorial.totalGoods"
+msgstr "Het aantal goederen dat je zult verdienen met missies, GGs, etc."
+
+msgid "components.cf_calculator.tutorial.tableReward"
+msgstr ""
+"Deze tabel toont je de beloningen die je zult krijgen. Hou er rekening mee "
+"dat de aantallen zijn gebaseerd op kans."
+
+msgid "components.cf_calculator.tutorial.infiniteGenerator"
+msgstr ""
+"Deze sectie wordt alleen getoond als @:(foe_data.gb.Chateau_Frontenac) "
+"statistisch de kans groter is dat boosten (op basis van je tijdperk) je meer "
+"oplevert dan je uitgeeft."
+
+msgid "components.cf_calculator.tutorial.otherRq"
+msgstr "Stel het aantal herhalende missies in die je op moment hebt gedaan."
+
+msgid "components.cf_calculator.tutorial.coinSupplyReturn"
+msgstr ""
+"Deze tabel toont je de hoeveelheid aan munten en voorraden die je "
+"statistisch zal verdienen op basis van je initiële investering (op basis van "
+"wat je wilt uitgeven aan munten en voorraden)."
+
+msgid "components.cf_calculator.tutorial.bonusUbq"
+msgstr ""
+"Het aantal van je onverjaardag missies die je (statistisch) kan voltooien "
+"met het aantal munten en voorraden die je op dat moment hebt en wat je er "
+"mee zal verdienen."
+
+msgid "components.cf_calculator.tutorial.dailyUbq"
+msgstr ""
+"Het aantal van je onverjaardag missies die je kan voltooien op basis van het "
+"aantal munten en voorraden die je wilt uitgeven."
+
+msgid "components.cf_calculator.tutorial.secondRqCompleted"
+msgstr "Het aantal van de herhalende missies die je kan voltooien."
+
+msgid "routes.about.cookie.p2"
+msgstr "Meer informatie is beschikbaar via de volgende links:"
+
+msgid "routes.about.cookie.info.cookieConsent"
+msgstr "Jouw cookie voorkeuren"
+
+msgid "footer_menu.privacy_policy"
+msgstr "Privacy verklaring"
+
+msgid "footer_menu.cookie_policy"
+msgstr "Cookie verklaring"
