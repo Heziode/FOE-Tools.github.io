@@ -448,7 +448,7 @@ const sitemap =
       }
     : {};
 
-const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://api.foe.tools" : "https://api.domain.localhost";
+const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://api.foe.tools" : "https://api.docker.localhost";
 
 module.exports = {
   ...routerBase,

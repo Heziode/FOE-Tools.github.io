@@ -199,6 +199,10 @@ table.table.has-table-cards {
   }
 }
 
+#surveyContainer li {
+  margin-top: 1em;
+}
+
 // shepherd
 
 .shepherd-text {
@@ -288,4 +292,38 @@ div.navbar-brand .field {
 .no-lr-padding {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+// Sortable list
+
+.sortable-list {
+  width: 80%;
+  max-height: 80vh;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+.sortable-list-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px !important;
+  box-sizing: border-box;
+  user-select: none;
+  margin-top: 0 !important;
+
+  font-weight: 400;
+}
+
+.sortable-handle {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  cursor: row-resize;
 }

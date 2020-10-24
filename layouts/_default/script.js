@@ -295,7 +295,6 @@ export default {
       const cookies = this.$cookies.getAll();
 
       const globalKeys = [
-        "survey",
         "gbSelectMode",
         "fixedMainMenu",
         "haveReadLocaleInfoAvailable",

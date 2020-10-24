@@ -1,6 +1,6 @@
 div#surveyContainer
   b-loading(:is-full-page="false" :active.sync="loading")
-  form(ref="formSurvey" @submit.prevent="onSubmit")
+  form(v-if="dataInitialized" ref="formSurvey" @submit.prevent="onSubmit")
     section.margin-top-two-em(v-for="(question, index) of survey")
       div(v-if="question.type === 'html'" v-html="getSurveyLocal(question.html)")
 
@@ -42,8 +42,13 @@ div#surveyContainer
                 td.has-text-centered(v-for="(column, index) in question.columns" :key="question.name + '__' + row.value + '__' + column.value")
                   b-radio(v-model="result[question.name][row.value]" :native-value="column.value" :disabled="loading")
 
+      template(v-else-if="question.type === 'sortablelist' && checkCondition(question)")
+        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        SortableList(lockAxis="y" v-model="question.sortablelist" :useDragHandle="true" @input="onSortableListInput(question.name, $event)" style="margin:auto")
+          SortableItem(v-for="(item, index) in question.sortablelist" :key="index" :index="index" :item="{ ...item, value: getSurveyLocal(item.value) }" :showHandle="true")
+
     hr
 
     div.has-text-centered
-      vue-hcaptcha(ref="invisibleHcaptcha" :sitekey="process.env.HCAPTCHA_SITEKEY" size="invisible" @verify="callback" @expired="onExpire")
+      vue-hcaptcha(ref="invisibleHcaptcha" :sitekey="HCAPTCHA_SITEKEY" size="invisible" @verify="callback" @expired="onExpire")
       button.button.is-info(type="submit") {{$t("utils.Submit")}}

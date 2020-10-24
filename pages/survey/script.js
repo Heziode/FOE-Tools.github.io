@@ -1,5 +1,7 @@
 import VueHcaptcha from "@hcaptcha/vue-hcaptcha";
 import Utils from "~/scripts/utils";
+import SortableItem from "~/components/sortable-item/SortableItem";
+import SortableList from "~/components/sortable-list/SortableList";
 
 const i18nPrefix = "routes.survey.";
 
@@ -18,49 +20,60 @@ export default {
   beforeRouteEnter(to, from, next) {
     next((vm) => {
       if (!vm.$store.get("survey") || vm.$store.get("survey").length === 0) {
-        vm.$router.push(this.localePath({ name: "Home" }));
+        vm.$router.push(vm.localePath({ name: "Home" }));
       }
     });
   },
   data() {
     this.$store.commit("RESTORE_HERO");
 
-    return {
+    const obj = {
       i18nPrefix,
       result: {},
       errors: {},
       loading: false,
+      dataInitialized: false,
+      survey:
+        this.$store.get("survey") && this.$store.get("survey").length
+          ? this.$clone(this.$store.get("survey@[0].survey.questions"))
+          : [],
     };
+
+    for (let question of obj.survey) {
+      obj.errors[question.name] = false;
+      if (question.type === "checkbox") {
+        obj.result[question.name] = [];
+      } else if (question.type === "matrix") {
+        obj.result[question.name] = {};
+        for (let row of question.rows) {
+          obj.result[question.name][row.value] = null;
+        }
+      } else if (question.type === "sortablelist") {
+        obj.result[question.name] = [];
+        question.sortablelist = [];
+        for (const elt of question.choices) {
+          obj.result[question.name].push(elt._name);
+          question.sortablelist.push({
+            value: elt,
+            id: elt._name,
+          });
+        }
+      } else if (["html"].indexOf(question.type) < 0) {
+        // Remember, this branch shall always be the last
+        obj.result[question.name] = null;
+      }
+    }
+
+    obj.dataInitialized = true;
+
+    return obj;
   },
   computed: {
-    survey() {
-      let obj = {
-        survey:
-          this.$store.get("survey") && this.$store.get("survey").length
-            ? this.$store.get("survey@[0].survey.questions")
-            : [],
-        result: {},
-      };
-      for (let question of obj.survey) {
-        this.$data.errors[question.name] = false;
-        if (question.type === "checkbox") {
-          obj.result[question.name] = [];
-        } else if (question.type === "matrix") {
-          obj.result[question.name] = {};
-          for (let row of question.rows) {
-            obj.result[question.name][row.value] = null;
-          }
-        } else if (["html"].indexOf(question.type) < 0) {
-          obj.result[question.name] = null;
-        }
-      }
-
-      this.$data.result = obj.result;
-
-      return obj.survey;
-    },
     sitekey() {
       return process.env.sitekey;
+    },
+    HCAPTCHA_SITEKEY() {
+      return process.env.HCAPTCHA_SITEKEY;
     },
   },
   methods: {
@@ -179,7 +192,11 @@ export default {
       return false;
     },
     getErrorMessage(question) {
-      return question.isRequired && this.$data.errors[question.name] ? this.$t(i18nPrefix + "required_field") : "";
+      return question.isRequired && this.$data.errors[question.name]
+        ? this.$t(i18nPrefix + "required_field")
+        : question.description
+        ? this.getSurveyLocal(question.description)
+        : "";
     },
     complete(notifParams) {
       let result = this.$cookies.get("survey");
@@ -203,8 +220,13 @@ export default {
         this.$refs.invisibleHcaptcha.execute();
       }
     },
+    onSortableListInput(listName, newValue) {
+      this.$data.result[listName] = this.$clone(newValue.map((elt) => elt.id));
+    },
   },
   components: {
     VueHcaptcha,
+    SortableItem,
+    SortableList,
   },
 };
