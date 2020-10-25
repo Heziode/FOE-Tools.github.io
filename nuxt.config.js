@@ -519,7 +519,7 @@ module.exports = {
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
   buefy: { defaultIconPack: "fas", materialDesignIcons: false },
   target: "static",
-  ssr: false,
+  ssr: false,
   hooks(hook) {
     /**
      * This hook will add some SEO attributes for each generated files
