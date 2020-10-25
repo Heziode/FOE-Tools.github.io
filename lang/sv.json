@@ -535,7 +535,7 @@
   "foe_data.gb_short.Himeji_Castle": "HC",
   "foe_data.gb_short.The_Virgo_Project": "JP",
   "foe_data.gb_short.Star_Gazer": "SS",
-  "foe_data.gb_short.Space_Carrier": "Rym",
+  "foe_data.gb_short.Space_Carrier": "RyT",
   "foe_data.goods.dye": "Färgämne",
   "foe_data.goods.lumber": "Timmer",
   "foe_data.goods.marble": "Marmor",
@@ -1154,5 +1154,6 @@
   "foe_data.province.Diotima": "Diotima",
   "foe_data.province.Egeria": "Egeria",
   "foe_data.province.Vesta_S_1": "Vesta S-1",
-  "foe_data.province.Cybele_F_3": "Cybele F-3"
+  "foe_data.province.Cybele_F_3": "Cybele F-3",
+  "foe_data.gb.Galata_Tower": "Galatatornet"
 }

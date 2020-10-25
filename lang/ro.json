@@ -30,5 +30,6 @@
   "components.cf_calculator.block_cfc.table_reward.thead.th3": "Bunuri",
   "components.cf_calculator.block_cfc.table_return.thead.th_level": "Nivel",
   "components.cf_calculator.block_cfc.infinity_generator.message": "La bonusul curent pentru @:(foe_data.gb.Chateau_Frontenac), va mai multe monede si provizii decat vei folosi ca sa termini quest-ul. Alege numarul de \"@:(components.cf_calculator.block_cfc.infinity_generator.label)\" pe care vrei sa le faci.",
-  "components.cf_calculator.block_cfc.reward_message.total_goods": "Total bunuri: {count}"
+  "components.cf_calculator.block_cfc.reward_message.total_goods": "Total bunuri: {count}",
+  "components.cf_calculator.block_cfc.coins_to_use": "Monezi de folosit la UBQ"
 }
