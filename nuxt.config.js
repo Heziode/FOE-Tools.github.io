@@ -510,7 +510,7 @@ module.exports = {
     "cookie-universal-nuxt",
     "nuxt-i18n",
     "@nuxtjs/axios",
-    { src: "~/modules/buefy/module.js" },
+    "nuxt-buefy",
     { src: "~/modules/foe-data/module.js" },
     { src: "~/modules/cname/module.js" },
     "@nuxtjs/pwa",
@@ -518,7 +518,8 @@ module.exports = {
   ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
   buefy: { defaultIconPack: "fas", materialDesignIcons: false },
-  mode: "spa",
+  target: "static",
+  ssr: false,
   hooks(hook) {
     /**
      * This hook will add some SEO attributes for each generated files
