@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.372Z\n"
-"PO-Revision-Date: 2020-09-25 21:22+0000\n"
+"PO-Revision-Date: 2020-10-29 09:30+0000\n"
 "Last-Translator: Weblate Admin <admin@foe.tools>\n"
 "Language-Team: Hungarian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/hu/>\n"
@@ -163,9 +163,7 @@ msgstr ""
 "értékek automatikusan frissülnek."
 
 msgid "components.gb_investment.gb_investment.form.level"
-msgstr ""
-"Szint {fromLevel} → {level} ($t(utils.between_range, { 'min': '{min}', "
-"'max': '{max}' }))"
+msgstr "Szint {fromLevel} → {level} (@:(utils.between_range))"
 
 msgid "components.gb_investment.gb_investment.form.investor_percentage"
 msgstr "A befektetők bónuszának százléka (Bárka bónusz)"
@@ -2641,3 +2639,18 @@ msgstr ""
 
 msgid "components.cf_calculator.block_cfc.other_rq"
 msgstr "egyéb napi feltétel(ek)"
+
+msgid "components.cf_calculator.tutorial.supplies"
+msgstr "Írd be mennyi alapanyagot kívánsz elkölteni az összes küldetésre."
+
+msgid "components.cf_calculator.tutorial.coins"
+msgstr "Írd ide, hogy mennyi pénzt kívánsz költeni az összes küldetésre."
+
+msgid "components.cf_calculator.tutorial.yourCfBoost"
+msgstr ""
+"Írd be is a @:(foe_data.gb.Chateau_Frontenac) bónuszodat.\n"
+"\n"
+"Például: 450% esetén írj be 450-et."
+
+msgid "footer_menu.cookie_policy"
+msgstr "Süti policy"
