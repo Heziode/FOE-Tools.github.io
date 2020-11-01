@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.71.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.71.0...v2.71.1) (2020-11-01)
+
+
+### Translation
+
+* Translated using Weblate (Dutch) ([9ffd8f9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9ffd8f9d0bd888024b1506195c990db4dacd1cb0))
+* Translated using Weblate (Dutch) ([49ac187](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/49ac187bcb3393a7ba0706e2611c3fa86125dfa6))
+* Translated using Weblate (German) ([7e43a70](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/7e43a707126839d8c74a1d14b43fcaa4893ff13e))
+* Translated using Weblate (Hungarian) ([359c8ca](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/359c8ca08ca5dc85d2accd6b60de81e20325a9a3))
+* Translated using Weblate (Italian) ([95cb363](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/95cb363b99d2037947c7d2d7780fec393e92ff05))
+* Translated using Weblate (Polish) ([27c84d7](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/27c84d74be4e5ef0ebb58f703ae778c20bc90613))
+* Translated using Weblate (Portuguese) ([03b8e65](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/03b8e6523898d21433c42564d0b0430f3a520bfc))
+* Translated using Weblate (Slovak) ([0356458](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/0356458e10305b7515e93c5fbb64631f79e6549e))
+* Translated using Weblate (Swedish) ([df8ec05](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/df8ec051109ab5256397b37057ac79116b36caab))
+* Translated using Weblate (Swedish) ([86c0389](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/86c0389c0b7b61d610436aa692a54a1bc6e8a075))
+* Translated using Weblate (Swedish) ([696efc2](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/696efc265f74f693c167abc4cd90cc0db6dcc8aa))
+* Translated using Weblate (Turkish) ([a854cda](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a854cdaa8b57bc77e52a3a8e24e6934e414c94d2))
+
 ## [2.71.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.70.0...v2.71.0) (2020-10-25)
 
 
