@@ -186,11 +186,9 @@ export const actions = {
   nuxtServerInit: /* istanbul ignore next */ async function (context) {
     let urlParam = "";
     if (
-      this.$cookies.get("survey") &&
-      this.$cookies.get("survey") instanceof Array &&
-      this.$cookies.get("survey").length
+      context.state.global.survey.length
     ) {
-      urlParam = "?_id_nin=" + this.$cookies.get("survey").join("&_id_nin=");
+      urlParam = "?_id_nin=" + context.state.global.survey.join("&_id_nin=");
     }
     try {
       const { data } = await this.$axios.get(`${process.env.surveyURL}${urlParam}`);
