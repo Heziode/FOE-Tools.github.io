@@ -93,3 +93,12 @@ body.light-theme {
 .shepherd-footer {
   @extend .modal-card-foot;
 }
+
+// Fix of tile on small screen
+
+@media screen and (max-width: 989px) {
+  .tile.is-ancestor {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
