@@ -8,8 +8,6 @@ import { getUserLocale } from "get-user-locale";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 import { v4 as uuidv4 } from "uuid";
 import { get } from "vuex-pathify";
-import vercelDarkImage from "~/assets/vercel-dark.svg?data";
-import vercelLightImage from "~/assets/vercel-light.svg?data";
 
 const i18nPrefix = "components.site_layout.";
 const dayNightWatchdogTimeout = 60000;
@@ -162,8 +160,6 @@ export default {
       })(),
       showSnackbarChangeLocale: false,
       detectedLocale: "",
-      vercelDarkImage,
-      vercelLightImage,
     };
   },
   computed: {

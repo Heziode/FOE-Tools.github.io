@@ -632,5 +632,5 @@ module.exports = {
     },
   },
 
-  buildModules: ["@nuxtjs/router-extras"],
+  buildModules: ["@nuxtjs/router-extras", "@nuxtjs/svg"],
 };
