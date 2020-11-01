@@ -185,9 +185,7 @@ export const actions = {
   ...make.actions(state),
   nuxtServerInit: /* istanbul ignore next */ async function (context) {
     let urlParam = "";
-    if (
-      context.state.global.survey.length
-    ) {
+    if (context.state.global.survey.length) {
       urlParam = "?_id_nin=" + context.state.global.survey.join("&_id_nin=");
     }
     try {
