@@ -123,5 +123,13 @@
             small(v-html="$t('components.site_layout.footer.license_html')")
           p {{$t('components.site_layout.footer.version', {version: siteVersion})}}
 
+      div.columns
+        div.column.is-8-desktop.is-offset-2-desktop
+          div
+            a(href="https://vercel.com/?utm_source=foe-tools&utm_campaign=oss" target="_blank")
+              figure.image.is-100xauto.has-text-centered.is-centered(style="margin: auto")
+                figcaption Powered by
+                img(:src="$store.get('isDarkTheme') ? '/vercel-light.svg' : '/vercel-dark.svg'")
+
   a.cookie-consent-setting(@click.prevent="$cookieConsent.show")
     img(src="~assets/cookie.png" width="36" height="36")

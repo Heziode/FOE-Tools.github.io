@@ -4,6 +4,9 @@ defaults: &defaults
   working_directory: ~/project
   docker:
     - image: circleci/node:12.19.0
+      auth:
+        username: $DOCKERHUB_USERNAME
+        password: $DOCKERHUB_PASSWORD
   environment:
     NODE_ENV: test
     NODE_OPTIONS: --max_old_space_size=4096

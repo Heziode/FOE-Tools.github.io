@@ -45,7 +45,7 @@
   "components.gb_investment.gb_list_select.label": "Válassz nevezetes épületet",
   "components.gb_investment.gb_investment.title": "@:(routes.gb_investment_gb_chooser.hero.title)",
   "components.gb_investment.gb_investment.description.p1": "Add meg a szintet és a bónusz százalék értékeit. A táblázatban szereplő értékek automatikusan frissülnek.",
-  "components.gb_investment.gb_investment.form.level": "Szint {fromLevel} → {level} ($t(utils.between_range, { 'min': '{min}', 'max': '{max}' }))",
+  "components.gb_investment.gb_investment.form.level": "Szint {fromLevel} → {level} (@:(utils.between_range))",
   "components.gb_investment.gb_investment.form.investor_percentage": "A befektetők bónuszának százléka (Bárka bónusz)",
   "components.gb_investment.gb_investment.form.submit_custom": "Egyéni számítás",
   "components.gb_investment.gb_investment.form.owner_investment": "Forge pontok száma, amit a tulajdonos már betett (max {max})",
@@ -831,5 +831,9 @@
   "seo.keywords.medals": "medál",
   "seo.keywords.military_units": "katonai egység",
   "components.cf_calculator.tutorial.goods": "Add meg, hogy mennyi nyersanyagot gyűjtesz be az épületeidből vagy rabolsz másoktól.",
-  "components.cf_calculator.block_cfc.other_rq": "egyéb napi feltétel(ek)"
+  "components.cf_calculator.block_cfc.other_rq": "egyéb napi feltétel(ek)",
+  "components.cf_calculator.tutorial.supplies": "Írd be mennyi alapanyagot kívánsz elkölteni az összes küldetésre.",
+  "components.cf_calculator.tutorial.coins": "Írd ide, hogy mennyi pénzt kívánsz költeni az összes küldetésre.",
+  "components.cf_calculator.tutorial.yourCfBoost": "Írd be is a @:(foe_data.gb.Chateau_Frontenac) bónuszodat.\n\nPéldául: 450% esetén írj be 450-et.",
+  "footer_menu.cookie_policy": "Süti policy"
 }

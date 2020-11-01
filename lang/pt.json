@@ -366,7 +366,7 @@
   "routes.contributors.title": "@:(routes.contributors.hero.title) @:(common.site_title)",
   "routes.contributors.hero.title": "Contribuidores",
   "routes.contributors.hero.subtitle": "Esta página tenta listar todos os contribuidores",
-  "routes.gb_investment.title": "$t(routes.gb_investment.hero.title, {'gb_key': '{gb_key}'}) | @:(common.site_title)",
+  "routes.gb_investment.title": "@:(routes.gb_investment.hero.title) | @:(common.site_title)",
   "routes.gb_investment.hero.title": "@:(routes.gb_investment_gb_chooser.hero.title)- {gb_key}",
   "routes.gb_investment.tab.owner_view.title": "Vista do proprietário",
   "routes.gb_investment.tab.investors_view.title": "Vista dos investidores",

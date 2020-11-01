@@ -203,11 +203,15 @@ export default {
       if (!result) {
         result = [];
       }
-      result.push(this.$store.get("survey@[0].id"));
+      const currentSurvey = this.$store.get("survey@[0].id");
+      result.push(currentSurvey);
       this.$cookies.set("survey", result, {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime(),
       });
+      let surveyList = this.$clone(this.$store.get("global/survey"));
+      surveyList.push(currentSurvey);
+      this.$store.set("global/survey", surveyList);
       this.$buefy.notification.open(notifParams);
       this.$router.push(this.localePath({ name: "Home" }));
       this.$store.dispatch("nuxtServerInit");

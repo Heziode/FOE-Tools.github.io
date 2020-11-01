@@ -177,3 +177,7 @@ Link References
 [prs]:http://makeapullrequest.com "Make a Pull Request (external link) ➶"
 [codecov]: https://codecov.io/gh/FOE-Tools/FOE-Tools.github.io
 [circleci]: https://circleci.com/gh/FOE-Tools/FOE-Tools.github.io
+
+## Powered By
+
+[![](./assets/vercel-dark.svg)](https://vercel.com/?utm_source=foe-tools&utm_campaign=oss)

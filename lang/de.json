@@ -55,7 +55,7 @@
   "components.gb_investment.gb_investment.form.submit_global": "Globale Berechnung",
   "components.gb_investment.gb_investment.form.submit_custom": "Spezifische Berechnung",
   "components.gb_investment.gb_investment.form.owner_investment": "Anzahl der FPs, die derzeit vom Eigentümer eingesetzt sind (max. {max})",
-  "components.gb_investment.gb_investment.form.add_investors": "Mäzen hinzufügen (FP-Wert, $t(utils.between_range, { 'min': '{min}', 'max': '{max}' })",
+  "components.gb_investment.gb_investment.form.add_investors": "Mäzen hinzufügen (FP-Wert, @:(utils.between_range))",
   "components.gb_investment.gb_investment.form.tooltip_add_investors": "Klicke auf die Schaltfläche \"@:(utils.Add)\" oder drücke die Eingabetaste, um den Mäzen hinzuzufügen",
   "components.gb_investment.gb_investment.form.investors_list": "Liste der hinzugefügten Mäzen",
   "components.gb_investment.gb_investment.form.show_snipe": "Platz / Snipe anzeigen",
