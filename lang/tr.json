@@ -47,7 +47,7 @@
   "components.gb_investment.gb_investment.title": "@:(routes.gb_investment_gb_chooser.hero.title)",
   "components.gb_investment.gb_investment.description.p1": "Seviye ve Ark bonus yüzdesi girin (80 Seviye Ark için %90 oran). Tablodaki değerler otomatik olarak güncellenir.",
   "components.gb_investment.gb_investment.description.p2_html": "<strong>Not </strong>: Güncelleme otomatik olarak yapılmazsa, önce GB seviyesini ve genel yatırım değerini ayarlayın ve \"@:(components.gb_investment.gb_investment.form.submit_global)\" üzerine tıklayın. Her bir yerin değerlerini ayarlamak istiyorsanız, uygunluğunuzu ayarlayın ve \"@:(components.gb_investment.gb_investment.form.submit_custom)\" üzerine tıklayın.",
-  "components.gb_investment.gb_investment.form.level": "Seviye {fromLevel} → {level} ($t(utils.between_range, { 'min': '{min}', 'max': '{max}' }))",
+  "components.gb_investment.gb_investment.form.level": "Seviye {fromLevel} → {level} (@:(utils.between_range))",
   "components.gb_investment.gb_investment.form.investor_percentage": "FP atacak kişilerin Ark bonusu",
   "components.gb_investment.gb_investment.form.submit_global": "Global hesaplama",
   "components.gb_investment.gb_investment.form.submit_custom": "Özel hesaplama",

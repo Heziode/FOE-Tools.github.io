@@ -72,7 +72,7 @@
   "components.gb_investment.gb_investment.form.submit_global": "Globálne prepočítanie",
   "components.gb_investment.gb_investment.form.submit_custom": "Upravené prepočítanie",
   "components.gb_investment.gb_investment.form.owner_investment": "Počet BV momentálne vložených vlastníkom (max {max})",
-  "components.gb_investment.gb_investment.form.add_investors": "Pridajte investora (vložte počet BV, $t(utils.between_range, {'min': '{min}', 'max': '{max}'}))",
+  "components.gb_investment.gb_investment.form.add_investors": "Pridajte investora (vložte počet BV, @:(utils.between_range))",
   "components.gb_investment.gb_investment.form.tooltip_add_investors": "Kliknutím na tlačidlo @:(utils.Add)“alebo stlačením klávesy „Enter“ pridáte prispievateľa",
   "components.gb_investment.gb_investment.form.investors_list": "Zoznam pridaných prispievateľov",
   "components.gb_investment.gb_investment.form.show_snipe": "Zobraziť Zabezpečená pozícia / Možný profit",
