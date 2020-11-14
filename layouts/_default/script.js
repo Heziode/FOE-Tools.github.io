@@ -10,7 +10,6 @@ import { v4 as uuidv4 } from "uuid";
 import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.site_layout.";
-const dayNightWatchdogTimeout = 60000;
 const defaultProfileName = "Default";
 
 const tagURL = "https://api.github.com/repos/FOE-Tools/FOE-Tools.github.io/git/refs/tags";
@@ -42,8 +41,6 @@ export default {
 
     this.initData();
 
-    this.$store.set("isDarkTheme", this.$store.get("global/dayNightMode") === "night");
-
     if (!this.$store.get("global/lastVisitVersion").length) {
       this.$store.set("global/lastVisitVersion", packageConfig.version);
     }
@@ -56,7 +53,6 @@ export default {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
       nbUpdateSinceLastVisit: 0,
-      dayNightMode: this.$clone(this.$store.get("global/dayNightMode")),
       burgerMenuVisible: false,
       haveReadLocaleInfoAvailable: this.$clone(this.$store.get("global/haveReadLocaleInfoAvailable")),
       navbarLinks: {
@@ -144,20 +140,6 @@ export default {
         this.$store.get("routes@contributors"),
         this.$store.get("routes@changelog"),
       ],
-      dayNightWatchdog: (() => {
-        let timeout;
-        return {
-          start: /* istanbul ignore next */ function () {
-            if (!timeout) {
-              timeout = setInterval(this.updateDayNightMode, dayNightWatchdogTimeout);
-            }
-          },
-          stop: /* istanbul ignore next */ function () {
-            clearInterval(timeout);
-            timeout = undefined;
-          },
-        };
-      })(),
       showSnackbarChangeLocale: false,
       detectedLocale: "",
     };
@@ -188,22 +170,6 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", false);
       this.$store.commit("RESET_LOCATION");
     },
-    dayNightMode: /* istanbul ignore next */ function (val) {
-      switch (val) {
-        case "day":
-          this.dayNightWatchdog.stop.call(this);
-          this.updateDayNightCookie(val);
-          break;
-        case "night":
-          this.dayNightWatchdog.stop.call(this);
-          this.updateDayNightCookie(val);
-          break;
-        case "auto":
-          this.updateDayNightCookie(val);
-          this.updateDayNightMode();
-          break;
-      }
-    },
   },
   methods: {
     getNextConversion() {
@@ -219,39 +185,11 @@ export default {
       return this.$route.name.startsWith(`${key}___`);
     },
     showGlobalSettings: /* istanbul ignore next */ function () {
-      let self = this;
       this.$buefy.modal.open({
         parent: this,
         component: GlobalSettings,
         hasModalCard: true,
-        events: {
-          dayStartChange: () => {
-            self.updateDayNightMode();
-          },
-          nightStartChange: () => {
-            self.updateDayNightMode();
-          },
-          dayNightChanged: (val) => {
-            this.$data.dayNightMode = val;
-          },
-        },
       });
-    },
-    updateDayNightMode: /* istanbul ignore next */ function () {
-      if (this.dayNightMode !== "auto") {
-        this.dayNightWatchdog.stop.call(this);
-      } else {
-        this.dayNightWatchdog.start.call(this);
-      }
-      const current = this.$moment().format("HH:mm");
-      const dayStart = this.$clone(this.$store.get("global/dayStart"));
-      const nightStart = this.$clone(this.$store.get("global/nightStart"));
-      const isDay = current >= dayStart && current < nightStart;
-      this.$store.set("isDarkTheme", !isDay);
-    },
-    updateDayNightCookie(value) {
-      this.$store.set("isDarkTheme", value === "night");
-      this.$store.set("global/dayNightMode", this.$clone(value));
     },
     backToTop: /* istanbul ignore next */ function () {
       window.scroll({ top: 0 });
@@ -526,11 +464,6 @@ export default {
     let addToAnyScript2 = document.createElement("script");
     addToAnyScript2.setAttribute("src", "https://static.addtoany.com/menu/page.js");
     document.head.appendChild(addToAnyScript2);
-
-    if (this.dayNightMode === "auto") {
-      this.dayNightWatchdog.start.call(this);
-      this.updateDayNightMode();
-    }
 
     this.$store.set("locale", this.$clone(this.$store.get("global/locale")));
     this.$data.lang = this.$clone(this.$store.get("global/locale"));

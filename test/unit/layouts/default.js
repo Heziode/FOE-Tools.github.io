@@ -27,22 +27,6 @@ describe("Default", () => {
     expect(wrapper.isVueInstance()).toBeTruthy();
   });
 
-  test("Initialize with cookie disclaimer accepted and Day/Night auto", () => {
-    const wrapper = factory({
-      $cookies: {
-        ...config.mocks["$cookies"],
-        get: jest.fn().mockImplementation((key) => {
-          switch (key) {
-            case "dayNightMode":
-              return "auto";
-          }
-          return config.mocks["$cookies"].get(key);
-        }),
-      },
-    });
-    expect(wrapper.vm.dayNightMode).toBe("auto");
-  });
-
   test("Change route", () => {
     const wrapper = factory();
     wrapper.vm.burgerMenuVisible = true;
@@ -59,13 +43,6 @@ describe("Default", () => {
     expect(wrapper.vm.burgerMenuVisible).toBe(false);
     wrapper.vm.toggleMenu();
     expect(wrapper.vm.burgerMenuVisible).toBe(true);
-  });
-
-  test('Call "updateDayNightCookie"', () => {
-    const wrapper = factory({ ...config.mocks["$cookies"] });
-    const newValue = "auto";
-    wrapper.vm.updateDayNightCookie(newValue);
-    expect(wrapper.vm.$store.get("global/dayNightMode")).toBe(newValue);
   });
 
   test("Moving cookies to localStorage", () => {

@@ -78,7 +78,7 @@
         div.container
           div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="isNewYear")
             div.column.is-three-quarters
-              b-notification.newYearNotification(:class="dayNightMode === 'day' ? 'is-dark' : 'is-light'") 🎉&nbsp;&nbsp;{{$tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) })}}&nbsp;&nbsp;🍰
+              b-notification.newYearNotification(:class="$store.get('global/dayNightMode') === 'day' ? 'is-dark' : 'is-light'") 🎉&nbsp;&nbsp;{{$tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) })}}&nbsp;&nbsp;🍰
           div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="hasSurvey")
             div.column.is-three-quarters
               b-notification(type="is-info" :closable="false")

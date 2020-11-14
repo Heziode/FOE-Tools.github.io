@@ -9,15 +9,16 @@ export default {
     let dS, nS;
     const regexTime = /([0-9]{2}):([0-9]{2})/;
     const cookieDayStart = this.$store.get("global/dayStart");
-    const cookieNightStart = this.$store.get("global/dayStart");
+    const cookieNightStart = this.$store.get("global/nightStart");
+
     dS = new Date();
     if (cookieDayStart && regexTime.test(cookieDayStart)) {
       const match = regexTime.exec(cookieDayStart);
-      dS.setUTCHours(parseInt(match[1]) - 1);
-      dS.setUTCMinutes(match[2]);
+      dS.setHours(parseInt(match[1]));
+      dS.setMinutes(parseInt(match[2]));
     } else {
-      dS.setUTCHours(dayStartHour);
-      dS.setUTCMinutes(dayStartMinutes);
+      dS.setHours(dayStartHour);
+      dS.setMinutes(dayStartMinutes);
 
       this.$store.set("global/dayStart", this.$moment(dS).format("HH:mm"));
     }
@@ -25,11 +26,11 @@ export default {
     nS = new Date();
     if (cookieNightStart && regexTime.test(cookieNightStart)) {
       const match = regexTime.exec(cookieNightStart);
-      nS.setUTCHours(parseInt(match[1]) - 1);
-      nS.setUTCMinutes(match[2]);
+      nS.setHours(parseInt(match[1]));
+      nS.setMinutes(parseInt(match[2]));
     } else {
-      nS.setUTCHours(nightStartHour);
-      nS.setUTCMinutes(nightStartMinutes);
+      nS.setHours(nightStartHour);
+      nS.setMinutes(nightStartMinutes);
       this.$store.set("global/nightStart", this.$moment(nS).format("HH:mm"));
     }
 
@@ -50,21 +51,19 @@ export default {
   watch: {
     dayStart(val) {
       this.$store.set("global/dayStart", this.$moment(val || this.defaultDayStart).format("HH:mm"));
-      this.$emit("dayStartChange");
     },
     nightStart(val) {
       this.$store.set("global/nightStart", this.$moment(val || this.defaultNightStart).format("HH:mm"));
-      this.$emit("nightStartChange");
     },
   },
   methods: {
     resetNightDay() {
       const dS = new Date();
-      dS.setUTCHours(7);
-      dS.setUTCMinutes(0);
+      dS.setHours(7);
+      dS.setMinutes(0);
       const nS = new Date();
-      nS.setUTCHours(18);
-      nS.setUTCMinutes(30);
+      nS.setHours(18);
+      nS.setMinutes(30);
       this.dayStart = dS;
       this.nightStart = nS;
     },
