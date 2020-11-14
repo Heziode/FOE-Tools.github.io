@@ -3,12 +3,18 @@ import languageSelector from "~/components/language-selector/LanguageSelector";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import Utils from "~/scripts/utils";
 import Vue from "vue";
+import { sync } from "vuex-pathify";
+
+const OFFSET = 60;
 
 export default {
   name: "MainHeader",
   data() {
     return {
       burgerMenuVisible: false,
+      showNavbar: true,
+      lastScrollPosition: 0,
+      scrollValue: 0,
       mainMenu: [
         {
           ...this.$store.get("routes@home"),
@@ -83,6 +89,16 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", false);
       this.$store.commit("RESET_LOCATION");
     },
+    fixedMainMenu(val) {
+      if (!val) {
+        window.removeEventListener("scroll", this.onScroll);
+      } else {
+        window.addEventListener("scroll", this.onScroll);
+      }
+    },
+  },
+  computed: {
+    fixedMainMenu: sync("global/fixedMainMenu"),
   },
   methods: {
     toggleMenu() {
@@ -101,6 +117,23 @@ export default {
     goTo(val) {
       this.$router.push(this.localePath({ name: "GbInvestment", params: { gb: val } }));
     },
+    onScroll() {
+      if (window.pageYOffset < 0) {
+        return;
+      }
+      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < OFFSET) {
+        return;
+      }
+      this.showNavbar = window.pageYOffset < this.lastScrollPosition;
+      this.lastScrollPosition = window.pageYOffset;
+    },
+  },
+  mounted() {
+    this.lastScrollPosition = window.pageYOffset;
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   },
   components: {
     languageSelector,

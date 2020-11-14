@@ -1,5 +1,5 @@
 header
-  nav.navbar.has-shadow(:class="{'is-fixed-top': $store.get('global/fixedMainMenu')}")
+  nav.navbar.has-shadow(:class="{'is-fixed-top': $store.get('global/fixedMainMenu'), 'hidden-navbar': $store.get('global/fixedMainMenu') && !showNavbar}")
     div.navbar-brand
       nuxt-link.navbar-item(:to="localePath({ name: 'Home' })")
         img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
