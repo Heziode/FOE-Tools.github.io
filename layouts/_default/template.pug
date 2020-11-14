@@ -1,68 +1,5 @@
 #app
-  header
-    nav.navbar.has-shadow(:class="{'is-fixed-top': $store.get('global/fixedMainMenu')}")
-      div.navbar-brand
-        nuxt-link.navbar-item(:to="localePath({ name: 'Home' })")
-          img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
-        div.is-hidden-desktop(v-if="['GbInvestment'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) >= 0")
-          gb-list-select(:current="$route.params.gb" @change="goTo($event)" :only-selector="true")
-
-        div.navbar-burger.burger(:class="{'is-active': burgerMenuVisible}" data-target="mainNavbar" @click="toggleMenu")
-          span
-          span
-          span
-
-      div#mainNavbar.navbar-menu(:class="{'is-active': burgerMenuVisible}")
-        div.navbar-start
-          template(v-for="value in mainMenu")
-            template(v-if="value.children.length === 0")
-              nuxt-link.navbar-item(:class="{'is-active': isActive(value.link)}" :to="localePath({ name: value.link })" exact) {{$t(value.name)}}
-            div.navbar-item.has-dropdown.is-hoverable(v-else :key="value.slug")
-              nuxt-link.navbar-link(v-if="value.type.name === 'PAGE'" :class="{'is-active': isActive(value.link)}" :to="localePath({ name: value.link })" exact) {{$t(value.name)}}
-              a.navbar-link(v-else-if="value.type.name === 'MENU_ENTRY'" href="#") {{$t(value.name)}}
-              div.navbar-dropdown.is-boxed
-                template(v-for="child in value.children")
-                  nuxt-link.navbar-item(v-if="child.type.name === 'PAGE'" :class="{'is-active': isActive(child.link)}" :to="localePath({ name: child.link })" exact) {{$t(child.name)}}
-                  hr.navbar-divider(v-else-if="child.type.name === 'SEPARATOR'")
-
-        div.navbar-end
-          div.navbar-item
-            nuxt-link.custom-link-style(:class="{'is-active': isActive('HelpToTranslateTheSite')}" :to="localePath({ name: 'HelpToTranslateTheSite' })" exact)
-              span.icon.is-icon-2rem(style="vertical-align: middle;")
-                i.fas.fa-language
-              span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}
-          div.navbar-item
-            language-selector
-
-          div.navbar-item
-            div.field.is-grouped
-              nuxt-link.button.donation(:to="localePath({ name: 'Donate' })" exact)
-                span {{$t('utils.Donate')}}
-
-          div.navbar-item
-            div.field
-              b-tooltip.control.is-hidden-mobile(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
-                button.button(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
-                  p.icon
-                    i.fas.fa-cog
-              button.button.is-hidden-desktop(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
-                p.icon
-                  i.fas.fa-cog
-                p {{$t('components.site_layout.global_config')}}
-
-          div.navbar-item
-            div.field.is-grouped
-              a.button(href="https://github.com/FOE-Tools/FOE-Tools.github.io" target="_blank")
-                span.icon
-                  i.fab.fa-github
-
-  .notices.is-top(v-if="showSnackbarChangeLocale")
-    .snackbar.is-warning.is-top(style='')
-      p.text {{$t('components.site_layout.switch_locale', { lng: detectedLocale })}}
-      .action.is-success(@click="closeSnackbar()")
-        button.button {{$t('utils.Ok', { lng: detectedLocale })}}
-      .action.is-info(@click="switchLocale()")
-        button.button {{$t('utils.Switch', { lng: detectedLocale })}}
+  main-header
 
   section.hero.is-dark-blue
     div.hero-body
@@ -78,7 +15,7 @@
         div.container
           div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="isNewYear")
             div.column.is-three-quarters
-              b-notification.newYearNotification(:class="dayNightMode === 'day' ? 'is-dark' : 'is-light'") 🎉&nbsp;&nbsp;{{$tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) })}}&nbsp;&nbsp;🍰
+              b-notification.newYearNotification(:class="$store.get('global/dayNightMode') === 'day' ? 'is-dark' : 'is-light'") 🎉&nbsp;&nbsp;{{$tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) })}}&nbsp;&nbsp;🍰
           div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="hasSurvey")
             div.column.is-three-quarters
               b-notification(type="is-info" :closable="false")
@@ -111,25 +48,4 @@
       span.icon
         i.fas.fa-angle-double-up
 
-  footer.footer.has-text-centered
-    div.container
-      div.columns
-        div.column.is-8-desktop.is-offset-2-desktop
-          nav.breadcrumb.has-dot-separator.is-centered.is-marginless(aria-label="breadcrumbs")
-            ul
-              li(v-for="footerLink in footerLinks" :class="{ 'is-active': isActive(footerLink.link) }")
-                nuxt-link(:to="localePath({ name: footerLink.link })" exact) {{$t('footer_menu.' + footerLink.key)}}
-          p
-            small(v-html="$t('components.site_layout.footer.license_html')")
-          p {{$t('components.site_layout.footer.version', {version: siteVersion})}}
-
-      div.columns
-        div.column.is-8-desktop.is-offset-2-desktop
-          div
-            a(href="https://vercel.com/?utm_source=foe-tools&utm_campaign=oss" target="_blank")
-              figure.image.is-100xauto.has-text-centered.is-centered(style="margin: auto")
-                figcaption Powered by
-                img(:src="$store.get('isDarkTheme') ? '/vercel-light.svg' : '/vercel-dark.svg'")
-
-  a.cookie-consent-setting(@click.prevent="$cookieConsent.show")
-    img(src="~assets/cookie.png" width="36" height="36")
+  main-footer

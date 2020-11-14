@@ -49,6 +49,16 @@ main {
   z-index: 10000;
 }
 
+.navbar.is-fixed-top {
+  transition: 0.3s top;
+}
+
+.navbar.hidden-navbar {
+  box-shadow: none;
+  top: -100% !important;
+  transition: 0.3s top;
+}
+
 a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active {
   color: $link;
 }
