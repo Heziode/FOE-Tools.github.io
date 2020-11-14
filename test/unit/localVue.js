@@ -141,7 +141,7 @@ export function getView(storeConf) {
       Vue.prototype.$tc = (...args) => i18n.tc(...args);
       Vue.prototype.$te = (...args) => i18n.te(...args);
       Vue.prototype.$n = (...args) => i18n.n(...args);
-      Vue.prototype.localePath = (path) => `${url}/${path}`;
+      Vue.prototype.localePath = (path) => `${url}/${typeof path === "string" ? path : JSON.stringify(path)}`;
       Vue.prototype.defaultLocale = defaultLocale;
       store.set("supportedLocales", supportedLocales);
     },

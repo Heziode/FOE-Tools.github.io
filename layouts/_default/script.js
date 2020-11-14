@@ -1,10 +1,7 @@
-import Vue from "vue";
-import languageSelector from "~/components/language-selector/LanguageSelector";
-import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import packageConfig from "~/package.json";
-import Utils from "~/scripts/utils";
-import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettings";
 import { get } from "vuex-pathify";
+import mainHeader from "~/components/main-header/MainHeader";
+import mainFooter from "~/components/main-footer/MainFooter";
 
 const i18nPrefix = "components.site_layout.";
 
@@ -45,93 +42,7 @@ export default {
       i18nPrefix: i18nPrefix,
       siteVersion: packageConfig.version,
       nbUpdateSinceLastVisit: 0,
-      burgerMenuVisible: false,
       haveReadLocaleInfoAvailable: this.$clone(this.$store.get("global/haveReadLocaleInfoAvailable")),
-      navbarLinks: {
-        home: this.$store.get("routes@home"),
-        gb_investment: this.$store.get("routes@gb_investment"),
-        secure_position: this.$store.get("routes@secure_position"),
-        cf_calculator: this.$store.get("routes@cf_calculator"),
-        gb_statistics: this.$store.get("routes@gb_statistics"),
-        gb_forecast_cost: this.$store.get("routes@gb_forecast_cost"),
-        trade: this.$store.get("routes@trade"),
-        campaign_cost: this.$store.get("routes@campaign_cost"),
-      },
-      mainMenu: [
-        {
-          ...this.$store.get("routes@home"),
-          type: Utils.MenuRecordType.PAGE,
-          name: `main_menu.${this.$store.get("routes@home.key")}`,
-          children: [],
-        },
-        {
-          type: Utils.MenuRecordType.MENU_ENTRY,
-          name: "utils.content.tools",
-          key: null,
-          link: null,
-          children: [
-            {
-              ...this.$store.get("routes@gb_investment"),
-              type: Utils.MenuRecordType.PAGE,
-              name: `main_menu.${this.$store.get("routes@gb_investment.key")}`,
-              children: [],
-            },
-            {
-              ...this.$store.get("routes@secure_position"),
-              type: Utils.MenuRecordType.PAGE,
-              name: `main_menu.${this.$store.get("routes@secure_position.key")}`,
-              children: [],
-            },
-            {
-              ...this.$store.get("routes@cf_calculator"),
-              type: Utils.MenuRecordType.PAGE,
-              name: `main_menu.${this.$store.get("routes@cf_calculator.key")}`,
-              children: [],
-            },
-            {
-              ...this.$store.get("routes@trade"),
-              type: Utils.MenuRecordType.PAGE,
-              name: `main_menu.${this.$store.get("routes@trade.key")}`,
-              children: [],
-            },
-            {
-              ...this.$store.get("routes@campaign_cost"),
-              type: Utils.MenuRecordType.PAGE,
-              name: `main_menu.${this.$store.get("routes@campaign_cost.key")}`,
-              children: [],
-            },
-          ],
-        },
-        {
-          type: Utils.MenuRecordType.MENU_ENTRY,
-          name: "utils.content.statistics",
-          link: null,
-          key: null,
-          children: [
-            {
-              ...this.$store.get("routes@gb_statistics"),
-              type: Utils.MenuRecordType.PAGE,
-              name: `main_menu.${this.$store.get("routes@gb_statistics.key")}`,
-              link: this.$store.get("routes@gb_statistics.link"),
-              children: [],
-            },
-            {
-              ...this.$store.get("routes@gb_forecast_cost"),
-              type: Utils.MenuRecordType.PAGE,
-              name: `main_menu.${this.$store.get("routes@gb_forecast_cost.key")}`,
-              children: [],
-            },
-          ],
-        },
-      ],
-      footerLinks: [
-        this.$store.get("routes@about"),
-        this.$store.get("routes@contact"),
-        this.$store.get("routes@cookie_policy"),
-        this.$store.get("routes@privacy_policy"),
-        this.$store.get("routes@contributors"),
-        this.$store.get("routes@changelog"),
-      ],
     };
   },
   computed: {
@@ -155,12 +66,6 @@ export default {
       return this.$route.name !== "Survey" && this.$store.get("survey") && this.$store.get("survey").length;
     },
   },
-  watch: {
-    "$route.path"() {
-      Vue.set(this.$data, "burgerMenuVisible", false);
-      this.$store.commit("RESET_LOCATION");
-    },
-  },
   methods: {
     getNextConversion() {
       const min = 15;
@@ -168,27 +73,11 @@ export default {
       const amount = Math.random() * (max - min) + min;
       return this.$moment().add(amount, "days").format("YYYY-MM-DD");
     },
-    toggleMenu() {
-      Vue.set(this.$data, "burgerMenuVisible", !this.$data.burgerMenuVisible);
-    },
-    isActive(key) {
-      return this.$route.name.startsWith(`${key}___`);
-    },
-    showGlobalSettings: /* istanbul ignore next */ function () {
-      this.$buefy.modal.open({
-        parent: this,
-        component: GlobalSettings,
-        hasModalCard: true,
-      });
-    },
     backToTop: /* istanbul ignore next */ function () {
       window.scroll({ top: 0 });
     },
     onCloseDonationMessage: /* istanbul ignore next */ function () {
       this.$store.set("global/donationConversion", this.$clone(this.getNextConversion()));
-    },
-    goTo(val) {
-      this.$router.push(this.localePath({ name: "GbInvestment", params: { gb: val } }));
     },
   },
   mounted: /* istanbul ignore next */ function () {
@@ -231,7 +120,7 @@ export default {
     }
   },
   components: {
-    languageSelector,
-    gbListSelect,
+    mainHeader,
+    mainFooter,
   },
 };
