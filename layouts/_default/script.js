@@ -37,8 +37,6 @@ export default {
     };
   },
   data() {
-    this.$store.dispatch("nuxtServerInit");
-
     this.initData();
 
     if (!this.$store.get("global/lastVisitVersion").length) {

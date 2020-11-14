@@ -214,7 +214,6 @@ export default {
       this.$store.set("global/survey", surveyList);
       this.$buefy.notification.open(notifParams);
       this.$router.push(this.localePath({ name: "Home" }));
-      this.$store.dispatch("nuxtServerInit");
     },
     onExpire() {
       this.$refs.invisibleHcaptcha.reset();

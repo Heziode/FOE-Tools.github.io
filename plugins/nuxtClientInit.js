@@ -58,6 +58,24 @@ function dayNightMode(store, $clone, $moment) {
   updateDayNightMode();
 }
 
-export default function ({ store, $clone, $moment }) {
+async function getSurvey(store, $axios) {
+  let urlParam = "";
+
+  if (store.get("global/survey").length) {
+    urlParam = "?_id_nin=" + store.get("global/survey").join("&_id_nin=");
+  }
+  try {
+    const { data } = await $axios.get(`${process.env.surveyURL}${urlParam}`);
+    if (data && data instanceof Array) {
+      store.set("survey", data);
+    }
+  } catch (e) {
+    // Probably Network Error
+    // Survey is not critical, so this error can be ignored
+  }
+}
+
+export default function ({ store, $clone, $moment, $axios }) {
   dayNightMode(store, $clone, $moment);
+  getSurvey(store, $axios);
 }

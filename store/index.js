@@ -181,21 +181,4 @@ export const getters = {
   },
 };
 
-export const actions = {
-  ...make.actions(state),
-  nuxtServerInit: /* istanbul ignore next */ async function (context) {
-    let urlParam = "";
-    if (context.state.global.survey.length) {
-      urlParam = "?_id_nin=" + context.state.global.survey.join("&_id_nin=");
-    }
-    try {
-      const { data } = await this.$axios.get(`${process.env.surveyURL}${urlParam}`);
-      if (data && data instanceof Array) {
-        context.dispatch("setSurvey", data);
-      }
-    } catch (e) {
-      // Probably Network Error
-      // Survey is not critical, so this error can be ignored
-    }
-  },
-};
+export const actions = make.actions(state);
