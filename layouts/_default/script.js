@@ -4,7 +4,6 @@ import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import packageConfig from "~/package.json";
 import Utils from "~/scripts/utils";
 import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettings";
-import { getUserLocale } from "get-user-locale";
 import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.site_layout.";
@@ -133,8 +132,6 @@ export default {
         this.$store.get("routes@contributors"),
         this.$store.get("routes@changelog"),
       ],
-      showSnackbarChangeLocale: false,
-      detectedLocale: "",
     };
   },
   computed: {
@@ -187,20 +184,6 @@ export default {
     backToTop: /* istanbul ignore next */ function () {
       window.scroll({ top: 0 });
     },
-    closeSnackbar: /* istanbul ignore next */ function () {
-      this.showSnackbarChangeLocale = false;
-      this.$store.set("global/haveReadLocaleInfoAvailable", true);
-    },
-    switchLocale: /* istanbul ignore next */ function () {
-      this.closeSnackbar();
-      this.$cookies.set("locale", this.detectedLocale, {
-        path: "/",
-        expires: Utils.getDefaultCookieExpireTime(),
-      });
-      this.$store.set("global/locale", this.$clone(this.detectedLocale));
-      this.$store.set("locale", this.detectedLocale);
-      window.location.reload();
-    },
     onCloseDonationMessage: /* istanbul ignore next */ function () {
       this.$store.set("global/donationConversion", this.$clone(this.getNextConversion()));
     },
@@ -219,16 +202,6 @@ export default {
 
     this.$store.set("locale", this.$clone(this.$store.get("global/locale")));
     this.$data.lang = this.$clone(this.$store.get("global/locale"));
-
-    const detectedLocale = getUserLocale().slice(0, 2);
-    if (
-      !this.haveReadLocaleInfoAvailable &&
-      this.lang !== detectedLocale &&
-      this.$store.get("supportedLocales").indexOf(detectedLocale) >= 0
-    ) {
-      this.showSnackbarChangeLocale = true;
-      this.detectedLocale = detectedLocale;
-    }
 
     // Check updates
     if (this.$store.get("global/lastVisitVersion") !== this.$data.siteVersion) {

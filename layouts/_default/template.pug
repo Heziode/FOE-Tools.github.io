@@ -56,14 +56,6 @@
                 span.icon
                   i.fab.fa-github
 
-  .notices.is-top(v-if="showSnackbarChangeLocale")
-    .snackbar.is-warning.is-top(style='')
-      p.text {{$t('components.site_layout.switch_locale', { lng: detectedLocale })}}
-      .action.is-success(@click="closeSnackbar()")
-        button.button {{$t('utils.Ok', { lng: detectedLocale })}}
-      .action.is-info(@click="switchLocale()")
-        button.button {{$t('utils.Switch', { lng: detectedLocale })}}
-
   section.hero.is-dark-blue
     div.hero-body
       div.container
