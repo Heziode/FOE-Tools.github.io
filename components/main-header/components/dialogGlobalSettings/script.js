@@ -20,6 +20,7 @@ export default {
       dayNightModes: [
         { key: "day", text: this.$t(i18nPrefix + "day_night_mode.Day") },
         { key: "night", text: this.$t(i18nPrefix + "day_night_mode.Night") },
+        { key: "system", text: this.$t(i18nPrefix + "day_night_mode.System") },
         { key: "auto", text: this.$t(i18nPrefix + "day_night_mode.Auto") },
       ],
     };

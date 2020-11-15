@@ -1042,6 +1042,9 @@ msgstr "Jour"
 msgid "components.site_layout.global_config_dialog.day_night_mode.Night"
 msgstr "Nuit"
 
+msgid "components.site_layout.global_config_dialog.day_night_mode.System"
+msgstr "Préférence du système"
+
 msgid "components.site_layout.global_config_dialog.day_night_mode.Auto"
 msgstr "Automatique"
 

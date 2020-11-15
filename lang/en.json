@@ -238,6 +238,7 @@
   "components.site_layout.global_config_dialog.day_night": "Theme",
   "components.site_layout.global_config_dialog.day_night_mode.Day": "Day",
   "components.site_layout.global_config_dialog.day_night_mode.Night": "Night",
+  "components.site_layout.global_config_dialog.day_night_mode.System": "System preference",
   "components.site_layout.global_config_dialog.day_night_mode.Auto": "Automatic",
   "components.site_layout.switch_locale": "@:(common.site_title) is available in your language",
   "components.trade.title": "Form version",
