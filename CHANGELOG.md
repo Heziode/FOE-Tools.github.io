@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.72.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.71.1...v2.72.0) (2020-11-15)
+
+
+### Features
+
+* **gb-investment:** add support of bookmarks ([b66dc98](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b66dc987a0184008535d479e1269e04415070e93))
+* add day/night mode based on system preferences ([98da4cf](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/98da4cf435ecd14e512538154791505f2c4bb435)), closes [#362](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/362)
+* hide top menu on scroll ([c6a2dec](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c6a2dec5ffa90ad58fbf00ee083e4dbd8f89ffc4))
+
+
+### Translation
+
+* Translated using Weblate (Finnish) ([9f6cd86](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9f6cd8639d46f49db3d11c28170d35a0faaa2f9e))
+* Translated using Weblate (French) ([c3e3ffb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c3e3ffbc0a4c217ccce480a6cc4547c27239266e))
+* Translated using Weblate (Russian) ([1102cfa](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1102cfaca4d37b4592962d84524f8fa15fcc2ed5))
+
 ### [2.71.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.71.0...v2.71.1) (2020-11-01)
 
 
