@@ -44,6 +44,12 @@ export default {
       });
     },
     gbSelectModeDatalist: sync("global/gbSelectMode"),
+    bookmarks: /* istanbul ignore next */ function () {
+      let r = this.$store
+        .get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)
+        .filter((elt) => elt.name === "GbInvestment");
+      return r;
+    },
   },
   watch: {
     selected(val) {

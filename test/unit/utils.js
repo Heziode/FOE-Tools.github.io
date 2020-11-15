@@ -84,6 +84,7 @@ export function getDefaultStore(profileID = "testID", customConf = {}) {
         tab: 0,
       },
     },
+    bookmarks: []
   };
 
   return merge(result, customConf);

@@ -93,7 +93,25 @@ async function getSurvey(store, $axios) {
   }
 }
 
+function storeProfileSchemaUpdate(store, $clone) {
+  for (const key of Object.keys(store.get("profile/profiles"))) {
+    const defaultValue = store.get("profile/getDefaultProfile");
+    const currentValue = $clone(store.get(`profile/profiles@[${key}]`));
+    let changed = false;
+    for (const defaultKey of Object.keys(defaultValue)) {
+      if (!(defaultKey in currentValue)) {
+        currentValue[defaultKey] = defaultValue[defaultKey];
+        changed = true;
+      }
+    }
+    if (changed) {
+      store.set(`profile/profiles@[${key}]`, currentValue);
+    }
+  }
+}
+
 export default function ({ store, $clone, $moment, $axios }) {
   dayNightMode(store, $clone, $moment);
   getSurvey(store, $axios);
+  storeProfileSchemaUpdate(store, $clone);
 }

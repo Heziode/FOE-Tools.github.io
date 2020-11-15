@@ -23,5 +23,7 @@ b-field(:label-for="id")
     expanded)
 
   b-select(v-else v-model="selected" :id="id" :name="id" expanded)
+    optgroup(v-if="bookmarks.length" :label="$t('utils.favourites')")
+      option(v-for="gb in bookmarks" :value="gb.params.gb") {{$t('foe_data.gb.' + gb.params.gb)}}
     optgroup(v-for="(age, i) in foeGBList" :label="$t('foe_data.age.' + age.key)")
       option(v-for="gb in age.gbs" :value="gb") {{$t('foe_data.gb.' + gb)}}

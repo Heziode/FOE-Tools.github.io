@@ -297,6 +297,16 @@ export default {
     vueCardClass() {
       return this.$data.tutoMode ? [] : ["is-hidden-desktop", "is-hidden-widescreen"];
     },
+    isBookmarked() {
+      let bookmarks = this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`);
+      return !!bookmarks.find(
+        (elt) =>
+          elt.name === "GbInvestment" &&
+          elt.params &&
+          elt.params.gb &&
+          elt.params.gb === this.$route.params.gb
+      );
+    },
   },
   watch: {
     level(val, oldVal) {
@@ -1363,6 +1373,26 @@ export default {
     },
     haveError(input) {
       return this.$data.errors[input] ? "is-danger" : "";
+    },
+    toggleFavourite() {
+      let bookmarks = this.$clone(
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)
+      );
+      if (this.isBookmarked) {
+        // Remove from bookmarks
+        const index = bookmarks.findIndex(
+          (elt) =>
+            elt.name === "GbInvestment" &&
+            elt.params &&
+            elt.params.gb &&
+            elt.params.gb === this.$route.params.gb
+        );
+        bookmarks.splice(index, 1);
+      } else {
+        // Add in bookmarks
+        bookmarks.push({ name: this.$route.name.replace(/___.*$/, ""), params: this.$route.params });
+      }
+      this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`, bookmarks);
     },
   },
   mounted() {

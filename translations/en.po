@@ -618,6 +618,12 @@ msgstr ""
 "used to define if a player is a potential sniper or not. This information "
 "is used for the calculation of place security."
 
+msgid "components.gb_investment.add_favourite"
+msgstr "Add to favourites"
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Delete from favourites"
+
 msgid "components.gb_investment.tutorial.table.include_in_copy_boxes"
 msgstr ""
 "This field allows you to display this place in the promotion message that "
@@ -3649,6 +3655,9 @@ msgstr "Level cost"
 
 msgid "utils.graph.gb_reward_1st_place"
 msgstr "Level reward (1st place)"
+
+msgid "utils.favourites"
+msgstr "Favourites"
 
 msgid "contributions.blog"
 msgstr "Blogposts"

@@ -2,7 +2,16 @@ div.content#gbiContent
   div.columns
     div.column.is-half
       div.field
-        h3.title.is-3 {{$t('foe_data.gb.' + gb.key)}}
+        .media
+          span.media-content
+            h3.title.is-3 {{$t('foe_data.gb.' + gb.key)}}
+          div.media-right#bookmark
+            b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + (isBookmarked ? 'remove_favourite' : 'add_favourite'))")
+              a(@click="toggleFavourite")
+                font-awesome-icon(:icon="[isBookmarked ? 'fas' : 'far', 'bookmark']" size="2x")
+            b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + (isBookmarked ? 'remove_favourite' : 'add_favourite'))" position="is-left")
+              a(@click="toggleFavourite")
+                font-awesome-icon(:icon="[isBookmarked ? 'fas' : 'far', 'bookmark']" size="2x")
       div.field#gbListSelect
         gb-list-select(:current="gb.key" @change="goTo($event)")
     div.column.is-half
