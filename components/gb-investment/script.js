@@ -300,11 +300,7 @@ export default {
     isBookmarked() {
       let bookmarks = this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`);
       return !!bookmarks.find(
-        (elt) =>
-          elt.name === "GbInvestment" &&
-          elt.params &&
-          elt.params.gb &&
-          elt.params.gb === this.$route.params.gb
+        (elt) => elt.name === "GbInvestment" && elt.params && elt.params.gb && elt.params.gb === this.$route.params.gb
       );
     },
   },
@@ -1381,11 +1377,7 @@ export default {
       if (this.isBookmarked) {
         // Remove from bookmarks
         const index = bookmarks.findIndex(
-          (elt) =>
-            elt.name === "GbInvestment" &&
-            elt.params &&
-            elt.params.gb &&
-            elt.params.gb === this.$route.params.gb
+          (elt) => elt.name === "GbInvestment" && elt.params && elt.params.gb && elt.params.gb === this.$route.params.gb
         );
         bookmarks.splice(index, 1);
       } else {
