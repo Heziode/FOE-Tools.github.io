@@ -51,6 +51,9 @@ function dayNightMode(store, $clone, $moment) {
           break;
         case "system":
           window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", systemPreferendScheme);
+          setTimeout(() => {
+            store.set("isDarkTheme", window.matchMedia("(prefers-color-scheme: dark)").matches);
+          }, 0);
           break;
         case "auto":
           window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", systemPreferendScheme);
