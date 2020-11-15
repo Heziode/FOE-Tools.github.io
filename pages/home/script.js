@@ -1,4 +1,5 @@
 import Utils from "~/scripts/utils";
+import ShowBookmarks from "~/components/show-bookmarks/ShowBookmarks";
 
 const i18nPrefix = "routes.home.";
 
@@ -70,5 +71,8 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    ShowBookmarks,
   },
 };

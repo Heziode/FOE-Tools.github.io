@@ -95,6 +95,8 @@
   "components.gb_investment.gb_investment.table.thead.expected_participation": "PF obtenu avec le % de bonus attendu par le propriétaire",
   "components.gb_investment.gb_investment.table.thead.real_participation": "PF obtenu avec le % de bonus de votre Arche",
   "components.gb_investment.gb_investment.table.thead.is_sniper": "Est un sniper potentiel ?",
+  "components.gb_investment.add_favourite": "Ajouter aux favoris",
+  "components.gb_investment.remove_favourite": "Retirer des favoris",
   "components.gb_investment.gb_investment.table.tbody.button_show_extra_investor": "Montrer l'investisseur supplémentaire | Montrer les investisseurs supplémentaires",
   "components.gb_investment.gb_investment.table.tbody.button_hide_extra_investor": "Cacher l'investisseur supplémentaire | Cacher les investisseurs supplémentaires",
   "components.gb_investment.gb_investment.table.tbody.loss": "Ce joueur perdra un PF | Ce joueur perdra des PFs",
@@ -239,6 +241,7 @@
   "components.site_layout.global_config_dialog.day_night": "Theme",
   "components.site_layout.global_config_dialog.day_night_mode.Day": "Jour",
   "components.site_layout.global_config_dialog.day_night_mode.Night": "Nuit",
+  "components.site_layout.global_config_dialog.day_night_mode.System": "Préférence du système",
   "components.site_layout.global_config_dialog.day_night_mode.Auto": "Automatique",
   "components.site_layout.switch_locale": "@:(common.site_title) est disponible dans votre langue",
   "components.trade.title": "Version formulaire",
@@ -1075,6 +1078,7 @@
   "utils.graph.gb_level": "Niveau",
   "utils.graph.gb_level_cost": "Coût du niveau",
   "utils.graph.gb_reward_1st_place": "Gain du niveau (1er place)",
+  "utils.favourites": "Favoris",
   "contributions.blog": "Articles de blog",
   "contributions.bug": "Rapports de bogues",
   "contributions.code": "Code",
@@ -1111,5 +1115,6 @@
   "cookieConsent.sentry.description": "Collecter les erreurs pour identifier les bugs potentiels (solution auto-hébergée)",
   "cookieConsent.purposes.analytics": "Analytique",
   "cookieConsent.purposes.necessary": "Nécessaire",
-  "cookieConsent.purposes.quality": "Qualité"
+  "cookieConsent.purposes.quality": "Qualité",
+  "foe_data.gb.Galata_Tower": "Tour Galata"
 }

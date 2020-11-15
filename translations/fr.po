@@ -370,6 +370,12 @@ msgstr "PF obtenu avec le % de bonus de votre Arche"
 msgid "components.gb_investment.gb_investment.table.thead.is_sniper"
 msgstr "Est un sniper potentiel ?"
 
+msgid "components.gb_investment.add_favourite"
+msgstr "Ajouter aux favoris"
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Retirer des favoris"
+
 msgid ""
 "components.gb_investment.gb_investment.table.tbody.button_show_"
 "extra_investor"
@@ -1041,6 +1047,9 @@ msgstr "Jour"
 
 msgid "components.site_layout.global_config_dialog.day_night_mode.Night"
 msgstr "Nuit"
+
+msgid "components.site_layout.global_config_dialog.day_night_mode.System"
+msgstr "Préférence du système"
 
 msgid "components.site_layout.global_config_dialog.day_night_mode.Auto"
 msgstr "Automatique"
@@ -3692,6 +3701,9 @@ msgstr "Coût du niveau"
 
 msgid "utils.graph.gb_reward_1st_place"
 msgstr "Gain du niveau (1er place)"
+
+msgid "utils.favourites"
+msgstr "Favoris"
 
 msgid "contributions.blog"
 msgstr "Articles de blog"

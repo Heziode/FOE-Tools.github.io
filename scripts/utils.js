@@ -383,7 +383,7 @@ export default {
 
   /* istanbul ignore next */
   /**
-   * Copied from: https://gist.github.com/eloone/11342252#file-binaryinsert-js
+   * Copied here: https://gist.github.com/eloone/11342252#file-binaryinsert-js
    * @param value {number} Value to insert
    * @param array {array} Array where insert value
    * @param startVal {number} Index where we start
@@ -466,4 +466,13 @@ export default {
       tab: 0,
     };
   },
+
+  /**
+   * Transpose a 2 array
+   * Copied here: https://stackoverflow.com/a/36164530/9679213
+   *
+   * @param m {Array} 2D array
+   * @returns {*} Return the transposed array
+   */
+  transpose: /* istanbul ignore next */ (m) => m[0].map((x, i) => m.map((x) => x[i])),
 };

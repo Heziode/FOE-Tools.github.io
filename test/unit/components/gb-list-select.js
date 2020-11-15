@@ -1,11 +1,12 @@
 import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/gb-list-select/GbListSelect";
 import { getView } from "../localVue";
+import { getDefaultStore } from "../utils";
 
 const defaultGb = "Observatory";
 
 const factory = () => {
-  const { localVue, store } = getView();
+  const { localVue, store } = getView(getDefaultStore());
   return shallowMount(Component, {
     propsData: {
       current: defaultGb,

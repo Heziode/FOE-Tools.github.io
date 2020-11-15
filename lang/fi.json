@@ -56,7 +56,7 @@
   "components.gb_investment.tutorial.table.fp_to_put_by_the_owner": "Kuten nimi sanoo, tämä on kuinka paljon sijoittajan tarvitsee laittaa TP lukitakseen sijansa.",
   "components.gb_investment.tutorial.table.default_rewards": "Tämä on sijan oletuspalautus (ilman Kupu bonusta).",
   "components.gb_investment.tutorial.table.message": "Tämä taulukko näyttää kaiken tiedot mitä tarvitset.",
-  "components.gb_investment.tutorial.add_investors": "Onko sinulla satunnaisia sijoituksia HR:ssä jotka ovat matalampia tai korkeampia kuin asetettu kerroin?\nPistä kaikki oudot sijoitukset tähän kenttään yksitellen\nTyökalu laskee uudet lukitus TP arvot ja kertoo mitkä sijat on jo lukittu.",
+  "components.gb_investment.tutorial.add_investors": "Onko sinulla satunnaisia sijoituksia HR:ssä jotka ovat matalampia tai korkeampia kuin asetettu kerroin?\nPistä kaikki irralliset sijoitukset tähän kenttään yksitellen\nTyökalu laskee uudet lukitus TP arvot ja kertoo mitkä sijat on jo lukittu.",
   "components.gb_investment.tutorial.your_arc_bonus": "Tämä kenttä on sijoittajille ja sitä käyttääkseen pitää \"@:(components.gb_investment.gb_investment.form.show_snipe)\" olla \"@:(utils.Yes)\".\nSe kertoo kuinka monta TP pitää sijoittaa tasoon lukitaksesi sijan; se myös kertoo mahdollisen voiton/tappion.",
   "components.gb_investment.tutorial.owner_investment": "Onko sinulla jo TP laitettuna HR?\nJos on, syötä tähän kuinka monta TP on HR:ssä",
   "components.gb_investment.tutorial.investor_percentage": "Valitse kerroin jota oletat sijoittajien käyttävän\nEsim. 1.9 sijoittajalle laita 90",
@@ -128,5 +128,8 @@
   "footer_menu.changelog": "Muutosloki",
   "footer_menu.contributors": "Kirjoittajat",
   "footer_menu.about": "Tietoja",
-  "footer_menu.privacy_policy": "Yksityisyydensuoja"
+  "footer_menu.privacy_policy": "Yksityisyydensuoja",
+  "components.gb_investment.tutorial.promotion_message.prefix": "Tämä teksti lisätään viestin alkuun.",
+  "components.gb_investment.tutorial.table.fp_already_putin": "Tämä sarake näytetään kun olet syöttänyt vähintään yhden sijoittajan. Se näyttää sinulle hänen sijoituksensa riippuen rakennuksen omistajan",
+  "footer_menu.cookie_policy": "Evästekäytäntö"
 }

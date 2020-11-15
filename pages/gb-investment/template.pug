@@ -1,4 +1,6 @@
 div
+  show-bookmarks(v-if="$store.get(`profile/profiles@[\"${this.$store.get(\"global/currentProfile\")}\"].bookmarks`).length")
+
   h3.title.is-3 {{$t(i18nPrefix + 'choose_gb.title')}}
 
   div.tile.is-ancestor(v-for="items of GBsByAge")

@@ -9,7 +9,7 @@ export const state = () => ({
   customPromotionMessagesTemplates: [],
   displayTableCard: false,
   haveReadTipAboutAddInvestor: false,
-  dayNightMode: "day",
+  dayNightMode: "system",
   dayStart: "07:00",
   nightStart: "18:30",
   locale: defaultLocale,

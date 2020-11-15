@@ -1,4 +1,6 @@
 div
+  show-bookmarks(v-if="$store.get(`profile/profiles@[\"${this.$store.get(\"global/currentProfile\")}\"].bookmarks`).length")
+
   div.content(v-for="(data, i) in content" :key="i")
     h3.title.is-3(:id="data.id") {{$t(data.title)}}
 
