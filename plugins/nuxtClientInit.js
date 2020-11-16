@@ -1,3 +1,7 @@
+import { v4 as uuidv4 } from "uuid";
+
+const defaultProfileName = "Default";
+
 function dayNightMode(store, $clone, $moment) {
   const dayNightWatchdogTimeout = 60000;
 
@@ -93,6 +97,21 @@ async function getSurvey(store, $axios) {
   }
 }
 
+function initStore(store) {
+  let currentProfileID;
+
+  if (!store.get("global/profiles").length || !store.get("global/currentProfile")) {
+    const ids = store.get("global/profiles").map((k) => k.key);
+    do {
+      currentProfileID = uuidv4();
+    } while (ids.indexOf(currentProfileID) >= 0);
+
+    store.set("global/profiles", [{ id: currentProfileID, name: defaultProfileName }]);
+    store.set("global/currentProfile", currentProfileID);
+    store.commit("profile/addProfile", { key: currentProfileID, profile: store.get("profile/getDefaultProfile") });
+  }
+}
+
 function storeProfileSchemaUpdate(store, $clone) {
   for (const key of Object.keys(store.get("profile/profiles"))) {
     const defaultValue = store.get("profile/getDefaultProfile");
@@ -111,7 +130,8 @@ function storeProfileSchemaUpdate(store, $clone) {
 }
 
 export default function ({ store, $clone, $moment, $axios }) {
+  initStore(store);
+  storeProfileSchemaUpdate(store, $clone);
   dayNightMode(store, $clone, $moment);
   getSurvey(store, $axios);
-  storeProfileSchemaUpdate(store, $clone);
 }

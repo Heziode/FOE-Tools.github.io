@@ -26,14 +26,14 @@ export default {
     this.$store.set("hero", {
       title: `${i18nPrefix}hero.title`,
       titleConfig: {
-        gb_key: this.$t("foe_data.gb." + this.$data.gb.key),
+        gb_key: this.$t("foe_data.gb." + this.$route.params.gb),
       },
       subtitle: "routes.gb_investment_gb_chooser.hero.subtitle",
     });
 
     return {
       title: this.$t(i18nPrefix + "title", {
-        gb_key: this.$t("foe_data.gb." + this.$data.gb.key),
+        gb_key: this.$t("foe_data.gb." + this.$route.params.gb),
       }),
     };
   },
