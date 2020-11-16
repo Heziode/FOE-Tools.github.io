@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.72.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.72.0...v2.72.1) (2020-11-16)
+
+
+### Bug Fixes
+
+* fix bug bug inadvertently introduced in 2.72.0 ([879f75d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/879f75dc9c5a9c78ac678c996c52e8421b6b8a2a))
+
 ## [2.72.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.71.1...v2.72.0) (2020-11-15)
 
 
