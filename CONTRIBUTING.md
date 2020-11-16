@@ -8,7 +8,7 @@ For commit message, follow [this convention](https://conventionalcommits.org/).
 
 
 
-**PR are accepted on `develop` branch**. Master branch only contains compiled sources (from production branch) to host the website on GitHub static page.
+**PR are accepted on `develop` branch**. `master` branch only contains compiled sources (from production branch) to host the website on GitHub static page. `production` branch contains the stable code used in production, It is from there that the code of branch `master` is generated.
 
 ### Translation
 
