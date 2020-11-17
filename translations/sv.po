@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
 "POT-Creation-Date: 2020-08-21T21:00:52.129Z\n"
-"PO-Revision-Date: 2020-10-29 09:30+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2020-11-17 15:49+0000\n"
+"Last-Translator: Magnus Beutner <magnus.beutner@gmail.com>\n"
 "Language-Team: Swedish <https://translate.foe.tools/projects/"
 "foe-tools-website/website/sv/>\n"
 "Language: sv\n"
@@ -3919,3 +3919,15 @@ msgstr "Cybele F-3"
 
 msgid "foe_data.gb.Galata_Tower"
 msgstr "Galatatornet"
+
+msgid "utils.favourites"
+msgstr "Favoriter"
+
+msgid "components.site_layout.global_config_dialog.day_night_mode.System"
+msgstr "System preferens"
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Ta bort från favoriter"
+
+msgid "components.gb_investment.add_favourite"
+msgstr "Spara till favoriter"
