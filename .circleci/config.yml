@@ -11,39 +11,10 @@ defaults: &defaults
     NODE_ENV: test
     NODE_OPTIONS: --max_old_space_size=4096
 
-release_branches: &release_branches
-  branches:
-    only:
-      - production
-
 ignore_master: &ignore_master
   branches:
     ignore:
       - master
-
-release: &release
-  <<: *defaults
-  steps:
-    - checkout
-    - attach_workspace:
-        at: ~/project
-    - run:
-        name: Build project
-        command: yarn run generate:gh
-    - run:
-        name: Configure git
-        command: |
-          git config user.name $GITHUB_NAME
-          git config user.email $GITHUB_EMAIL
-    - add_ssh_keys:
-        fingerprints:
-          - "42:b6:1a:60:65:91:8a:eb:e9:6e:1d:91:1d:cc:66:d1"
-    # This will build the static site and push into master branch
-    - run:
-        name: release
-        command: yarn run deploy
-        environment:
-          NODE_ENV: production
 
 jobs:
   # --------------------------------------------------------------------------
@@ -102,18 +73,11 @@ jobs:
           name: Unit Tests
           command: yarn test:unit:coverage --coverageReporters lcov && yarn coverage
 
-  # --------------------------------------------------------------------------
-  # Phase 4: Release (production branch only)
-  # --------------------------------------------------------------------------
-  release-commit:
-    <<: *release
-
 # Workflow definition
 workflows:
   version: 2
 
   # Build and test after each commit
-  # Manually release on release branches
   commit:
     jobs:
       - setup:
@@ -126,9 +90,4 @@ workflows:
       - test-unit:
           requires: [lint]
           filters:
-            <<: *ignore_master
-      - release-commit:
-          requires: [lint, test-unit]
-          filters:
-            <<: *release_branches
             <<: *ignore_master
