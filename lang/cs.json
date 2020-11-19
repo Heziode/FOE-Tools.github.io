@@ -1136,9 +1136,9 @@
   "seo.keywords.forge_point": "Forge Body",
   "seo.keywords.medals": "medajle",
   "seo.keywords.military_units": "Vojenské jednotky",
-  "components.gb_investment.gb_investment.table.tbody.button_show_extra_investor": " | Ukázat extra investory",
+  "components.gb_investment.gb_investment.table.tbody.button_show_extra_investor": "Ukázat extra investora | Ukázat extra investory | ",
   "components.gb_investment.gb_investment.table.tbody.button_hide_extra_investor": " | Schovat extra investory",
-  "components.gb_investment.gb_investment.table.tbody.loss": " | Tento hráč prodělá body",
+  "components.gb_investment.gb_investment.table.tbody.loss": "Tento hráč prodělá bod | Tento hráč prodělá body | ",
   "components.gb_forecast_cost.message.diff": " | S bonusovými investicemi ušetříte {count} FP",
   "components.secure_position.block_place.fp_to_complete_level": " | Počet zbývajících FB k dokončení úrovně:",
   "components.secure_position.block_place.place": " | {place}({count} výzkumných bodů)",
@@ -1151,5 +1151,9 @@
   "components.site_layout.update": " | {count} novinky od poslední návštěvy.",
   "utils.moment.year": " | {count} léta",
   "utils.moment.month": " | {count} měsíce",
-  "utils.moment.day": " | {count} dnů"
+  "utils.moment.day": " | {count} dnů",
+  "components.gb_investment.remove_favourite": "Odebrat z oblíbených",
+  "components.gb_investment.add_favourite": "Přidat do oblíbených",
+  "footer_menu.privacy_policy": "Zásady ochrany osobních údajů",
+  "footer_menu.cookie_policy": "Zásady používání Cookie"
 }

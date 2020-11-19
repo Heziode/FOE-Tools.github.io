@@ -1155,5 +1155,9 @@
   "foe_data.province.Egeria": "Egeria",
   "foe_data.province.Vesta_S_1": "Vesta S-1",
   "foe_data.province.Cybele_F_3": "Cybele F-3",
-  "foe_data.gb.Galata_Tower": "Galatatornet"
+  "foe_data.gb.Galata_Tower": "Galatatornet",
+  "utils.favourites": "Favoriter",
+  "components.site_layout.global_config_dialog.day_night_mode.System": "System preferens",
+  "components.gb_investment.remove_favourite": "Ta bort från favoriter",
+  "components.gb_investment.add_favourite": "Spara till favoriter"
 }
