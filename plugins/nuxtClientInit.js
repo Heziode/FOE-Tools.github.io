@@ -71,11 +71,15 @@ function dayNightMode(store, $clone, $moment) {
 
   if (store.get("global/dayNightMode") === "auto") {
     dayNightWatchdog.start();
-  } else if (store.get("global/dayNightMode") === "system") {
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", systemPreferendScheme);
-    setTimeout(() => {
-      store.set("isDarkTheme", window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }, 0);
+  } else if (store.get("global/dayNightMode") === "system" && window.matchMedia) {
+    try {
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", systemPreferendScheme);
+      setTimeout(() => {
+        store.set("isDarkTheme", window.matchMedia("(prefers-color-scheme: dark)").matches);
+      }, 0);
+    } catch (e) {
+      // Feature "prefers-color-scheme" not implemented by the browser
+    }
   }
   updateDayNightMode();
 }
