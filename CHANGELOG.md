@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.72.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.72.1...v2.72.2) (2020-11-19)
+
+
+### Bug Fixes
+
+* fix issue related to day/night system mode on old devices ([eecfb80](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/eecfb802a424164f7235c1d49e5de261c227435e)), closes [#365](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/365)
+
+
+### Translation
+
+* Translated using Weblate (Czech) ([5501769](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/550176981d96d8f92d916376f4e46040ce9cc118))
+* Translated using Weblate (Swedish) ([4f5d711](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/4f5d711f3ff4a345911e24081d05e0b75c135a09))
+
 ### [2.72.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.72.0...v2.72.1) (2020-11-16)
 
 
