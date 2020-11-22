@@ -747,6 +747,15 @@
       "contributions": [
         "translation"
       ]
+    },
+    {
+      "login": "FJduFou",
+      "name": "François-Joseph du Fou",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/46401854?v=4",
+      "profile": "https://github.com/FJduFou",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "commitConvention": "none"
