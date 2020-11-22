@@ -40,7 +40,7 @@ header
 
         div.navbar-item
           div.field
-            b-tooltip.control.is-hidden-mobile(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
+            b-tooltip.control.is-hidden-touch(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
               button.button(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
                 p.icon
                   i.fas.fa-cog
