@@ -60,7 +60,9 @@ main {
 }
 
 a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active {
+  border-radius: 4px;
   color: $link;
+  margin-block: auto;
 }
 
 .navbar-dropdown-custom-shadow {
