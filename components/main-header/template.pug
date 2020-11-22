@@ -1,56 +1,46 @@
 header
-  nav.navbar.has-shadow(:class="{'is-fixed-top': $store.get('global/fixedMainMenu'), 'hidden-navbar': $store.get('global/fixedMainMenu') && !showNavbar}")
-    div.navbar-brand
-      nuxt-link.navbar-item(:to="localePath({ name: 'Home' })")
+  b-navbar.has-shadow(:fixed-top="$store.get('global/fixedMainMenu')" :class="{'hidden-navbar': $store.get('global/fixedMainMenu') && !showNavbar}")
+    template(slot="brand")
+      b-navbar-item(tag="router-link" :to="localePath({ name: 'Home' })")
         img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
-      div.is-hidden-desktop(v-if="['GbInvestment'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) >= 0")
-        gb-list-select(:current="$route.params.gb" @change="goTo($event)" :only-selector="true")
 
-      div.navbar-burger.burger(:class="{'is-active': burgerMenuVisible}" data-target="mainNavbar" @click="toggleMenu")
-        span
-        span
-        span
+    template(slot="start")
+      template(v-for="value in mainMenu")
+        template(v-if="value.children.length === 0")
+          b-navbar-item(tag="nuxt-link" :class="{'is-active': isActive(value.link)}" :to="localePath({ name: value.link })") {{$t(value.name)}}
+        b-navbar-dropdown(v-else :key="value.slug" :label="$t(value.name)" hoverable)
+          template(v-for="child in value.children")
+            b-navbar-item(v-if="child.type.name === 'PAGE'" tag="nuxt-link" :class="{'is-active': isActive(child.link)}" :to="localePath({ name: child.link })" exact) {{$t(child.name)}}
+            hr.navbar-divider(v-else-if="child.type.name === 'SEPARATOR'")
 
-    div#mainNavbar.navbar-menu(:class="{'is-active': burgerMenuVisible}")
-      div.navbar-start
-        template(v-for="value in mainMenu")
-          template(v-if="value.children.length === 0")
-            nuxt-link.navbar-item(:class="{'is-active': isActive(value.link)}" :to="localePath({ name: value.link })" exact) {{$t(value.name)}}
-          div.navbar-item.has-dropdown.is-hoverable(v-else :key="value.slug")
-            nuxt-link.navbar-link(v-if="value.type.name === 'PAGE'" :class="{'is-active': isActive(value.link)}" :to="localePath({ name: value.link })" exact) {{$t(value.name)}}
-            a.navbar-link(v-else-if="value.type.name === 'MENU_ENTRY'" href="#") {{$t(value.name)}}
-            div.navbar-dropdown.is-boxed
-              template(v-for="child in value.children")
-                nuxt-link.navbar-item(v-if="child.type.name === 'PAGE'" :class="{'is-active': isActive(child.link)}" :to="localePath({ name: child.link })" exact) {{$t(child.name)}}
-                hr.navbar-divider(v-else-if="child.type.name === 'SEPARATOR'")
+    template(slot="end")
+      b-navbar-item(tag="div")
+        nuxt-link.custom-link-style(:class="{'is-active': isActive('HelpToTranslateTheSite')}" :to="localePath({ name: 'HelpToTranslateTheSite' })" exact)
+          span.icon.is-icon-2rem(style="vertical-align: middle;")
+            i.fas.fa-language
+          span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}
 
-      div.navbar-end
-        div.navbar-item
-          nuxt-link.custom-link-style(:class="{'is-active': isActive('HelpToTranslateTheSite')}" :to="localePath({ name: 'HelpToTranslateTheSite' })" exact)
-            span.icon.is-icon-2rem(style="vertical-align: middle;")
-              i.fas.fa-language
-            span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("main_menu.help_to_translate_the_site")}}
-        div.navbar-item
-          language-selector
+      b-navbar-item(tag="div")
+        language-selector
 
-        div.navbar-item
-          div.field.is-grouped
-            nuxt-link.button.donation(:to="localePath({ name: 'Donate' })" exact)
-              span {{$t('utils.Donate')}}
+      b-navbar-item(tag="div")
+        div.field.is-grouped
+          nuxt-link.button.donation(:to="localePath({ name: 'Donate' })" exact)
+            span {{$t('utils.Donate')}}
 
-        div.navbar-item
-          div.field
-            b-tooltip.control.is-hidden-touch(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
-              button.button(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
-                p.icon
-                  i.fas.fa-cog
-            button.button.is-hidden-desktop(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
+      b-navbar-item(tag="div")
+        div.field
+          b-tooltip.control.is-hidden-touch(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
+            button.button(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
               p.icon
                 i.fas.fa-cog
-              p {{$t('components.site_layout.global_config')}}
+          button.button.is-hidden-desktop(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
+            p.icon
+              i.fas.fa-cog
+            p {{$t('components.site_layout.global_config')}}
 
-        div.navbar-item
-          div.field.is-grouped
-            a.button(href="https://github.com/FOE-Tools/FOE-Tools.github.io" target="_blank")
-              span.icon
-                i.fab.fa-github
+      b-navbar-item(tag="div")
+        div.field.is-grouped
+          a.button(href="https://github.com/FOE-Tools/FOE-Tools.github.io" target="_blank")
+            span.icon
+              i.fab.fa-github
