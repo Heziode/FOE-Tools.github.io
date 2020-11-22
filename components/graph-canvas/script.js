@@ -1,5 +1,7 @@
+import merge from "lodash.merge";
 import Chart from "chart.js";
 import Utils from "~/scripts/utils";
+import { sync } from "vuex-pathify";
 
 export default {
   name: "GraphCanvas",
@@ -22,8 +24,11 @@ export default {
     },
     goptions: {
       type: Object,
-      default: () => {},
+      default: {},
     },
+  },
+  computed: {
+    isDarkTheme: sync("isDarkTheme"),
   },
   watch: {
     labels: {
@@ -44,6 +49,13 @@ export default {
       },
       deep: true,
     },
+    isDarkTheme: {
+      handler() {
+        this.$data.chart.destroy();
+        setTimeout(this.updateCanvas, 0);
+      },
+      deep: true,
+    },
   },
   data() {
     return {
@@ -53,11 +65,31 @@ export default {
         datasets: this.$props.datasets,
       },
       options: this.$props.goptions,
+      defaultTheme: {
+        global: {
+          defaultColor: Chart.defaults.global.defaultColor,
+          defaultFontColor: Chart.defaults.global.defaultFontColor,
+        },
+        scale: {
+          gridLines: {
+            color: Chart.defaults.scale.gridLines.color,
+          },
+        },
+      },
     };
   },
   methods: {
     updateCanvas() {
       const ctx = document.getElementById(this.$props.id).getContext("2d");
+
+      Chart.defaults = merge(Chart.defaults, this.$clone(this.$data.defaultTheme));
+
+      if (this.isDarkTheme) {
+        Chart.defaults.global.defaultColor = "rgba(255, 255, 255, 0.1)";
+        Chart.defaults.global.defaultFontColor = "white";
+        Chart.defaults.scale.gridLines.color = "grey";
+      }
+
       document.chart = this.$data.chart = new Chart(ctx, {
         type: this.$data.type,
         data: this.$data.chart_data,
