@@ -5,7 +5,7 @@ import Utils from "~/scripts/utils";
 import Vue from "vue";
 import { sync } from "vuex-pathify";
 
-const OFFSET = 60;
+const OFFSET = 10;
 
 export default {
   name: "MainHeader",

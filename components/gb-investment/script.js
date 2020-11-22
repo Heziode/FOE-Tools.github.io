@@ -907,6 +907,10 @@ export default {
 
       return result;
     },
+    addSpecificInvestor(val) {
+      this.$data.addInvestors = val;
+      this.addInvestor();
+    },
     addInvestor() {
       const val = this.$data.addInvestors;
       if (val && typeof val !== "number" && val.length > 0) {

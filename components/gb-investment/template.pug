@@ -106,19 +106,29 @@ div.content#gbiContent
                 template(v-if="place.preparation - ownerInvestmentNormalized > 0")
                   b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" dashed)
                     span.has-text-danger {{$n(place.preparation - ownerInvestmentNormalized)}}
+                  | )
+                  a(@click.prevent="ownerInvestment = place.preparation")
+                    span.icon(style="vertical-align: middle;")
+                      i.fas.fa-plus-square
                 template(v-else)
                   span.has-text-success {{$t('utils.Secured')}}
-                | )
+                  | )
               p(v-else) {{$n(place.preparation)}}
                 template(v-if="place.preparation === 0")
                   | &nbsp;(
                   span.has-text-success {{$t('utils.Secured')}}
                   | )
+                a(v-else @click.prevent="ownerInvestment = place.preparation")
+                  span.icon(style="vertical-align: middle;")
+                    i.fas.fa-plus-square
             // Reward with arc bonus
             td.has-text-right
               p {{$n(place.expectedParticipation)}}
+                a(v-if="!place.isInvestorParticipation" @click.prevent="addSpecificInvestor(place.expectedParticipation)")
+                  span.icon(style="vertical-align: middle;")
+                    i.fas.fa-plus-square
             // Current participation
-            td.has-text-right(v-if="investorParticipationNormalizedSum|| tutoMode" width="150px")
+            td.has-text-right(v-if="investorParticipationNormalizedSum || tutoMode" width="150px")
               template(v-if="place.isInvestorParticipation")
                 p {{$n(place.participation)}} (
                   template(v-if="place.roi > 0")
@@ -258,18 +268,28 @@ div.content#gbiContent
                     template(v-if="props.preparation - ownerInvestmentNormalized > 0")
                       b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment')" position="is-left" dashed)
                         span.has-text-danger {{$n(props.preparation - ownerInvestmentNormalized)}}
+                      | )
+                      a(@click.prevent="ownerInvestment = props.preparation")
+                        span.icon(style="vertical-align: middle;")
+                          i.fas.fa-plus-square
                     template(v-else)
                       span.has-text-success {{$t('utils.Secured')}}
-                    | )
+                      | )
                   p(v-else) {{$n(props.preparation)}}
                     template(v-if="props.preparation === 0")
                       | &nbsp;(
                       span.has-text-success {{$t('utils.Secured')}}
                       | )
+                    a(v-else @click.prevent="ownerInvestment = props.preparation")
+                      span.icon(style="vertical-align: middle;")
+                        i.fas.fa-plus-square
               // Reward with arc bonus
               tr.tableDataRewardsWithRate(v-if="index < result.investment.length")
                 th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
                 td.has-text-right {{ $n(props.expectedParticipation) }}
+                  a(v-if="!props.isInvestorParticipation" @click.prevent="addSpecificInvestor(props.expectedParticipation)")
+                    span.icon(style="vertical-align: middle;")
+                      i.fas.fa-plus-square
               // Current participation
               tr.tableDataNumberOfFPAlreadyIn(v-if="investorParticipationNormalizedSum")
                 th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
