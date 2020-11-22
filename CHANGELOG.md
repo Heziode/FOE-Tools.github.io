@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.73.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.72.2...v2.73.0) (2020-11-22)
+
+
+### Features
+
+* **gb-investment:** add a button that automatically adds the correct amount of FP for the investors ([bbe9409](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/bbe94094c7c66525252ae628724b8c8ccfb8b55d))
+* **gb-investment:** add a button that automatically adds the correct amount of FP for the owner ([e1b06aa](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/e1b06aab140e8f32a2e363a14ddf4549a80ffc0d))
+* add dark theme for graph ([127c04d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/127c04d1861dd9693f3d578ab3bf279459f3fab8)), closes [#368](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/368)
+
+
+### Bug Fixes
+
+* double settings button in main menu ([00cebc7](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/00cebc75f2429bb09bf29f8d846e438b22d002db)), closes [#374](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/374)
+* fix multi-tabs sync ([ada84dd](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ada84dd283694048f95f59b6bafe121dc58c7a12)), closes [#339](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/339)
+* fix the persistent drop-down main menu ([c837463](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c837463f79ae43e8a0cf65f2bdfe5b3b98ffb1ee)), closes [#376](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/376)
+* **contributors:** tooltip overflow ([1d33324](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1d33324a45b4012e0eaeb5ae4de6d922c915f2d7)), closes [#372](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/372)
+
+
+### Translation
+
+* Translated using Weblate (German) ([ded25d8](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ded25d84350ed0f2bbd728bcb7a6f1be8b980356))
+* Translated using Weblate (Russian) ([6bc7df1](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6bc7df184c0a7597c155097ff9372be24f2e6344))
+* Translated using Weblate (Spanish) ([ac56843](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ac56843cd917c4355593ff1ab2ecfb8f6737cbe4))
+
 ### [2.72.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.72.1...v2.72.2) (2020-11-19)
 
 
