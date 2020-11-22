@@ -26,6 +26,7 @@ import {
   faAngleDoubleUp,
   faCog,
   faBookmark as fasBookmark,
+  faPlusSquare
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCopy, faQuestionCircle, faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
@@ -63,7 +64,8 @@ library.add(
   faCog,
   faGithub,
   farBookmark,
-  fasBookmark
+  fasBookmark,
+  faPlusSquare
 );
 
 // Register the component globally
