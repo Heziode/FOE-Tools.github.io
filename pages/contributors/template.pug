@@ -3,7 +3,7 @@ div.content
   div.tile.is-ancestor(v-for="users in contributors")
     div.tile.is-parent(v-for="user in users")
       article.tile.is-child(v-if="user !== null")
-        div.card
+        div.card(style="overflow: initial")
           div.card-content
             div.media.contributor-media
               div.media-left
@@ -17,7 +17,7 @@ div.content
                   a(v-if="user.profile" :href="user.profile" target="_blank") {{user.name}}
                   template(v-else) {{user.name}}
             div.content.contributor-icons
-              b-tooltip(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
+              b-tooltip.is-hidden-touch(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
                 span {{allContributorsrc.types[contribution].symbol}}
-
-
+              b-tooltip.is-hidden-desktop(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" position="is-right")
+                span {{allContributorsrc.types[contribution].symbol}}
