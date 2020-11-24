@@ -4,7 +4,7 @@
 
 [![GitHub release][img-version-badge]][repo] [![Code of Conduct][coc-badge]][coc] [![GitHub license][license-badge]][license] [![All Contributors][all-contributors-badge]](#contributors) [![PRs Welcome][prs-badge]][prs]
 
-[![Dependency Status][dependency-badge]][dependency] [![devDependency Status][devdependency-badge]][devdependency] [![codecov][codecov-badge]][codecov] [![CircleCI][circleci-badge]][circleci]
+[![codecov][codecov-badge]][codecov] [![CircleCI][circleci-badge]][circleci]
 </div>
 
 This repo is the [website](https://foe-tools.github.io/) of FOE Tools, a set of tools for [Forge of Empires](https://forgeofempires.com).
