@@ -96,7 +96,7 @@
       "description": "Videos"
     },
     "data": {
-      "symbol": "🗃",
+      "symbol": "🧮",
       "description": "Adding or updating data"
     },
     "inspired_tool": {
@@ -460,7 +460,7 @@
       "login": "DaEgo",
       "name": "Chris",
       "avatar_url": "https://avatars2.githubusercontent.com/u/1351055?v=4",
-      "profile": "http://www.ZockerBüchse.de",
+      "profile": "",
       "contributions": [
         "bug"
       ]
