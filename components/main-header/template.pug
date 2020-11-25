@@ -2,7 +2,7 @@ header
   b-navbar.has-shadow(:fixed-top="$store.get('global/fixedMainMenu')" :class="{'hidden-navbar': $store.get('global/fixedMainMenu') && !showNavbar}")
     template(slot="brand")
       b-navbar-item(tag="router-link" :to="localePath({ name: 'Home' })")
-        img(src="/img/icons/logo.png" alt="FOE-Tools logo" width="28" height="28")
+        img(src="/icon.png" alt="FOE-Tools logo" width="28" height="28")
 
     template(slot="start")
       template(v-for="value in mainMenu")
