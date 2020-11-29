@@ -3807,9 +3807,6 @@ msgstr "Coucou c'est nous… les Cookies !"
 msgid "cookieConsent.consentNotice.learnMore"
 msgstr "Paramétrer"
 
-msgid "cookieConsent.matomo.description"
-msgstr "Collecte de statistiques sur les visiteurs (solution auto-hébergée)"
-
 msgid "cookieConsent.sentry.description"
 msgstr "Collecter les erreurs pour identifier les bugs potentiels (solution auto-hébergée)"
 

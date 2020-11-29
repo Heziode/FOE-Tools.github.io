@@ -3,6 +3,7 @@
   <head>
     {{ HEAD }}
     <link rel="preconnect" href="https://static.addtoany.com">
+    <script async defer data-domain="foe.tools" src="https://analytics.foe.tools/js/plausible.js"></script>
   </head>
   <body {{ BODY_ATTRS }}>
     <noscript>
@@ -25,32 +26,5 @@
     <!-- AddToAny   -->
     <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_vertical_style is-hidden-touch" style="left:0px; top:10em; background-color: transparent;"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_email"></a><a class="a2a_dd" href="https://www.addtoany.com/share"></a></div>
     <div class="a2a_kit a2a_kit_size_32 a2a_floating_style a2a_default_style is-hidden-desktop" style="bottom:20px; right:5em; background-color: transparent;"><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_email"></a><a class="a2a_dd" href="https://www.addtoany.com/share"></a></div>
-
-    <!-- Matomo   -->
-    <script type="text/plain" data-type="application/javascript" data-name="matomo">
-        var _paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u = "https://matomo.foe.tools/";
-            _paq.push(['setTrackerUrl', u + 'matomo.php']);
-            _paq.push(['setSiteId', '3']);
-            var d = document,
-                g = d.createElement('script'),
-                s = d.getElementsByTagName('script')[0];
-            g.type = 'application/javascript';
-            g.async = true;
-            g.defer = true;
-            g.src = u + 'matomo.js';
-            s.parentNode.insertBefore(g, s);
-        })();
-    </script>
-
-    <noscript>
-      <p>
-        <img data-name="matomo" data-src="https://matomo.foe.tools/matomo.php?idsite=3&amp;rec=1" style="border:0;" alt=""/>
-      </p>
-    </noscript>
   </body>
 </html>

@@ -3,7 +3,7 @@ const i18nPrefix = "routes.cookie_policy.";
 export default {
   name: "CookiePolicy",
   head() {
-    return { title: this.$t(i18nPrefix + "title") };
+    return { title: this.$t("footer_menu.cookie_policy") };
   },
   data() {
     return {

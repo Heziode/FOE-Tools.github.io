@@ -1113,7 +1113,6 @@
   "seo.keywords.military_units": "unités militaires",
   "cookieConsent.title": "Coucou c'est nous… les Cookies !",
   "cookieConsent.consentNotice.learnMore": "Paramétrer",
-  "cookieConsent.matomo.description": "Collecte de statistiques sur les visiteurs (solution auto-hébergée)",
   "cookieConsent.sentry.description": "Collecter les erreurs pour identifier les bugs potentiels (solution auto-hébergée)",
   "cookieConsent.purposes.analytics": "Analytique",
   "cookieConsent.purposes.necessary": "Nécessaire",
