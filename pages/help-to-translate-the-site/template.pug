@@ -16,6 +16,6 @@ div.content
           :value="$store.get(`translationState@${elt}`)"
           size="is-medium"
           :type="getType($store.get(`translationState@${elt}`))"
-          show-value)
+          show-value :key="elt")
             template(v-if="elt !== 'en'") {{$t('common.lang.' + elt.replace("_", "-") + '.en')}} ({{$t('common.lang.' + elt.replace("_", "-") + '.original')}}): {{$n($store.get(`translationState@${elt}`))}}
             template(v-else) {{$t('common.lang.' + elt.replace("_", "-") + '.original')}}: {{$n($store.get(`translationState@${elt}`))}}
