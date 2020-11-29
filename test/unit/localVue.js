@@ -2,7 +2,7 @@ import { config, createLocalVue, RouterLinkStub } from "@vue/test-utils";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 import clone from "lodash.clonedeep";
 import merge from "lodash.merge";
-import { make } from "vuex-pathify";
+import pathify, { make } from "vuex-pathify";
 
 import Vuex from "vuex";
 import * as storeStructure from "~/store/index";
@@ -101,6 +101,7 @@ export function getView(storeConf) {
       },
     },
   });
+  pathify.plugin(store);
 
   ///////////////
   // Clipboard //
