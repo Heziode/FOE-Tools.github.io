@@ -3967,9 +3967,6 @@ msgstr "Ahoj! To sme my... Cookies!"
 msgid "cookieConsent.consentNotice.learnMore"
 msgstr "Prispôsobiť"
 
-msgid "cookieConsent.matomo.description"
-msgstr "Zhromažďovanie štatistík o návštevníkoch (vlastné riešenie)"
-
 msgid "cookieConsent.sentry.description"
 msgstr ""
 "Zhromažďovanie chýb na identifikáciu potenciálnych chýb (vlastné riešenie)"

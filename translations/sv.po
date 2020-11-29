@@ -3785,9 +3785,6 @@ msgstr "Hejsan ! Det är vi... Kakorna !"
 msgid "cookieConsent.consentNotice.learnMore"
 msgstr "Anpassa"
 
-msgid "cookieConsent.matomo.description"
-msgstr "Samlande av besökarstatistik (egen lösning)"
-
 msgid "cookieConsent.sentry.description"
 msgstr "Samlar fel för att identifiera potentiella buggar (egen lösning)"
 

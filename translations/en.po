@@ -3761,9 +3761,6 @@ msgstr "Hey there ! It's us… the Cookies !"
 msgid "cookieConsent.consentNotice.learnMore"
 msgstr "Customize"
 
-msgid "cookieConsent.matomo.description"
-msgstr "Collecting of visitor statistics (self-hosted solution)"
-
 msgid "cookieConsent.sentry.description"
 msgstr "Collecting errors to identify potential bugs (self-hosted solution)"
 

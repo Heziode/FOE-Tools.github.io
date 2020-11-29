@@ -1111,7 +1111,6 @@
   "routes.about.cookie.p2": "För mer information, referera till följande länkar:",
   "cookieConsent.title": "Hejsan ! Det är vi... Kakorna !",
   "cookieConsent.consentNotice.learnMore": "Anpassa",
-  "cookieConsent.matomo.description": "Samlande av besökarstatistik (egen lösning)",
   "cookieConsent.sentry.description": "Samlar fel för att identifiera potentiella buggar (egen lösning)",
   "cookieConsent.purposes.analytics": "Analys",
   "cookieConsent.purposes.necessary": "Nödvändig",
