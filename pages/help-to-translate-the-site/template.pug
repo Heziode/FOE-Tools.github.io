@@ -10,5 +10,12 @@ div.content
   p {{$t($data.i18nPrefix + 'state_of_translation')}}
 
   div.has-text-centered
-    a(href='https://translate.foe.tools/engage/foe-tools-website/?utm_source=widget')
-      img(src='https://translate.foe.tools/widgets/foe-tools-website/-/website/multi-auto.svg' alt='State of the translation')
+    .columns
+      .column.is-three-fifths.is-offset-one-fifth
+        b-progress(v-for="elt in sortedLocales"
+          :value="$store.get(`translationState@${elt}`)"
+          size="is-medium"
+          :type="getType($store.get(`translationState@${elt}`))"
+          show-value)
+            template(v-if="elt !== 'en'") {{$t('common.lang.' + elt.replace("_", "-") + '.en')}} ({{$t('common.lang.' + elt.replace("_", "-") + '.original')}}): {{$n($store.get(`translationState@${elt}`))}}
+            template(v-else) {{$t('common.lang.' + elt.replace("_", "-") + '.original')}}: {{$n($store.get(`translationState@${elt}`))}}
