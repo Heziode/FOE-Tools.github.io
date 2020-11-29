@@ -1,0 +1,33 @@
+.sidebar {
+  > h1 {
+    text-align: left;
+    margin-left: 15px;
+    font-family: $title-font;
+    font-weight: $title-weight;
+  }
+
+  p.active a {
+    color: $link;
+  }
+
+  .sidebar-nav > ul > li {
+    margin-bottom: 30px;
+    font-size: 17px;
+
+    > p > a {
+      font-size: 17px;
+      font-weight: 700;
+    }
+  }
+
+  > li > p {
+    font-family: $title-font;
+    font-weight: 400;
+    color: $dark;
+  }
+
+  a:hover {
+    color: $link;
+    text-decoration: none;
+  }
+}

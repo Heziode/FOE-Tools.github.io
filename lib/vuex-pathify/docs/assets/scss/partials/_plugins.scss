@@ -1,0 +1,27 @@
+.guide-links {
+  margin-top: 50px;
+  border-top: 1px solid #EEE;
+  padding-top: 20px;
+
+  .guide-link-next {
+    float: right;
+  }
+
+  .guide-link-prev:before {
+    padding-right: 0.4em;
+    content: '←';
+  }
+
+  .guide-link-next:after {
+    padding-left: 0.4em;
+    content: '→';
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}

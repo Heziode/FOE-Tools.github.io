@@ -1,0 +1,6 @@
+{
+  "name": "vuex-pathify-demos",
+  "description": "A set of demos for the Vuex Pathify plugin",
+  "author": "Dave Stewart",
+  "main": "index.html"
+}

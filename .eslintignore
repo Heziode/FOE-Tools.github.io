@@ -48,3 +48,4 @@ plugins/vue-i18n-plural.js
 static/sw.js
 test
 tmp
+lib/vuex-pathify

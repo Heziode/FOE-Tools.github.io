@@ -1,0 +1,14 @@
+@import "partials/variables";
+
+.content {
+  padding-top: 30px;
+}
+
+.markdown-section {
+  @import "partials/formatting";
+  @import "partials/code";
+}
+
+@import "partials/cover";
+@import "partials/sidebar";
+@import "partials/plugins";

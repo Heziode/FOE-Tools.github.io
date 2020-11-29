@@ -472,6 +472,8 @@ module.exports = {
 
   plugins: [
     { src: "~/plugins/vuex-persist", mode: "client" },
+    { src: "~/plugins/vuex-pathify" },
+    { src: "~/plugins/vuex-shared-mutations", mode: "client" },
     { src: "~/plugins/clone.js" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/clipboard.js" },
