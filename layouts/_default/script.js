@@ -71,6 +71,9 @@ export default {
   },
   watch: {
     localesNotCompleted(val) {
+      if (!val.length) {
+        return;
+      }
       let message = this.$t(i18nPrefix + "translation_not_completed.content") + "<ul>";
       for (const elt of val) {
         message += `<li>${this.$t("common.lang." + elt + ".en")} (${this.$t(
