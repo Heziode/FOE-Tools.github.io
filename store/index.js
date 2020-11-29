@@ -1,8 +1,6 @@
 import { defaultLocale } from "~/scripts/locales";
 import * as Errors from "~/scripts/errors";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
-
-import pathify from "vuex-pathify";
 import { make } from "vuex-pathify";
 
 import Vue from "vue";
@@ -12,8 +10,6 @@ const hero = {
   titleConfig: {},
   subtitle: "components.site_layout.hero.slogan_html",
 };
-
-export const plugins = [pathify.plugin];
 
 export const state = () => ({
   /**

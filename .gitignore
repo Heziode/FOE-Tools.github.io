@@ -17,3 +17,4 @@ static/sitemap.xml
 sw.*
 tmp
 .DS_Store
+!lib/vuex-pathify/dist
