@@ -65,6 +65,41 @@ export default {
     hasSurvey() {
       return this.$route.name !== "Survey" && this.$store.get("survey") && this.$store.get("survey").length;
     },
+    localesNotCompleted() {
+      return this.$store.get("localesNotCompleted");
+    },
+  },
+  watch: {
+    localesNotCompleted(val) {
+      let message = this.$t(i18nPrefix + "translation_not_completed.content") + "<ul>";
+      for (const elt of val) {
+        message += `<li>${this.$t("common.lang." + elt + ".en")} (${this.$t(
+          "common.lang." + elt + ".original"
+        )}): ${this.$store.get(`translationState@${val}`)}%</li>`;
+      }
+      message += "</ul>";
+
+      this.$buefy.dialog.confirm({
+        title: this.$t(i18nPrefix + "translation_not_completed.title"),
+        message,
+        type: "is-info",
+        hasIcon: true,
+        icon: "exclamation-circle",
+        iconPack: "fa",
+        cancelText: this.$t("routes.help_to_translate_the_site.hero.title"),
+        confirmText: this.$t("utils.Ok"),
+        canCancel: "button",
+        ariaRole: "alertdialog",
+        ariaModal: true,
+        onCancel: () => {
+          this.$store.set("global/haveReadLocaleNotComplete", true);
+          this.$router.push(this.localePath({ name: "HelpToTranslateTheSite" }));
+        },
+        onConfirm: () => {
+          this.$store.set("global/haveReadLocaleNotComplete", true);
+        },
+      });
+    },
   },
   methods: {
     getNextConversion() {

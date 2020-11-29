@@ -1027,6 +1027,12 @@ msgstr "Automatic"
 msgid "components.site_layout.switch_locale"
 msgstr "@:(common.site_title) is available in your language"
 
+msgid "components.site_layout.translation_not_completed.title"
+msgstr "Translation not completed"
+
+msgid "components.site_layout.translation_not_completed.content"
+msgstr "The following translations is not completed, and needs translators:"
+
 msgid "components.trade.title"
 msgstr "Form version"
 

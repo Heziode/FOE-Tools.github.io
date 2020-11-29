@@ -2,21 +2,27 @@
   "common": {
     "site_title": "FOE Tools",
     "lang": {
+      "ar": { "en": "Arabic", "original": "العربية", "flag": "🇦🇷" },
       "cs": { "en": "Czech", "original": "čeština", "flag": "🇨🇿" },
       "da": { "en": "Danish", "original": "Dansk", "flag": "🇩🇰" },
       "de": { "en": "German", "original": "Deutsch", "flag": "🇩🇪" },
+      "el": { "en": "Greek", "original": "Ελληνικά", "flag": "🇬🇷" },
       "en": { "original": "English", "flag_GB": "🇬🇧", "flag_US": "🇺🇸" },
       "es": { "en": "Spanish", "original": "Español", "flag": "🇪🇸" },
+      "fi": { "en": "Finnish", "original": "Suomalainen", "flag": "🇫🇮" },
       "fr": { "en": "French", "original": "Français", "flag": "🇫🇷" },
       "hu": { "en": "Hungarian", "original": "Magyar", "flag": "🇭🇺" },
       "it": { "en": "Italian", "original": "Italiana", "flag": "🇮🇹" },
       "nl": { "en": "Dutch", "original": "Nederlands", "flag": "🇳🇱" },
+      "nb-NO": { "en": "Norwegian Bokmål", "original": "Norsk bokmål", "flag": "🇳🇴" },
       "pl": { "en": "Polish", "original": "Polski", "flag": "🇵🇱" },
       "pt": { "en": "Portuguese", "original": "Português", "flag": "🇵🇹" },
       "pt-BR": { "en": "Portuguese (Brasil)", "original": "Português", "flag": "🇧🇷" },
+      "ro": { "en": "Romanian", "original": "Română", "flag": "🇷🇴" },
       "ru": { "en": "Russian", "original": "Русский", "flag": "🇷🇺" },
       "sk": { "en": "Slovak", "original": "Slovensko", "flag": "🇸🇰" },
       "sv": { "en": "Swedish", "original": "Svenska", "flag": "🇸🇪" },
+      "th": { "en": "Thai", "original": "ไทย", "flag": "🇹🇭" },
       "tr": { "en": "Turkish", "original": "Türkçe", "flag": "🇹🇷" }
     },
     "links": {

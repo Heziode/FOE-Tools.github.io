@@ -243,6 +243,8 @@
   "components.site_layout.global_config_dialog.day_night_mode.System": "System preference",
   "components.site_layout.global_config_dialog.day_night_mode.Auto": "Automatic",
   "components.site_layout.switch_locale": "@:(common.site_title) is available in your language",
+  "components.site_layout.translation_not_completed.title": "Translation not completed",
+  "components.site_layout.translation_not_completed.content": "The following translations is not completed, and needs translators:",
   "components.trade.title": "Form version",
   "components.trade.label.i_have": "I have",
   "components.trade.label.i_want": "I want",

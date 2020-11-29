@@ -85,6 +85,18 @@ export const state = () => ({
     default: defaultPromotionMessages,
     custom: [],
   },
+
+  /**
+   * Contains translation state.
+   * - key: locale
+   * - value: percentage translated
+   */
+  translationState: {},
+
+  /**
+   * Contains all locale that is currently partially translated and related to user/browser translation preferences
+   */
+  localesNotCompleted: [],
 });
 
 export const mutations = {
