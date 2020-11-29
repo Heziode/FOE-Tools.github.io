@@ -6,6 +6,7 @@ export const state = () => ({
   gbSelectMode: "select",
   fixedMainMenu: true,
   haveReadLocaleInfoAvailable: false,
+  haveReadLocaleNotComplete: false,
   customPromotionMessagesTemplates: [],
   displayTableCard: false,
   haveReadTipAboutAddInvestor: false,

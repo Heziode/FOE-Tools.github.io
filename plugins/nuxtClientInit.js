@@ -133,9 +133,55 @@ function storeProfileSchemaUpdate(store, $clone) {
   }
 }
 
-export default function ({ store, $clone, $moment, $axios }) {
+/**
+ * Detect local to show dialog about incomplete translation if necessary
+ * @param store Vuex
+ * @param {Object} translationState Key: locale code, Value: translation percentage
+ * @param {Object} $i18n Reference to the i18n object
+ */
+function checkLocaleNotCompleted(store, translationState, $i18n) {
+  if (store.get("global/haveReadLocaleNotComplete")) {
+    return;
+  }
+
+  const detectedLocale =
+    navigator.language.replace("-", "_") in translationState
+      ? navigator.language.replace("-", "_")
+      : navigator.language.split("-")[0].toLowerCase() in translationState
+      ? navigator.language.split("-")[0].toLowerCase()
+      : false;
+  const localesNotCompleted = [];
+  if (detectedLocale && translationState[detectedLocale] < 80) {
+    // case translation doesn't started
+    localesNotCompleted.push(detectedLocale);
+  }
+  if (localesNotCompleted.indexOf($i18n.locale) < 0 && translationState[$i18n.locale] < 80) {
+    localesNotCompleted.push($i18n.locale);
+  }
+  store.set("localesNotCompleted", localesNotCompleted);
+}
+
+async function getLocaleCompletion(store, $axios, $i18n) {
+  let url = "https://translate.foe.tools/api/components/foe-tools-website/website/statistics/";
+  let obj = {};
+  do {
+    const localesStatistics = await $axios.get("https://cors-anywhere.herokuapp.com/" + url);
+    localesStatistics.data.results.map((elt) => {
+      obj[elt.code] = elt.translated_percent;
+    });
+    url = localesStatistics.data.next;
+  } while (url);
+
+  setTimeout(() => {
+    store.set("translationState", obj);
+    checkLocaleNotCompleted(store, obj, $i18n);
+  }, 0);
+}
+
+export default function ({ store, $clone, $moment, $axios, app }) {
   initStore(store);
   storeProfileSchemaUpdate(store, $clone);
   dayNightMode(store, $clone, $moment);
   getSurvey(store, $axios);
+  getLocaleCompletion(store, $axios, app.i18n);
 }
