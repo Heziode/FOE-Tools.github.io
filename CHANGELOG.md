@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.74.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.73.0...v2.74.0) (2020-11-29)
+
+
+### Features
+
+* **analytics:** moving from Matomo to Plausible ([9367ef8](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9367ef858ea848057ddbd3cba9e7f130aad78ddf))
+* **i18n:** add a notification to encourage people to participate to the translation ([54ea74c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/54ea74c33845323470223fbb38e220e9d1759bef)), closes [#381](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/381)
+* **language-selector:** add percentage of translation for uncompleted translations ([3edcc36](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3edcc3605feecaa4d7b408f6b147b5d1064d6e9a))
+
+
+### Bug Fixes
+
+* **tab-sync:** fix performance issues related to tab synchronization ([3162363](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3162363798fc676eec6191936ac45f2688243e0d))
+
+
+### Translation
+
+* Translated using Weblate (Hungarian) ([28e7d77](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/28e7d77a58eae76bcdcc5413177a6128482f7909))
+
 ## [2.73.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.72.2...v2.73.0) (2020-11-22)
 
 
