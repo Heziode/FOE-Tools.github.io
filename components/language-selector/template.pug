@@ -5,6 +5,7 @@ div
         .media-left
           span {{$t(`common.lang.${$i18n.locale}.${$i18n.locale === "en" ? "flag_GB" : "flag"}`)}}
         .media-content {{ $t('common.lang.' + this.$i18n.locale + '.original') }}
+          strong(v-if="this.$i18n.locale.replace('-', '_') in $store.get('translationState') && $store.get(`translationState@${this.$i18n.locale.replace('-', '_')}`) < 80")  ({{$store.get(`translationState@${this.$i18n.locale.replace('-', '_')}`)}}%)
         .media-right(v-if="this.$i18n.locale === 'en'")
           span {{$t("common.lang.en.flag_US")}}
       span.icon
@@ -15,6 +16,7 @@ div
         .media-left
           span {{$t(`common.lang.${lang.key}.${lang.key === "en" ? "flag_GB" : "flag"}`)}}
         .media-content {{ lang.displayName }}
+          strong(v-if="lang.key.replace('-', '_') in $store.get('translationState')")  ({{$store.get(`translationState@${lang.key.replace('-', '_')}`)}}%)
         .media-right(v-if="lang.key === 'en'")
           span {{$t("common.lang.en.flag_US")}}
     hr.navbar-divider
