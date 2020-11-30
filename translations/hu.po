@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.372Z\n"
-"PO-Revision-Date: 2020-11-25 18:02+0000\n"
-"Last-Translator: Tóth Norbert <xnorbi9@gmail.com>\n"
+"PO-Revision-Date: 2020-12-01 17:40+0000\n"
+"Last-Translator: Bolond Lajos <bolondlajos2@citromail.hu>\n"
 "Language-Team: Hungarian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/hu/>\n"
 "Language: hu\n"
@@ -83,7 +83,7 @@ msgid "components.cf_calculator.block_cfc.your_cf_boost"
 msgstr "A @:(foe_data.gb.Chateau_Frontenac) bónuszod"
 
 msgid "components.cf_calculator.block_cfc.coins_to_use"
-msgstr "A \"Nem születésnapi buli\" küldetésben befizetendő pénz mennyiésge"
+msgstr "A „Nem születésnapi buli” küldetésben befizetendő pénz mennyisége"
 
 msgid "components.cf_calculator.block_cfc.coins_supplies_info"
 msgstr ""
@@ -369,7 +369,7 @@ msgstr "A szint eléréséhez szükséges becsült idő: {time}"
 
 msgid "components.gb_forecast_cost.message.diff"
 msgid_plural "components.gb_forecast_cost.message.diff"
-msgstr[0] "Bónuszbefektetésekkel megtakarítasz:  {count} FP-t"
+msgstr[0] "Bónuszbefektetésekkel megtakarítasz: {count} FP-t"
 msgstr[1] "Bónuszbefektetésekkel megtakarítasz: {count} FP-t"
 
 msgid "components.gb_forecast_cost.message.single"
@@ -380,8 +380,8 @@ msgstr ""
 msgid "components.gb_forecast_cost.message.multi"
 msgstr ""
 "A {gb} nevezetes épület {from} szintől {to} szintre való fejlesztésének "
-"költsége a tulajdonos számára {preparation}\n"
-"A szintlépések teljes összköltésge: {cost}"
+"költsége a tulajdonos számára {preparation} FP. A szintlépések teljes "
+"összköltsége: {cost} FP."
 
 msgid "components.gb_forecast_cost.message.estimated_time"
 msgstr "A kívánt szint eléréséhez szükséges idő: {time}"
@@ -427,8 +427,8 @@ msgstr "Az első helyezés jutalmának alakulása a szintek költségének arán
 
 msgid "components.secure_position.block_place.fp_to_complete_level"
 msgid_plural "components.secure_position.block_place.fp_to_complete_level"
-msgstr[0] "A szint befejezéséhez szükséges FP-k száma"
-msgstr[1] "A szint befejezéséhez szükséges FP-k száma"
+msgstr[0] "A szint befejezéséhez szükséges FP:"
+msgstr[1] "A szint befejezéséhez szükséges FP-k száma:"
 
 msgid "components.secure_position.block_place.place"
 msgstr "{place}({count} FP)"
@@ -459,11 +459,11 @@ msgstr "Megszerezni kívánt helyezés"
 
 msgid "components.secure_position.block_place.result.fp_need_to_lock"
 msgid_plural "components.secure_position.block_place.result.fp_need_to_lock"
-msgstr[0] "Saját helyezés biztosításához szükséges FP mennyiség"
-msgstr[1] "Saját helyezés biztosításához szükséges FP mennyiség"
+msgstr[0] "Saját helyezés biztosításához szükséges FP mennyisége:"
+msgstr[1] "Saját helyezés biztosításához szükséges FP-k mennyisége:"
 
 msgid "components.secure_position.block_place.result.fp_to_secure_html"
-msgstr "Még {count} FP-t kell betenned"
+msgstr "Még {count} FP-t kell betenned."
 
 msgid "components.secure_position.block_place.result.error"
 msgstr "Egy vagy több érték érvénytelen."
@@ -600,7 +600,7 @@ msgstr "Promóciós üzenet készítő"
 msgid "components.promotion_message_builder.info"
 msgstr ""
 "Ez az üzenet másolható, hogy másokkal meg tudd osztani, például a "
-"céhtársaiddal."
+"céhtársaiddal"
 
 msgid "components.promotion_message_builder.actions.create"
 msgstr "Új sablon létrehozása"
@@ -731,7 +731,7 @@ msgid "routes.campaign_cost.hero.title"
 msgstr "Hadjárat költsége"
 
 msgid "routes.campaign_cost.hero.subtitle"
-msgstr "Fair"
+msgstr "Ez az eszköz megmutatja egy szektor vagy tartomány költségeit."
 
 msgid "routes.cf_calculator.title"
 msgstr "@:(routes.cf_calculator.hero.title) | @:(common.site_title)"
@@ -773,7 +773,7 @@ msgstr ""
 "(Bárka bónusz) biztosítsa."
 
 msgid "routes.gb_investment_gb_chooser.choose_gb.title"
-msgstr "Válassz egy nevezetes épületet!"
+msgstr "Válassz egy nevezetes épületet"
 
 msgid "routes.gb_forecast_cost.title"
 msgstr "@:(routes.gb_forecast_cost.hero.title) | @:(common.site_title)"
@@ -814,8 +814,8 @@ msgstr "2:1"
 
 msgid "routes.trade.tab.trade_2_1.message"
 msgstr ""
-"Egyszerű kereskedelem, 1:1 arány azonos korú árucikkek esetében és 1:2 "
-"arány egyel alacsonyabb vagy magasabb korú árucikkek esetében"
+"Egyszerű kereskedelem, 1:1 arány azonos korú árucikkek esetében és 1:2 arány "
+"egyel alacsonyabb vagy magasabb korú árucikkek esetében."
 
 msgid "routes.trade.tab.fair_trade.title"
 msgstr "Tisztességes kereskedelem"
@@ -836,8 +836,8 @@ msgstr "Belépés a fordító csapatba"
 
 msgid "routes.help_to_translate_the_site.p1"
 msgstr ""
-"A nyelveden még nem elérhető, a fordítás még hiányos vagy hibákat "
-"tartalmaz? Csatlakozz a fordító csapathoz!"
+"A nyelveden még nem elérhető, a fordítás még hiányos vagy hibákat tartalmaz? "
+"Csatlakozz a fordító csapathoz."
 
 msgid "routes.help_to_translate_the_site.how_to_join_the_team"
 msgstr "Hogy lehetek a csapat tagja?"
@@ -1170,22 +1170,22 @@ msgid "foe_data.gb_short.The_Habitat"
 msgstr "Habitat"
 
 msgid "foe_data.gb_short.Lotus_Temple"
-msgstr "Lotus"
+msgstr "Lótusz"
 
 msgid "foe_data.gb_short.Innovation_Tower"
 msgstr "Inno"
 
 msgid "foe_data.gb_short.Truce_Tower"
-msgstr "Dynamic"
+msgstr "Barátság"
 
 msgid "foe_data.gb_short.Voyager_V1"
 msgstr "Voyager"
 
 msgid "foe_data.gb_short.The_Arc"
-msgstr "Arc"
+msgstr "Bárka"
 
 msgid "foe_data.gb_short.Rain_Forest_Project"
-msgstr "RFP"
+msgstr "Esőerdő"
 
 msgid "foe_data.gb_short.The_Kraken"
 msgstr "Kraken"
@@ -2393,25 +2393,25 @@ msgid "foe_data.bonus.medal_production.name"
 msgstr "Medál termelés"
 
 msgid "foe_data.bonus.medal_production.gb_description"
-msgstr "Bizonyos mennyiségű medált termel 24 óránként"
+msgstr "Bizonyos mennyiségű medált termel 24 óránként."
 
 msgid "foe_data.bonus.research.name"
 msgstr "Kutatás"
 
 msgid "foe_data.bonus.research.gb_description"
-msgstr "Bizonyos mennyiségű FP-t termel 24 óránként"
+msgstr "Bizonyos mennyiségű FP-t termel 24 óránként."
 
 msgid "foe_data.bonus.coin_production.name"
 msgstr "Pénz termelés"
 
 msgid "foe_data.bonus.coin_production.gb_description"
-msgstr "Bizonyos mennyiségű pénzt termel 24 óránként"
+msgstr "Bizonyos mennyiségű pénzt termel 24 óránként."
 
 msgid "foe_data.bonus.supply_production.name"
 msgstr "Alapanyag termelés"
 
 msgid "foe_data.bonus.supply_production.gb_description"
-msgstr "Bizonyos mennyiségű alapanyagot termel 24 óránként"
+msgstr "Bizonyos mennyiségű alapanyagot termel 24 óránként."
 
 msgid "foe_data.bonus.population.name"
 msgstr "Népesség"
@@ -2657,3 +2657,103 @@ msgstr "Süti policy"
 
 msgid "footer_menu.privacy_policy"
 msgstr "Adatvédelmi irányelvek"
+
+msgid "foe_data.gb_short.Atlantis_Museum"
+msgstr "Atlantisz"
+
+msgid "foe_data.gb_short.Himeji_Castle"
+msgstr "Himedzsi"
+
+msgid "foe_data.gb_short.Space_Carrier"
+msgstr "Teher"
+
+msgid "foe_data.gb_short.The_Virgo_Project"
+msgstr "Virgo"
+
+msgid "foe_data.gb_short.Terracotta_Army"
+msgstr "Agyag"
+
+msgid "foe_data.gb_short.The_Blue_Galaxy"
+msgstr "KG"
+
+msgid "foe_data.gb_short.Seed_Vault"
+msgstr "Magbank"
+
+msgid "foe_data.gb_short.Gaea_Statue"
+msgstr "Gaia"
+
+msgid "foe_data.gb_short.Arctic_Orangery"
+msgstr "AO"
+
+msgid "foe_data.gb.Galata_Tower"
+msgstr "Galata torony"
+
+msgid "foe_data.age_short.SpaceAgeMars"
+msgstr "SAM"
+
+msgid "routes.donate.conversion"
+msgstr "Ha értékeli a munkámat, kérem, fontolja meg az adományt."
+
+msgid "routes.contact.message_translate"
+msgstr ""
+"Tudta, hogy ön is segíthet a webhely fordításában? Kövesse az alábbi linket "
+"további információkért:"
+
+msgid "routes.help_to_translate_the_site.state_of_translation"
+msgstr "A fordítás állapota:"
+
+msgid "routes.contributors.hero.subtitle"
+msgstr "Ez az oldal megpróbálja felsorolni az összes közreműködőt"
+
+msgid "routes.about.dev_info.p1"
+msgstr "A webhely egy egyszerű statikus webhely, amelyet a GitHub tárol."
+
+msgid "routes.about.cookie.p2"
+msgstr "További információkért kérjük, olvassa el a következő linkeket:"
+
+msgid "routes.about.cookie.info.cookieConsent"
+msgstr "Az ön sütibeállításai"
+
+msgid "components.import_promotion_message.template_imported"
+msgstr "Sablon importálva"
+
+msgid "components.import_promotion_message.errors.invalid_data"
+msgstr "Az adatok érvénytelenek"
+
+msgid "components.import_promotion_message.config_placeholder"
+msgstr "Illessze ide a konfigurációját"
+
+msgid "components.import_promotion_message.title"
+msgstr "Promóciós üzenet importálása"
+
+msgid "components.promotion_message_builder.template_deleted"
+msgstr "Sablon törölve"
+
+msgid "components.promotion_message_builder.template_updated"
+msgstr "Sablon frissítve"
+
+msgid "components.promotion_message_builder.template_saved"
+msgstr "Sablon mentve"
+
+msgid ""
+"components.promotion_message_builder.errors.custom_name_already_"
+"exists"
+msgstr "Ez a mezőnév már létezik."
+
+msgid "components.promotion_message_builder.errors.custom_name_empty"
+msgstr "A mező neve nem lehet üres."
+
+msgid "components.promotion_message_builder.variables.message.LC"
+msgstr "Szintköltség"
+
+msgid "components.promotion_message_builder.variables.message.PVx"
+msgstr ""
+"A befektető által az „x” helyre betett FP-k száma (az „x\" értéke 1-től 5-ig)"
+
+msgid "components.promotion_message_builder.variables.message.PPx"
+msgstr ""
+"A tulajdonos által az „x” helyre betett FP-k száma (az „x\" értéke 1-től "
+"5-ig)"
+
+msgid "components.promotion_message_builder.message_builder_title"
+msgstr "Üzenetkészítő"
