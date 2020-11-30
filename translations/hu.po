@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.372Z\n"
 "PO-Revision-Date: 2020-12-01 17:40+0000\n"
-"Last-Translator: Bolond Lajos <bolondlajos2@citromail.hu>\n"
+"Last-Translator: enerbe <norbert@gxh.hu>\n"
 "Language-Team: Hungarian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/hu/>\n"
 "Language: hu\n"
@@ -2757,3 +2757,9 @@ msgstr ""
 
 msgid "components.promotion_message_builder.message_builder_title"
 msgstr "Üzenetkészítő"
+
+msgid "components.cf_calculator.block_cfc.second_rq"
+msgstr "Van második ismétlődő?"
+
+msgid "components.cf_calculator.block_cfc.gb_plunder_goods"
+msgstr "Nevezetes és zsákmány áru"
