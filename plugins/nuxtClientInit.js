@@ -162,10 +162,11 @@ function checkLocaleNotCompleted(store, translationState, $i18n) {
 }
 
 async function getLocaleCompletion(store, $axios, $i18n) {
+  const urlPrefix = process.env.NODE_ENV === "production" ? "" : "https://cors-anywhere.herokuapp.com/";
   let url = "https://translate.foe.tools/api/components/foe-tools-website/website/statistics/";
   let obj = {};
   do {
-    const localesStatistics = await $axios.get("https://cors-anywhere.herokuapp.com/" + url);
+    const localesStatistics = await $axios.get(urlPrefix + url);
     localesStatistics.data.results.map((elt) => {
       obj[elt.code] = elt.translated_percent;
     });
