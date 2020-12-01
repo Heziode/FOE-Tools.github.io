@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:52.129Z\n"
-"PO-Revision-Date: 2020-11-17 15:49+0000\n"
+"PO-Revision-Date: 2020-12-01 17:40+0000\n"
 "Last-Translator: Magnus Beutner <magnus.beutner@gmail.com>\n"
 "Language-Team: Swedish <https://translate.foe.tools/projects/"
 "foe-tools-website/website/sv/>\n"
@@ -3928,3 +3928,9 @@ msgstr "Ta bort från favoriter"
 
 msgid "components.gb_investment.add_favourite"
 msgstr "Spara till favoriter"
+
+msgid "components.site_layout.translation_not_completed.content"
+msgstr "Följande översättningar är ej färdiga och behöver översättare:"
+
+msgid "components.site_layout.translation_not_completed.title"
+msgstr "Översättning ej färdig"
