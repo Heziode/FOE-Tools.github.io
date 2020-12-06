@@ -623,8 +623,7 @@ module.exports = {
 
   purgeCSS: {
     keyframes: true,
-    // enabled: process.env.NODE_ENV === "production",
-    enabled: true,
+    enabled: process.env.NODE_ENV === "production",
     content: [
       "components/**/*.{vue,js,pug,scss,sass,css}",
       "layouts/**/*.{vue,js,pug,scss,sass,css}",
