@@ -3,7 +3,8 @@ import { make } from "vuex-pathify";
 
 export const state = () => ({
   survey: [],
-  gbSelectMode: "select",
+  gbSelectMode: "select", // select | datalist
+  gbSelectSortMode: "age", // age | alpha
   fixedMainMenu: true,
   haveReadLocaleInfoAvailable: false,
   haveReadLocaleNotComplete: false,

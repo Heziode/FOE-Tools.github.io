@@ -3711,6 +3711,9 @@ msgstr "Gain du niveau (1er place)"
 msgid "utils.favourites"
 msgstr "Favoris"
 
+msgid "utils.alpha_order"
+msgstr "Ordre alphabétique"
+
 msgid "contributions.blog"
 msgstr "Articles de blog"
 

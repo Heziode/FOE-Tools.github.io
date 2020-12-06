@@ -1081,6 +1081,7 @@
   "utils.graph.gb_level_cost": "Coût du niveau",
   "utils.graph.gb_reward_1st_place": "Gain du niveau (1er place)",
   "utils.favourites": "Favoris",
+  "utils.alpha_order": "Ordre alphabétique",
   "contributions.blog": "Articles de blog",
   "contributions.bug": "Rapports de bogues",
   "contributions.code": "Code",
