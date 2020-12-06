@@ -651,5 +651,9 @@
   "foe_data.province.Chigikawa": "Chigikawa",
   "foe_data.province.Igujima": "Igujima",
   "foe_data.bonus.exploration_site.gb_description": "---",
-  "seo.keywords.military_units": "Militærenheder"
+  "seo.keywords.military_units": "Militærenheder",
+  "components.cf_calculator.tutorial.dailyUbq": "Antallet af ej-fødselsdags missioner, som du kan fuldføre, sammenlignet med hvad du er villig til at bruge af mønter og ressourcer.",
+  "components.cf_calculator.tutorial.yourCfBoost": "Indsæt @:(foe_data.gb.Chateau_Frontenac) boost.\n\nEksempel: for 450%, indsæt 450.",
+  "footer_menu.privacy_policy": "Privatpolitik",
+  "footer_menu.cookie_policy": "Cookie Politik"
 }

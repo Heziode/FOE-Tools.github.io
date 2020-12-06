@@ -623,8 +623,7 @@ module.exports = {
 
   purgeCSS: {
     keyframes: true,
-    // enabled: process.env.NODE_ENV === "production",
-    enabled: true,
+    enabled: process.env.NODE_ENV === "production",
     content: [
       "components/**/*.{vue,js,pug,scss,sass,css}",
       "layouts/**/*.{vue,js,pug,scss,sass,css}",
@@ -635,8 +634,8 @@ module.exports = {
       "plugins/**/*.ts",
       "nuxt.config.ts",
     ],
-    whitelistPatterns: [/mdi/, /icon/, /is-grouped/, /tooltip.*/, /navbar.*/],
-    whitelistPatternsChildren: [/select/, /switch/, /modal/, /b-tabs/, /autocomplete/, /dropdown/],
+    whitelistPatterns: [/mdi/, /icon/, /is-grouped/, /tooltip.*/, /navbar.*/, /control.*/, /progress.*/],
+    whitelistPatternsChildren: [/select/, /switch/, /modal/, /b-tabs/, /autocomplete/, /dropdown/, /progress.*/],
   },
 
   sentry: {
