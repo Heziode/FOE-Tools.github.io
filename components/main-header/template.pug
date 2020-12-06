@@ -4,6 +4,9 @@ header
       b-navbar-item(tag="router-link" :to="localePath({ name: 'Home' })")
         img(src="/icon.png" alt="FOE-Tools logo" width="28" height="28")
 
+      div.is-hidden-desktop(v-if="['GbInvestment'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) >= 0")
+        gb-list-select(:current="$route.params.gb" @change="goTo($event)" :only-selector="true")
+
     template(slot="start")
       template(v-for="value in mainMenu")
         template(v-if="value.children.length === 0")
