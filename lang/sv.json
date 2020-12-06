@@ -1158,5 +1158,7 @@
   "utils.favourites": "Favoriter",
   "components.site_layout.global_config_dialog.day_night_mode.System": "System preferens",
   "components.gb_investment.remove_favourite": "Ta bort från favoriter",
-  "components.gb_investment.add_favourite": "Spara till favoriter"
+  "components.gb_investment.add_favourite": "Spara till favoriter",
+  "components.site_layout.translation_not_completed.content": "Följande översättningar är ej färdiga och behöver översättare:",
+  "components.site_layout.translation_not_completed.title": "Översättning ej färdig"
 }
