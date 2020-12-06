@@ -635,8 +635,8 @@ module.exports = {
       "plugins/**/*.ts",
       "nuxt.config.ts",
     ],
-    whitelistPatterns: [/mdi/, /icon/, /is-grouped/, /tooltip.*/, /navbar.*/],
-    whitelistPatternsChildren: [/select/, /switch/, /modal/, /b-tabs/, /autocomplete/, /dropdown/],
+    whitelistPatterns: [/mdi/, /icon/, /is-grouped/, /tooltip.*/, /navbar.*/, /control.*/, /progress.*/],
+    whitelistPatternsChildren: [/select/, /switch/, /modal/, /b-tabs/, /autocomplete/, /dropdown/, /progress.*/],
   },
 
   sentry: {
