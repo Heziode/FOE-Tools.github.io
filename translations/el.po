@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:50.998Z\n"
-"PO-Revision-Date: 2020-09-09 09:56+0000\n"
+"PO-Revision-Date: 2020-12-06 15:49+0000\n"
 "Last-Translator: Weblate Admin <admin@foe.tools>\n"
 "Language-Team: Greek <https://translate.foe.tools/projects/foe-tools-website/"
 "website/el/>\n"
@@ -301,7 +301,7 @@ msgid "components.gb_investment.gb_investment.use_short_name"
 msgstr "Χρήση συντομογραφίας τού ΜΚ ;"
 
 msgid "components.gb_investment.gb_investment.display_gb_name"
-msgstr "Αναγραφή ονομασίας τού ΜΚ ;"
+msgstr "Αναγραφή ονομασίας του ΜΚ ;"
 
 msgid "components.gb_investment.gb_investment.table.tfoot.level_cost"
 msgstr "Σύνολο ΦΠ ολοκλήρωσης του επιπέδου"
@@ -336,13 +336,13 @@ msgid "components.gb_investment.gb_investment.table.thead.th6"
 msgstr "Αναγραφή στο μήνυμα αναγγελίας"
 
 msgid "components.gb_investment.gb_investment.table.thead.th5"
-msgstr "% προσαύξηση ΦΠ συνεισφερόντων (προσαύξηση Θόλου)"
+msgstr "% προσαύξηση συνεισφερόντων (προσαύξηση Θόλου)"
 
 msgid "components.gb_investment.gb_investment.table.thead.th4"
 msgstr "Προσαυξημένες ανταμοιβές"
 
 msgid "components.gb_investment.gb_investment.table.thead.th3"
-msgstr "ΦΠ εισφοράς τού κατόχου γι' ασφάλιση των θέσεων"
+msgstr "ΦΠ εισφοράς του κατόχου για ασφάλιση της θέσης"
 
 msgid "components.gb_investment.gb_investment.table.thead.th2"
 msgstr "Αρχικές ανταμοιβές"
@@ -354,7 +354,7 @@ msgid "components.gb_investment.gb_investment.form.owner_investment"
 msgstr "ΦΠ ήδη τοποθετημένοι από τον κάτοχο (μέγιστη {max})"
 
 msgid "components.gb_investment.gb_investment.form.investor_percentage"
-msgstr "% προσαύξηση για όλους τούς συνεισφέροντες (προσαύξηση Θόλου)"
+msgstr "% προσαύξηση για όλους τους συνεισφέροντες (προσαύξηση Θόλου)"
 
 msgid "components.gb_investment.gb_investment.description.p1"
 msgstr ""
@@ -368,7 +368,7 @@ msgstr "Επιλογή Μεγάλου Κτιρίου"
 msgid "components.cf_calculator.tutorial.coinSupplyReturn"
 msgstr ""
 "Σ' αυτόν τον πίνακα εμφανίζεται η ποσότητα των νομισμάτων και των προμηθειών "
-"που, στατιστικά, θα κερδίσετε, βάσει τής αρχικής σας δαπάνης, (σύμφωνα μ "
+"που, στατιστικά, θα κερδίσετε, βάσει της αρχικής σας δαπάνης, (σύμφωνα μ "
 "αυτά που προτίθεστε να δαπανήσετε σε νομίσματα και προμήθειες)."
 
 msgid "components.cf_calculator.tutorial.secondRqCompleted"
@@ -986,7 +986,7 @@ msgstr[1] "Εμφάνιση επιπλέον συνεισφερόντων"
 msgid ""
 "components.gb_investment.gb_investment.table.thead.real_"
 "participation"
-msgstr "ΦΠ που λαμβάνονται βάσει της % προσαύξησης του Θόλου σας"
+msgstr "ΦΠ που λήφθηκαν βάσει της % προσαύξησης του Θόλου σας"
 
 msgid ""
 "components.gb_investment.gb_investment.table.thead.expected_"
@@ -1011,11 +1011,11 @@ msgid ""
 "components.gb_investment.gb_investment.form.tooltip_add_"
 "investors"
 msgstr ""
-"Επιλέξτε το κουμπί \"@:(utils.Add)\" ή πατήστε το πλήκτρο \"Enter\" για να "
-"προσθέσετε συνεισφέροντα"
+"Πατήστε το κουμπί \"@:(utils.Add)\" ή το πλήκτρο \"Enter\" για να προσθέσετε "
+"συνεισφέροντα"
 
 msgid "components.cf_calculator.tutorial.totalFp"
-msgstr "Ποσότητα ΦΠ που θα κερδηθούν από αποστολές, ΜΚ, κ.λπ."
+msgstr "Αριθμός ΦΠ που θα κερδηθούν από αποστολές, ΜΚ, κλπ."
 
 msgid "foe_data.province.Moravaria"
 msgstr "Moravaria, (Μοραβαρία)"
@@ -1697,3 +1697,27 @@ msgstr "Μεταμοντέρνα Εποχή"
 
 msgid "components.gb_investment.gb_investment.title"
 msgstr "@:(routes.gb_investment_gb_chooser.hero.title)"
+
+msgid "components.gb_investment.gb_investment.table.title"
+msgstr "{gb_key} επίπεδο {fromLevel} → {level}"
+
+msgid "components.gb_investment.gb_investment.form.add_investors"
+msgstr ""
+"Προσθήκη συνεισφέροντα (εισάγετε την τιμή των ΦΠ, @:(utils.between_range))"
+
+msgid "components.cf_calculator.tutorial.totalGoods"
+msgstr "Ποσότητα αγαθών που θα κερδηθούν από αποστολές, ΜΚ, κλπ."
+
+msgid "components.cf_calculator.tutorial.goods"
+msgstr ""
+"Σημειώστε τον αριθμό αγαθών που συγκεντρώνετε από τα ΜΚ σας και τις "
+"λεηλασίες."
+
+msgid "components.cf_calculator.block_cfc.supplies_gathered"
+msgstr "Προμήθειες που συλλέχθηκαν"
+
+msgid "components.cf_calculator.block_cfc.gb_plunder_goods"
+msgstr "Αγαθά από ΜΚ και Λεηλασίες"
+
+msgid "footer_menu.privacy_policy"
+msgstr "Πολιτική Απορρήτου "
