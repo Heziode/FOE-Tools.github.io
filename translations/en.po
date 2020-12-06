@@ -3665,6 +3665,9 @@ msgstr "Level reward (1st place)"
 msgid "utils.favourites"
 msgstr "Favourites"
 
+msgid "utils.alpha_order"
+msgstr "Alphabetical order"
+
 msgid "contributions.blog"
 msgstr "Blogposts"
 

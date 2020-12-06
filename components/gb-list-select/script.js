@@ -44,6 +44,7 @@ export default {
       });
     },
     gbSelectModeDatalist: sync("global/gbSelectMode"),
+    gbSelectSortMode: sync("global/gbSelectSortMode"),
     bookmarks: /* istanbul ignore next */ function () {
       let r = this.$store
         .get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)

@@ -27,9 +27,10 @@ import {
   faCog,
   faBookmark as fasBookmark,
   faPlusSquare,
+  faSortAlphaDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faCopy, faQuestionCircle, faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faCopy, faQuestionCircle, faBookmark as farBookmark, faBuilding } from "@fortawesome/free-regular-svg-icons";
 
 // This is important, we are going to let Nuxt.js worry about the CSS
 config.autoAddCss = false;
@@ -65,7 +66,9 @@ library.add(
   faGithub,
   farBookmark,
   fasBookmark,
-  faPlusSquare
+  faPlusSquare,
+  faSortAlphaDown,
+  faBuilding
 );
 
 // Register the component globally

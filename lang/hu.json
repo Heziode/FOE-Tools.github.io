@@ -835,5 +835,6 @@
   "components.cf_calculator.tutorial.supplies": "Írd be mennyi alapanyagot kívánsz elkölteni az összes küldetésre.",
   "components.cf_calculator.tutorial.coins": "Írd ide, hogy mennyi pénzt kívánsz költeni az összes küldetésre.",
   "components.cf_calculator.tutorial.yourCfBoost": "Írd be is a @:(foe_data.gb.Chateau_Frontenac) bónuszodat.\n\nPéldául: 450% esetén írj be 450-et.",
-  "footer_menu.cookie_policy": "Süti policy"
+  "footer_menu.cookie_policy": "Süti policy",
+  "footer_menu.privacy_policy": "Adatvédelmi irányelvek"
 }
