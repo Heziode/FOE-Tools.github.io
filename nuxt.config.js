@@ -1,3 +1,4 @@
+import { parseISO } from "date-fns";
 import { JSDOM } from "jsdom";
 import { defaultLocale, supportedLocales } from "./scripts/locales";
 import Vue from "vue";
@@ -620,6 +621,24 @@ module.exports = {
     },
   },
 
+  purgeCSS: {
+    keyframes: true,
+    // enabled: process.env.NODE_ENV === "production",
+    enabled: true,
+    content: [
+      "components/**/*.{vue,js,pug,scss,sass,css}",
+      "layouts/**/*.{vue,js,pug,scss,sass,css}",
+      "pages/**/*.{vue,js,pug,scss,sass,css}",
+      "assets/**/*.{scss,sass,css}",
+      "plugins/**/*.js",
+      "nuxt.config.js",
+      "plugins/**/*.ts",
+      "nuxt.config.ts",
+    ],
+    whitelistPatterns: [/mdi/, /icon/, /is-grouped/, /tooltip.*/, /navbar.*/],
+    whitelistPatternsChildren: [/select/, /switch/, /modal/, /b-tabs/, /autocomplete/, /dropdown/],
+  },
+
   sentry: {
     dsn: "https://4088bc858d3d4dd3859d9b214d21720a@sentry.foe.tools/2",
     config: {
@@ -635,5 +654,15 @@ module.exports = {
     },
   },
 
-  buildModules: ["@nuxtjs/router-extras", "@nuxtjs/svg"],
+  buildModules: [
+    "@nuxtjs/router-extras",
+    "@nuxtjs/svg",
+    [
+      "~/modules/buefy-loader",
+      {
+        defaultDateParser: (date) => parseISO(date),
+      },
+    ],
+    "nuxt-purgecss",
+  ],
 };
