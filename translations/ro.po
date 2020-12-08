@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.910Z\n"
-"PO-Revision-Date: 2020-10-18 18:19+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2020-12-09 02:42+0000\n"
+"Last-Translator: Daria Belousova <dasha17belousova@gmail.com>\n"
 "Language-Team: Romanian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ro/>\n"
 "Language: ro\n"
@@ -34,7 +34,7 @@ msgstr "@:(routes.gb_statistics.hero.title)"
 msgid "components.campaign_cost.message.haveUnknownCosts"
 msgstr ""
 "Aceasta provincie contine unul sau mai multe sectoare carora le lipsesc "
-"valorile"
+"valorile."
 
 msgid "main_menu.campaign_cost"
 msgstr "@:(routes.campaign_cost.hero.title)"
@@ -124,3 +124,35 @@ msgstr "Total bunuri: {count}"
 
 msgid "components.cf_calculator.block_cfc.coins_to_use"
 msgstr "Monezi de folosit la UBQ"
+
+#, fuzzy
+msgid "components.cf_calculator.tutorial.yourCfBoost"
+msgstr ""
+"Introduceți „quest-bonusul” al @:(foe_data.gb.Chateau_Frontenac) dvs\n"
+"Exemplu: pentru 450%, introduceti 450."
+
+msgid "components.cf_calculator.tutorial.yourAge"
+msgstr "Selectati era dvs."
+
+msgid "components.cf_calculator.tutorial.welcome"
+msgstr ""
+"Acest instrument are doar scop informativ. Arată ce poți obține teoretic de "
+"la @:(foe_data.gb.Chateau_Frontenac)."
+
+msgid "components.cf_calculator.block_cfc.infinity_generator.label"
+msgstr "Quest cumulativ"
+
+msgid "components.cf_calculator.block_cfc.table_return.thead.th_supply"
+msgstr "Returnarea proviziilor"
+
+msgid "components.cf_calculator.block_cfc.table_return.thead.th_coin"
+msgstr "Returnarea monedelor"
+
+msgid "components.cf_calculator.block_cfc.reward_message.total_fp"
+msgstr "PF totale: {count}"
+
+msgid "components.cf_calculator.block_cfc.reward_message.daily_ubq"
+msgstr "Provocările zilnice: {count}"
+
+msgid "components.cf_calculator.block_cfc.table_reward.thead.th4"
+msgstr "PF"
