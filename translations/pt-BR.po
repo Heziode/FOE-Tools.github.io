@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.752Z\n"
-"PO-Revision-Date: 2020-08-30 18:38+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2020-12-10 18:33+0000\n"
+"Last-Translator: João Neto <jhonneto1221@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://translate.foe.tools/projects/"
 "foe-tools-website/website/pt_BR/>\n"
 "Language: pt-BR\n"
@@ -606,7 +606,7 @@ msgid "components.gb_investment.tutorial.add_investors"
 msgstr ""
 "Tem investidores aleatórios no seu GE que são maiores ou menores que o bônus "
 "desejado?\n"
-"Coloque todos os investidores estranhos neste campo separadamente\n"
+"Coloque todos os investidores estranhos neste campo separadamente.\n"
 "A ferramente vai calcular quantos PFs serão necessários pra segurar as "
 "posições e também quais lugares você já segurou."
 
@@ -740,7 +740,7 @@ msgstr ""
 "bônus do Arco."
 
 msgid "components.gb_forecast_cost.custom_percentage"
-msgstr "Bônus normal do Arco (para cada posição)"
+msgstr "Bônus do Arco diferente para cada posição"
 
 msgid "components.gb_forecast_cost.estimated_time"
 msgstr "Tempo estimado para atingir o nível"
@@ -3904,3 +3904,62 @@ msgstr "Hygiea O-14"
 
 msgid "foe_data.province.Hygiea_N_13"
 msgstr "Hygiea N-13"
+
+msgid "cookieConsent.purposes.quality"
+msgstr "Qualidade"
+
+msgid "cookieConsent.purposes.necessary"
+msgstr "Necessário"
+
+msgid "cookieConsent.purposes.analytics"
+msgstr "Estatísticas"
+
+msgid "cookieConsent.sentry.description"
+msgstr "Coletar erros para identificar potenciais bugs"
+
+msgid "cookieConsent.consentNotice.learnMore"
+msgstr "Customizar"
+
+msgid "cookieConsent.title"
+msgstr "Ei, você ! Somos nós... os Cookies !"
+
+msgid "utils.alpha_order"
+msgstr "Ordem alfabética"
+
+msgid "utils.favourites"
+msgstr "Favoritos"
+
+msgid "foe_data.gb.Galata_Tower"
+msgstr "Torre de Gálata"
+
+msgid "routes.about.cookie.p2"
+msgstr "Para mais informações, por favor consulte os seguintes links:"
+
+msgid "routes.about.cookie.info.cookieConsent"
+msgstr "Suas preferências de cookies"
+
+msgid "components.site_layout.translation_not_completed.content"
+msgstr "As seguintes não foram traduzidas, e precisam de tradutores:"
+
+msgid "components.site_layout.translation_not_completed.title"
+msgstr "Tradução incompleta"
+
+msgid "components.site_layout.global_config_dialog.day_night_mode.System"
+msgstr "Preferência do sistema"
+
+msgid "components.gb_forecast_cost.message.estimated_time_swap_threads"
+msgstr ""
+"Tempo estimado para alcançar o nível usando abas de troca (5/10/20/50/100 "
+"PFs, etc): {time}"
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Remover dos favoritos"
+
+msgid "components.gb_investment.add_favourite"
+msgstr "Adicionar aos favoritos"
+
+msgid "footer_menu.privacy_policy"
+msgstr "Política de Privacidade"
+
+msgid "footer_menu.cookie_policy"
+msgstr "Política de Cookies"
