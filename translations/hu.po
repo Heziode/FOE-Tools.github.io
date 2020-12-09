@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.372Z\n"
-"PO-Revision-Date: 2020-12-09 09:48+0000\n"
+"PO-Revision-Date: 2020-12-09 13:07+0000\n"
 "Last-Translator: Palie <kendipaldavid@gmail.com>\n"
 "Language-Team: Hungarian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/hu/>\n"
@@ -2946,3 +2946,24 @@ msgstr ""
 
 msgid "components.gb_investment.tutorial.table.default_rewards"
 msgstr "Ez a hely alap jutalma (Bárka bónusz nélkül)"
+
+msgid "components.gb_investment.tutorial.promotion_message.suffix"
+msgstr "Szöveg, ami az üzenet végére fog kerülni."
+
+msgid "components.gb_investment.tutorial.promotion_message.prefix"
+msgstr "Szöveg, ami az üzenet elejére fog kerülni."
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Eltávolítás a kedvencek közül"
+
+msgid "components.gb_investment.add_favourite"
+msgstr "Kedvencekhez adás"
+
+msgid "components.gb_investment.tutorial.table.spot_snipe"
+msgstr ""
+"Ez az oszlop a befektetőknek van, akkor jelenik meg, ha a \"@:(components."
+"gb_investment.gb_investment.form.show_snipe)\"-t \"@:(utils.Yes)\"-re "
+"állítottad. Ez az oszlop megadja (a \"@:(components.secure_position."
+"block_place.your_arc_bonus)\"-ben megadott érték alapján) hogy mennyi FP-t "
+"kell még beraknod a nevezetesbe, hogy védve legyen a helyed.\n"
+"Továbbá a profitot vagy a veszteséget is megjeleníti."
