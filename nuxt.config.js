@@ -623,7 +623,8 @@ module.exports = {
 
   purgeCSS: {
     keyframes: true,
-    enabled: process.env.NODE_ENV === "production",
+    // enabled: process.env.NODE_ENV === "production",
+    enabled: true,
     content: [
       "components/**/*.{vue,js,pug,scss,sass,css}",
       "layouts/**/*.{vue,js,pug,scss,sass,css}",
@@ -648,6 +649,7 @@ module.exports = {
       /notification.*/,
       /is-top-right/,
       /is-top/,
+      /shepherd.*/,
     ],
     whitelistPatternsChildren: [
       /select/,
@@ -659,6 +661,7 @@ module.exports = {
       /progress.*/,
       /is-top-right/,
       /is-top/,
+      /shepherd.*/,
     ],
   },
 
