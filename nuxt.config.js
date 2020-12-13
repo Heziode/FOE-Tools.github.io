@@ -650,6 +650,7 @@ module.exports = {
       /is-top-right/,
       /is-top/,
       /shepherd.*/,
+      /is-delete/,
     ],
     whitelistPatternsChildren: [
       /select/,
