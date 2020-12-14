@@ -621,6 +621,38 @@ module.exports = {
     },
   },
 
+  // Custom Tailwind CSS configuration
+  tailwindcss: {
+    // exposeConfig: true,
+    config: {
+      theme: {
+        // compatible with @nuxtjs/color-mode
+        darkSelector: ".dark-mode",
+      },
+      variants: {
+        backgroundColor: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd"],
+        borderColor: ["dark", "dark-focus", "dark-focus-within"],
+        textColor: ["dark", "dark-hover", "dark-active"],
+      },
+      plugins: [require("tailwindcss-dark-mode")()],
+      purge: {
+        keyframes: true,
+        enabled: process.env.NODE_ENV === "production",
+        content: [
+          "components/**/*.{vue,js,pug,scss,sass,css}",
+          "layouts/**/*.{vue,js,pug,scss,sass,css}",
+          "pages/**/*.{vue,js,pug,scss,sass,css}",
+          "assets/**/*.{scss,sass,css}",
+          "plugins/**/*.js",
+          "nuxt.config.js",
+          "plugins/**/*.ts",
+          "nuxt.config.ts",
+        ],
+        whitelist: ["dark-mode"],
+      },
+    },
+  },
+
   purgeCSS: {
     keyframes: true,
     // enabled: process.env.NODE_ENV === "production",
@@ -651,6 +683,9 @@ module.exports = {
       /is-top/,
       /shepherd.*/,
       /is-delete/,
+      /dark-mode/,
+      /is-expanded/,
+      /is-clearfix/,
     ],
     whitelistPatternsChildren: [
       /select/,
@@ -663,6 +698,8 @@ module.exports = {
       /is-top-right/,
       /is-top/,
       /shepherd.*/,
+      /is-expanded/,
+      /is-clearfix/,
     ],
   },
 
@@ -690,6 +727,8 @@ module.exports = {
         defaultDateParser: (date) => parseISO(date),
       },
     ],
+    "@nuxtjs/color-mode",
+    "@nuxtjs/tailwindcss",
     "nuxt-purgecss",
   ],
 };

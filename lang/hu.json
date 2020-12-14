@@ -898,5 +898,15 @@
   "components.gb_investment.gb_list_select.info": "Az általános beállításokban megváltoztathatod a választó stílusát (régi fajta, vagy automatikus kiegészítés).",
   "components.cf_calculator.tutorial.coinSupplyReturn": "Ez a táblázat mutatja, hogy (statisztikailag) mennyi pénzt és alapanyagot fogsz nyerni a kezdeti befektetéseddel (a pénzzel és az alapanyaggal, amit el tervezel költeni).",
   "components.cf_calculator.tutorial.secondRqCompleted": "A második visszatérő küldetések száma, amit teljesíteni tudsz.",
-  "components.cf_calculator.tutorial.bonusUbq": "A teljesíthető \"Nem születésnapi buli\" küldetések száma a kezdeti, plusz a (statisztikailag) megnyerhető pénz és alapanyagszámod alapján."
+  "components.cf_calculator.tutorial.bonusUbq": "A teljesíthető \"Nem születésnapi buli\" küldetések száma a kezdeti, plusz a (statisztikailag) megnyerhető pénz és alapanyagszámod alapján.",
+  "components.gb_investment.tutorial.table.default_rewards": "Ez a hely alap jutalma (Bárka bónusz nélkül)",
+  "components.gb_investment.tutorial.promotion_message.suffix": "Szöveg, ami az üzenet végére fog kerülni.",
+  "components.gb_investment.tutorial.promotion_message.prefix": "Szöveg, ami az üzenet elejére fog kerülni.",
+  "components.gb_investment.remove_favourite": "Eltávolítás a kedvencek közül",
+  "components.gb_investment.add_favourite": "Kedvencekhez adás",
+  "components.gb_investment.tutorial.table.spot_snipe": "Ez az oszlop a befektetőknek van, akkor jelenik meg, ha a \"@:(components.gb_investment.gb_investment.form.show_snipe)\"-t \"@:(utils.Yes)\"-re állítottad. Ez az oszlop megadja (a \"@:(components.secure_position.block_place.your_arc_bonus)\"-ben megadott érték alapján) hogy mennyi FP-t kell még beraknod a nevezetesbe, hogy védve legyen a helyed.\nTovábbá a profitot vagy a veszteséget is megjeleníti.",
+  "components.gb_investment.tutorial.table.fp_already_putin": "Ez az oszlop akkor jelenik meg, ha legalább egy befektetőt bejegyeztél. Megmutatja, hogy a befektető hanyadik helyen fog állni a tulajdonos stratégiájával. (várható befektetés)",
+  "components.gb_investment.tutorial.table.place": "A helyindexnek megfelelő.",
+  "components.gb_investment.tutorial.table.message": "Ez a táblázat megmutatja az összes információt, amit tudni szeretne.",
+  "components.gb_investment.tutorial.owner_investment": "Már van valamennyi FP a nevezetesedben?\nHa igen, akkor itt add hozzá, hogy mennyi:"
 }

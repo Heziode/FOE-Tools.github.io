@@ -3762,16 +3762,55 @@ msgid "cookieConsent.title"
 msgstr "Hey there ! It's us… the Cookies !"
 
 msgid "cookieConsent.consentNotice.learnMore"
-msgstr "Customize"
+msgstr "I choose"
 
 msgid "cookieConsent.sentry.description"
 msgstr "Collecting errors to identify potential bugs (self-hosted solution)"
 
-msgid "cookieConsent.purposes.analytics"
-msgstr "Analytics"
+msgid "cookieConsent.back"
+msgstr "Back"
 
-msgid "cookieConsent.purposes.necessary"
-msgstr "Necessary"
+msgid "cookieConsent.acceptAll"
+msgstr "I accept all"
+
+msgid "cookieConsent.acceptSelected"
+msgstr "Complete"
+
+msgid "cookieConsent.consentModal.description"
+msgstr "Here you can assess and customize the services that we'd like to use on this website. You're in charge! Enable or disable services as you see fit."
+
+msgid "cookieConsent.consentModal.title"
+msgstr "Services we would like to use"
+
+msgid "cookieConsent.consentNotice.changeDescription"
+msgstr "There were changes since your last visit, please renew your consent."
+
+msgid "cookieConsent.consentNotice.description"
+msgstr "We would like to activate additional services for the following purposes:"
+
+msgid "cookieConsent.consentNotice.edit"
+msgstr "Is it OK for you? You can always change or withdraw your consent later."
+
+msgid "cookieConsent.ok"
+msgstr "Ok for me"
+
+msgid "cookieConsent.purposes.advertising.description"
+msgstr "These services process personal information to show you personalized or interest-based advertisements."
+
+msgid "cookieConsent.purposes.advertising.title"
+msgstr "Advertising"
+
+msgid "cookieConsent.purposes.functional.description"
+msgstr "These services are essential for the correct functioning of this website. You cannot disable them here as the service would not work correctly otherwise."
+
+msgid "cookieConsent.purposes.functional.title"
+msgstr "Service Provision"
+
+msgid "cookieConsent.purposes.performance.description"
+msgstr "These services process personal information to optimize the service that this website offers."
+
+msgid "cookieConsent.purposes.performance.title"
+msgstr "Performance Optimization"
 
 msgid "cookieConsent.purposes.quality"
 msgstr "Quality"

@@ -4,7 +4,7 @@
   "components.campaign_cost.provinces": "Provincii",
   "components.cf_calculator.block_cfc.fp_by_24h": "Productie la 24 ore",
   "main_menu.gb_statistics": "@:(routes.gb_statistics.hero.title)",
-  "components.campaign_cost.message.haveUnknownCosts": "Aceasta provincie contine unul sau mai multe sectoare carora le lipsesc valorile",
+  "components.campaign_cost.message.haveUnknownCosts": "Aceasta provincie contine unul sau mai multe sectoare carora le lipsesc valorile.",
   "main_menu.campaign_cost": "@:(routes.campaign_cost.hero.title)",
   "footer_menu.about": "Despre",
   "footer_menu.contributors": "Contribuitori",
@@ -31,5 +31,14 @@
   "components.cf_calculator.block_cfc.table_return.thead.th_level": "Nivel",
   "components.cf_calculator.block_cfc.infinity_generator.message": "La bonusul curent pentru @:(foe_data.gb.Chateau_Frontenac), va mai multe monede si provizii decat vei folosi ca sa termini quest-ul. Alege numarul de \"@:(components.cf_calculator.block_cfc.infinity_generator.label)\" pe care vrei sa le faci.",
   "components.cf_calculator.block_cfc.reward_message.total_goods": "Total bunuri: {count}",
-  "components.cf_calculator.block_cfc.coins_to_use": "Monezi de folosit la UBQ"
+  "components.cf_calculator.block_cfc.coins_to_use": "Monezi de folosit la UBQ",
+  "components.cf_calculator.tutorial.yourCfBoost": "Introduceți „quest-bonusul” al @:(foe_data.gb.Chateau_Frontenac) dvs\nExemplu: pentru 450%, introduceti 450.",
+  "components.cf_calculator.tutorial.yourAge": "Selectati era dvs.",
+  "components.cf_calculator.tutorial.welcome": "Acest instrument are doar scop informativ. Arată ce poți obține teoretic de la @:(foe_data.gb.Chateau_Frontenac).",
+  "components.cf_calculator.block_cfc.infinity_generator.label": "Quest cumulativ",
+  "components.cf_calculator.block_cfc.table_return.thead.th_supply": "Returnarea proviziilor",
+  "components.cf_calculator.block_cfc.table_return.thead.th_coin": "Returnarea monedelor",
+  "components.cf_calculator.block_cfc.reward_message.total_fp": "PF totale: {count}",
+  "components.cf_calculator.block_cfc.reward_message.daily_ubq": "Provocările zilnice: {count}",
+  "components.cf_calculator.block_cfc.table_reward.thead.th4": "PF"
 }

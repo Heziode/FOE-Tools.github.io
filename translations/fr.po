@@ -3808,19 +3808,58 @@ msgid "cookieConsent.title"
 msgstr "Coucou c'est nous… les Cookies !"
 
 msgid "cookieConsent.consentNotice.learnMore"
-msgstr "Paramétrer"
+msgstr "Je choisis"
 
 msgid "cookieConsent.sentry.description"
 msgstr "Collecter les erreurs pour identifier les bugs potentiels (solution auto-hébergée)"
 
-msgid "cookieConsent.purposes.analytics"
-msgstr "Analytique"
-
-msgid "cookieConsent.purposes.necessary"
-msgstr "Nécessaire"
-
 msgid "cookieConsent.purposes.quality"
 msgstr "Qualité"
+
+msgid "cookieConsent.back"
+msgstr "Retour"
+
+msgid "cookieConsent.acceptAll"
+msgstr "J'accepter tout"
+
+msgid "cookieConsent.acceptSelected"
+msgstr "Terminer"
+
+msgid "cookieConsent.consentModal.title"
+msgstr "Services que nous souhaitons utiliser"
+
+msgid "cookieConsent.consentNotice.changeDescription"
+msgstr "Il y a eu des changements depuis votre dernière visite, veuillez renouveler votre consentement."
+
+msgid "cookieConsent.consentModal.description"
+msgstr "Vous pouvez ici évaluer et personnaliser les services que nous aimerions utiliser sur ce site. C'est vous qui décidez ! Activez ou désactivez les services comme bon vous semble."
+
+msgid "cookieConsent.consentNotice.description"
+msgstr "On aimerait activer des services supplémentaires pour les finalités suivantes :"
+
+msgid "cookieConsent.consentNotice.edit"
+msgstr "C'est OK pour vous ? Vous pouvez toujours modifier ou retirer votre consentement plus tard."
+
+msgid "cookieConsent.ok"
+msgstr "OK pour moi"
+
+msgid "cookieConsent.purposes.advertising.description"
+msgstr "Ces services traitent les informations personnelles pour vous présenter des publicités personnalisées ou basées sur des intérêts."
+
+msgid "cookieConsent.purposes.advertising.title"
+msgstr "Publicité"
+
+msgid "cookieConsent.purposes.functional.description"
+msgstr "Ces services sont essentiels au bon fonctionnement de ce site. Vous ne pouvez pas les désactiver ici car le service ne fonctionnerait pas correctement autrement."
+
+msgid "cookieConsent.purposes.functional.title"
+msgstr "Prestation de services"
+
+msgid "cookieConsent.purposes.performance.description"
+msgstr "Ces services traitent les informations personnelles afin d'optimiser le service que ce site Web offre."
+
+msgid "cookieConsent.purposes.performance.title"
+msgstr "Optimisation de la performance"
 
 msgid "foe_data.gb.Galata_Tower"
 msgstr "Tour Galata"

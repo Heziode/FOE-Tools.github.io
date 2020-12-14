@@ -1160,5 +1160,6 @@
   "components.gb_investment.remove_favourite": "Ta bort från favoriter",
   "components.gb_investment.add_favourite": "Spara till favoriter",
   "components.site_layout.translation_not_completed.content": "Följande översättningar är ej färdiga och behöver översättare:",
-  "components.site_layout.translation_not_completed.title": "Översättning ej färdig"
+  "components.site_layout.translation_not_completed.title": "Översättning ej färdig",
+  "utils.alpha_order": "Alfabetisk ordning"
 }

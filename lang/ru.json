@@ -842,5 +842,7 @@
   "components.gb_investment.tutorial.promotion_message.prefix": "Этот текст будет добавлен в начало сообщения.",
   "routes.about.cookie.p2": "Для получения дополнительной информации, пожалуйста, перейдите по следующим ссылкам:",
   "components.site_layout.global_config_dialog.day_night_mode.System": "Определено системой",
-  "components.site_layout.update": "Одно обновление с Вашего прошлого посещения. | {count} обновлений с Вашего прошлого посещения. | "
+  "components.site_layout.update": "Одно обновление с Вашего прошлого посещения. | {count} обновлений с Вашего прошлого посещения. | ",
+  "components.secure_position.block_place.result.fp_need_to_lock": "FP вам нужно разместить, чтобы заблокировать свое место: | FP вам нужно разместить, чтобы заблокировать свое место: | FP вам нужно разместить, чтобы заблокировать свое место:",
+  "components.site_layout.new_year.message": "@:(common.site_title) празднует свой {count} год | @:(common.site_title) празднует свои {count} года | @:(common.site_title) празднует свои {count} лет"
 }
