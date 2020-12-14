@@ -2,13 +2,14 @@ import { v4 as uuidv4 } from "uuid";
 
 const defaultProfileName = "Default";
 
-function dayNightMode(store, $clone, $moment) {
+function dayNightMode(store, $clone, $moment, $colorMode) {
   const dayNightWatchdogTimeout = 60000;
 
   const updateDayNightMode = () => {
     if (store.get("global/dayNightMode") !== "auto") {
       dayNightWatchdog.stop();
       store.set("isDarkTheme", store.get("global/dayNightMode") === "night");
+      $colorMode.preference = store.get("global/dayNightMode") === "night" ? "dark" : "light";
       return;
     } else {
       dayNightWatchdog.start();
@@ -47,17 +48,20 @@ function dayNightMode(store, $clone, $moment) {
           window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", systemPreferendScheme);
           dayNightWatchdog.stop();
           store.set("isDarkTheme", false);
+          $colorMode.preference = "light";
           break;
         case "night":
           window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", systemPreferendScheme);
           dayNightWatchdog.stop();
           store.set("isDarkTheme", true);
+          $colorMode.preference = "dark";
           break;
         case "system":
           window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", systemPreferendScheme);
           setTimeout(() => {
             store.set("isDarkTheme", window.matchMedia("(prefers-color-scheme: dark)").matches);
           }, 0);
+          $colorMode.preference = "system";
           break;
         case "auto":
           window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", systemPreferendScheme);
@@ -76,6 +80,7 @@ function dayNightMode(store, $clone, $moment) {
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", systemPreferendScheme);
       setTimeout(() => {
         store.set("isDarkTheme", window.matchMedia("(prefers-color-scheme: dark)").matches);
+        $colorMode.preference = store.get("global/dayNightMode") === "night" ? "dark" : "light";
       }, 0);
     } catch (e) {
       // Feature "prefers-color-scheme" not implemented by the browser
@@ -179,10 +184,11 @@ async function getLocaleCompletion(store, $axios, $i18n) {
   }, 0);
 }
 
-export default function ({ store, $clone, $moment, $axios, app }) {
+export default function ({ store, $clone, $moment, $axios, app, $colorMode }) {
+  console.log("$colorMode: ", $colorMode);
   initStore(store);
   storeProfileSchemaUpdate(store, $clone);
-  dayNightMode(store, $clone, $moment);
+  dayNightMode(store, $clone, $moment, $colorMode);
   getSurvey(store, $axios);
   getLocaleCompletion(store, $axios, app.i18n);
 }

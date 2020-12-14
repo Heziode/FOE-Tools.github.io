@@ -1,57 +1,51 @@
 import Vue from "vue";
-import cookieConsent from "orejime/dist/orejime";
-import CookieConsentImage from "~/assets/cookie-consent.svg?data";
+import CookieConsent from "klaro/dist/cm";
+import CookieConsentDialog from "~/components/cookie-consent/CookieConsent";
 
-export default async ({ app, store }) => {
-  Vue.mixin({
-    created() {
-      const translations = {};
-      translations[app.$clone(store.get("i18n/locale")) || "en"] = {
-        consentNotice: {
-          learnMore: app.i18n.t("cookieConsent.consentNotice.learnMore"),
-        },
-        sentry: {
-          title: "sentry",
-          description: app.i18n.t("cookieConsent.sentry.description"),
-        },
-        purposes: {
-          analytics: app.i18n.t("cookieConsent.purposes.analytics"),
-          necessary: app.i18n.t("cookieConsent.purposes.necessary"),
-          quality: app.i18n.t("cookieConsent.purposes.quality"),
-        },
-      };
-      let result = cookieConsent.init({
-        logo: CookieConsentImage,
-        elementID: "cookieConsent",
-        cookieName: "cookieConsent",
-        privacyPolicy: `https://${process.env.prodUrl}/privacy-policy`,
-        lang: app.$clone(store.get("i18n/locale")) || "en",
-        translations,
-        apps: [
-          {
-            name: "always-on",
-            title: "FOE-Tools",
-            purposes: ["necessary"],
-            required: true,
-          },
-          {
-            name: "sentry",
-            title: "Sentry",
-            purposes: ["necessary", "quality"],
-            required: true,
-          },
-        ],
-      });
+export default () => {
+  const config = {
+    elementID: "cookieConsent",
+    cookieName: "cookieConsent",
+    privacyPolicy: `https://${process.env.prodUrl}/privacy-policy`,
+    services: [
+      {
+        name: "foe-tools",
+        title: "FOE-Tools",
+        purposes: ["functional"],
+        required: true,
+      },
+      {
+        name: "sentry",
+        title: "Sentry",
+        purposes: ["functional"],
+        required: true,
+      },
+      // {
+      //   name: "advertising",
+      //   title: "Advertising",
+      //   purposes: ["advertising"],
+      // },
+    ],
+    purposes: [],
+  };
+  const s = new Set();
+  for (const elt of config.services) {
+    for (const purpose of elt.purposes) {
+      s.add(purpose);
+    }
+  }
+  config.purposes = Array.from(s);
 
-      Vue.prototype.$cookieConsent = result;
+  const elt = document.createElement("div");
+  elt.id = "#cookieConsent";
+  document.body.appendChild(elt);
 
-      try {
-        document
-          .querySelector("#cookieConsent > div.orejime-AppContainer > div > div > div")
-          .setAttribute("data-title", app.i18n.t("cookieConsent.title"));
-      } catch (e) {
-        // Nothing to do, this case occur most probably because the user has already set his preferences.
-      }
+  const DialogComponent = Vue.extend(CookieConsentDialog);
+  const component = new DialogComponent({
+    el: elt,
+    propsData: {
+      cm: new CookieConsent(config),
     },
   });
+  component.$forceUpdate();
 };

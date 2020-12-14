@@ -25,7 +25,7 @@ export default {
       bodyAttrs: {
         class:
           (this.$store.get("global/fixedMainMenu") ? "has-navbar-fixed-top " : "") +
-          (this.$store.get("isDarkTheme") ? "dark-theme" : "light-theme"),
+          (this.$store.get("isDarkTheme") ? "dark-theme dark-mode" : "light-theme light-mode"),
       },
     };
   },

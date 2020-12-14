@@ -1,0 +1,61 @@
+section
+  div.fixed.bottom-1.left-1.z-5(style="width: auto")
+    a(href="#" @click.prevent="showDialog = !showDialog; customize = false")
+      img(src="~assets/cookie.png" width="36" height="36")
+
+  div.fixed.bottom-2.left-2.z-10.bg-white.w-cc.shadow-lg.cookie-consent(:class="{ 'lg:rounded-lg dark:bg-gray-900 dark:text-white': true, 'translate-cc': !showDialog }" style="max-height: calc(100vh - 4.5rem);")
+    template(v-if="!customize")
+      .p-5
+          .flex
+            p(class="font-semibold leading-tight text-lg lg:text-xl") {{$t("cookieConsent.title")}}
+            img(src="~assets/cookie-consent.svg" width="200")
+          p.text-sm.mt-4 {{$t("cookieConsent.consentNotice.description")}}&nbsp;
+            span(v-html="formattedPurposes")
+          p.text-sm.mt-2 {{$t("cookieConsent.consentNotice.edit")}}
+
+          p.text-sm.mt-2(v-if="$props.cm.changed")
+            i {{$t("cookieConsent.consentNotice.changeDescription")}}
+      div.flex
+        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 dark-hover:text-gray-400 dark:text-gray-200 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-r-1 w-full" @click="customize = true") {{$t("cookieConsent.consentNotice.learnMore")}}
+        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-br-lg font-bold cursor-pointer hover:text-orange-300 text-orange-400 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptConsent") {{$t("cookieConsent.ok")}}
+    template(v-else)
+      .overflow-y.p-5(style="max-height: calc(100vh - 14.5rem);")
+        p(class="font-semibold leading-tight text-lg lg:text-xl") {{$t("cookieConsent.consentModal.title")}}
+
+        p.text-sm.mt-2.text-gray-700(class="dark:text-gray-400") {{$t("cookieConsent.consentModal.description")}}
+
+        // Purposes
+        div.mt-6(v-for="item of purposeItems")
+          .relative.inline-block.w-10.mr-2.align-middle.select-none.transition.duration-200.ease-in
+            input.toggle-checkbox.absolute.block.w-6.h-6.rounded-full.bg-white.border-4.appearance-none.cursor-pointer(
+              :id="`toggle-${item.key}`"
+              :class="{'toggle-checkbox-indeterminate': !item.allEnabled && !item.onlyRequiredEnabled && !item.allDisabled, 'toggle-checkbox-checked': item.allEnabled, 'dark:border-gray-700': true }"
+              type='checkbox'
+              name='toggle'
+              :disabled="item.required"
+              :checked="item.allEnabled || (!item.allDisabled && !item.onlyRequiredEnabled)"
+              @change="item.onToggle($event.target.checked)")
+            label.toggle-label.block.overflow-hidden.h-6.rounded-full.bg-gray-300.cursor-pointer(:for='`toggle-${item.key}`' class="dark:bg-gray-700")
+          label(:for="`toggle-${item.key}`" class="font-semibold leading-tight text-base lg:text-lg") {{$t(`cookieConsent.purposes.${item.key}.title`)}}
+          p(class="leading-tight text-sm text-gray-700 dark:text-gray-400 mt-2") {{$t(`cookieConsent.purposes.${item.key}.description`)}}
+
+          // Services
+          div.ml-4
+            div.mt-4(v-for="service of item.services")
+              .relative.inline-block.w-10.mr-2.align-middle.select-none.transition.duration-200.ease-in
+                input.toggle-checkbox.absolute.block.w-6.h-6.rounded-full.bg-white.border-4.appearance-none.cursor-pointer(
+                  :id="`toggle-${item.key}-${service.title}`"
+                  :class="{ 'toggle-checkbox-checked': consents[service.name] || item.required, 'dark:border-gray-700': true }"
+                  type='checkbox'
+                  name='toggle'
+                  :disabled="item.required"
+                  :checked="consents[service.name] || item.required"
+                  @change="toggleService(service, $event.target.checked)")
+                label.toggle-label.block.overflow-hidden.h-6.rounded-full.bg-gray-300.cursor-pointer(:for='`toggle-${item.key}-${service.title}`' class="dark:bg-gray-700")
+              label(:for="`toggle-${item.key}-${service.title}`" class="font-semibold leading-tight text-base lg:text-lg") {{service.title}}
+              p(v-if="$te(`cookieConsent.${service.name}.description`)" class="leading-tight text-sm text-gray-700 dark:text-gray-400 mt-2") {{$t(`cookieConsent.${service.name}.description`)}}
+
+      div.flex.items-stretch
+        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 dark-hover:text-gray-400 dark:text-gray-200 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-r-1 w-full" @click="customize = false") {{$t("cookieConsent.back")}}
+        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 font-bold cursor-pointer hover:text-orange-300 text-orange-400 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptAll") {{$t("cookieConsent.acceptAll")}}
+        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 duration-200 dark-hover:text-gray-400 dark:text-gray-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptSelected") {{$t("cookieConsent.acceptSelected")}}
