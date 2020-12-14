@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.76.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.76.0...v2.76.1) (2020-12-14)
+
+
+### Bug Fixes
+
+* **buefy-loader:** remove useless buefy-loader, that cause issue on old browser ([166f371](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/166f37164ac9f4e013656ee69de2c229f367633c))
+
 ## [2.76.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.75.0...v2.76.0) (2020-12-14)
 
 
