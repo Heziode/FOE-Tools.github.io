@@ -3,7 +3,7 @@ section
     a(href="#" @click.prevent="showDialog = !showDialog; customize = false")
       img(src="~assets/cookie.png" width="36" height="36")
 
-  div.fixed.bottom-2.left-2.z-10.bg-white.w-cc.shadow-lg.cookie-consent(:class="{ 'lg:rounded-lg dark:bg-gray-900 dark:text-white': true, 'translate-cc': !showDialog }" style="max-height: calc(100vh - 4.5rem);")
+  div.fixed.bottom-2.left-2.z-1000.bg-white.w-cc.shadow-lg.cookie-consent(:class="{ 'lg:rounded-lg dark:bg-gray-900 dark:text-white': true, 'translate-cc': !showDialog }" style="max-height: calc(100vh - 4.5rem);")
     template(v-if="!customize")
       .p-5
           .flex
