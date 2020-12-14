@@ -717,11 +717,5 @@ module.exports = {
     },
   },
 
-  buildModules: [
-    "@nuxtjs/router-extras",
-    "@nuxtjs/svg",
-    "@nuxtjs/color-mode",
-    "@nuxtjs/tailwindcss",
-    "nuxt-purgecss",
-  ],
+  buildModules: ["@nuxtjs/router-extras", "@nuxtjs/svg", "@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "nuxt-purgecss"],
 };
