@@ -185,7 +185,6 @@ async function getLocaleCompletion(store, $axios, $i18n) {
 }
 
 export default function ({ store, $clone, $moment, $axios, app, $colorMode }) {
-  console.log("$colorMode: ", $colorMode);
   initStore(store);
   storeProfileSchemaUpdate(store, $clone);
   dayNightMode(store, $clone, $moment, $colorMode);

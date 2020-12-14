@@ -3,9 +3,9 @@ section
     a(href="#" @click.prevent="showDialog = !showDialog; customize = false")
       img(src="~assets/cookie.png" width="36" height="36")
 
-  div.fixed.bottom-2.left-2.z-10.bg-white.w-cc.shadow-lg.cookie-consent(:class="{ 'lg:rounded-lg dark:bg-gray-900 dark:text-white': true, 'translate-cc': !showDialog }" style="max-height: calc(100vh - 4.5rem);")
+  div.fixed.bottom-2.left-2.z-1000.bg-white.w-cc.shadow-lg.cookie-consent(:class="{ 'lg:rounded-lg dark:bg-gray-900 dark:text-white': true, 'translate-cc': !showDialog }" style="max-height: calc(100vh - 4.5rem);")
     template(v-if="!customize")
-      .p-5
+      .overflow-y.p-5(style="max-height: calc(100vh - 14.5rem);")
           .flex
             p(class="font-semibold leading-tight text-lg lg:text-xl") {{$t("cookieConsent.title")}}
             img(src="~assets/cookie-consent.svg" width="200")
@@ -15,7 +15,7 @@ section
 
           p.text-sm.mt-2(v-if="$props.cm.changed")
             i {{$t("cookieConsent.consentNotice.changeDescription")}}
-      div.flex
+      div.flex.items-stretch
         button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 dark-hover:text-gray-400 dark:text-gray-200 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-r-1 w-full" @click="customize = true") {{$t("cookieConsent.consentNotice.learnMore")}}
         button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-br-lg font-bold cursor-pointer hover:text-orange-300 text-orange-400 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptConsent") {{$t("cookieConsent.ok")}}
     template(v-else)

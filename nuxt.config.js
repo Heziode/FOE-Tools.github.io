@@ -1,4 +1,3 @@
-import { parseISO } from "date-fns";
 import { JSDOM } from "jsdom";
 import { defaultLocale, supportedLocales } from "./scripts/locales";
 import Vue from "vue";
@@ -718,17 +717,5 @@ module.exports = {
     },
   },
 
-  buildModules: [
-    "@nuxtjs/router-extras",
-    "@nuxtjs/svg",
-    [
-      "~/modules/buefy-loader",
-      {
-        defaultDateParser: (date) => parseISO(date),
-      },
-    ],
-    "@nuxtjs/color-mode",
-    "@nuxtjs/tailwindcss",
-    "nuxt-purgecss",
-  ],
+  buildModules: ["@nuxtjs/router-extras", "@nuxtjs/svg", "@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "nuxt-purgecss"],
 };
