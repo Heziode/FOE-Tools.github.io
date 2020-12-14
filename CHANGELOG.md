@@ -2,6 +2,46 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.76.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.75.0...v2.76.0) (2020-12-14)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([ed46931](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ed46931f3e35b4ac4c8f29133db735488714c654))
+* update style of cookie consent ([2fe2936](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2fe2936c35d84f78b6ce3a41bf12bb108b7360e3))
+
+
+### Bug Fixes
+
+* **purgeCSS:** whitelist style classes removed by purgeCSS ([535967b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/535967ba42777917b983b4b49763e2632a3549df))
+* **purgeCSS:** whitelist style classes removed by purgeCSS ([7e9b0cc](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/7e9b0cccef0a23d6d75abf1b6f6d1334af075d7c))
+* fix hero section on policies pages ([1095333](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/10953337313dcf93df256bc07b06ff0cf8c2a31b)), closes [#401](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/401)
+* **purgeCSS:** whitelist style classes removed by purgeCSS ([75cd873](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/75cd873959f80d82ea230651d705a14e82934cf3))
+
+
+### Translation
+
+* Translated using Weblate (Danish) ([1e18708](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1e1870854828fc9734d21e80ce882acc38da5929))
+* Translated using Weblate (Danish) ([554e7b4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/554e7b420e62c9a5ce4a592a39015447a069f271))
+* Translated using Weblate (Danish) ([6c3c136](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6c3c1361f762ae06fa39d986fa87a6cb6aa501cd))
+* Translated using Weblate (Danish) ([bdb9e4d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/bdb9e4d8cf57009aefea506c99965b098537fded))
+* Translated using Weblate (Danish) ([6b2832e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6b2832e6ecc152da1ae022b1975fe667ada345c5))
+* Translated using Weblate (Danish) ([2d7363d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2d7363d26ce699a958b45c271f2cbf75e1cf2098))
+* Translated using Weblate (Danish) ([b71f6bb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b71f6bbf3b4f8d0391543fc27b2e6b1b58e5929f))
+* Translated using Weblate (English) ([67856d6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/67856d65787fc4d85ad725d420d60bd561576c01))
+* Translated using Weblate (English) ([a76b0fe](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a76b0febbe53dfafea4ba8e8135a9b90da618526))
+* Translated using Weblate (Hungarian) ([d89e355](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d89e3556d5cd54fd6a18def781baaa7c24acaebf))
+* Translated using Weblate (Hungarian) ([0d87ba9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/0d87ba96477532d5b899cb5d39d3d753cef428ee))
+* Translated using Weblate (Hungarian) ([d9fe88d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d9fe88dbd325a6c8112499f41d8501bffd533829))
+* Translated using Weblate (Italian) ([1e107c2](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1e107c276fc135922fc78409214062dd5b3f47f2))
+* Translated using Weblate (Italian) ([fe0114c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fe0114c3ddfa6ce8c67a19473053aad8d1bc4e48))
+* Translated using Weblate (Italian) ([d31dab1](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/d31dab13af80460cf927b59f09607414e726fe08))
+* Translated using Weblate (Portuguese (Brazil)) ([bea67c8](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/bea67c8756cb403c381f52159a7ec4b9537f59e3))
+* Translated using Weblate (Romanian) ([411ba37](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/411ba3729d0fda63c9eb1b54237b2b9199ac808a))
+* Translated using Weblate (Romanian) ([37e32d2](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/37e32d29fee2b728b3e4fb752b9a748caf00363f))
+* Translated using Weblate (Russian) ([2fa10ab](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2fa10ab66a77ea51fbb2ebcf7213c76ce9d1e80e))
+* Translated using Weblate (Swedish) ([57dc3b5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/57dc3b5ff85f8db8a179e025ae2d4741877319c0))
+
 ## [2.75.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.74.1...v2.75.0) (2020-12-06)
 
 
