@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:50.998Z\n"
-"PO-Revision-Date: 2020-12-06 15:49+0000\n"
+"PO-Revision-Date: 2020-12-20 08:58+0000\n"
 "Last-Translator: Weblate Admin <admin@foe.tools>\n"
 "Language-Team: Greek <https://translate.foe.tools/projects/foe-tools-website/"
 "website/el/>\n"
@@ -1721,3 +1721,15 @@ msgstr "Αγαθά από ΜΚ και Λεηλασίες"
 
 msgid "footer_menu.privacy_policy"
 msgstr "Πολιτική Απορρήτου "
+
+msgid "components.cf_calculator.block_cfc.other_rq"
+msgstr "αλλες ημερησιες επαναλαμβανομενες αποστολες"
+
+msgid "components.cf_calculator.block_cfc.supplies_to_use"
+msgstr "προμήθειες που χρειάζονται για UBQ"
+
+msgid "components.cf_calculator.block_cfc.coins_to_use"
+msgstr "νομίσματα που χρειάζονται για UBQ"
+
+msgid "footer_menu.cookie_policy"
+msgstr "πολιτικη μπισκοτων"
