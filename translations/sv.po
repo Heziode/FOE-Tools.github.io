@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:52.129Z\n"
-"PO-Revision-Date: 2020-12-07 19:32+0000\n"
+"PO-Revision-Date: 2020-12-19 17:54+0000\n"
 "Last-Translator: Magnus Beutner <magnus.beutner@gmail.com>\n"
 "Language-Team: Swedish <https://translate.foe.tools/projects/"
 "foe-tools-website/website/sv/>\n"
@@ -3783,7 +3783,7 @@ msgid "cookieConsent.title"
 msgstr "Hejsan ! Det är vi... Kakorna !"
 
 msgid "cookieConsent.consentNotice.learnMore"
-msgstr "Anpassa"
+msgstr "Jag väljer"
 
 msgid "cookieConsent.sentry.description"
 msgstr "Samlar fel för att identifiera potentiella buggar (egen lösning)"
@@ -3937,3 +3937,60 @@ msgstr "Översättning ej färdig"
 
 msgid "utils.alpha_order"
 msgstr "Alfabetisk ordning"
+
+msgid "cookieConsent.purposes.performance.title"
+msgstr "Optimering"
+
+msgid "cookieConsent.purposes.performance.description"
+msgstr ""
+"Dessa tjänster behandlar personlig information för att optimisera vad denna "
+"webbplats erbjuder."
+
+#, fuzzy
+msgid "cookieConsent.purposes.functional.title"
+msgstr "Tjänster"
+
+msgid "cookieConsent.purposes.functional.description"
+msgstr ""
+"Dessa tjänster är essentiella för korrekt funktionalitet av denna webbplats. "
+"Du kan inte avaktivera dem då tjänsterna inte skulle fungera annars."
+
+msgid "cookieConsent.purposes.advertising.title"
+msgstr "Marknadsföring"
+
+msgid "cookieConsent.purposes.advertising.description"
+msgstr ""
+"Dessa tjänster behandlar personlig information för att visa för dig, "
+"anpassad reklam."
+
+msgid "cookieConsent.ok"
+msgstr "Ok för min del"
+
+msgid "cookieConsent.consentNotice.edit"
+msgstr ""
+"Är det detta OK? Du kan alltid ändra eller dra tillbaka ditt samtycke senare."
+
+msgid "cookieConsent.consentNotice.description"
+msgstr "Vi vill aktivera ytterligare tjänster för följande syften:"
+
+msgid "cookieConsent.consentNotice.changeDescription"
+msgstr ""
+"Förändringar har skett sedan ditt förra besök, vänligen förnya ditt "
+"medgivande."
+
+msgid "cookieConsent.consentModal.title"
+msgstr "Tjänster jag gärna använder"
+
+msgid "cookieConsent.consentModal.description"
+msgstr ""
+"Här kan du överse och anpassa tjänsterna vi använder på denna webbplats, du "
+"bestämmer! Aktivera, avaktivera tjänsterna så det passar dig."
+
+msgid "cookieConsent.acceptSelected"
+msgstr "Fullfölj"
+
+msgid "cookieConsent.acceptAll"
+msgstr "Jag accepterar alla"
+
+msgid "cookieConsent.back"
+msgstr "Tillbaka"
