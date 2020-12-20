@@ -1870,6 +1870,9 @@ msgstr "SG"
 msgid "foe_data.gb_short.Space_Carrier"
 msgstr "SC"
 
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Galata"
+
 msgid "foe_data.goods.dye"
 msgstr "Dye"
 

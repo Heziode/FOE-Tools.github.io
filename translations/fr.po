@@ -1906,6 +1906,9 @@ msgstr "Gazer"
 msgid "foe_data.gb_short.Space_Carrier"
 msgstr "Transporteur"
 
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Galata"
+
 msgid "foe_data.goods.dye"
 msgstr "Teinture"
 
