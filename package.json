@@ -24,7 +24,7 @@
     "test:unit:watch": "NODE_OPTIONS=--max_old_space_size=4096 jest --clearCache && NODE_OPTIONS=--max_old_space_size=4096 jest --coverage=false --testRegex ^.*.test.js$ test/unit/ --watch",
     "test": "NODE_OPTIONS=--max_old_space_size=4096 npm run test:unit",
     "update-foe-data": "node .scripts/update-gb-data.js",
-    "i18n:generate:all": "vuei18n-po --es6 --pluralRules=plugins/vue-i18n-plural.js --messagesDir=lang translations/*.po",
+    "i18n:watch": "vuei18n-po --watch --messagesDir=lang translations/*.po",
     "i18n:generate": "vuei18n-po --messagesDir=lang translations/*.po"
   },
   "repository": {
