@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.77.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.76.1...v2.77.0) (2020-12-20)
+
+
+### Features
+
+* **cookie-consent:** update the UI and content depending on togglable services ([53e8d22](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/53e8d2291c003221f2bd5f138ab0fd9b8976abc0))
+* **l10n:** update translation ([92d3e19](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/92d3e19e5262b729b08ecc4f81433128ff99a489))
+
+
+### Bug Fixes
+
+* **l10n:** add missing translation for short name of Galata Tower ([a94a007](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a94a0072f61367be9909880a78ee448629875738))
+
+
+### Translation
+
+* Translated using Weblate (Greek) ([a7ae109](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/a7ae1091c6ab8056eb526ab61ddf83f28e99717e))
+* Translated using Weblate (Hungarian) ([fddeb72](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fddeb72230dea4d055f573432cd30b6e03572b3d))
+* Translated using Weblate (Italian) ([3421b62](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3421b62951ee7a6e77b0c38fd78300ae0af64156))
+* Translated using Weblate (Romanian) ([ad3305f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ad3305f5f9016c2cfce7f3e23358928cd3a67521))
+* Translated using Weblate (Russian) ([1a199eb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1a199ebff9361101aa7cc33c779162b3883ed2ae))
+* Translated using Weblate (Russian) ([38b2b8a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/38b2b8ad2c395474ac05cb7fcf51dabc5f534aad))
+* Translated using Weblate (Swedish) ([1a09858](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1a098587079e11c79ad68ad0ba7d2c3eb48bce3a))
+* Translated using Weblate (Swedish) ([00d8d6e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/00d8d6ebd19f542812d829e9c74498276624b335))
+
 ### [2.76.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.76.0...v2.76.1) (2020-12-14)
 
 
