@@ -492,5 +492,9 @@
   "components.cf_calculator.tutorial.goods": "Σημειώστε τον αριθμό αγαθών που συγκεντρώνετε από τα ΜΚ σας και τις λεηλασίες.",
   "components.cf_calculator.block_cfc.supplies_gathered": "Προμήθειες που συλλέχθηκαν",
   "components.cf_calculator.block_cfc.gb_plunder_goods": "Αγαθά από ΜΚ και Λεηλασίες",
-  "footer_menu.privacy_policy": "Πολιτική Απορρήτου "
+  "footer_menu.privacy_policy": "Πολιτική Απορρήτου ",
+  "components.cf_calculator.block_cfc.other_rq": "αλλες ημερησιες επαναλαμβανομενες αποστολες",
+  "components.cf_calculator.block_cfc.supplies_to_use": "προμήθειες που χρειάζονται για UBQ",
+  "components.cf_calculator.block_cfc.coins_to_use": "νομίσματα που χρειάζονται για UBQ",
+  "footer_menu.cookie_policy": "πολιτικη μπισκοτων"
 }

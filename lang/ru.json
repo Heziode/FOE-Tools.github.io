@@ -844,5 +844,17 @@
   "components.site_layout.global_config_dialog.day_night_mode.System": "Определено системой",
   "components.site_layout.update": "Одно обновление с Вашего прошлого посещения. | {count} обновлений с Вашего прошлого посещения. | ",
   "components.secure_position.block_place.result.fp_need_to_lock": "FP вам нужно разместить, чтобы заблокировать свое место: | FP вам нужно разместить, чтобы заблокировать свое место: | FP вам нужно разместить, чтобы заблокировать свое место:",
-  "components.site_layout.new_year.message": "@:(common.site_title) празднует свой {count} год | @:(common.site_title) празднует свои {count} года | @:(common.site_title) празднует свои {count} лет"
+  "components.site_layout.new_year.message": "@:(common.site_title) празднует свой {count} год | @:(common.site_title) празднует свои {count} года | @:(common.site_title) празднует свои {count} лет",
+  "cookieConsent.purposes.quality": "Качество",
+  "routes.contact.message_translate": "Знаете ли вы, что вы также можете помочь с переводом сайта? Для получения дополнительной информации перейдите по следующей ссылке:",
+  "routes.contact.message_contact_html": "Есть идея по улучшению функционала? Или проблема? Не стесняйтесь послать мне письмо (на английском или французском) по адресу @:(common.links.contact_foe_tools).",
+  "routes.contact.hero.subtitle": "Связаться с администратором @:(common.site_title)",
+  "routes.contact.hero.title": "Связаться",
+  "routes.contact.title": "@:(routes.contact.hero.title) | @:(common.site_title)",
+  "routes.survey.unknown_error": "Произошла неизвестная ошибка, обратитесь к администратору сайта",
+  "routes.survey.error": "Произошла ошибка, проверьте форму и попробуйте еще раз",
+  "routes.survey.survey_complete": "Спасибо за ваш отзыв!",
+  "routes.survey.required_field": "Это поле обязательно к заполнению",
+  "routes.survey.hero.subtitle": "Помогите улучшить @:(common.site_title), пройдя этот опрос",
+  "routes.survey.hero.title": "Опрос"
 }

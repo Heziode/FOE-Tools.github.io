@@ -1870,6 +1870,9 @@ msgstr "SG"
 msgid "foe_data.gb_short.Space_Carrier"
 msgstr "SC"
 
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Galata"
+
 msgid "foe_data.goods.dye"
 msgstr "Dye"
 
@@ -3764,8 +3767,14 @@ msgstr "Hey there ! It's us… the Cookies !"
 msgid "cookieConsent.consentNotice.learnMore"
 msgstr "I choose"
 
+msgid "cookieConsent.consentNotice.learnMore_nonTogglable"
+msgstr "Learn More"
+
 msgid "cookieConsent.sentry.description"
 msgstr "Collecting errors to identify potential bugs (self-hosted solution)"
+
+msgid "cookieConsent.foe-tools.description"
+msgstr "All data related to your configuration (GBs level, investors, Arc bonus, etc.)"
 
 msgid "cookieConsent.back"
 msgstr "Back"

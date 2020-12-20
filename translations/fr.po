@@ -1906,6 +1906,9 @@ msgstr "Gazer"
 msgid "foe_data.gb_short.Space_Carrier"
 msgstr "Transporteur"
 
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Galata"
+
 msgid "foe_data.goods.dye"
 msgstr "Teinture"
 
@@ -3810,8 +3813,14 @@ msgstr "Coucou c'est nous… les Cookies !"
 msgid "cookieConsent.consentNotice.learnMore"
 msgstr "Je choisis"
 
+msgid "cookieConsent.consentNotice.learnMore_nonTogglable"
+msgstr "En savoir plus"
+
 msgid "cookieConsent.sentry.description"
 msgstr "Collecter les erreurs pour identifier les bugs potentiels (solution auto-hébergée)"
+
+msgid "cookieConsent.foe-tools.description"
+msgstr "Toutes les données relatives à votre configuration (niveaux des GM, valeurs des investisseurs, bonus d'Arche, etc.)"
 
 msgid "cookieConsent.purposes.quality"
 msgstr "Qualité"
