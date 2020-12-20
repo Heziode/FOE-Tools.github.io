@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
-"PO-Revision-Date: 2020-12-18 08:33+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2020-12-20 08:58+0000\n"
+"Last-Translator: Alex Zverev <lanched@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
 "Language: ru\n"
@@ -2944,3 +2944,41 @@ msgstr[2] "@:(common.site_title) празднует свои {count} лет"
 
 msgid "cookieConsent.purposes.quality"
 msgstr "Качество"
+
+msgid "routes.contact.message_translate"
+msgstr ""
+"Знаете ли вы, что вы также можете помочь с переводом сайта? Для получения "
+"дополнительной информации перейдите по следующей ссылке:"
+
+msgid "routes.contact.message_contact_html"
+msgstr ""
+"Есть идея по улучшению функционала? Или проблема? Не стесняйтесь послать мне "
+"письмо (на английском или французском) по адресу @:(common.links."
+"contact_foe_tools)."
+
+msgid "routes.contact.hero.subtitle"
+msgstr "Связаться с администратором @:(common.site_title)"
+
+msgid "routes.contact.hero.title"
+msgstr "Связаться"
+
+msgid "routes.contact.title"
+msgstr "@:(routes.contact.hero.title) | @:(common.site_title)"
+
+msgid "routes.survey.unknown_error"
+msgstr "Произошла неизвестная ошибка, обратитесь к администратору сайта"
+
+msgid "routes.survey.error"
+msgstr "Произошла ошибка, проверьте форму и попробуйте еще раз"
+
+msgid "routes.survey.survey_complete"
+msgstr "Спасибо за ваш отзыв!"
+
+msgid "routes.survey.required_field"
+msgstr "Это поле обязательно к заполнению"
+
+msgid "routes.survey.hero.subtitle"
+msgstr "Помогите улучшить @:(common.site_title), пройдя этот опрос"
+
+msgid "routes.survey.hero.title"
+msgstr "Опрос"
