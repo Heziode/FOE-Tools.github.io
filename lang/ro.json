@@ -40,5 +40,6 @@
   "components.cf_calculator.block_cfc.table_return.thead.th_coin": "Returnarea monedelor",
   "components.cf_calculator.block_cfc.reward_message.total_fp": "PF totale: {count}",
   "components.cf_calculator.block_cfc.reward_message.daily_ubq": "Provocările zilnice: {count}",
-  "components.cf_calculator.block_cfc.table_reward.thead.th4": "PF"
+  "components.cf_calculator.block_cfc.table_reward.thead.th4": "PF",
+  "components.cf_calculator.block_cfc.supplies_to_use": "Provizii de folosit pentru UBQ"
 }

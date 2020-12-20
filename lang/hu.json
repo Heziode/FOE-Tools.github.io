@@ -908,5 +908,13 @@
   "components.gb_investment.tutorial.table.fp_already_putin": "Ez az oszlop akkor jelenik meg, ha legalább egy befektetőt bejegyeztél. Megmutatja, hogy a befektető hanyadik helyen fog állni a tulajdonos stratégiájával. (várható befektetés)",
   "components.gb_investment.tutorial.table.place": "A helyindexnek megfelelő.",
   "components.gb_investment.tutorial.table.message": "Ez a táblázat megmutatja az összes információt, amit tudni szeretne.",
-  "components.gb_investment.tutorial.owner_investment": "Már van valamennyi FP a nevezetesedben?\nHa igen, akkor itt add hozzá, hogy mennyi:"
+  "components.gb_investment.tutorial.owner_investment": "Már van valamennyi FP a nevezetesedben?\nHa igen, akkor itt add hozzá, hogy mennyi:",
+  "components.gb_investment.tutorial.table.include_in_copy_boxes": "Ez a mező lehetővé teszi, hogy a helyezést egy promóciós üzenetben jelenítsd meg, amit kimásolhatsz és beilleszthetsz a játékba.",
+  "components.gb_investment.tutorial.table.is_sniper": "Ez az oszlop akkor jelenik meg, ha megadtál legalább egy befektetőt. Annak meghatározására szolgál, hogy a játékos lehetséges lesipuskás-e. Ezt az információt a helyezés biztonságának kiszámításához használjuk.",
+  "components.gb_investment.tutorial.table.fp_to_put_by_the_owner": "Amint azt a neve is mutatja, ez adja meg azt az FP mennyiséget, amit a tulajdonosnak kell betennie a Nevezetes épületbe ahhoz, hogy védje a helyet.",
+  "components.gb_investment.tutorial.add_investors": "Vannak-e olyan véletlen befektetések a Nevezetes épületedben, amelyek alacsonyabbak vagy magasabbak a megadott szorzónál?\nÍrd be az összes egyedi befektetést egyenként ebbe a mezőbe!\nAz eszköz újraszámolja a biztonságos fp-ket és azt is megadja, hogy mely helyek foglaltak már.",
+  "components.gb_investment.tutorial.investor_percentage": "Válaszd ki a befektetőid által használandó százalékot\nPéldául: 1,9-es szorzóhoz írj be 90-et.",
+  "components.gb_investment.tutorial.level": "Válaszd ki azt a szintet, amin dolgozni szeretnél!",
+  "components.gb_investment.tutorial.display_modes.content": "Ez az eszköz megadja az összes olyan információt, amelyet a tulajdonosnak és a befektetőknek tudnia kell a nevezetes épület adott szintjébe való befektetéshez. Két megjelenítési módja van:\n\n\"@:(routes.gb_investment.tab.owner_view.title)\" (ahol most vagy), amely csak az aktuális szintre vonatkozó részletes információkat jelenít meg.\n\n\"@:(routes.gb_investment.tab.investors_view.title)\" több szint kapcsolódó értékeit adja meg táblázatos formában. Itt csak a tulajdonos és a befektetők által beteendő FP-k számát láthatod a keletkező nyereséggel/veszteséggel együtt.",
+  "components.gb_investment.tutorial.gb_select": "Ez az eszköz megadja az összes olyan információt, amelyet a tulajdonosnak és a befektetőknek tudnia kell a nevezetes épület adott szintjébe való befektetéshez. Két megjelenítési módja van:"
 }
