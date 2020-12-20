@@ -24,7 +24,7 @@ export default {
     },
     formattedPurposes() {
       let result = "";
-      for (const purpose of this.translatedPurposes) {
+      for (const purpose of this.togglablePurposes) {
         result += `${result.length ? ", " : ""}<strong>${purpose}</strong>`;
       }
       return result;

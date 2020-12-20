@@ -9,24 +9,40 @@ section
           .flex
             p(class="font-semibold leading-tight text-lg lg:text-xl") {{$t("cookieConsent.title")}}
             img(src="~assets/cookie-consent.svg" width="200")
-          p.text-sm.mt-4 {{$t("cookieConsent.consentNotice.description")}}&nbsp;
-            span(v-html="formattedPurposes")
-          p.text-sm.mt-2 {{$t("cookieConsent.consentNotice.edit")}}
+          template(v-if="formattedPurposes.length")
+            p.text-sm.mt-4 {{$t("cookieConsent.consentNotice.description")}}&nbsp;
+              span(v-html="formattedPurposes")
+            p.text-sm.mt-2 {{$t("cookieConsent.consentNotice.edit")}}
+          template(v-else)
+            p.text-sm.mt-4 {{$t("routes.about.cookie.p1")}}
 
           p.text-sm.mt-2(v-if="$props.cm.changed")
             i {{$t("cookieConsent.consentNotice.changeDescription")}}
       div.flex.items-stretch
-        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 dark-hover:text-gray-400 dark:text-gray-200 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-r-1 w-full" @click="customize = true") {{$t("cookieConsent.consentNotice.learnMore")}}
-        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-br-lg font-bold cursor-pointer hover:text-orange-300 text-orange-400 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptConsent") {{$t("cookieConsent.ok")}}
+        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 dark-hover:text-gray-400 dark:text-gray-200 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-r-1 w-full" @click="customize = true")
+          template(v-if="formattedPurposes.length") {{$t("cookieConsent.consentNotice.learnMore")}}
+          template(v-else) {{$t("cookieConsent.consentNotice.learnMore_nonTogglable")}}
+        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-br-lg font-bold cursor-pointer hover:text-orange-300 text-orange-400 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptConsent")
+          template(v-if="formattedPurposes.length") {{$t("cookieConsent.ok")}}
+          template(v-else) {{$t("utils.Ok")}}
     template(v-else)
       .overflow-y.p-5(style="max-height: calc(100vh - 14.5rem);")
         p(class="font-semibold leading-tight text-lg lg:text-xl") {{$t("cookieConsent.consentModal.title")}}
 
         p.text-sm.mt-2.text-gray-700(class="dark:text-gray-400") {{$t("cookieConsent.consentModal.description")}}
+        p.text-sm.mt-2.text-gray-700(class="dark:text-gray-400") {{$t("routes.about.cookie.p2")}}
+        ul
+          li
+            a(href="/privacy-policy") {{$t("footer_menu.privacy_policy")}}
+          li
+            a(href="/cookie-policy") {{$t("footer_menu.cookie_policy")}}
+
 
         // Purposes
         div.mt-6(v-for="item of purposeItems")
-          .relative.inline-block.w-10.mr-2.align-middle.select-none.transition.duration-200.ease-in
+          span.relative.inline-block.mr-2.align-middle.select-none.transition.duration-200.ease-in(v-if="item.required")
+            i.fas.fa-lock
+          .relative.inline-block.w-10.mr-2.align-middle.select-none.transition.duration-200.ease-in(v-else)
             input.toggle-checkbox.absolute.block.w-6.h-6.rounded-full.bg-white.border-4.appearance-none.cursor-pointer(
               :id="`toggle-${item.key}`"
               :class="{'toggle-checkbox-indeterminate': !item.allEnabled && !item.onlyRequiredEnabled && !item.allDisabled, 'toggle-checkbox-checked': item.allEnabled, 'dark:border-gray-700': true }"
@@ -42,7 +58,9 @@ section
           // Services
           div.ml-4
             div.mt-4(v-for="service of item.services")
-              .relative.inline-block.w-10.mr-2.align-middle.select-none.transition.duration-200.ease-in
+              span.relative.inline-block.mr-2.align-middle.select-none.transition.duration-200.ease-in(v-if="item.required")
+                i.fas.fa-lock
+              .relative.inline-block.w-10.mr-2.align-middle.select-none.transition.duration-200.ease-in(v-else)
                 input.toggle-checkbox.absolute.block.w-6.h-6.rounded-full.bg-white.border-4.appearance-none.cursor-pointer(
                   :id="`toggle-${item.key}-${service.title}`"
                   :class="{ 'toggle-checkbox-checked': consents[service.name] || item.required, 'dark:border-gray-700': true }"
@@ -57,5 +75,5 @@ section
 
       div.flex.items-stretch
         button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 dark-hover:text-gray-400 dark:text-gray-200 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-r-1 w-full" @click="customize = false") {{$t("cookieConsent.back")}}
-        button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 font-bold cursor-pointer hover:text-orange-300 text-orange-400 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptAll") {{$t("cookieConsent.acceptAll")}}
+        button(v-if="formattedPurposes.length" class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 font-bold cursor-pointer hover:text-orange-300 text-orange-400 duration-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptAll") {{$t("cookieConsent.acceptAll")}}
         button(class="text-base rounded-r-none hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded-bl-lg font-bold cursor-pointer hover:text-gray-800 text-gray-700 duration-200 dark-hover:text-gray-400 dark:text-gray-200 ease-in-out transition border-gray-200 dark:border-gray-800 border-t-2 border-l-1 w-full" @click="acceptSelected") {{$t("cookieConsent.acceptSelected")}}
