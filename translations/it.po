@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.446Z\n"
-"PO-Revision-Date: 2020-12-14 12:22+0000\n"
-"Last-Translator: Rastal Bit <rastalbit@gmail.com>\n"
+"PO-Revision-Date: 2020-12-21 22:17+0000\n"
+"Last-Translator: Massimiliano Porcelli <max.porcelli@gmail.com>\n"
 "Language-Team: Italian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/it/>\n"
 "Language: it\n"
@@ -3531,3 +3531,129 @@ msgstr ""
 
 msgid "foe_data.gb.Galata_Tower"
 msgstr "Torre di Galata"
+
+msgid "foe_data.province.Aerial_Boulevard"
+msgstr "viale aereo"
+
+msgid "foe_data.province.The_Historical_Museum"
+msgstr "Il Museo di Storia"
+
+msgid "foe_data.province.Frozen_RAM"
+msgstr "RAM congelata"
+
+msgid "foe_data.province.Twisted_Alps"
+msgstr "Alpi contorte"
+
+msgid "foe_data.province.Vortex"
+msgstr "Vortice"
+
+msgid "foe_data.province.Three_Oc3ans"
+msgstr "Tre oceani"
+
+msgid "foe_data.province.Purple_Palace"
+msgstr "Palazzo viola"
+
+msgid "foe_data.province.Alpha_1_Omega_2"
+msgstr "Alpha 1 Omega 2"
+
+msgid "foe_data.province.LoneHub"
+msgstr "MozzoSolitario"
+
+msgid "foe_data.province.Spoiled_Resort"
+msgstr "Resort viziato"
+
+msgid "foe_data.province.Forgotten_Fragments"
+msgstr "Frammenti dimenticati"
+
+msgid "foe_data.province.The_Warring_Towers"
+msgstr "Le torri di guerra"
+
+msgid "foe_data.province.The_Open_Zone"
+msgstr "La zona aperta"
+
+msgid "foe_data.province.Max_s_Shelter"
+msgstr "Riparo di Max"
+
+msgid "foe_data.province.Pulse_City"
+msgstr "Città di Pulse"
+
+msgid "foe_data.province.Black_Net_Market"
+msgstr "Mercato nero"
+
+msgid "foe_data.province.Shift_Land"
+msgstr "Turno/Terra"
+
+msgid "foe_data.province.Banker_s_Heaven"
+msgstr "PAradiso di Banker"
+
+msgid "foe_data.province.End_of_the_Void"
+msgstr "Fine del vuoto"
+
+msgid "foe_data.province.Bytedirt_Planes"
+msgstr "Aereo di Bytedirt"
+
+msgid "foe_data.province.Mutiny_Canyon"
+msgstr "Canyon dell'Ammutinamento"
+
+msgid "foe_data.province.Corsair_s_Skerry"
+msgstr "Scialuppa del corsaro"
+
+msgid "foe_data.province.Typhoon_Peninsula"
+msgstr "Penisola del tifone"
+
+msgid "foe_data.province.Leviathan_Wreck"
+msgstr "Relitto del Leviatano"
+
+msgid "foe_data.province.Blackwater_Cape"
+msgstr "Capo AcquaNera"
+
+msgid "foe_data.province.Seafarer_s_Current"
+msgstr "Corrente del marinaio"
+
+msgid "foe_data.province.Neptune_s_Galleon"
+msgstr "Galeone di Nettuno"
+
+msgid "foe_data.province.Undertow_Bank"
+msgstr "Basnca della risacca"
+
+msgid "foe_data.province.Capsize_Lagoon"
+msgstr "Laguna capovolta"
+
+msgid "foe_data.province.Scurvy_Atoll"
+msgstr "Atollo dello scorbuto"
+
+msgid "foe_data.province.Ghost_Trench"
+msgstr "Trincea fantasma"
+
+msgid "foe_data.province.Scuttle_Ridge"
+msgstr "Cresta affondata"
+
+msgid "foe_data.province.Nock_s_Turn"
+msgstr "Il turno di Nock"
+
+msgid "foe_data.province.Idlers_Range"
+msgstr "Banda di fannulloni"
+
+msgid "foe_data.province.Dungbie_Trough"
+msgstr "Trogolo di letame"
+
+msgid "foe_data.province.Ursula_s_Valley"
+msgstr "Valle di Ursula"
+
+msgid "foe_data.province.Ahoy_Alee"
+msgstr "Attenzione, sottovento"
+
+msgid "foe_data.province.Anchorage_Ruin"
+msgstr "Rovine ancorate"
+
+msgid "foe_data.province.Nemo_s_Dock"
+msgstr "Il bacino di Nemo"
+
+msgid "foe_data.province.Medusa_Cove"
+msgstr "Baia della Medusa"
+
+msgid "foe_data.province.Privateer_Helm"
+msgstr "timone del corsaro"
+
+msgid "foe_data.province.Dagon_s_Dagger"
+msgstr "Il pugnale di Dagon"
