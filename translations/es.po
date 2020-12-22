@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.147Z\n"
-"PO-Revision-Date: 2020-11-22 15:18+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2020-12-23 07:11+0000\n"
+"Last-Translator: Mikel García Vaquero <canyamel@gmail.com>\n"
 "Language-Team: Spanish <https://translate.foe.tools/projects/"
 "foe-tools-website/website/es/>\n"
 "Language: es\n"
@@ -3640,3 +3640,394 @@ msgstr ""
 "@:(components.secure_position.block_place.your_arc_bonus)\") cuántos PF "
 "necesita poner en el GE para asegurar su lugar.\n"
 "También indica el beneficio o la pérdida que va a hacer."
+
+msgid "cookieConsent.purposes.quality"
+msgstr "Calidad"
+
+msgid "cookieConsent.purposes.performance.description"
+msgstr ""
+"Estos servicios procesan información personal para optimizar el servicio que "
+"ofrece la página."
+
+msgid "cookieConsent.purposes.functional.title"
+msgstr "Prestación de servicios"
+
+msgid "cookieConsent.purposes.functional.description"
+msgstr ""
+"Estos servicios son necesarios para el correcto funcionamiento de la página. "
+"No puedes desactivarlos aquí pues el servicio dejaría de funcionar."
+
+msgid "cookieConsent.purposes.advertising.title"
+msgstr "Publicidad"
+
+msgid "cookieConsent.purposes.advertising.description"
+msgstr ""
+"Estos servicios procesan información personal para mostrarte anuncios "
+"personalizados o basados en tus intereses."
+
+msgid "cookieConsent.ok"
+msgstr "Me parece bien"
+
+msgid "cookieConsent.consentNotice.edit"
+msgstr ""
+"¿Te parece bien? Siempre puedes modificarlo o retirar tu consentimiento más "
+"adelante."
+
+msgid "cookieConsent.consentNotice.description"
+msgstr "Nos gustaría activar servicios adicionales con estos propósitos:"
+
+msgid "cookieConsent.consentNotice.changeDescription"
+msgstr ""
+"Ha habido cambios desde tu última visita, por favor renueva tu "
+"consentimiento."
+
+msgid "cookieConsent.consentModal.title"
+msgstr "Servicios que nos gustaría utilizar"
+
+msgid "cookieConsent.acceptAll"
+msgstr "Aceptar todas"
+
+msgid "cookieConsent.back"
+msgstr "Volver"
+
+msgid "cookieConsent.foe-tools.description"
+msgstr ""
+"Todos los datos relacionados con tu configuración (nivel de los GE, "
+"inversores, bono del Arca, etc.)"
+
+msgid "cookieConsent.consentNotice.learnMore_nonTogglable"
+msgstr "Para saber más"
+
+msgid "cookieConsent.title"
+msgstr "¡Hola! ¡Somos nosotras, las cookies!"
+
+msgid "utils.alpha_order"
+msgstr "Orden alfabético"
+
+msgid "utils.favourites"
+msgstr "Favoritos"
+
+msgid "utils.Donate"
+msgstr "Donar"
+
+msgid "utils.Tutorial"
+msgstr "Tutorial"
+
+msgid "utils.FP"
+msgid_plural "utils.FP"
+msgstr[0] "{count} PF"
+msgstr[1] "{count} PFs"
+
+msgid "utils.Done"
+msgstr "Hecho"
+
+msgid "utils.Exit"
+msgstr "Salir"
+
+msgid "utils.Previous"
+msgstr "←"
+
+msgid "utils.Next"
+msgstr "→"
+
+msgid "foe_data.bonus.exploration_site.name"
+msgstr "Sitio de exploración"
+
+msgid "foe_data.province.Euphrosyne_A_20"
+msgstr "Euphrosyne A-20"
+
+msgid "foe_data.province.Nemesis"
+msgstr "Némesis"
+
+msgid "foe_data.province.Ceres_K_18"
+msgstr "Ceres K-18"
+
+msgid "foe_data.province.Fides"
+msgstr "Fides"
+
+msgid "foe_data.province.Vesta_M_16"
+msgstr "Vesta M-16"
+
+msgid "foe_data.province.Vesta_L_15"
+msgstr "Vesta L-15"
+
+msgid "foe_data.province.Hygiea_O_14"
+msgstr "Hygiea O-14"
+
+msgid "foe_data.province.Hygiea_N_13"
+msgstr "Hygiea N-13"
+
+msgid "foe_data.province.Euphrosyne_A_12"
+msgstr "Euphrosyne A-12"
+
+msgid "foe_data.province.Eunike"
+msgstr "Eunike"
+
+msgid "foe_data.province.Gyptis"
+msgstr "Gyptis"
+
+msgid "foe_data.province.Loreley"
+msgstr "Loreley"
+
+msgid "foe_data.province.Pales"
+msgstr "Pales"
+
+msgid "foe_data.province.Ceres_G_7"
+msgstr "Ceres G-7"
+
+msgid "foe_data.province.Ceres_E_6"
+msgstr "Ceres E-6"
+
+msgid "foe_data.province.Aurora"
+msgstr "Aurora"
+
+msgid "foe_data.province.Cybele_V_4"
+msgstr "Cibeles V-4"
+
+msgid "foe_data.province.Cybele_F_3"
+msgstr "Cibeles F-3"
+
+msgid "foe_data.province.Juno"
+msgstr "Juno"
+
+msgid "foe_data.province.Vesta_S_1"
+msgstr "Vesta S-1"
+
+msgid "foe_data.province.Egeria"
+msgstr "Egeria"
+
+msgid "foe_data.province.Diotima"
+msgstr "Diotima"
+
+msgid "foe_data.province.Aletheia"
+msgstr "Aletheia"
+
+msgid "foe_data.province.Metis"
+msgstr "Metis"
+
+msgid "foe_data.province.Hektor"
+msgstr "Hektor"
+
+msgid "foe_data.province.Ino"
+msgstr "Ino"
+
+msgid "foe_data.province.Thisbe"
+msgstr "Thisbe"
+
+msgid "foe_data.province.Amphitrite"
+msgstr "Anfitrite"
+
+msgid "foe_data.province.Interamnia"
+msgstr "Interamnia"
+
+msgid "foe_data.province.TB_15_X_7"
+msgstr "TB-15 X-7"
+
+msgid "foe_data.province.Eunomia"
+msgstr "Eunomia"
+
+msgid "foe_data.province.Pallas_D_5"
+msgstr "Pallas D-5"
+
+msgid "foe_data.province.Pallas_C_4"
+msgstr "Pallas C-4"
+
+msgid "foe_data.province.Eros"
+msgstr "Eros"
+
+msgid "foe_data.province.Medea"
+msgstr "Medea"
+
+msgid "foe_data.province.Psyche"
+msgstr "Psyche"
+
+msgid "foe_data.province.Everdoom"
+msgstr "Everdoom"
+
+msgid "foe_data.province.Delta_Hills"
+msgstr "Colinas Delta"
+
+#, fuzzy
+msgid "foe_data.province.Sharvice"
+msgstr "Sharvice"
+
+msgid "foe_data.province.Loakmolden"
+msgstr "Loakmolden"
+
+msgid "foe_data.province.Jalcion_Crater"
+msgstr "Cráter Jalcion"
+
+msgid "foe_data.province.Plateau_Firnane_2"
+msgstr "Meseta Firnane-2"
+
+msgid "foe_data.province.High_Hacoon_Valley"
+msgstr "Valle Hacoon Alto"
+
+msgid "foe_data.province.Low_Hacoon_Valley"
+msgstr "Valle Hacoon Bajo"
+
+msgid "foe_data.province.Vyvalgis"
+msgstr "Vyvalgis"
+
+msgid "foe_data.province.Destallia"
+msgstr "Destallia"
+
+msgid "foe_data.province.Astra_Prime"
+msgstr "Astra Prime"
+
+msgid "foe_data.province.Phovolken"
+msgstr "Phovolken"
+
+msgid "foe_data.province.Verda_Dophria"
+msgstr "Verda Dophria"
+
+msgid "foe_data.province.Zomantau"
+msgstr "Zomantau"
+
+msgid "foe_data.province.Vaanderbirch"
+msgstr "Vaanderbirch"
+
+msgid "foe_data.province.New_Frozenstone"
+msgstr "Nueva Frozenstone"
+
+msgid "foe_data.province.Ertannen_Belt"
+msgstr "Cinturón de Ertannen"
+
+msgid "foe_data.province.Xalvades"
+msgstr "Xalvades"
+
+msgid "foe_data.province.Akuppers"
+msgstr "Akuppers"
+
+msgid "foe_data.province.Enervein"
+msgstr "Enervein"
+
+msgid "foe_data.province.Oppeska"
+msgstr "Oppeska"
+
+msgid "foe_data.province.Fortrin"
+msgstr "Fortrin"
+
+msgid "foe_data.province.Carva_Caska"
+msgstr "Carva Caska"
+
+msgid "foe_data.province.Wrandasten_3"
+msgstr "Wrandasten 3"
+
+msgid "foe_data.province.Klaylach"
+msgstr "Klaylach"
+
+msgid "foe_data.province.Ghirken"
+msgstr "Ghirken"
+
+msgid "foe_data.province.Nobisia"
+msgstr "Nobisia"
+
+msgid "foe_data.province.Vradeen"
+msgstr "Vradeen"
+
+msgid "foe_data.province.Kardine_Haven"
+msgstr "Kardine Haven"
+
+msgid "foe_data.province.Mathaben"
+msgstr "Mathaben"
+
+msgid "foe_data.province.Rustikauri"
+msgstr "Rustikauri"
+
+msgid "foe_data.goods.platinum_crystals"
+msgstr "Cristales de Platino"
+
+msgid "foe_data.goods.bromine"
+msgstr "Bromo"
+
+msgid "foe_data.goods.compound_fluid"
+msgstr "Fluidos compuestos"
+
+msgid "foe_data.goods.processed_materials"
+msgstr "Materiales procesados"
+
+msgid "foe_data.goods.nickel"
+msgstr "Níquel"
+
+msgid "foe_data.goods.superalloys"
+msgstr "Superaleaciones"
+
+msgid "foe_data.goods.fusion_reactors"
+msgstr "Reactores de fusión"
+
+msgid "foe_data.goods.mars_microbes"
+msgstr "Microbios de Marte"
+
+msgid "foe_data.goods.biotech_crops"
+msgstr "Cultivos de biotecnología"
+
+msgid "foe_data.goods.lubricants"
+msgstr "Lubricantes"
+
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Gálata"
+
+msgid "foe_data.gb.Space_Carrier"
+msgstr "Transportador Espacial"
+
+msgid "foe_data.gb.Galata_Tower"
+msgstr "Torre de Gálata"
+
+msgid "foe_data.age.SpaceAgeAsteroidBelt"
+msgstr "Era Espacial Cinturón de Asteroides"
+
+msgid "routes.donate.hero.subtitle"
+msgstr "Donar a @:(common.site_title)"
+
+msgid "routes.donate.hero.title"
+msgstr "@:(utils.Donate)"
+
+msgid "routes.donate.donation_options"
+msgstr "Donar con @:(common.links.donorbox) o @:(common.links.paypal)."
+
+msgid "routes.donate.conversion"
+msgstr "Si aprecias mi trabajo, por favor plantéate hacer una donación."
+
+msgid "routes.donate.donation_message"
+msgstr ""
+"@:(common.site_title) es un proyecto de código abierto, sin publicidad ni "
+"ánimo de lucro. El tiempo que paso desarrollándolo no es remunerado. No "
+"obstante, acepto donaciones de cualquiera que aprecie mi trabajo lo "
+"suficiente como para querer compensarme, sin importar la cantidad ni el modo "
+"(pago de una vez o mensual). Las donaciones significan mucho para mí, pues "
+"ayudan a cubrir costes asociados con el mantenimiento del servidor, dominios "
+"y hospedaje (y el coste de la vida en general), y son un incentivo para "
+"seguir trabajando en este proyecto."
+
+msgid "routes.about.cookie.p2"
+msgstr "Para más información, consultar estos enlaces:"
+
+msgid "routes.about.cookie.info.cookieConsent"
+msgstr "Tus preferencias de cookies"
+
+msgid "components.site_layout.translation_not_completed.content"
+msgstr "Las traducciones siguientes no están completas y necesitan traductores:"
+
+msgid "components.site_layout.translation_not_completed.title"
+msgstr "Traducción sin completar"
+
+msgid "components.site_layout.global_config_dialog.day_night_mode.System"
+msgstr "Preferencia del sistema"
+
+msgid "components.gb_forecast_cost.message.estimated_time_swap_threads"
+msgstr ""
+"Tiempo estimado para alcanzar el nivel usando hilos de intercambio (5/10/20/"
+"50/100 PFs, etc.): {time}"
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Borrar de favoritos"
+
+msgid "components.gb_investment.add_favourite"
+msgstr "Añadir a favoritos"
+
+msgid "footer_menu.privacy_policy"
+msgstr "Política de privacidad"
+
+msgid "footer_menu.cookie_policy"
+msgstr "Política de cookies"
