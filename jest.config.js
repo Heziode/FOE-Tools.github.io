@@ -8,9 +8,9 @@ module.exports = {
   ],
   transform: {
     // process `*.vue` files with `vue-jest`
-    ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+    ".*\\.(vue)$": "vue-jest",
     // process js with `babel-jest`
-    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+    "\\.[jt]sx?$": "babel-jest",
   },
   // support the same @ -> src alias mapping in source code
   moduleNameMapper: {
