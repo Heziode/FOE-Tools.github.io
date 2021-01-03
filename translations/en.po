@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.068Z\n"
-"PO-Revision-Date: 2021-01-03 20:25+0000\n"
+"PO-Revision-Date: 2021-01-03 21:51+0000\n"
 "Last-Translator: Weblate Admin <admin@foe.tools>\n"
 "Language-Team: English <https://translate.foe.tools/projects/"
 "foe-tools-website/website/en/>\n"
@@ -1127,7 +1127,6 @@ msgstr "Reverse order of places?"
 msgid "components.promotion_message_builder.place_separator"
 msgstr "Place separator"
 
-#, fuzzy
 msgid "components.promotion_message_builder.place_builder"
 msgstr "Place builder"
 
