@@ -496,5 +496,17 @@
   "components.cf_calculator.block_cfc.other_rq": "αλλες ημερησιες επαναλαμβανομενες αποστολες",
   "components.cf_calculator.block_cfc.supplies_to_use": "προμήθειες που χρειάζονται για UBQ",
   "components.cf_calculator.block_cfc.coins_to_use": "νομίσματα που χρειάζονται για UBQ",
-  "footer_menu.cookie_policy": "πολιτικη μπισκοτων"
+  "footer_menu.cookie_policy": "πολιτικη μπισκοτων",
+  "components.gb_investment.tutorial.table.place": "Αντιστοιχεί στον δείκτη θέσης.",
+  "components.gb_investment.gb_investment.table.thead.is_sniper": "Είναι πιθανός sniper?",
+  "components.gb_investment.gb_investment.table.thead.spot_snipe": "Θέση/Snipe",
+  "components.gb_investment.gb_investment.form.display_card": "Εμφάνιση πίνακα σε μορφή κάρτας; (σε μικρές οθόνες)",
+  "components.gb_investment.gb_investment.form.show_snipe": "Εμφάνιση Θέσης/Snipe",
+  "components.gb_investment.gb_investment.form.submit_custom": "Προσαρμοσμένος υπολογισμός",
+  "components.gb_investment.gb_investment.form.level": "Επίπεδο {fromLevel} → {level} (@:(utils.between_range))",
+  "components.cf_calculator.tutorial.otherRq": "Ορίστε τις άλλες ημερήσιες επαναλαμβανόμενες αποστολές που έχεις ήδη ολοκληρώσει μέχρι τώρα.",
+  "components.cf_calculator.tutorial.suppliesGathered": "Γράψτε την ποσότητα των προμηθειών που θελετε να χρησιμοποιήσετε για την δεύτερη επαναλαμβανόμενη αποστολή.",
+  "components.cf_calculator.block_cfc.table_reward.thead.th1": "Σχεδιαγράμματα",
+  "components.cf_calculator.block_cfc.second_rq": "2η θέση Συνεισφορά ?",
+  "components.cf_calculator.block_cfc.reward_message.total_rq_completed": "Συνολικές ολοκληρωμένες Επαναλαμβανόμενες Αποστολές"
 }

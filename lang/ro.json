@@ -16,7 +16,7 @@
   "components.campaign_cost.all_provinces": "Toate provinciile",
   "components.cf_calculator.block_cfc.title": "@:(routes.cf_calculator.hero.title)",
   "components.cf_calculator.block_cfc.your_age": "Era ta",
-  "components.cf_calculator.block_cfc.your_cf_boost": "Your @:(foe_data.gb.Chateau_Frontenac) Boost",
+  "components.cf_calculator.block_cfc.your_cf_boost": "Al tau @:(foe_data.gb.Chateau_Frontenac) Boost",
   "components.cf_calculator.block_cfc.supplies_gathered": "Provizii obtinute",
   "main_menu.secure_position": "@:(routes.secure_position.hero.title)",
   "main_menu.cf_calculator": "@:(routes.cf_calculator.hero.title)",
@@ -41,5 +41,8 @@
   "components.cf_calculator.block_cfc.reward_message.total_fp": "PF totale: {count}",
   "components.cf_calculator.block_cfc.reward_message.daily_ubq": "Provocările zilnice: {count}",
   "components.cf_calculator.block_cfc.table_reward.thead.th4": "PF",
-  "components.cf_calculator.block_cfc.supplies_to_use": "Provizii de folosit pentru UBQ"
+  "components.cf_calculator.block_cfc.supplies_to_use": "Provizii de folosit pentru UBQ",
+  "components.cf_calculator.block_cfc.table_reward.thead.th1": "components.cf_calculator.block_cfc.table_reward.thead.th1",
+  "components.cf_calculator.block_cfc.gb_plunder_goods": "components.cf_calculator.block_cfc.gb_plunder_goods",
+  "components.cf_calculator.block_cfc.reward_message.bonus_ubq": "components.cf_calculator.block_cfc.reward_message.bonus_ubq"
 }

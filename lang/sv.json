@@ -1176,5 +1176,8 @@
   "cookieConsent.consentModal.description": "Här kan du överse och anpassa tjänsterna vi använder på denna webbplats, du bestämmer! Aktivera, avaktivera tjänsterna så det passar dig.",
   "cookieConsent.acceptSelected": "Fullfölj",
   "cookieConsent.acceptAll": "Jag accepterar alla",
-  "cookieConsent.back": "Tillbaka"
+  "cookieConsent.back": "Tillbaka",
+  "cookieConsent.foe-tools.description": "All data relaterad till din konfiguration (MB's nivåer, investerare, Ark bonus, etc.)",
+  "cookieConsent.consentNotice.learnMore_nonTogglable": "Få reda på mer",
+  "foe_data.gb_short.Galata_Tower": "GT"
 }
