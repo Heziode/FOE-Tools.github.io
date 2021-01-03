@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
 "PO-Revision-Date: 2021-01-03 20:25+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"Last-Translator: Valentin V <vintsukevich@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
 "Language: ru\n"
@@ -3029,4 +3029,25 @@ msgid "utils.Show"
 msgstr ""
 
 msgid "routes.donate.donation_message"
+msgstr ""
+
+msgid "components.promotion_message_builder.place_builder"
+msgstr ""
+
+msgid "routes.help_to_translate_the_site.p1"
+msgstr ""
+
+msgid "routes.trade.tab.fair_trade.title"
+msgstr ""
+
+msgid "routes.help_to_translate_the_site.hero.subtitle"
+msgstr ""
+
+msgid "routes.help_to_translate_the_site.how_to_join_the_team"
+msgstr ""
+
+msgid "routes.trade.tab.trade_2_1.title"
+msgstr ""
+
+msgid "routes.help_to_translate_the_site.state_of_translation"
 msgstr ""
