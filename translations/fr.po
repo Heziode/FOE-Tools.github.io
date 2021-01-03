@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.293Z\n"
-"PO-Revision-Date: 2020-11-09 00:08+0000\n"
-"Last-Translator: François-Joseph du Fou <francoisjoseph.du.fou@gmail.com>\n"
+"PO-Revision-Date: 2021-01-03 20:25+0000\n"
+"Last-Translator: Weblate Admin <admin@foe.tools>\n"
 "Language-Team: French <https://translate.foe.tools/projects/"
 "foe-tools-website/website/fr/>\n"
 "Language: fr\n"
@@ -1906,6 +1906,7 @@ msgstr "Gazer"
 msgid "foe_data.gb_short.Space_Carrier"
 msgstr "Transporteur"
 
+#, fuzzy
 msgid "foe_data.gb_short.Galata_Tower"
 msgstr "Galata"
 
