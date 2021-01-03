@@ -1,8 +1,6 @@
 {
   "reject": [
-    "babel-jest",
     "eslint",
-    "jest",
     "enumify",
     "shepherd.js"
   ]
