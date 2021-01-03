@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.147Z\n"
-"PO-Revision-Date: 2020-12-23 07:11+0000\n"
+"PO-Revision-Date: 2021-01-03 20:25+0000\n"
 "Last-Translator: Mikel García Vaquero <canyamel@gmail.com>\n"
 "Language-Team: Spanish <https://translate.foe.tools/projects/"
 "foe-tools-website/website/es/>\n"
@@ -4031,3 +4031,18 @@ msgstr "Política de privacidad"
 
 msgid "footer_menu.cookie_policy"
 msgstr "Política de cookies"
+
+msgid "cookieConsent.consentNotice.learnMore"
+msgstr ""
+
+msgid "cookieConsent.acceptSelected"
+msgstr ""
+
+msgid "cookieConsent.consentModal.description"
+msgstr ""
+
+msgid "cookieConsent.purposes.performance.title"
+msgstr ""
+
+msgid "cookieConsent.sentry.description"
+msgstr ""
