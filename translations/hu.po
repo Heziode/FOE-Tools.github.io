@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.372Z\n"
 "PO-Revision-Date: 2021-01-16 07:25+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"Last-Translator: Tóth Norbert <xnorbi9@gmail.com>\n"
 "Language-Team: Hungarian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/hu/>\n"
 "Language: hu\n"
@@ -3054,6 +3054,10 @@ msgid ""
 "components.gb_investment.tutorial.promotion_message.show_only_"
 "secured_places"
 msgstr ""
+"Ez az opció lehetővé teszi a helyek automatikus hozzáadását a promóciós "
+"üzenetbe, ha ezek a helyek védettek és még nem kerültek elfogadásra. A "
+"szolgáltatás használatához meg kell adnia a tulajdonos által jelenleg "
+"elhelyezett FP-k számát, valamint a szinten jelen lévő befektetőket."
 
 msgid "components.gb_investment.tutorial.your_arc_bonus"
 msgstr ""
@@ -3061,3 +3065,163 @@ msgstr ""
 "gb_investment.gb_investment.form.show_snipe)\" set to \"@:(utils.Yes)\".\n"
 "Megmondja, hogy mennyi FP-t kell tenned, hogy biztosítsd az adott helyezést, "
 "illetve hogy mennyi nyereséget vagy veszteséget hoz."
+
+msgid "components.promotion_message_builder.available_variables"
+msgstr "Elérhető verziók:"
+
+msgid "components.promotion_message_builder.message_preview"
+msgstr "Üzenet előnézete"
+
+msgid "components.promotion_message_builder.message_builder"
+msgstr "Építőnek üzenés"
+
+msgid "components.promotion_message_builder.place_preview"
+msgstr "Hely előnézete (1. hely)"
+
+msgid "components.promotion_message_builder.place_separator"
+msgstr "Helyezze el az elválasztót"
+
+msgid "components.promotion_message_builder.reverse_place_order"
+msgstr "Fordított sorrend?"
+
+msgid "components.promotion_message_builder.custom_field_title"
+msgstr "Egyéni mezőid"
+
+msgid "components.promotion_message_builder.add_field.value"
+msgstr "A mező értéke"
+
+msgid "components.promotion_message_builder.add_field.name"
+msgstr "Mező neve"
+
+msgid "components.promotion_message_builder.add_field_title"
+msgstr "Adjon hozzá egyéni mezőket"
+
+msgid "components.promotion_message_builder.config"
+msgstr "Konfiguráció"
+
+msgid "components.promotion_message_builder.note"
+msgstr ""
+"Ne feledje, hogy az üzenetkészítő a @ :( foe_data.gb.Observatory) 9. → 10. "
+"szintjét használja 1,9 arányban az előnézethez."
+
+msgid "components.trade.message.result"
+msgstr ""
+"{To} {ageTo} árukhoz {from} {ageFrom} árukra van szüksége, legfeljebb {count}"
+" ajánlatokkal:"
+
+msgid "components.trade.title"
+msgstr "Űrlap verzió"
+
+msgid "components.site_layout.translation_not_completed.content"
+msgstr "A következő fordítások nem fejeződtek be, és fordítókra van szükségük:"
+
+msgid "components.site_layout.translation_not_completed.title"
+msgstr "A fordítás nem fejeződött be"
+
+msgid "components.site_layout.global_config_dialog.day_night_mode.System"
+msgstr "Rendszerpreferencia"
+
+msgid ""
+"components.site_layout.global_config_dialog.select_gb_style_"
+"mode.select"
+msgstr "Kiválasztás (örökölt)"
+
+msgid "components.site_layout.global_config_dialog.select_gb_style"
+msgstr "GB Választó stílus"
+
+msgid "components.site_layout.footer.license_html"
+msgstr "Forráskód @ :( common.links.mit) licenc alatt"
+
+msgid "components.site_layout.permalink_info"
+msgstr ""
+"Meglátogat egy állandó oldalt. Következésképpen az elvégzett módosítások nem "
+"kerülnek mentésre a cookie-kba."
+
+msgid "components.site_layout.whats_new"
+msgstr "Mi az újdonság?"
+
+msgid "components.site_layout.update"
+msgid_plural "components.site_layout.update"
+msgstr[0] "Egy frissítés a legutóbbi látogatás óta."
+msgstr[1] "{count} frissítés a legutóbbi látogatás óta."
+
+msgid "components.secure_position.block_place.result.roi.neutral"
+msgstr "Nem lesz megtérülése"
+
+msgid "components.secure_position.block_place.result.default"
+msgid_plural "components.secure_position.block_place.result.default"
+msgstr[0] "A hely blokkolásához összesen {count} FP értéket kell megadnia."
+msgstr[1] "Összesen {count} FP-vel kell rendelkeznie a hely blokkolásához."
+
+msgid "components.secure_position.block_place.fp_to_lock"
+msgstr "FP, hogy levédje a helyét"
+
+msgid "components.secure_position.block_place.fp_according_rate"
+msgstr "FP az aránynak megfelelően"
+
+msgid "components.secure_position.block_place.rate"
+msgstr "Mérték"
+
+msgid "components.secure_position.block_place.various_rate"
+msgstr "Különböző árak"
+
+msgid "components.gb_statistics.represent"
+msgstr "Képvisel:"
+
+msgid "components.gb_forecast_cost.message.estimated_time_swap_threads"
+msgstr ""
+"Becsült idő a szint eléréséhez csere-szálak használatával (5/10/20/50/100 "
+"FPs stb.): {Time}"
+
+msgid ""
+"components.gb_investment_investors.takingPlaceInConsideration."
+"label"
+msgstr "Figyelembe vesz más helyeket?"
+
+msgid "components.gb_investment_investors.description.p1"
+msgstr ""
+"Ez a nézet lehetővé teszi annak a nyereségnek a megtekintését, amely akkor "
+"érhető el, ha helyet foglal el más helyeken történő befektetések "
+"figyelembevételével vagy anélkül. {Count} típusú szempont van más helyeken:"
+
+msgid "components.gb_investment.tutorial.promotion_message.add_message"
+msgstr "Ez a mező lehetővé teszi az üzenetek hozzáadását."
+
+msgid ""
+"components.gb_investment.tutorial.promotion_message.custom_"
+"fields"
+msgstr ""
+"Vegye figyelembe, hogy egyes sablonok saját mezőkkel rendelkeznek saját "
+"nevekkel."
+
+msgid "components.gb_investment.tutorial.promotion_message.show_level"
+msgstr "Megjeleníti a GB szintet (ha benne van az üzenet sablonban)."
+
+msgid ""
+"components.gb_investment.tutorial.promotion_message.use_short_"
+"name"
+msgstr ""
+"Lehetővé teszi annak meghatározását, hogy rövid nevet kíván-e megjeleníteni "
+"a GB nevéhez (például: \"@ :( foe_data.gb.Observatory)\" megjelenik a \"@ :( "
+"foe_data.gb_short.Observatory)\")."
+
+msgid ""
+"components.gb_investment.tutorial.promotion_message.display_gb_"
+"name"
+msgstr "Megjeleníti a GB nevét (ha az üzenetsablon tartalmazza)."
+
+msgid "components.gb_investment.tutorial.promotion_message.tabs"
+msgstr ""
+"Az üzenetek sablont követnek. Importálhat egy sablont a \"@ :( components."
+"import_promotion_message.title)\" fülről, vagy létrehozhat sajátot a \"@ :( "
+"components.promotion_message_builder.title)\" fülről."
+
+msgid "components.gb_investment.tutorial.promotion_message.message"
+msgstr ""
+"Ez a szakasz lehetővé teszi, hogy üzeneteket küldjön az aktuális GB-szintről "
+"és helyekről. Másolhat egy üzenetet, és beillesztheti közvetlenül a játékba, "
+"például egy 1.9 topichoz."
+
+msgid "components.gb_investment.tutorial.table.rewards_with_rate"
+msgstr ""
+"Ez a tulajdonos által várt FP-k száma, amikor egy befektető helyet foglal."
