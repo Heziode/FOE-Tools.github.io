@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:52.050Z\n"
-"PO-Revision-Date: 2020-10-29 09:30+0000\n"
+"PO-Revision-Date: 2021-01-16 00:31+0000\n"
 "Last-Translator: Weblate Admin <admin@foe.tools>\n"
 "Language-Team: Slovak <https://translate.foe.tools/projects/"
 "foe-tools-website/website/sk/>\n"
@@ -4109,3 +4109,9 @@ msgstr "Cybele F-3"
 
 msgid "foe_data.gb.Galata_Tower"
 msgstr "Galatská veža"
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Odstrániť z obľúbených"
+
+msgid "components.gb_investment.add_favourite"
+msgstr "Pridať k obľúbeným"
