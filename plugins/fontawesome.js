@@ -28,6 +28,7 @@ import {
   faBookmark as fasBookmark,
   faPlusSquare,
   faSortAlphaDown,
+  faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCopy, faQuestionCircle, faBookmark as farBookmark, faBuilding } from "@fortawesome/free-regular-svg-icons";
@@ -68,7 +69,8 @@ library.add(
   fasBookmark,
   faPlusSquare,
   faSortAlphaDown,
-  faBuilding
+  faBuilding,
+  faUserPlus
 );
 
 // Register the component globally

@@ -1,0 +1,22 @@
+div.inline-flex.w-full(:class=`{
+  "shadow-outline border-blue-300 rounded": inputFocused
+}`)
+  slot(name="before" v-bind:isInvalid="isInvalid" v-bind:isDisabled="isDisabled" v-bind:inputFocused="inputFocused")
+  LegacyTNumberInput(v-model="newValue"
+    :as="as"
+    :name="inputId"
+    :value="value"
+    :isReadOnly="isReadOnly"
+    :isInvalid="isInvalid"
+    :isDisabled="isDisabled"
+    :isFullWidth="isFullWidth"
+    :isRequired="isRequired",
+    :inputId="inputId"
+    :placeholder="placeholder"
+    :type="type"
+    :autoComplete="autoComplete"
+    :maxlength="maxlength"
+    :rows="rows"
+    @focus="inputFocused = true"
+    @blur="inputFocused = false")
+  slot(name="after" v-bind:isInvalid="isInvalid" v-bind:isDisabled="isDisabled" v-bind:inputFocused="inputFocused")

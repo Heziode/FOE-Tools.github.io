@@ -5,6 +5,7 @@ import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
 import YesNo from "~/components/yes-no/YesNo";
+import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.gb_forecast_cost.";
 const urlPrefix = "gbfc_";
@@ -168,8 +169,22 @@ export default {
         return this.normalizedFrom() - 1;
       },
       set(val) {
-        this.checkFrom(val + 1);
+        if (val >= this.$data.to) {
+          this.$data.to = Math.min(val + 1, this.maxLevel - 1);
+        }
+        this.$data.from = val + 1;
         oldFromInput = val + 1;
+      },
+    },
+    toInput: {
+      get() {
+        return this.normalizedTo();
+      },
+      set(val) {
+        if (val <= this.fromInput) {
+          this.fromInput = Math.max(val - 1, 0);
+        }
+        this.$data.to = val;
       },
     },
     lang() {
@@ -639,5 +654,6 @@ export default {
     gbListSelect,
     graphCanvas,
     YesNo,
+    numberinput,
   },
 };

@@ -3,6 +3,7 @@ import Utils from "~/scripts/utils";
 import { splitGoods } from "~/scripts/trade";
 import ages from "~/lib/foe-data/ages";
 import YesNo from "~/components/yes-no/YesNo";
+import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.simple_trade.";
 const MAX_TRADE = 1000;
@@ -156,5 +157,6 @@ export default {
   },
   components: {
     YesNo,
+    numberinput,
   },
 };

@@ -5,34 +5,24 @@
  * @see https://github.com/buefy/buefy/blob/dev/src/components/numberinput/Numberinput.vue
  */
 
-import { extend, ValidationProvider } from "vee-validate";
-import { between } from "vee-validate/dist/rules.umd.min";
-import {
-  TNumberInput,
-  TNumberInputField,
-  TNumberIncrementStepper,
-  TNumberDecrementStepper,
-} from "~/components/tailwind-input/TNumberInput";
-
-extend("between", between);
+import { inputProps } from "../utils/input.props";
+import LegacyTNumberInput from "../index";
 
 export default {
-  name: "Numberinput",
+  name: "TInput",
   inheritAttrs: false,
   props: {
-    ...TNumberInput.props,
-    showIncDec: {
-      type: Boolean,
-      default: false,
-    },
-    isFullWidth: {
-      type: Boolean,
-      default: true,
-    },
+    ...inputProps,
+    inputId: String,
+    placeholder: String,
+    type: String,
+    autoComplete: String,
+    maxlength: Number,
   },
   data() {
     return {
       newValue: this.value,
+      inputFocused: false,
     };
   },
   watch: {
@@ -51,10 +41,6 @@ export default {
     },
   },
   components: {
-    ValidationProvider,
-    TNumberInput,
-    TNumberInputField,
-    TNumberIncrementStepper,
-    TNumberDecrementStepper,
+    LegacyTNumberInput,
   },
 };

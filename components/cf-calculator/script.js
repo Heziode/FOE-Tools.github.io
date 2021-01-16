@@ -5,6 +5,7 @@ import YesNo from "~/components/yes-no/YesNo";
 import Shepherd from "shepherd.js";
 import { formatTuto } from "~/scripts/tutorial";
 import { sync } from "vuex-pathify";
+import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.cf_calculator.";
 const urlPrefix = "cfc_";
@@ -174,30 +175,32 @@ export default {
   },
   watch: {
     yourAge(val) {
-      if (this.yourAge in questData.ages) {
-        this.errors.yourAge = false;
-        if (!this.isPermalink) {
-          this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`, val);
-        }
-        this.$store.commit("UPDATE_URL_QUERY", {
-          key: queryKey.yourAge,
-          value: val,
-        });
-        if (this.oneQuest.indexOf(this.yourAge) > -1) {
-          this.secondRq = false;
-          this.$store.commit("UPDATE_URL_QUERY", {
-            key: queryKey.secondRq,
-            value: 0,
-          });
-          if (!this.isPermalink) {
-            this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.secondRq`, false);
-          }
-        }
-        this.checkSecondQuest = this.oneQuest.indexOf(val) === -1;
-        this.calculate();
-      } else {
+      if (!(this.yourAge in questData.ages)) {
         this.errors.yourAge = true;
+        return;
       }
+      this.errors.yourAge = false;
+      if (!this.isPermalink) {
+        this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`, val);
+      }
+      this.$store.commit("UPDATE_URL_QUERY", {
+        key: queryKey.yourAge,
+        value: val,
+      });
+      this.$data.coins = this.minCoins;
+      this.$data.supplies = this.minSupplies;
+      if (this.oneQuest.indexOf(this.yourAge) > -1) {
+        this.secondRq = false;
+        this.$store.commit("UPDATE_URL_QUERY", {
+          key: queryKey.secondRq,
+          value: 0,
+        });
+        if (!this.isPermalink) {
+          this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.secondRq`, false);
+        }
+      }
+      this.checkSecondQuest = this.oneQuest.indexOf(val) === -1;
+      this.calculate();
     },
     secondRq(val) {
       const value = !!val;
@@ -544,5 +547,6 @@ export default {
   },
   components: {
     YesNo,
+    numberinput,
   },
 };

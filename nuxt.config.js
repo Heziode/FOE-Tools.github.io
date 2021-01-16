@@ -481,6 +481,7 @@ module.exports = {
     { src: "~/plugins/cookieConsent.js" },
     { src: "~/plugins/fontawesome.js" },
     { src: "~/plugins/nuxtClientInit.js", mode: "client" }, // It must always be the last
+    { src: "~/plugins/tailwind-comps.js" },
   ],
   generate: {
     fallback: true,
@@ -629,9 +630,12 @@ module.exports = {
         darkSelector: ".dark-mode",
       },
       variants: {
-        backgroundColor: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd"],
+        backgroundColor: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd", "hover"],
+        backgroundOpacity: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd", "hover"],
         borderColor: ["dark", "dark-focus", "dark-focus-within"],
-        textColor: ["dark", "dark-hover", "dark-active"],
+        textColor: ["hover", "dark", "dark-hover", "dark-active"],
+        borderRadius: ["responsive", "first", "last", "hover", "focus"],
+        borderWidth: ["responsive", "first", "last", "hover", "focus"],
       },
       plugins: [require("tailwindcss-dark-mode")()],
       purge: {

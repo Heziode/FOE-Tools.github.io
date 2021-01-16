@@ -8,7 +8,7 @@ div
 
     div.column.is-half
       b-field(v-show="split" :label="$t('components.trade.split_value', { count: $n(maxSplitValue) })" :label-for="splitValueId" :type="haveError('splitValue')")
-        b-input(:id="splitValueId" type="number" min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue" autocomplete="off")
+        numberinput(:inputId="splitValueId" :min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue")
 
   div.table-wrapper
     table.table.is-bordered.is-striped.is-narrow.is-fullwidth.trade
@@ -28,7 +28,7 @@ div
               img(:src="'/img/foe/goods/' + good.key + '.png'" :alt="$t('foe_data.goods.' + good.key)" :title="$t('foe_data.goods.' + good.key)")
           td
             b-field(:type="haveError(key)")
-              b-input(type="number" min="0" v-model.number="values[key]" :name="key + '_value'" autocomplete="off" @input="$event > 0 ? getBestRates(key) : resetFormIfAllZero(key)")
+              numberinput(:min="0" v-model.number="values[key]" :name="key + '_value'" @input="$event > 0 ? getBestRates(key) : resetFormIfAllZero(key)")
           td
             p(v-if="$data.results[key].show") {{$data.results[key].value}}
           td(v-show="showRatio")

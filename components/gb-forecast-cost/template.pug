@@ -25,10 +25,10 @@ div.content
   div.columns
     div.column.is-half
       b-field(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
-        b-input#previsionFrom(type="number" min="0" :max="to - 1" v-model.number="fromInput" name="previsionFrom" autocomplete="off")
+        numberinput(inputId="previsionFrom" :min="0" :max="maxLevel - 2" v-model.number="fromInput" name="previsionFrom")
     div.column.is-half
-      b-field(:label="$t('utils.To', { max: maxLevel })" label-for="previsionTo" :type="haveError('to')")
-        b-input#previsionTo(type="number" :min="from" :max="maxLevel" v-model.number="to" name="previsionTo" autocomplete="off")
+      b-field(:label="$t('utils.To', { max: maxLevel - 1 })" label-for="previsionTo" :type="haveError('to')")
+        numberinput(inputId="previsionTo" :min="1" :max="maxLevel - 1" v-model.number="toInput" name="previsionTo")
 
   // Row 2
   div.columns
@@ -37,7 +37,7 @@ div.content
 
     div.column.is-half(v-show="!customPercentage")
       b-field(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-        b-input#previsionInvestorPercentageGlobal(type="number" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off")
+        numberinput(inputId="previsionInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal")
 
   // Row 3
   div.table-wrapper(v-show="customPercentage")
@@ -51,11 +51,11 @@ div.content
           td.has-text-right {{i}}
           td
             b-field(:type="haveError('investorPercentageCustom_' + i)")
-              b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i" autocomplete="off")
+              numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
 
   // Result
   div(v-if="previsionResult !== null")
-    p(v-if="from === to") {{$t(i18nPrefix + 'message.single', { level: from - 1, preparation: $n(previsionResult.global.totalPreparations), gb: $t('foe_data.gb.' + gb.key), cost: $n(previsionResult.global.cost)})}}
+    p(v-if="from === to || to < from") {{$t(i18nPrefix + 'message.single', { level: from - 1, preparation: $n(previsionResult.global.totalPreparations), gb: $t('foe_data.gb.' + gb.key), cost: $n(previsionResult.global.cost)})}}
     p(v-else) {{$t(i18nPrefix + 'message.multi', { from: from - 1, to: to, preparation: $n(previsionResult.global.totalPreparations), gb: $t('foe_data.gb.' + gb.key), cost: $n(previsionResult.global.cost) })}}
     p(v-if="previsionDefault.global.totalPreparations !== previsionResult.global.totalPreparations") {{$tc(i18nPrefix + 'message.diff', previsionDefault.global.totalPreparations - previsionResult.global.totalPreparations, { count: $n(previsionDefault.global.totalPreparations - previsionResult.global.totalPreparations)})}}
 
@@ -64,10 +64,10 @@ div.content
   div.columns
     div.column.is-half
       b-field(:label="$t('components.cf_calculator.block_cfc.fp_by_24h')" label-for="previsionFpBy24h" :type="haveError('fpBy24h')")
-        b-input#previsionFpBy24h(type="number" min="0" v-model.number="fpBy24h" name="previsionFpBy24h" autocomplete="off")
+        numberinput(inputId="previsionFpBy24h" :min="0" v-model.number="fpBy24h" name="previsionFpBy24h")
     div.column.is-half
       b-field(:label="$t(i18nPrefix + 'prop_already_invested')" label-for="previsionAlreadyInvested" :type="haveError('alreadyInvested')")
-        b-input#previsionAlreadyInvested(type="number" min="0" :max="maxCurrentLevel" v-model.number="alreadyInvested" name="previsionAlreadyInvested" autocomplete="off")
+        numberinput(inputId="previsionAlreadyInvested" :min="0" :max="maxCurrentLevel" v-model.number="alreadyInvested" name="previsionAlreadyInvested")
 
   div(v-show="(previsionResult !== null) && (fpBy24h > 0)")
     p {{$t(i18nPrefix + 'message.estimated_time', { time: estimatedTime })}}
