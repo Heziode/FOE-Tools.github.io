@@ -310,7 +310,7 @@
   "routes.contributors.hero.title": "Mitwirkende",
   "routes.contributors.hero.subtitle": "Diese Seite versucht, alle Mitwirkenden aufzulisten",
   "routes.gb_investment.title": "@:(routes.gb_investment.hero.title) | @:(common.site_title)",
-  "routes.gb_investment.hero.title": "@:(routes.gb_investment_gb_chooser.hero.title) - {gb_key}",
+  "routes.gb_investment.hero.title": "{gb_key} - @:(routes.gb_investment_gb_chooser.hero.title)",
   "routes.gb_investment.tab.owner_view.title": "Eigentümeransicht",
   "routes.gb_investment.tab.investors_view.title": "Investorenansicht",
   "routes.gb_investment_gb_chooser.title": "@:(routes.gb_investment_gb_chooser.hero.title) | @:(common.site_title)",

@@ -333,7 +333,7 @@
   "routes.contributors.hero.title": "Contributors",
   "routes.contributors.hero.subtitle": "This page attempt to list all contributors",
   "routes.gb_investment.title": "@:(routes.gb_investment.hero.title) | @:(common.site_title)",
-  "routes.gb_investment.hero.title": "@:(routes.gb_investment_gb_chooser.hero.title) - {gb_key}",
+  "routes.gb_investment.hero.title": "{gb_key} - @:(routes.gb_investment_gb_chooser.hero.title)",
   "routes.gb_investment.tab.owner_view.title": "Owner view",
   "routes.gb_investment.tab.investors_view.title": "Investors view",
   "routes.gb_investment_gb_chooser.title": "@:(routes.gb_investment_gb_chooser.hero.title) | @:(common.site_title)",

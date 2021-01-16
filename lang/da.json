@@ -327,7 +327,7 @@
   "routes.contributors.hero.title": "Bidragydere",
   "routes.contributors.hero.subtitle": "Denne side forsøger at liste alle bidragydere",
   "routes.gb_investment.title": "@:(routes.gb_investment.hero.title) | @:(common.site_title)",
-  "routes.gb_investment.hero.title": "@:(routes.gb_investment_gb_chooser.hero.title)- {gb_key}",
+  "routes.gb_investment.hero.title": "{gb_key} - @:(routes.gb_investment_gb_chooser.hero.title)",
   "routes.gb_investment.tab.owner_view.title": "Ejervisning",
   "routes.gb_investment.tab.investors_view.title": "Bidragervisning",
   "routes.gb_investment_gb_chooser.title": "@:(routes.gb_investment_gb_chooser.hero.title)| @:(common.site_title)",
