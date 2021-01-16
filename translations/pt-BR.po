@@ -1478,7 +1478,7 @@ msgid "routes.gb_investment.title"
 msgstr "@:(routes.gb_investment.hero.title) | @:(common.site_title)"
 
 msgid "routes.gb_investment.hero.title"
-msgstr "@:(routes.gb_investment_gb_chooser.hero.title) - {gb_key}"
+msgstr "{gb_key} - @:(routes.gb_investment_gb_chooser.hero.title)"
 
 msgid "routes.gb_investment.tab.owner_view.title"
 msgstr "Vista do proprietário"

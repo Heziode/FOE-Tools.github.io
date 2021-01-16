@@ -1026,7 +1026,7 @@
   "routes.gb_statistics.title": "@:(routes.gb_statistics.hero.title) | @:(common.site_title)",
   "routes.gb_forecast_cost.title": "@:(routes.gb_forecast_cost.hero.title) | @:(common.site_title)",
   "routes.gb_investment_gb_chooser.title": "@:(routes.gb_investment_gb_chooser.hero.title) | @:(common.site_title)",
-  "routes.gb_investment.hero.title": "@:(routes.gb_investment_gb_chooser.hero.title) - {gb_key}",
+  "routes.gb_investment.hero.title": "{gb_key} - @:(routes.gb_investment_gb_chooser.hero.title)",
   "routes.gb_investment.title": "@:(routes.contact.hero.title) | @:(common.site_title)",
   "routes.contributors.title": "@:(routes.contributors.hero.title) | @:(common.site_title)",
   "routes.cf_calculator.title": "@:(routes.cf_calculator.hero.title) | @:(common.site_title)",
