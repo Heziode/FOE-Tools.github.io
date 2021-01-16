@@ -984,7 +984,7 @@
   "routes.donate.hero.subtitle": "Dona a @:(common.site_title)",
   "routes.donate.donation_options": "Puoi donare con @:(common.links.donorbox) or @:(common.links.paypal).",
   "routes.donate.conversion": "Se apprezzi il mio lavoro, per favore considera di effettuare una donazione.",
-  "routes.donate.donation_message": "@:(common.site_title) è un sito senza pubblicità, open source e non a scopo di lucro. Per cui, il tempio impiegato per realizzarlo non è retribuito. Nonostante ciò, accetto donazioni da chiunque apprezzi il mio lavoro, abbastanza da essere propenso a ripagarmi, non importa quanto e come (una tantum o mensilmente). Le donazioni significano molto per me, dal momento che mi aiutano a sostenere il costo dei server, dei domini, dei servizi di hosting e in generale sono un incentivo che mi aiuta a lavorare a questo progetto open source.",
+  "routes.donate.donation_message": "@:(common.site_title) è un sito gratuito, open source. Per cui, il tempio impiegato per realizzarlo non è retribuito. Nonostante ciò, accetto donazioni da chiunque apprezzi il mio lavoro, abbastanza da essere propenso a ripagarmi, non importa quanto e come (una tantum o mensilmente). Le donazioni significano molto per me, dal momento che mi aiutano a sostenere il costo dei server, dei domini, dei servizi di hosting e in generale sono un incentivo che mi aiuta a lavorare a questo progetto open source.",
   "routes.help_to_translate_the_site.state_of_translation": "Stato della traduzione:",
   "routes.about.cookie.p2": "Per ulteriori informazioni far riferimento al seguente link:",
   "routes.about.cookie.info.cookieConsent": "Impostazioni dei cookies",

@@ -417,7 +417,7 @@
   "routes.donate.hero.title": "@:(utils.Donate)",
   "routes.donate.hero.subtitle": "Donera till @:(common.site_title)",
   "routes.donate.title": "@:(routes.donate.hero.title) | @:(common.site_title)",
-  "routes.donate.donation_message": "@:(common.site_title) är en annons-fri, öppen källkod projekt, och jag gör inte detta för finansiell förtjänst. Således, min tid går åt till att göra detta oavlönat. Dock välkomnar jag donationer från alla och envar som uppskattar mitt arbete tillräckligt nog för att vilja göra så, oavsett storlek eller metod (en-gångs eller månadsvis). Donationer betyder mycket för mig då de hjälper till att hantera associerade kostnader; servrar, domäner, webb-hotell samt kostnader i allmänhet. Dessutom uppmuntrar det mig till att fortsätta med detta projekt.",
+  "routes.donate.donation_message": "@:(common.site_title) är en fri, öppen källkod projekt. Således, min tid går åt till att göra detta oavlönat. Dock välkomnar jag donationer från alla och envar som uppskattar mitt arbete tillräckligt nog för att vilja göra så, oavsett storlek eller metod (en-gångs eller månadsvis). Donationer betyder mycket för mig då de hjälper till att hantera associerade kostnader; servrar, domäner, webb-hotell samt kostnader i allmänhet. Dessutom uppmuntrar det mig till att fortsätta med detta projekt.",
   "foe_data.age.Oracle": "@:(foe_data.age.NoAge) (@:(foe_data.gb.Oracle_of_Delphi))",
   "foe_data.age.NoAge": "Ingen era",
   "foe_data.age.BronzeAge": "Bronsålder",

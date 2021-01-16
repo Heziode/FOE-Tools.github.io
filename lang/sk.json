@@ -438,7 +438,7 @@
   "routes.donate.hero.title": "@:(utils.Donate)",
   "routes.donate.donation_options": "Dar cez @:(common.links.donorbox) alebo @:(common.links.paypal).",
   "routes.donate.conversion": "Ak oceňujete moju prácu, prosím zvážte dar.",
-  "routes.donate.donation_message": "@:(common.site_title) je bez reklamy, open source projekt a ja to nerobím pre finančný zisk. Takže môj čas venovaný tomuto projektu je nezaplatený. Preto prijímam dary od kohokoľvek, komu sa moja práca páči natoľko, že ma chcú za ňu vyplatiť, je jedno na množstve a spôsobe (jednorazovo alebo mesačne). Dary znamenajú pre mňa veľa, nakoľko mi pomáhajú pokryť náklady spojené s platením servera, domény a hostingu a všeobecne živobitia a slúžia aj ako pozitívna motivácia pracovať ďalej na tomto open-source projekte.",
+  "routes.donate.donation_message": "@:(common.site_title) je bez, open source projekt. Takže môj čas venovaný tomuto projektu je nezaplatený. Preto prijímam dary od kohokoľvek, komu sa moja práca páči natoľko, že ma chcú za ňu vyplatiť, je jedno na množstve a spôsobe (jednorazovo alebo mesačne). Dary znamenajú pre mňa veľa, nakoľko mi pomáhajú pokryť náklady spojené s platením servera, domény a hostingu a všeobecne živobitia a slúžia aj ako pozitívna motivácia pracovať ďalej na tomto open-source projekte.",
   "foe_data.age.Oracle": "@:(foe_data.age.NoAge)(@:(foe_data.gb.Oracle_of_Delphi))",
   "foe_data.age.NoAge": "žiadna doba",
   "foe_data.age.BronzeAge": "Doba bronzová",

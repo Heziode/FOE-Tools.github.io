@@ -416,7 +416,7 @@
   "routes.donate.hero.title": "@:(utils.Donate)",
   "routes.donate.donation_options": "Doe com @:(common.links.donorbox) ou @:(common.links.paypal).",
   "routes.donate.conversion": "Se você gosta do meu trabalho, por favor considere uma doação.",
-  "routes.donate.donation_message": "@:(common.site_title) é um projeto gratuito, sem propagandas, open source e sem fins lucrativos. Portanto, eu não tenho remuneração pelo tempo que gasto fazendo isso. Entretanto, aceito doações de quem gosta de meu trabalho e sente à vontade para me recompensar, não importando o valor e nem a forma (somente uma vez ou mensal). As doações significam muito para mim, porque ajudam com os custos do servidor, domínio e hospedagem, e também em gastos gerais da vida, e serve como incentivo para que eu continue a trabalhar neste projeto.",
+  "routes.donate.donation_message": "@:(common.site_title) é um projeto gratuito, open source. Portanto, eu não tenho remuneração pelo tempo que gasto fazendo isso. Entretanto, aceito doações de quem gosta de meu trabalho e sente à vontade para me recompensar, não importando o valor e nem a forma (somente uma vez ou mensal). As doações significam muito para mim, porque ajudam com os custos do servidor, domínio e hospedagem, e também em gastos gerais da vida, e serve como incentivo para que eu continue a trabalhar neste projeto.",
   "routes.donate.title": "@:(routes.donate.hero.title) | @:(common.site_title)",
   "foe_data.age.Oracle": "@:(foe_data.age.NoAge) (@:(foe_data.gb.Oracle_of_Delphi))",
   "foe_data.age.NoAge": "Sem Era",

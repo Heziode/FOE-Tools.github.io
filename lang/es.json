@@ -1160,7 +1160,7 @@
   "routes.donate.hero.title": "@:(utils.Donate)",
   "routes.donate.donation_options": "Donar con @:(common.links.donorbox) o @:(common.links.paypal).",
   "routes.donate.conversion": "Si aprecias mi trabajo, por favor plantéate hacer una donación.",
-  "routes.donate.donation_message": "@:(common.site_title) es un proyecto de código abierto, sin publicidad ni ánimo de lucro. El tiempo que paso desarrollándolo no es remunerado. No obstante, acepto donaciones de cualquiera que aprecie mi trabajo lo suficiente como para querer compensarme, sin importar la cantidad ni el modo (pago de una vez o mensual). Las donaciones significan mucho para mí, pues ayudan a cubrir costes asociados con el mantenimiento del servidor, dominios y hospedaje (y el coste de la vida en general), y son un incentivo para seguir trabajando en este proyecto.",
+  "routes.donate.donation_message": "@:(common.site_title) es un gratis proyecto de código abierto. El tiempo que paso desarrollándolo no es remunerado. No obstante, acepto donaciones de cualquiera que aprecie mi trabajo lo suficiente como para querer compensarme, sin importar la cantidad ni el modo (pago de una vez o mensual). Las donaciones significan mucho para mí, pues ayudan a cubrir costes asociados con el mantenimiento del servidor, dominios y hospedaje (y el coste de la vida en general), y son un incentivo para seguir trabajando en este proyecto.",
   "routes.about.cookie.p2": "Para más información, consultar estos enlaces:",
   "routes.about.cookie.info.cookieConsent": "Tus preferencias de cookies",
   "components.site_layout.translation_not_completed.content": "Las traducciones siguientes no están completas y necesitan traductores:",

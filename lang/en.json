@@ -377,7 +377,7 @@
   "routes.contact.message_translate": "Did you know that you can also help translate the site ? Follow the following link for more information:",
   "routes.contact.message_other_info_html": "If you are developers, you can also create an issue (and contribute to the development of the site) on @:(common.links.github).",
   "routes.donate.title": "@:(routes.donate.hero.title) | @:(common.site_title)",
-  "routes.donate.donation_message": "@:(common.site_title) is an ad-free, open source project, and I am not doing this for financial gain. Thus, my time spent making this is unpaid. I do however accept donations from anyone who appreciates my work enough that they feel inclined to compensate me, no matter the amount and the way (one-time or monthly). Donations mean a lot to me, as they help cover costs associated with server upkeep, domains and hosting, and general cost of living, and they serve as an incentive for me to keep working on this open-source project.",
+  "routes.donate.donation_message": "@:(common.site_title) is a free open source project. Thus, my time spent making this is unpaid. I do however accept donations from anyone who appreciates my work enough that they feel inclined to compensate me, no matter the amount and the way (one-time or monthly). Donations mean a lot to me, as they help cover costs associated with server upkeep, domains and hosting, and general cost of living, and they serve as an incentive for me to keep working on this open-source project.",
   "routes.donate.conversion": "If you appreciate my work, please consider donation.",
   "routes.donate.donation_options": "Donate with @:(common.links.donorbox) or @:(common.links.paypal).",
   "routes.donate.hero.title": "@:(utils.Donate)",
