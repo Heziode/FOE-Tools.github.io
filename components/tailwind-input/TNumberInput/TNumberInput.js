@@ -551,7 +551,7 @@ const TNumberInputField = {
         ...otherInputAttrs,
         pattern: "[0-9]*(.[0-9]+)?",
         inputmode: "numeric",
-        type: "number",
+        type: "text",
       },
       on: {
         change: wrapEvent((e) => this.$emit("change", e), _onChange),
