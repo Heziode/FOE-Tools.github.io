@@ -383,30 +383,34 @@ div.content#gbiContent
             div.column.is-half#pmPrefix
               b-field(:label="$t('utils.Prefix')" label-for="giPrefix")
               b-field
-                b-input#giPrefix(type="text" v-model.trim="prefix" name="prefix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')" expanded)
-                p.control
-                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
-                    button.button.copy(@click="switchPrefix()" :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
-                      span.icon(v-show="showPrefix")
-                        | &nbsp;&nbsp;
-                        i.fas.fa-eye
-                      span.icon(v-show="!showPrefix")
-                        i.fas.fa-eye-slash
-                        | &nbsp;&nbsp;&nbsp;
+                t-input(inputId="giPrefix" type="text" v-model.trim="prefix" name="prefix" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')")
+                  template(#after)
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
+                      button(:title="showPrefix ? $t('utils.Hide') : $t('utils.Show')" @click="switchPrefix" :disabled="maxInvestment <= 0" :class=`{
+                        "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                        "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                        "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                      }`)
+                        span.icon.inline-block(v-show="showPrefix")
+                          i.fas.fa-eye
+                        span.icon.inline-block(v-show="!showPrefix")
+                          i.fas.fa-eye-slash
 
             div.column.is-half#pmSuffix
               b-field(:label="$t('utils.Suffix')" label-for="giSuffix")
               b-field
-                b-input#giSuffix(type="text" v-model.trim="suffix" name="suffix" autocomplete="off" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')" expanded)
-                p.control
-                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
-                    button.button.copy(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
-                      span.icon(v-show="showSuffix")
-                        | &nbsp;&nbsp;
-                        i.fas.fa-eye
-                      span.icon(v-show="!showSuffix")
-                        i.fas.fa-eye-slash
-                        | &nbsp;&nbsp;&nbsp;
+                t-input(inputId="giSuffix" type="text" v-model.trim="suffix" name="suffix" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')")
+                  template(#after)
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
+                      button(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')" :class=`{
+                        "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                        "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                        "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                      }`)
+                        span.icon.inline-block(v-show="showSuffix")
+                          i.fas.fa-eye
+                        span.icon.inline-block(v-show="!showSuffix")
+                          i.fas.fa-eye-slash
 
           div.columns
             div.column.is-half
@@ -430,32 +434,41 @@ div.content#gbiContent
                   div.column.is-half(v-for="(elt, index) in line")
                     b-field.custom_field(:label="elt.key" :label-for="'custom_field_' + elt.key")
                     b-field
-                      b-input(:id="'custom_field_' + elt.key" type="text"  :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key" autocomplete="off" expanded)
-                      p.control
-                        b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
-                          button.button.copy(@click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show" :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
-                            span.icon(v-show="promotionMessageList[i].config.customFields[elt.key].show")
-                              | &nbsp;&nbsp;
-                              i.fas.fa-eye
-                            span.icon(v-show="!promotionMessageList[i].config.customFields[elt.key].show")
-                              i.fas.fa-eye-slash
-                              | &nbsp;&nbsp;&nbsp;
+                      t-input(:inputId="'custom_field_' + elt.key" type="text" :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key")
+                        template(#after)
+                          b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
+                            button(@click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show" :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')" :class=`{
+                              "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                              "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                              "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                            }`)
+                              span.icon.inline-block(v-show="promotionMessageList[i].config.customFields[elt.key].show")
+                                i.fas.fa-eye
+                              span.icon.inline-block(v-show="!promotionMessageList[i].config.customFields[elt.key].show")
+                                i.fas.fa-eye-slash
               // Show value
               div.columns
                 div.column
                   b-field
-                    p.control
-                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
-                        button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removePromotionMessage(i)")
-                          span.icon
-                            i.fas.fa-trash
-                    b-input(:type="nbMultiLine(value.message) ? 'textarea' : 'text'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : ''" :value="value.message" readonly expanded)
-                    p.control
-                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
-                        button.button.copy(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')")
-                          span.icon
-                            i.far.fa-copy
-                          | &nbsp;&nbsp;{{$t('utils.Copy')}}
+                    t-input(:as="nbMultiLine(value.message) ? 'textarea' : 'input'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : undefined" :value="value.message" isReadOnly)
+                      template(#before)
+                        b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
+                          button(:title="$t('utils.Remove')" @click="removePromotionMessage(i)" :class=`{
+                            "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                            "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                            "bg-red-600 text-white hover:bg-red-700 dark-hover:bg-red-500": true
+                          }`)
+                            span.icon.inline-block
+                              i.fas.fa-trash
+                      template(#after)
+                        b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
+                          button(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')" :class=`{
+                            "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                            "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                            "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                          }`)
+                            span.icon.inline-block
+                              i.far.fa-copy
 
           div.columns
             div.column
