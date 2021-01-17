@@ -689,6 +689,7 @@ module.exports = {
       /dark-mode/,
       /is-expanded/,
       /is-clearfix/,
+      /has-addons/,
     ],
     whitelistPatternsChildren: [
       /select/,
@@ -703,6 +704,7 @@ module.exports = {
       /shepherd.*/,
       /is-expanded/,
       /is-clearfix/,
+      /has-addons/,
     ],
   },
 
