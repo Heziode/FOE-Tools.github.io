@@ -1,6 +1,6 @@
 {
   "name": "foe-tools",
-  "version": "2.78.0",
+  "version": "2.79.0",
   "description": "Set of tools for Forge of Empires",
   "main": "nuxt.config.js",
   "scripts": {
