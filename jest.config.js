@@ -61,4 +61,11 @@ module.exports = {
   ],
   coverageReporters: ["html", "text", "text-summary"],
   transformIgnorePatterns: ["<rootDir>/node_modules/(?!vee-validate/dist/rules)"],
+  globals: {
+    "vue-jest": {
+      pug: {
+        doctype: "html",
+      },
+    },
+  },
 };

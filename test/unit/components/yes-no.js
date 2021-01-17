@@ -27,7 +27,7 @@ describe("YesNo", () => {
     const wrapper = factory();
     expect(wrapper.vm.$data.newValue).toBe(true);
 
-    wrapper.find("div div.control div.buttons.has-addons span.button:nth-child(2)").trigger("click");
+    wrapper.find("div div.control div.inline-flex button:nth-child(2)").trigger("click");
     wrapper.vm.$nextTick(() => {
       expect(wrapper.emitted().input).toBeTruthy();
       expect(wrapper.emitted().input[0]).toEqual([false]);
