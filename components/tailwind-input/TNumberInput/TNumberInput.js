@@ -244,8 +244,7 @@ const TNumberInput = {
     };
 
     this.incrementStepperProps = {
-      touchstart: startIncrement,
-      mousedown: startIncrement,
+      [this.clickEvent]: startIncrement,
       mouseup: stopIncrement,
       mouseleave: stopIncrement,
       touchend: stopIncrement,
@@ -286,8 +285,7 @@ const TNumberInput = {
     };
 
     this.decrementStepperProps = {
-      touchstart: startDecrement,
-      mousedown: startDecrement,
+      [this.clickEvent]: startDecrement,
       mouseup: stopDecrement,
       mouseleave: stopDecrement,
       touchend: stopDecrement,
