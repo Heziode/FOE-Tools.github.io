@@ -31,15 +31,15 @@ div.content
   div.columns
     div.column.is-half
       b-field(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
-        b-input#previsionFrom(type="number" min="0" :max="to - 1" v-model.number="fromInput" name="previsionFrom" autocomplete="off")
+        numberinput(inputId="previsionFrom" :min="0" :max="to - 1" v-model.number="fromInput" name="previsionFrom")
     div.column.is-half
       b-field(:label="$t('utils.To', { max: maxLevel })" label-for="previsionTo" :type="haveError('to')")
-        b-input#previsionTo(type="number" :min="from" :max="maxLevel" v-model.number="to" name="previsionTo" autocomplete="off")
+        numberinput(inputId="previsionTo" :min="from" :max="maxLevel" v-model.number="to" name="previsionTo")
 
   div.columns
     div.column.is-half
       b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" :type="haveError('yourArcBonus')")
-        b-input#giiYourArcBonus(type="number" min="0" v-model.number="yourArcBonus" step="0.1" name="your-arc-bonus" autocomplete="off")
+        numberinput(inputId="giiYourArcBonus" :min="0" v-model.number="yourArcBonus" :step="0.1" :precision="1" name="your-arc-bonus")
 
   div.columns(v-show="takingPlaceInConsideration === 2")
     div.column.is-half
@@ -47,7 +47,7 @@ div.content
 
     div.column.is-half(v-show="!customPercentage")
       b-field(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-        b-input#previsionInvestorPercentageGlobal(type="number" min="0" step="0.1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal" autocomplete="off")
+        numberinput(inputId="previsionInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal")
 
   div.table-wrapper(v-show="takingPlaceInConsideration === 2 && customPercentage")
     table.table.is-bordered.is-striped.is-narrow.is-fullwidth
@@ -60,7 +60,7 @@ div.content
           td.has-text-right {{i}}
           td
             b-field(:type="haveError('investorPercentageCustom_' + i)")
-              b-input(type="number" min="0" step="0.1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i" autocomplete="off")
+              numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
 
   div.columns
     div.column.is-half
@@ -116,7 +116,7 @@ div.content
                 | &nbsp;|&nbsp;
                 b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.real_participation')" dashed) {{$n(line.investment[index].realParticipation)}}
                 | )
-              p(v-else) {{$n(line.investment[index].reward) + " (" + $n(line.investment[index].participation) + ")" }}
+              p(v-else) {{$n(line.investment[index].reward) + (line.investment[index].participation ? " (" + $n(line.investment[index].participation) + ")" : "") }}
             td.has-text-right(v-show="showPlace[index]")
               p(v-if="takingPlaceInConsideration === 2") {{$n(line.investment[index].participation) + " ("}}
                 b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$n(line.investment[index].preparation)}}

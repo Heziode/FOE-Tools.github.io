@@ -204,7 +204,7 @@ describe("GbForecastCost", () => {
     const wrapper = factory();
     wrapper.vm.fromInput = 21;
     wrapper.vm.errors.from = 21;
-    expect(wrapper.vm.to).toBe(10);
+    expect(wrapper.vm.to).toBe(22);
     wrapper.vm.to = 42;
     wrapper.vm.$nextTick(() => {
       expect(wrapper.vm.to).toBe(42);

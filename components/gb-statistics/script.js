@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Utils from "~/scripts/utils";
-import graphCanvas from "~/components/graph-canvas/GraphCanvas";
 import { get } from "vuex-pathify";
+import graphCanvas from "~/components/graph-canvas/GraphCanvas";
+import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.gb_statistics.";
 const urlPrefix = "gbs_";
@@ -545,5 +546,6 @@ export default {
   },
   components: {
     graphCanvas,
+    numberinput,
   },
 };

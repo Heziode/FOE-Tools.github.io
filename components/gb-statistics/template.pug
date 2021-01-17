@@ -20,9 +20,9 @@ div.content
   div.columns
     div.column.is-half
       b-field(:label="$t('utils.From')" label-for="gbStatisticsFrom" :type="haveError('from')")
-        b-input#gbStatisticsFrom(type="number" min="1" :max="to" v-model.number="from" name="from" autocomplete="off")
+        numberinput(inputId="gbStatisticsFrom" :min="1" :max="to" v-model.number="from" name="from")
     div.column.is-half
       b-field(:label="$t('utils.To', { max: maxLevelGraph })" label-for="gbStatisticsTo" :type="haveError('to')")
-        b-input#gbStatisticsTo(type="number" :min="from" :max="maxLevelGraph" v-model.number="to" name="to" autocomplete="off")
+        numberinput(inputId="gbStatisticsTo" :min="from" :max="maxLevelGraph" v-model.number="to" name="to")
 
   graph-canvas(gtype="line" id="graph" :goptions="options" :labels="labels" :datasets="datasets" @switchVisibility="switchVisibility($event)")

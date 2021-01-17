@@ -11,6 +11,7 @@ module.exports = {
     ".*\\.(vue)$": "vue-jest",
     // process js with `babel-jest`
     "\\.[jt]sx?$": "babel-jest",
+    "vee-validate/dist/rules": "babel-jest",
   },
   // support the same @ -> src alias mapping in source code
   moduleNameMapper: {
@@ -23,6 +24,7 @@ module.exports = {
   collectCoverage: false,
   collectCoverageFrom: [
     "**/*.{js,vue}",
+    "!**/.nuxt/**",
     "!**/components/graph-canvas/**",
     "!**/app/**",
     "!**/components/promotion-message-builder/**",
@@ -31,6 +33,9 @@ module.exports = {
     "!**/components/main-header/components/**",
     "!**/components/sortable-item/**",
     "!**/components/sortable-list/**",
+    "!**/components/tailwind-input/**",
+    "!**/components/cookie-consent/**",
+    "!**/components/show-bookmarks/**",
     "!**/modules/**",
     "!**/static/**",
     "!**/tmp/**",
@@ -55,4 +60,12 @@ module.exports = {
     "!**/lib/vuex-pathify/**",
   ],
   coverageReporters: ["html", "text", "text-summary"],
+  transformIgnorePatterns: ["<rootDir>/node_modules/(?!vee-validate/dist/rules)"],
+  globals: {
+    "vue-jest": {
+      pug: {
+        doctype: "html",
+      },
+    },
+  },
 };

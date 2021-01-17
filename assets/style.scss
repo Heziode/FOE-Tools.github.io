@@ -348,3 +348,11 @@ div.navbar-brand .field {
 .a2a_floating_style {
   z-index: 100 !important;
 }
+
+/*
+ * MIGRATION to Tailwind
+ * FIX on Bulma
+ */
+input, textarea {
+  margin-bottom: 0 !important;
+}

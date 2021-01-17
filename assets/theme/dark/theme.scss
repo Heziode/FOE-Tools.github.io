@@ -47,7 +47,8 @@ body.dark-theme {
   @import "~bulma";
   @import "~buefy/src/scss/buefy";
   @import "./overrides";
-  background-color: #353b48 !important;
+
+  @apply bg-gray-800 text-white;
 
   footer {
     background-color: #2f3640;
@@ -119,6 +120,10 @@ body.dark-theme {
 
   .modal-card-body {
     color: white;
+  }
+
+  .card {
+    background-color: #1F2937 !important;
   }
 }
 

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import { getBestOffersSplitted } from "~/scripts/trade";
 import Utils from "~/scripts/utils";
+import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.trade.";
 const MAX_SPLIT = 1000;
@@ -118,5 +119,8 @@ export default {
         );
       }
     },
+  },
+  components: {
+    numberinput,
   },
 };

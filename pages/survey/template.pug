@@ -16,7 +16,7 @@ div#surveyContainer
 
       template(v-else-if="question.type === 'comment' && checkCondition(question)")
         b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
-          b-input(:id="question.name" type="textarea" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading" :maxlength="getConstraint(question, 'maxLength')")
+          t-input(:inputId="question.name" as="textarea" v-model="result[question.name]" :isRequired="question.isRequired && checkCondition(question)" :isDisabled="loading" :maxlength="getConstraint(question, 'maxLength')")
 
       template(v-else-if="question.type === 'dropdown' && checkCondition(question)")
         b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
@@ -25,7 +25,7 @@ div#surveyContainer
 
       template(v-else-if="question.type === 'text' && checkCondition(question)")
         b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
-         b-input(:type="question.inputType ? question.inputType : 'text'" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading")
+         t-input(:as="question.inputType ? question.inputType : 'text'" v-model="result[question.name]" :isRequired="question.isRequired && checkCondition(question)" :isDisabled="loading")
 
       template(v-else-if="question.type === 'matrix' && checkCondition(question)")
         b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")

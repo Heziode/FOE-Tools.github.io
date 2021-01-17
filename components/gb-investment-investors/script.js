@@ -1,9 +1,10 @@
 import Vue from "vue";
+import { get } from "vuex-pathify";
 import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import YesNo from "~/components/yes-no/YesNo";
-import { get } from "vuex-pathify";
+import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.gb_investment_investors.";
 const urlPrefix = "gbi_";
@@ -594,5 +595,6 @@ export default {
   components: {
     gbListSelect,
     YesNo,
+    numberinput,
   },
 };

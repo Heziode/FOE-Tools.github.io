@@ -40,21 +40,24 @@ div
                   span.icon
                     i.far.fa-question-circle
         b-field
-          b-input#pmbConfig(type="text" v-model.trim="resultString" name="config" autocomplete="off" expanded disabled)
-          p.control
-            b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="tooltips.config" always)
-              button.button.copy(v-clipboard="resultString" @success="successCopy('config')" :title="$t('utils.Copy')")
-                span.icon
-                  i.far.fa-copy
-                | &nbsp;&nbsp;{{$t('utils.Copy')}}
+          t-input(inputId="pmbConfig" type="text" :value.trim="resultString" name="config" isDisabled)
+            template(#after)
+              b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="tooltips.config" always)
+                button(v-clipboard="resultString" @success="successCopy('config')" :title="$t('utils.Copy')" :class=`{
+                  "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                  "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                  "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                }`)
+                  span.icon.inline-block
+                    i.far.fa-copy
 
     div.columns
       div.column.is-half
         b-field(:label="$t('utils.Prefix')" label-for="pmbPrefix")
-          b-input#pmbPrefix(type="text" v-model.trim="result.prefix" name="prefix" autocomplete="off" :placeholder="$t('components.gb_investment.promotion.prefix_placeholder')")
+          t-input(inputId="pmbPrefix" type="text" v-model.trim="result.prefix" name="prefix" :placeholder="$t('components.gb_investment.promotion.prefix_placeholder')")
       div.column.is-half
         b-field(:label="$t('utils.Suffix')" label-for="pmbSuffix")
-          b-input#pmbSuffix(type="text" v-model.trim="result.suffix" name="suffix" autocomplete="off" :placeholder="$t('components.gb_investment.promotion.suffix_placeholder')")
+          t-input(inputId="pmbSuffix" type="text" v-model.trim="result.suffix" name="suffix" :placeholder="$t('components.gb_investment.promotion.suffix_placeholder')")
 
     div.columns
       div.column.is-half
@@ -72,23 +75,24 @@ div
               | : {{$t($data.i18nPrefix + 'variables.message.LF')}}
       div.column.is-half
         b-field(:label="$t(i18nPrefix + 'place_separator')" label-for="pmbPlaceSeparator")
-          b-input#pmbPlaceSeparator(type="text" v-model="result.placeSeparator" name="placeSeparator" autocomplete="off")
+          t-input(inputId="pmbPlaceSeparator" type="text" v-model="result.placeSeparator" name="placeSeparator")
 
     h6.title.is-6.margin-top-one-em {{$t($data.i18nPrefix + 'add_field_title')}}
 
     div.columns
       div.column.is-half
         b-field(:label="$t(i18nPrefix + 'add_field.name')" label-for="pmbAddFieldName" :type="haveError('addFieldName')" :message="getErrorMessage('addFieldName')")
-          b-input#pmbAddFieldName(type="text" v-model="addFieldName" name="addFieldName" autocomplete="off")
+          t-input(inputId="pmbAddFieldName" type="text" v-model="addFieldName" name="addFieldName" :isInvalid="errors.addFieldName.found")
       div.column.is-half
         b-field(:label="$t(i18nPrefix + 'add_field.value')" label-for="pmbAddFieldValue")
           b-field(grouped)
-            b-input#pmbAddFieldValue(type="text" v-model="addFieldValue" name="addFieldValue" autocomplete="off" expanded)
-            p.control
-              button.button.is-info(:title="$t('utils.Add')" @click="addCustomField")
-                span.icon
-                  i.fas.fa-plus
-                | &nbsp;&nbsp;{{$t('utils.Add')}}
+            t-input(inputId="pmbAddFieldValue" type="text" v-model="addFieldValue" @keyup.enter.native="addCustomField" name="addFieldValue")
+              template(#after)
+                button(:title="$t('utils.Add')" @click="addCustomField" :class=`{
+                  "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                  "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                  "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                }`) +
 
     template(v-if="customFields.length")
       h6.title.is-6.margin-top-one-em {{$t($data.i18nPrefix + 'custom_field_title')}}
@@ -102,14 +106,18 @@ div
       div.columns(v-for="(customField, index) in customFields")
         div.column.is-half
           b-field
-            p.control
-              b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
-                button.button.is-danger.is-outlined(:title="$t('utils.Remove')" @click="removeCustomField(customField.key)")
-                  span.icon
-                    i.fas.fa-trash
-            b-input(type="text" v-model="customField.key" autocomplete="off" expanded)
+            t-input(type="text" v-model="customField.key")
+              template(#before)
+                b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
+                  button(:title="$t('utils.Remove')" @click="removeCustomField(customField.key)" :class=`{
+                    "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                    "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+                    "bg-red-600 text-white hover:bg-red-700 dark-hover:bg-red-500": true
+                  }`)
+                    span.icon.inline-block
+                      i.fas.fa-trash
         div.column.is-half
-          b-input(type="text" v-model="customField.placeholder" autocomplete="off")
+          t-input(type="text" v-model="customField.placeholder")
 
     h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'place_builder_title')}}
 
@@ -144,10 +152,10 @@ div
     div.columns
       div.column.is-half
         b-field(:label="$t(i18nPrefix + 'place_builder')" label-for="pmbPlaceBuilder")
-          b-input#pmbPlaceBuilder(type="text" v-model.trim="result.place" name="pmbPlaceBuilder" autocomplete="off")
+          t-input(inputId="pmbPlaceBuilder" type="text" v-model.trim="result.place" name="pmbPlaceBuilder")
       div.column.is-half
         b-field(:label="$t(i18nPrefix + 'place_preview')" label-for="pmbPlacePreview")
-          b-input#pmbPlacePreview(:type="nbMultiLine(placePreview) ? 'textarea' : 'text'" :rows="nbMultiLine(placePreview) ? nbMultiLine(placePreview) : ''" v-model.trim="placePreview" name="pmbPlacePreview" autocomplete="off" disabled)
+          t-input(inputId="pmbPlacePreview" :as="nbMultiLine(placePreview) ? 'textarea' : 'input'" :rows="nbMultiLine(placePreview) ? nbMultiLine(placePreview) : undefined" :value.trim="placePreview" name="pmbPlacePreview" isDisabled)
 
     h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'message_builder_title')}}
 
@@ -188,16 +196,16 @@ div
     div.columns
       div.column
         b-field(:label="$t(i18nPrefix + 'message_builder')" label-for="pmbMessageBuilder")
-          b-input#pmbMessageBuilder(type="text" v-model.trim="result.message" name="pmbMessageBuilder" autocomplete="off" expanded)
+          t-input(inputId="pmbMessageBuilder" type="text" v-model.trim="result.message" name="pmbMessageBuilder")
     div.columns
       div.column
         b-field(:label="$t(i18nPrefix + 'message_preview')" label-for="pmbMessagePreview")
-          b-input#pmbMessagePreview(:type="nbMultiLine(resultMessage) ? 'textarea' : 'text'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : ''" v-model.trim="resultMessage" name="pmbMessagePreview" autocomplete="off" expanded disabled)
+          t-input(inputId="pmbMessagePreview" :as="nbMultiLine(resultMessage) ? 'textarea' : 'input'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : undefined" :value.trim="resultMessage" name="pmbMessagePreview" isDisabled)
 
     div.columns
       div.column.is-half
         b-field(:label="$t(i18nPrefix + 'template_name')" label-for="pmbTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
-          b-input#pmbTemplateName(type="text" v-model.trim="templateName" name="pmbTemplateName" autocomplete="off")
+          t-input(inputId="pmbTemplateName" type="text" v-model.trim="templateName" name="pmbTemplateName" :isInvalid="errors.templateName.found")
       div.column.is-half
         b-field.has-text-centered(label=" ")
           b-button.is-fullwidth(type="is-info" @click="save") {{$t('utils.Save')}}
