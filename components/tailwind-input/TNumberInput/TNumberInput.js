@@ -469,7 +469,7 @@ const TNumberInput = {
      * @param {Event} event Event object
      * @param {Any} event Value
      */
-    handleChange(event, _value) {
+    handleChange(event) {
       let finalValue;
       const { value } = event.target;
       if (["", undefined].includes(value)) {
