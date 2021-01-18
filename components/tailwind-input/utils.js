@@ -39,8 +39,6 @@ export const getElement = (selector, domain) => {
   }
 };
 
-export const canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
-
 /**
  * @description Wraps and executes both user and internal event handlers for a single event
  * @param {Function} theirHandler Userland event handler

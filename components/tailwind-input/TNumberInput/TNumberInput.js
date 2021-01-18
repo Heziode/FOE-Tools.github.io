@@ -11,7 +11,7 @@
  * @see A11y     https://github.com/chakra-ui/chakra-ui-vue/blob/master/packages/chakra-ui-core/src/CNumberInput/accessibility.md
  */
 
-import { isDef, useId, getElement, canUseDOM, wrapEvent } from "../utils";
+import { isDef, useId, getElement, wrapEvent } from "../utils";
 import { inputProps } from "../TInput/utils/input.props";
 
 import TInput from "../TInput";
@@ -88,7 +88,6 @@ const TNumberInput = {
       decrementPressed: false,
       incrementEvents: {},
       decrementEvents: {},
-      clickEvent: canUseDOM && !!document.documentElement.ontouchstart ? "touchstart" : "mousedown",
       incrementStepperProps: undefined,
       decrementStepperProps: undefined,
       incrementTimerId: null,
@@ -244,7 +243,11 @@ const TNumberInput = {
     };
 
     this.incrementStepperProps = {
-      [this.clickEvent]: startIncrement,
+      mousedown: startIncrement,
+      touchstart: (e) => {
+        e.preventDefault();
+        startIncrement();
+      },
       mouseup: stopIncrement,
       mouseleave: stopIncrement,
       touchend: stopIncrement,
@@ -285,7 +288,11 @@ const TNumberInput = {
     };
 
     this.decrementStepperProps = {
-      [this.clickEvent]: startDecrement,
+      mousedown: startDecrement,
+      touchstart: (e) => {
+        e.preventDefault();
+        startDecrement();
+      },
       mouseup: stopDecrement,
       mouseleave: stopDecrement,
       touchend: stopDecrement,
@@ -589,7 +596,7 @@ const TStepperButton = {
       "button",
       {
         class: {
-          "font-bold py-2 px-4 border-t border-b focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+          "select-none font-bold py-2 px-4 border-t border-b focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
           "border-red-500": this.context.isInvalid,
           "dark:border-gray-600": !this.context.isInvalid,
           "bg-gray-200 dark:bg-gray-500 text-gray-500 dark:text-gray-700 cursor-not-allowed": isDisabled,
