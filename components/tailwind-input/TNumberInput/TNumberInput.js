@@ -553,6 +553,7 @@ const TNumberInputField = {
         size,
         value,
       },
+      class: "text-center",
       attrs: {
         ...this.$attrs,
         id: inputId,
