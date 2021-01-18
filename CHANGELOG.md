@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.79.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.79.1...v2.79.2) (2021-01-18)
+
+
+### Bug Fixes
+
+* fix increment step on number input ([638315d](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/638315daa7e303811757754406d12c91f4f80462))
+* fix value in add investor after adding one ([72d0613](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/72d0613d9b1de0b6dec5213e5c43383605301281))
+
 ### [2.79.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.79.0...v2.79.1) (2021-01-18)
 
 
