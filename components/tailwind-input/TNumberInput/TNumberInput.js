@@ -155,6 +155,7 @@ const TNumberInput = {
           readOnly: this.isReadOnly,
           disabled: this.isDisabled,
           autoComplete: "off",
+          step: this.step,
         },
         hiddenLabel: {
           "aria-live": "polite",
