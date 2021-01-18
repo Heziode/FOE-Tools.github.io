@@ -927,7 +927,7 @@ export default {
         /* istanbul ignore next */
         this.$data.investorParticipation = this.$data.investorParticipation.sort((a, b) => b.value - a.value);
 
-        this.$data.addInvestors = null;
+        this.$data.addInvestors = "";
 
         this.calculate();
       }
