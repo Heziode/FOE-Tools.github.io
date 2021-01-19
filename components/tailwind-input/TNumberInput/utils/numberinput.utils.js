@@ -14,8 +14,8 @@ export function preventNonNumberKey(event) {
   }
 }
 
-export function roundToPrecision(value, precision) {
-  return value === "" ? parseFloat(0).toFixed(precision) : parseFloat(value).toFixed(precision);
+export function toFloat(value) {
+  return value === "" ? parseFloat(0) : parseFloat(value);
 }
 
 /**
