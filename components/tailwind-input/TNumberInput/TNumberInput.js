@@ -15,7 +15,7 @@ import { isDef, useId, getElement, wrapEvent } from "../utils";
 import { inputProps } from "../TInput/utils/input.props";
 
 import TInput from "../TInput";
-import { calculatePrecision, roundToPrecision, preventNonNumberKey } from "./utils/numberinput.utils";
+import { calculatePrecision, toFloat, preventNonNumberKey } from "./utils/numberinput.utils";
 
 /**
  * TNumberInput component
@@ -180,11 +180,7 @@ const TNumberInput = {
     },
     _value: {
       get() {
-        return this.isControlled
-          ? roundToPrecision(this.value, this._precision)
-          : this.innerValue
-          ? roundToPrecision(this.innerValue, this._precision)
-          : this.innerValue;
+        return this.isControlled ? toFloat(this.value) : this.innerValue ? toFloat(this.innerValue) : this.innerValue;
       },
       set(val) {
         if (!this.defaultValue) {
@@ -192,7 +188,7 @@ const TNumberInput = {
           if (this.keepWithinRange) {
             nextValue = Math.max(Math.min(nextValue, this.max), this.min);
           }
-          nextValue = roundToPrecision(nextValue, this._precision);
+          nextValue = toFloat(nextValue);
           this.innerValue = nextValue;
         }
         this.innerValue = val;
@@ -386,7 +382,7 @@ const TNumberInput = {
         nextValue = Math.min(nextValue, this.max);
       }
 
-      nextValue = roundToPrecision(nextValue, this._precision);
+      nextValue = toFloat(nextValue, this._precision);
       this.updateValue(nextValue);
       this.$emit("increment", nextValue);
     },
@@ -403,7 +399,7 @@ const TNumberInput = {
         nextValue = Math.max(nextValue, this.min);
       }
 
-      nextValue = roundToPrecision(nextValue, this._precision);
+      nextValue = toFloat(nextValue, this._precision);
       this.updateValue(nextValue);
       this.$emit("decrement", nextValue);
     },

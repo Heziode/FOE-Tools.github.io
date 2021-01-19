@@ -412,19 +412,11 @@ div.content#gbiContent
                         span.icon.inline-block(v-show="!showSuffix")
                           i.fas.fa-eye-slash
 
-          div.columns
-            div.column.is-half
-              div.columns
-                div.column.is-half#pmDisplayGbName
-                  yes-no(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
-                div.column.is-half#pmShortName(v-if="displayGbName || tutoMode")
-                  yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
-            div.column.is-half
-              div.columns
-                div.column.is-half#pmShowLevel
-                  yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
-                div.column.is-half#pmShowOnlySecuredPlaces
-                  yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
+          .grid.grid-cols-1.mb-8(class="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4")
+            yes-no(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
+            yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
+            yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
+            yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
 
           div(v-if="result !== null")
             template(v-for="(value, i) in promotion")
