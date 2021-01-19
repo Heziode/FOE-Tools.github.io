@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.79.3](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.79.2...v2.79.3) (2021-01-19)
+
+
+### Bug Fixes
+
+* fix overflow of number input ([04888be](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/04888befc74a39b6c7d88ad419f1c2dbb24a3fef))
+* **gb-investment:** fix overflow of yes/no for promotion message ([32ccd5a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/32ccd5acd11535010e737680417a41920d79c878))
+* fix use of decimal value ([51268d4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/51268d43e8a2cb38d292192b8436c3f40e3db64d))
+
 ### [2.79.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.79.1...v2.79.2) (2021-01-18)
 
 
