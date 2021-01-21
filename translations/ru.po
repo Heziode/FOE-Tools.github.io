@@ -3,7 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
-"PO-Revision-Date: 2021-01-03 20:25+0000\n"
+"PO-Revision-Date: 2021-01-22 03:06+0000\n"
+"Last-Translator: Balastov <lexiusb@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
 "Language: ru\n"
@@ -3050,3 +3051,111 @@ msgstr ""
 
 msgid "routes.help_to_translate_the_site.state_of_translation"
 msgstr ""
+
+msgid "contributions.review"
+msgstr "Рассмотренные запросы на включение изменений"
+
+msgid "contributions.talk"
+msgstr "Переговоры"
+
+msgid "contributions.test"
+msgstr "Проверка"
+
+msgid "contributions.tool"
+msgstr "Инструменты"
+
+msgid "contributions.translation"
+msgstr "Перевод"
+
+msgid "contributions.tutorial"
+msgstr "Обучение"
+
+msgid "contributions.data"
+msgstr "Добавление или обновление данных"
+
+msgid "contributions.inspired_tool"
+msgstr "Инструмент, вдохновленный его работой"
+
+msgid "contributions.example"
+msgstr "Примеры"
+
+msgid "contributions.video"
+msgstr "Видео"
+
+msgid "cookieConsent.acceptAll"
+msgstr "Принят со всем согласен, принять"
+
+msgid "cookieConsent.acceptSelected"
+msgstr "Завершить"
+
+msgid "cookieConsent.back"
+msgstr "Вернуться"
+
+msgid "cookieConsent.consentModal.title"
+msgstr "Сервисные службы, которые мы хотели бы использовать"
+
+msgid "cookieConsent.consentModal.description"
+msgstr ""
+"Здесь вы можете оценить и настроить сервисные службы, которые мы хотели бы "
+"использовать на этом веб-сайте. Вы во главе! Включите или отключите службы "
+"по своему усмотрению."
+
+msgid "cookieConsent.consentNotice.changeDescription"
+msgstr ""
+"Со времени вашего последнего посещения произошли изменения, подтвердите свое "
+"согласие."
+
+msgid "cookieConsent.title"
+msgstr "Привет всем ! Это мы… Cookies!"
+
+msgid "cookieConsent.consentNotice.learnMore_nonTogglable"
+msgstr "Узнать подробнее"
+
+msgid "cookieConsent.consentNotice.learnMore"
+msgstr "я выбираю"
+
+msgid "cookieConsent.consentNotice.edit"
+msgstr ""
+"Вы подтверждаете согласие? Вы всегда можете изменить или отозвать свое "
+"согласие позже."
+
+msgid "cookieConsent.consentNotice.description"
+msgstr "Мы хотели бы активировать дополнительные услуги для следующих целей:"
+
+msgid "cookieConsent.foe-tools.description"
+msgstr ""
+"Все данные, относящиеся к вашей конфигурации (уровень ВС, инвесторы, бонус "
+"Арки и т. д.)"
+
+msgid "cookieConsent.ok"
+msgstr "Ok для меня"
+
+msgid "cookieConsent.sentry.description"
+msgstr ""
+"Сбор ошибок для выявления потенциальных багов в программе (самостоятельное "
+"решение)"
+
+msgid "cookieConsent.purposes.performance.title"
+msgstr "Оптимизация производительности"
+
+msgid "cookieConsent.purposes.advertising.description"
+msgstr ""
+"Эти службы обрабатывают личную информацию, чтобы показывать вам "
+"персонализированную рекламу или рекламу на основе ваших интересов."
+
+msgid "cookieConsent.purposes.performance.description"
+msgstr ""
+"Эти службы обрабатывают личную информацию для оптимизации услуг, "
+"предлагаемых данным веб-сайтом."
+
+msgid "cookieConsent.purposes.functional.title"
+msgstr "Предоставление услуг"
+
+msgid "cookieConsent.purposes.advertising.title"
+msgstr "Реклама"
+
+msgid "cookieConsent.purposes.functional.description"
+msgstr ""
+"Эти сервисные службы необходимы для правильного функционирования данного веб-"
+"сайта. Вы не можете отключить их здесь, иначе службы не будут работать "
+"должным образом."
