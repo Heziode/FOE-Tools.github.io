@@ -489,7 +489,7 @@ const TNumberInput = {
       "div",
       {
         class: {
-          "inline-flex": true,
+          "inline-flex t-input": true,
           "w-full": this.isFullWidth,
           "shadow-outline border-blue-300 rounded": this.isFocused,
         },

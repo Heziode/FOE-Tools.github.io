@@ -30,15 +30,15 @@ div.content
 
   div.columns
     div.column.is-half
-      b-field(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
+      t-label(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
         numberinput(inputId="previsionFrom" :min="0" :max="to - 1" v-model.number="fromInput" name="previsionFrom")
     div.column.is-half
-      b-field(:label="$t('utils.To', { max: maxLevel })" label-for="previsionTo" :type="haveError('to')")
+      t-label(:label="$t('utils.To', { max: maxLevel })" label-for="previsionTo" :type="haveError('to')")
         numberinput(inputId="previsionTo" :min="from" :max="maxLevel" v-model.number="to" name="previsionTo")
 
   div.columns
     div.column.is-half
-      b-field(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" :type="haveError('yourArcBonus')")
+      t-label(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" :type="haveError('yourArcBonus')")
         numberinput(inputId="giiYourArcBonus" :min="0" v-model.number="yourArcBonus" :step="0.1" :precision="1" name="your-arc-bonus")
 
   div.columns(v-show="takingPlaceInConsideration === 2")
@@ -46,7 +46,7 @@ div.content
       yes-no(v-model="customPercentage" :label="$t('components.gb_forecast_cost.custom_percentage')")
 
     div.column.is-half(v-show="!customPercentage")
-      b-field(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
+      t-label(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
         numberinput(inputId="previsionInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal")
 
   div.table-wrapper(v-show="takingPlaceInConsideration === 2 && customPercentage")
@@ -59,25 +59,38 @@ div.content
         tr(v-for="i in 5")
           td.has-text-right {{i}}
           td
-            b-field(:type="haveError('investorPercentageCustom_' + i)")
-              numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
+            numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
 
   div.columns
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'takingPlaceInConsideration.label')" :type="haveError('takingPlaceInConsideration')")
-      b-field
-        div.control
-          span.button.button-no(:class="{ 'is-danger is-selected' : takingPlaceInConsideration === 0, 'is-dark-light is-outlined': takingPlaceInConsideration !== 0 && this.$store.get('isDarkTheme')  }" @click="takingPlaceInConsideration = 0" ref="button-no")
-            span {{$t(i18nPrefix + "takingPlaceInConsideration.form.no")}}
-        div.control
-          span.button.button-normal(:class="{ 'is-info is-selected' : takingPlaceInConsideration === 1, 'is-dark-light is-outlined': takingPlaceInConsideration !== 1 && this.$store.get('isDarkTheme')  }" @click="takingPlaceInConsideration = 1" ref="button-normal")
-            span {{$t(i18nPrefix + "takingPlaceInConsideration.form.normal")}}
-        div.control
-          span.button.button-optimal(:class="{ 'is-success is-selected' : takingPlaceInConsideration === 2, 'is-dark-light is-outlined': takingPlaceInConsideration !== 2 && this.$store.get('isDarkTheme')  }" @click="takingPlaceInConsideration = 2" ref="button-optimal")
-            span {{$t(i18nPrefix + "takingPlaceInConsideration.form.optimal")}}
+      t-label(:label="$t(i18nPrefix + 'takingPlaceInConsideration.label')" :type="haveError('takingPlaceInConsideration')")
+      div
+        button(:class=`{
+          "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+          "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": takingPlaceInConsideration !== 0,
+          "bg-red-600 hover:bg-red-700 dark-hover:bg-red-500 text-white" : takingPlaceInConsideration === 0,
+
+        }`
+        @click="takingPlaceInConsideration = 0") {{$t(i18nPrefix + "takingPlaceInConsideration.form.no")}}
+        button(:class=`{
+          "h-full font-bold py-2 px-4 border-t border-b focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+          "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": takingPlaceInConsideration !== 1,
+          "bg-blue-500 hover:bg-blue-600 dark-hover:bg-blue-400 text-white" : takingPlaceInConsideration === 1,
+
+        }`
+        @click="takingPlaceInConsideration = 1") {{$t(i18nPrefix + "takingPlaceInConsideration.form.normal")}}
+        button(:class=`{
+          "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
+          "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": takingPlaceInConsideration !== 2,
+          "bg-green-500 hover:bg-green-600 dark-hover:bg-green-400 text-white" : takingPlaceInConsideration === 2,
+        }`
+        @click="takingPlaceInConsideration = 2") {{$t(i18nPrefix + "takingPlaceInConsideration.form.optimal")}}
 
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
+      t-label(:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
       div.block
         template(v-for="(value, index) in showPlace")
           b-switch(v-model="showPlace[index]" type="is-info") {{ index + 1 }}

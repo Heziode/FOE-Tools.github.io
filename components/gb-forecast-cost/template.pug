@@ -24,10 +24,10 @@ div.content
   // Row 1
   div.columns
     div.column.is-half
-      b-field(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
+      t-label(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
         numberinput(inputId="previsionFrom" :min="0" :max="maxLevel - 2" v-model.number="fromInput" name="previsionFrom")
     div.column.is-half
-      b-field(:label="$t('utils.To', { max: maxLevel - 1 })" label-for="previsionTo" :type="haveError('to')")
+      t-label(:label="$t('utils.To', { max: maxLevel - 1 })" label-for="previsionTo" :type="haveError('to')")
         numberinput(inputId="previsionTo" :min="1" :max="maxLevel - 1" v-model.number="toInput" name="previsionTo")
 
   // Row 2
@@ -36,7 +36,7 @@ div.content
       yes-no(v-model="customPercentage" :label="$t(i18nPrefix + 'custom_percentage')")
 
     div.column.is-half(v-show="!customPercentage")
-      b-field(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
+      t-label(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
         numberinput(inputId="previsionInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal")
 
   // Row 3
@@ -50,8 +50,7 @@ div.content
         tr(v-for="i in 5")
           td.has-text-right {{i}}
           td
-            b-field(:type="haveError('investorPercentageCustom_' + i)")
-              numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
+            numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
 
   // Result
   div(v-if="previsionResult !== null")
@@ -63,10 +62,10 @@ div.content
 
   div.columns
     div.column.is-half
-      b-field(:label="$t('components.cf_calculator.block_cfc.fp_by_24h')" label-for="previsionFpBy24h" :type="haveError('fpBy24h')")
+      t-label(:label="$t('components.cf_calculator.block_cfc.fp_by_24h')" label-for="previsionFpBy24h" :type="haveError('fpBy24h')")
         numberinput(inputId="previsionFpBy24h" :min="0" v-model.number="fpBy24h" name="previsionFpBy24h")
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'prop_already_invested')" label-for="previsionAlreadyInvested" :type="haveError('alreadyInvested')")
+      t-label(:label="$t(i18nPrefix + 'prop_already_invested')" label-for="previsionAlreadyInvested" :type="haveError('alreadyInvested')")
         numberinput(inputId="previsionAlreadyInvested" :min="0" :max="maxCurrentLevel" v-model.number="alreadyInvested" name="previsionAlreadyInvested")
 
   div(v-show="(previsionResult !== null) && (fpBy24h > 0)")
