@@ -224,7 +224,7 @@ const TNumberInput = {
       () => {
         if (this.incrementTimerId) clearTimeout(this.incrementTimerId);
         if (this.incrementPressed) {
-          this.incrementTimerId = setTimeout(this.handleIncrement, 100);
+          this.incrementTimerId = setTimeout(this.handleIncrement, 250);
         } else {
           clearTimeout(this.incrementTimerId);
         }
@@ -269,7 +269,7 @@ const TNumberInput = {
       () => {
         if (this.decrementTimerId) clearTimeout(this.decrementTimerId);
         if (this.decrementPressed) {
-          this.decrementTimerId = setTimeout(this.handleDecrement, 100);
+          this.decrementTimerId = setTimeout(this.handleDecrement, 250);
         } else {
           clearTimeout(this.decrementTimerId);
         }
