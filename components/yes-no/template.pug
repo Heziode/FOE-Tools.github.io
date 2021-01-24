@@ -3,20 +3,20 @@ div.field
   div.control
     div.inline-flex(:id="id")
       button(:class=`{
-        "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
-        "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
-        "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": newValue,
-        "bg-red-600 hover:bg-red-700 dark-hover:bg-red-500 text-white" : !newValue,
+        "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:ring focus:border-blue-300": true,
+        "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
+        "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": newValue,
+        "bg-red-600 hover:bg-red-700 dark:hover:bg-red-500 text-white" : !newValue,
 
       }` @click="newValue = false" ref="button-no")
         span.icon.inline-block
           i.fas.fa-times
         span {{$t('utils.No')}}
       button(:class=`{
-        "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
-        "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
-        "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": !newValue,
-        "bg-green-500 hover:bg-green-600 dark-hover:bg-green-400 text-white" : newValue,
+        "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
+        "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
+        "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": !newValue,
+        "bg-green-500 hover:bg-green-600 dark:hover:bg-green-400 text-white" : newValue,
       }` @click="newValue = true" ref="button-yes")
         span.icon.inline-block
           i.fas.fa-check

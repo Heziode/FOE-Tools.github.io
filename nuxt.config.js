@@ -4,6 +4,7 @@ import Vue from "vue";
 import VueI18n from "vue-i18n";
 import { gbs } from "./lib/foe-data/gbs";
 import { bestFacebookLocaleFor } from "facebook-locales";
+import colors from "tailwindcss/colors";
 
 Vue.use(VueI18n);
 
@@ -625,19 +626,17 @@ module.exports = {
   tailwindcss: {
     // exposeConfig: true,
     config: {
+      darkMode: "class",
       theme: {
-        // compatible with @nuxtjs/color-mode
-        darkSelector: ".dark-mode",
+        colors: {
+          ...colors,
+        },
       },
       variants: {
-        backgroundColor: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd", "hover"],
-        backgroundOpacity: ["dark", "dark-hover", "dark-group-hover", "dark-even", "dark-odd", "hover"],
-        borderColor: ["dark", "dark-focus", "dark-focus-within"],
-        textColor: ["hover", "dark", "dark-hover", "dark-active"],
         borderRadius: ["responsive", "first", "last", "hover", "focus"],
         borderWidth: ["responsive", "first", "last", "hover", "focus"],
       },
-      plugins: [require("tailwindcss-dark-mode")()],
+      plugins: [],
       purge: {
         keyframes: true,
         enabled: process.env.NODE_ENV === "production",

@@ -50,12 +50,12 @@ div.content#gbiContent
           numberinput(inputId="giAddInvestors" :min="0" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" :isDisabled="maxInvestment <= 0" @click.native="haveReadTipAboutAddInvestor")
             template(#after="{ isDisabled, isInvalid }")
               button(:title="$t('utils.Add')" @click="addInvestor" :disabled="maxInvestment <= 0" :class=`{
-                  "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+                  "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
                   "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle": true,
                   "border-red-500": isInvalid,
-                  "dark:border-gray-600": !isInvalid,
-                  "bg-gray-200 dark:bg-gray-500 text-gray-500 dark:text-gray-700 cursor-not-allowed": isDisabled,
-                  "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": !isDisabled,
+                  "dark:border-gray-500": !isInvalid,
+                  "bg-blueGray-100 dark:bg-blueGray-400 text-gray-400 dark:text-gray-600 cursor-not-allowed": isDisabled,
+                  "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": !isDisabled,
                 }`)
                   span.icon.inline-block
                     i.fas.fa-user-plus
@@ -384,9 +384,9 @@ div.content#gbiContent
                 template(#after)
                   b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
                     button(:title="showPrefix ? $t('utils.Hide') : $t('utils.Show')" @click="switchPrefix" :disabled="maxInvestment <= 0" :class=`{
-                      "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
-                      "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
-                      "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                      "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
+                      "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
+                      "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
                     }`)
                       span.icon.inline-block(v-show="showPrefix")
                         i.fas.fa-eye
@@ -399,9 +399,9 @@ div.content#gbiContent
                 template(#after)
                   b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
                     button(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')" :class=`{
-                      "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
-                      "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
-                      "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                      "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
+                      "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
+                      "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
                     }`)
                       span.icon.inline-block(v-show="showSuffix")
                         i.fas.fa-eye
@@ -425,9 +425,9 @@ div.content#gbiContent
                       template(#after)
                         b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
                           button(@click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show" :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')" :class=`{
-                            "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
-                            "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
-                            "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                            "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
+                            "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
+                            "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
                           }`)
                             span.icon.inline-block(v-show="promotionMessageList[i].config.customFields[elt.key].show")
                               i.fas.fa-eye
@@ -440,18 +440,18 @@ div.content#gbiContent
                     template(#before)
                       b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
                         button(:title="$t('utils.Remove')" @click="removePromotionMessage(i)" :class=`{
-                          "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
-                          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
-                          "bg-red-600 text-white hover:bg-red-700 dark-hover:bg-red-500": true
+                          "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:ring focus:border-blue-300": true,
+                          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
+                          "bg-red-600 text-white hover:bg-red-700 dark:hover:bg-red-500": true
                         }`)
                           span.icon.inline-block
                             i.fas.fa-trash
                     template(#after)
                       b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
                         button(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')" :class=`{
-                          "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
-                          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-600": true,
-                          "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": true
+                          "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
+                          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
+                          "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
                         }`)
                           span.icon.inline-block
                             i.far.fa-copy

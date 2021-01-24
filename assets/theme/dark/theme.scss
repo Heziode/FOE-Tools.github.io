@@ -48,7 +48,8 @@ body.dark-theme {
   @import "~buefy/src/scss/buefy";
   @import "./overrides";
 
-  @apply bg-gray-800 text-white;
+  @apply text-white;
+  background-color: #2d3748;
 
   footer {
     background-color: #2f3640;
@@ -123,7 +124,7 @@ body.dark-theme {
   }
 
   .card {
-    background-color: #1F2937 !important;
+    background-color: #1a202c !important;
   }
 }
 

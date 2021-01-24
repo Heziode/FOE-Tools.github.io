@@ -20,7 +20,7 @@ export default {
       ],
       htmlAttrs: {
         lang: this.lang,
-        class: this.$store.get("isDarkTheme") ? "dark-theme" : "light-theme",
+        class: this.$store.get("isDarkTheme") ? "dark-theme dark" : "light-theme",
       },
       bodyAttrs: {
         class:
