@@ -27,7 +27,7 @@ export default {
     this.$store.commit("RESTORE_HERO");
 
     return {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
     };
   },
   components: {

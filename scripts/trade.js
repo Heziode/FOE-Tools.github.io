@@ -1,7 +1,7 @@
 import { Enum } from "enumify";
 import PriorityQueue from "js-priority-queue";
-import allAges from "~/lib/foe-data/ages";
 import clone from "lodash.clonedeep";
+import allAges from "~/lib/foe-data/ages";
 import { agesCost } from "~/lib/foe-data/goods";
 import * as Errors from "~/scripts/errors";
 
@@ -41,11 +41,11 @@ function getTotalGoodCostFairTrade(good) {
  * @return {Object} Return an object of object.
  */
 function getFairTradeArray() {
-  let fairTradeObj = {};
+  const fairTradeObj = {};
 
-  for (let key1 in goods) {
+  for (const key1 in goods) {
     fairTradeObj[key1] = {};
-    for (let key2 in goods) {
+    for (const key2 in goods) {
       fairTradeObj[key1][key2] = getTotalGoodCostFairTrade(goods[key1][0]) / getTotalGoodCostFairTrade(goods[key2][0]);
     }
   }
@@ -59,13 +59,13 @@ function getFairTradeArray() {
  * @return {Object} Return an object of object.
  */
 function getSimpleTradeArray() {
-  let simpleTradeObj = {};
+  const simpleTradeObj = {};
 
-  for (let key1 in goods) {
+  for (const key1 in goods) {
     simpleTradeObj[key1] = {};
     const currentIndex = Object.keys(goods).indexOf(key1);
-    for (let key2 in goods) {
-      let tmpIndex = Object.keys(goods).indexOf(key2);
+    for (const key2 in goods) {
+      const tmpIndex = Object.keys(goods).indexOf(key2);
       if (tmpIndex === currentIndex - 1) {
         simpleTradeObj[key1][key2] = 2;
       } else if (tmpIndex === currentIndex + 1) {
@@ -98,9 +98,9 @@ const tradeArrayValues = {
 function neighbors(tradeInput, node) {
   const result = [];
 
-  for (let key in tradeInput[node]) {
+  for (const key in tradeInput[node]) {
     if (tradeInput[node][key] >= 0.5 && tradeInput[node][key] <= 2) {
-      result.push({ key: key, cost: tradeInput[node][key] });
+      result.push({ key, cost: tradeInput[node][key] });
     }
   }
 
@@ -173,8 +173,8 @@ function uniformCostSearch(graph, start, goal) {
     if (node.key === goal) {
       return reconstructPath(explored, start, goal);
     }
-    for (let neighbor of neighbors(tradeArrayValues[graph.name], node.key)) {
-      if (Object.keys(explored).indexOf(neighbor.key) < 0) {
+    for (const neighbor of neighbors(tradeArrayValues[graph.name], node.key)) {
+      if (!Object.keys(explored).includes(neighbor.key)) {
         frontier.queue({ key: neighbor.key, cost: neighbor.cost + node.cost });
         explored[neighbor.key] = { key: neighbor.key, cost: neighbor.cost + node.cost, parent: node.key };
       }
@@ -194,7 +194,7 @@ function uniformCostSearch(graph, start, goal) {
  */
 function getBestOffers(tradeInput, iHave, iWant, amount) {
   const bestOffers = uniformCostSearch(tradeInput, iHave, iWant);
-  const result = [{ key: bestOffers[0], amount: amount }];
+  const result = [{ key: bestOffers[0], amount }];
 
   for (let i = 1; i < bestOffers.length; i++) {
     result.push({
@@ -223,7 +223,7 @@ function checkValidNumberInputParameter(paramName, funcName, value) {
   } else if (value <= 0) {
     throw new Errors.BoundExceededError({
       type: Errors.AvailableBoundTypes["<="],
-      value: value,
+      value,
       boundValue: 0,
       additionalMessage: `for parameter "${paramName}" of ${funcName}`,
     });
@@ -239,7 +239,7 @@ function checkValidNumberInputParameter(paramName, funcName, value) {
  */
 function checkAge(paramName, funcName, value) {
   const validAges = Object.keys(ages);
-  if (validAges.indexOf(value) < 0) {
+  if (!validAges.includes(value)) {
     throw new Errors.InvalidTypeError({
       expected: validAges,
       actual: value,
@@ -280,7 +280,7 @@ export function splitGoods(toValue, splitValue, ratioFromTo, ratioToFrom) {
     });
   }
 
-  let resultTo = toValue - result[0].to * result[0].count;
+  const resultTo = toValue - result[0].to * result[0].count;
 
   if (resultTo <= 0) {
     result.push({ from: 0, to: 0 });
@@ -331,7 +331,7 @@ export function getBestOffersSplitted(tradeInput, iHave, iWant, amount, splitVal
       tradeArrayValues[tradeInput.name][bestOffers[i].key][bestOffers[i + 1].key],
       tradeArrayValues[tradeInput.name][bestOffers[i + 1].key][bestOffers[i].key]
     );
-    if (bestOffers[i].split instanceof Array) {
+    if (Array.isArray(bestOffers[i].split)) {
       let r = 0;
       bestOffers[i].split
         .map((k) => {

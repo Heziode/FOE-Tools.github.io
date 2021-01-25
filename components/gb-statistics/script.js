@@ -1,6 +1,6 @@
 import Vue from "vue";
-import Utils from "~/scripts/utils";
 import { get } from "vuex-pathify";
+import Utils from "~/scripts/utils";
 import graphCanvas from "~/components/graph-canvas/GraphCanvas";
 import numberinput from "~/components/number-input/NumberInput";
 
@@ -228,7 +228,7 @@ export default {
   },
   watch: {
     statSelector(val) {
-      if (Object.keys(this.$data.graphType).indexOf(val) < 0) {
+      if (!Object.keys(this.$data.graphType).includes(val)) {
         return;
       }
       this.$store.commit("UPDATE_URL_QUERY", {
@@ -468,8 +468,8 @@ export default {
         title: graphType[statSelector].title,
         xAxesLabel: graphType[statSelector].xAxesLabel,
         yAxesLabel: graphType[statSelector].yAxesLabel,
-        suggestedMin: suggestedMin,
-        suggestedMax: suggestedMax,
+        suggestedMin,
+        suggestedMax,
         labels,
         datasets,
       };
@@ -499,7 +499,7 @@ export default {
       }
     },
     checkQuery(obj) {
-      let result = {};
+      const result = {};
       result.hidden = obj.hidden;
       let change = Utils.FormCheck.NO_CHANGE;
 
@@ -530,7 +530,7 @@ export default {
 
       if (this.$route.query[queryKey.hidden]) {
         change = Utils.FormCheck.VALID;
-        let hidden = this.$route.query[queryKey.hidden].split("").map((k) => k !== "0");
+        const hidden = this.$route.query[queryKey.hidden].split("").map((k) => k !== "0");
         Array.prototype.splice.apply(obj.hidden, [0, hidden.length].concat(hidden));
       }
 

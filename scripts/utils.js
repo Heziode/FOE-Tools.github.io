@@ -95,7 +95,7 @@ export default {
   checkFormNumeric(value, currentValue, comparator, type = "int") {
     let valid = false;
 
-    if (!(comparator instanceof Array)) {
+    if (!Array.isArray(comparator)) {
       throw new Errors.InvalidTypeError({
         expected: "Array",
         actual: typeof comparator,
@@ -107,7 +107,7 @@ export default {
     }
 
     if (typeof comparator[0] === "string") {
-      if (["<", "<=", ">", ">=", "==", "==="].indexOf(comparator[0]) < 0) {
+      if (!["<", "<=", ">", ">=", "==", "==="].includes(comparator[0])) {
         throw new Errors.InvalidComparatorError({ firstParam: true, value: comparator[0] });
       }
     } else if (typeof comparator[0] !== "number") {
@@ -118,7 +118,7 @@ export default {
       throw new Errors.InvalidComparatorError({ firstParam: false, value: typeof comparator[1] });
     }
 
-    if (["int", "float"].indexOf(type) < 0) {
+    if (!["int", "float"].includes(type)) {
       throw new Errors.InvalidTypeError({ expected: ["int", "float"], actual: type });
     }
 
@@ -150,6 +150,7 @@ export default {
             valid = resultValue >= comparator[1];
             break;
           case "==":
+            // eslint-disable-next-line eqeqeq
             valid = resultValue == comparator[1];
             break;
           case "===":
@@ -181,7 +182,7 @@ export default {
    * @returns {Array} Return an Array that contains @chunk sub-array
    */
   splitArray(arrayList, chunk, sameSize = false) {
-    if (!(arrayList instanceof Array)) {
+    if (!Array.isArray(arrayList)) {
       throw new Errors.InvalidTypeError({
         expected: "Array",
         actual: typeof arrayList,
@@ -197,7 +198,7 @@ export default {
       });
     }
 
-    let result = [];
+    const result = [];
 
     for (let i = 0, j = arrayList.length; i < j; i += chunk) {
       result.push(arrayList.slice(i, i + chunk));
@@ -217,7 +218,7 @@ export default {
    * @returns {Date} Return current date plus one year
    */
   getDefaultCookieExpireTime() {
-    let date = new Date();
+    const date = new Date();
     date.setFullYear(date.getFullYear() + 1);
     return date;
   },
@@ -265,7 +266,7 @@ export default {
       });
     }
 
-    let result = this.checkFormNumeric(value, currentValue, comparator, type);
+    const result = this.checkFormNumeric(value, currentValue, comparator, type);
     ctx.$data.errors[key] = result.state === FormCheck.INVALID;
     if (saveCookie && result.state === FormCheck.VALID) {
       ctx.$store.set(`profile/${cookieKey}`, result.value);
@@ -311,7 +312,7 @@ export default {
    * @returns {number} Return the number rounded
    */
   roundTo(num, scale) {
-    if (["number", "string"].indexOf(typeof num) < 0) {
+    if (!["number", "string"].includes(typeof num)) {
       throw new Errors.InvalidTypeError({ expected: ["number", "string"], actual: typeof num });
     }
 
@@ -327,7 +328,7 @@ export default {
     if (!("" + num).includes("e")) {
       return +(Math.round(num + "e+" + scale) + "e-" + scale);
     } else {
-      let arr = ("" + num).split("e");
+      const arr = ("" + num).split("e");
       let sig = "";
       if (+arr[1] + scale > 0) {
         sig = "+";
@@ -357,7 +358,7 @@ export default {
    * @returns {array} Return a number "normalized"
    */
   normalizeNumberArray(array, defaultValue = 0) {
-    if (!(array instanceof Array)) {
+    if (!Array.isArray(array)) {
       throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof array });
     }
     if (typeof defaultValue !== "number") {
@@ -374,7 +375,7 @@ export default {
    * @returns {array} Return a number "normalized"
    */
   normalizeBooleanArray(array) {
-    if (!(array instanceof Array)) {
+    if (!Array.isArray(array)) {
       throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof array });
     }
 
@@ -390,10 +391,10 @@ export default {
    * @param endVal {number} Index where we end
    */
   binaryInsert: /* istanbul ignore next */ function (value, array, startVal, endVal) {
-    let length = array.length;
-    let start = typeof startVal !== "undefined" ? startVal : 0;
-    let end = typeof endVal !== "undefined" ? endVal : length - 1; //!! endVal could be 0 don't use || syntax
-    let m = start + Math.floor((end - start) / 2);
+    const length = array.length;
+    const start = typeof startVal !== "undefined" ? startVal : 0;
+    const end = typeof endVal !== "undefined" ? endVal : length - 1; //! ! endVal could be 0 don't use || syntax
+    const m = start + Math.floor((end - start) / 2);
 
     if (length === 0) {
       array.push(value);
@@ -406,7 +407,7 @@ export default {
     }
 
     if (value < array[start]) {
-      //!!
+      //! !
       array.splice(start, 0, value);
       return;
     }
@@ -422,10 +423,9 @@ export default {
 
     if (value > array[m]) {
       this.binaryInsert(value, array, m + 1, end);
-      return;
     }
 
-    //we don't insert duplicates
+    // we don't insert duplicates
   },
 
   /**

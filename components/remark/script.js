@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     updateMarkdown() {
-      let self = this;
+      const self = this;
       remark()
         .use(emoji)
         .use(html)

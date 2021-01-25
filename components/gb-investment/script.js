@@ -1,3 +1,7 @@
+import Shepherd from "shepherd.js";
+import { ContentLoader } from "vue-content-loader";
+import { get } from "vuex-pathify";
+import * as Errors from "../../scripts/errors";
 import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
@@ -6,12 +10,8 @@ import numberinput from "~/components/number-input/NumberInput";
 import securePosition from "~/components/secure-position/SecurePosition";
 import PromotionMessageBuilder from "~/components/promotion-message-builder/PromotionMessageBuilder";
 import ImportPromotionMessage from "~/components/import-promotion-message/ImportPromotionMessage";
-import * as Errors from "../../scripts/errors";
 import { defaultPromotionMessages, buildMessage } from "~/scripts/promotion-message-builder";
-import Shepherd from "shepherd.js";
 import { getVideoTag, formatTuto } from "~/scripts/tutorial";
-import { ContentLoader } from "vue-content-loader";
-import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -268,7 +268,7 @@ export default {
     },
     investorParticipationNormalized() {
       /* istanbul ignore next */
-      if (!(this.$data.investorParticipation instanceof Array)) {
+      if (!Array.isArray(this.$data.investorParticipation)) {
         throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof this.$data.investorParticipation });
       }
 
@@ -298,7 +298,7 @@ export default {
       return this.$data.tutoMode ? [] : ["is-hidden-desktop", "is-hidden-widescreen"];
     },
     isBookmarked() {
-      let bookmarks = this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`);
+      const bookmarks = this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`);
       return !!bookmarks.find(
         (elt) => elt.name === "GbInvestment" && elt.params && elt.params.gb && elt.params.gb === this.$route.params.gb
       );
@@ -415,7 +415,7 @@ export default {
           ns: "gbi",
         });
 
-        let investorPercentageCustom = [];
+        const investorPercentageCustom = [];
         for (let index = 0; index < this.$data.investorPercentageCustom.length; index++) {
           this.$store.commit("UPDATE_URL_QUERY", {
             key: queryKey.investorPercentageCustom + (index + 1),
@@ -637,7 +637,7 @@ export default {
       }
     },
     promotionMessageList: {
-      handler: function (val) {
+      handler(val) {
         this.$store.set(
           `profile/profiles@["${this.$store.get("global/currentProfile")}"].promotionMessageList`,
           this.$clone(val)
@@ -656,6 +656,7 @@ export default {
         // to prevent BoundExceededError
         return;
       }
+      // eslint-disable-next-line no-useless-catch
       try {
         this.$data.result = gbProcess.ComputeLevelInvestment(
           this.levelNormalized,
@@ -721,7 +722,7 @@ export default {
     },
     successCopy(index) {
       this.promotion[index].active = true;
-      let self = this;
+      const self = this;
       /* istanbul ignore next */
       setTimeout(function () {
         self.promotion[index].active = false;
@@ -767,10 +768,10 @@ export default {
      * an object with corresponding values
      */
     checkQuery(level, maxLevel) {
-      let result = { level };
+      const result = { level };
       let investorPercentageCustom = Array.apply(null, Array(5)).map(() => defaultArcPercentage);
       let investorParticipation = [];
-      let placeFree = Array.apply(null, Array(5)).map(() => {
+      const placeFree = Array.apply(null, Array(5)).map(() => {
         return { state: true };
       });
       let isPermalink = false;
@@ -823,7 +824,7 @@ export default {
 
         if (this.$route.query[queryKey.investorParticipation]) {
           const parsedParticipation = JSON.parse(this.$route.query[queryKey.investorParticipation]);
-          if (parsedParticipation instanceof Array) {
+          if (Array.isArray(parsedParticipation)) {
             isPermalink = true;
             investorParticipation = parsedParticipation;
           }
@@ -1004,7 +1005,7 @@ export default {
     },
     haveReadTipAboutAddInvestor: /* istanbul ignore next */ function () {
       if (!this.$store.get("global/haveReadTipAboutAddInvestor")) {
-        let self = this;
+        const self = this;
         this.$buefy.snackbar.open({
           message: this.$t(i18nPrefix + "gb_investment.form.tooltip_add_investors"),
           position: "is-top",
@@ -1048,9 +1049,10 @@ export default {
       this.updatePromotionMessage();
     },
     getSplittedCustomFields(name) {
-      let fields = this.$data.promotionMessageList[this.$data.promotionMessageList.map((val) => val.name).indexOf(name)]
-        .config.customFields;
-      let result = Object.keys(fields).map((key) => {
+      const fields = this.$data.promotionMessageList[
+        this.$data.promotionMessageList.map((val) => val.name).indexOf(name)
+      ].config.customFields;
+      const result = Object.keys(fields).map((key) => {
         return fields[key];
       });
       return Utils.splitArray(result, 2, false);
@@ -1060,7 +1062,7 @@ export default {
       return nbLF && nbLF.length > 0 ? nbLF.length + 1 : 0;
     },
     startTour: /* istanbul ignore next */ function () {
-      let tour = new Shepherd.Tour({
+      const tour = new Shepherd.Tour({
         defaultStepOptions: {
           classes: "buefy-theme",
           scrollTo: true,
@@ -1197,7 +1199,7 @@ export default {
         ],
         when: {
           show() {
-            let self = this;
+            const self = this;
             for (const elt of tutoLinks) {
               document.getElementById(elt.id).addEventListener("click", (e) => {
                 e.preventDefault();
@@ -1361,7 +1363,7 @@ export default {
         ],
       });
 
-      let self = this;
+      const self = this;
       tour.on("cancel", () => {
         self.$data.tutoMode = false;
       });
@@ -1375,7 +1377,7 @@ export default {
       return this.$data.errors[input] ? "is-danger" : "";
     },
     toggleFavourite() {
-      let bookmarks = this.$clone(
+      const bookmarks = this.$clone(
         this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)
       );
       if (this.isBookmarked) {

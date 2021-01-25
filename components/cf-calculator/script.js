@@ -1,10 +1,10 @@
+import Shepherd from "shepherd.js";
+import { sync } from "vuex-pathify";
 import questData from "~/lib/foe-data/rq-quests";
 import cfCalculatorProcess from "~/lib/foe-compute-process/cf-calculator";
 import Utils from "~/scripts/utils";
 import YesNo from "~/components/yes-no/YesNo";
-import Shepherd from "shepherd.js";
 import { formatTuto } from "~/scripts/tutorial";
-import { sync } from "vuex-pathify";
 import numberinput from "~/components/number-input/NumberInput";
 
 const i18nPrefix = "components.cf_calculator.";
@@ -52,7 +52,7 @@ export default {
   },
   data() {
     this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`);
-    let data = {
+    const data = {
       yourAge: this.$clone(this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourAge`)),
       yourCfBoost: this.$clone(
         this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.yourCfBoost`)
@@ -122,7 +122,7 @@ export default {
     return {
       ...data,
       i18nPrefix,
-      questData: questData,
+      questData,
       oneQuest: [
         questData.ages.BronzeAge.key,
         questData.ages.IronAge.key,
@@ -189,7 +189,7 @@ export default {
       });
       this.$data.coins = this.minCoins;
       this.$data.supplies = this.minSupplies;
-      if (this.oneQuest.indexOf(this.yourAge) > -1) {
+      if (this.oneQuest.includes(this.yourAge)) {
         this.secondRq = false;
         this.$store.commit("UPDATE_URL_QUERY", {
           key: queryKey.secondRq,
@@ -199,7 +199,7 @@ export default {
           this.$store.set(`profile/profiles@${this.$store.get("global/currentProfile")}.cf.secondRq`, false);
         }
       }
-      this.checkSecondQuest = this.oneQuest.indexOf(val) === -1;
+      this.checkSecondQuest = !this.oneQuest.includes(val);
       this.calculate();
     },
     secondRq(val) {
@@ -374,7 +374,7 @@ export default {
     },
   },
   mounted() {
-    this.checkSecondQuest = this.oneQuest.indexOf(this.$data.yourAge) === -1;
+    this.checkSecondQuest = !this.oneQuest.includes(this.$data.yourAge);
     this.calculate();
   },
   methods: {
@@ -417,11 +417,11 @@ export default {
       }
     },
     checkQuery() {
-      let result = {};
+      const result = {};
       let change = Utils.FormCheck.NO_CHANGE;
       let tmp;
 
-      for (let key in inputComparator) {
+      for (const key in inputComparator) {
         tmp = Utils.checkFormNumeric(this.$route.query[queryKey[key]], -1, inputComparator[key].comparator);
         if (tmp.state === Utils.FormCheck.VALID) {
           change = Utils.FormCheck.VALID;
@@ -431,7 +431,7 @@ export default {
 
       if (this.$route.query[queryKey.yourAge] && this.$route.query[queryKey.yourAge] in questData.ages) {
         change = Utils.FormCheck.VALID;
-        result["yourAge"] = this.$route.query[queryKey.yourAge];
+        result.yourAge = this.$route.query[queryKey.yourAge];
       }
 
       if (
@@ -440,7 +440,7 @@ export default {
         parseInt(this.$route.query[queryKey.secondRq]) >= 0
       ) {
         change = Utils.FormCheck.VALID;
-        result["secondRq"] = parseInt(this.$route.query[queryKey.secondRq]) === 1;
+        result.secondRq = parseInt(this.$route.query[queryKey.secondRq]) === 1;
       }
 
       if (change === Utils.FormCheck.VALID) {
@@ -450,7 +450,7 @@ export default {
       return result;
     },
     startTour: /* istanbul ignore next */ function () {
-      let tour = new Shepherd.Tour({
+      const tour = new Shepherd.Tour({
         defaultStepOptions: {
           classes: "buefy-theme",
           scrollTo: true,
@@ -531,7 +531,7 @@ export default {
         });
       }
 
-      let self = this;
+      const self = this;
       tour.on("cancel", () => {
         self.$data.tutoMode = false;
       });

@@ -1,8 +1,8 @@
 import Vue from "vue";
-import allAges from "~/lib/foe-data/ages";
 import clone from "lodash.clonedeep";
 import set from "lodash.set";
 import lodashValues from "lodash.values";
+import allAges from "~/lib/foe-data/ages";
 import Utils from "~/scripts/utils";
 
 const i18nPrefix = "components.campaign_cost.";
@@ -16,9 +16,9 @@ export default {
   name: "CampaignCost",
   data() {
     campaignCost = this.$clone(this.$store.get("foe/campaignCost@campaignCost"));
-    let campaignTotalCost = this.$clone(this.$store.get("foe/campaignCost@campaignTotalCost"));
+    const campaignTotalCost = this.$clone(this.$store.get("foe/campaignCost@campaignTotalCost"));
     agesGoods = this.$store.get("foe/goods@agesGoods");
-    let campaignConquired = this.$clone(
+    const campaignConquired = this.$clone(
       this.$store.get(`profile/profiles@${this.$store.get("global/currentProfile")}.campaign`)
     );
 
@@ -73,14 +73,14 @@ export default {
   },
   watch: {
     currentAge(val) {
-      if (Object.keys(this.$data.ages).indexOf(val) >= 0) {
+      if (Object.keys(this.$data.ages).includes(val)) {
         this.$data.errors.currentAge = false;
         this.$data.province = this.sortProvinceArray(campaignCost, val)[Object.keys(campaignCost[val])[0]];
       } else this.$data.errors.currentAge = val !== "__all__";
     },
 
     province(val) {
-      if (Object.keys(campaignCost[this.$data.currentAge]).indexOf(val.key) >= 0) {
+      if (Object.keys(campaignCost[this.$data.currentAge]).includes(val.key)) {
         this.$data.errors.province = false;
       } else this.$data.errors.province = val !== "__all__";
     },
@@ -278,7 +278,7 @@ export default {
           if (!this.campaignConquired[age][province].sectors[i]) {
             continue;
           }
-          this.updateConquiredValue(this.$data.campaignTotalCost, { age: age, province: province, sector: i }, true);
+          this.updateConquiredValue(this.$data.campaignTotalCost, { age, province, sector: i }, true);
         }
       }
     }

@@ -1,9 +1,8 @@
+import { make } from "vuex-pathify";
+import Vue from "vue";
 import { defaultLocale } from "~/scripts/locales";
 import * as Errors from "~/scripts/errors";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
-import { make } from "vuex-pathify";
-
-import Vue from "vue";
 
 const hero = {
   title: "components.site_layout.hero.title",
@@ -128,8 +127,8 @@ export const mutations = {
          * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
-        // throw new Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key });
-        console.error(new Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key }));
+        // throw new Errors.KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key });
+        console.error(new Errors.KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key }));
         return;
       }
       if (!(obj.ns in urlQueryNamespace)) {
@@ -142,8 +141,8 @@ export const mutations = {
          * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
-        // throw new Errors.keyAlreadyExistsInUrlQueryException({ key: obj.key });
-        console.error(new Errors.keyAlreadyExistsInUrlQueryException({ key: obj.key }));
+        // throw new Errors.KeyAlreadyExistsInUrlQueryException({ key: obj.key });
+        console.error(new Errors.KeyAlreadyExistsInUrlQueryException({ key: obj.key }));
         return;
       }
       Vue.set(urlQuery, obj.key, obj.value);
@@ -162,8 +161,8 @@ export const mutations = {
          * This bug can occur due to a Nuxt bug. Indeed, components can be rendered twice…
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
-        // throw new Errors.namespaceNotFoundException({ key: obj.ns });
-        console.error(new Errors.namespaceNotFoundException({ key: obj.ns }));
+        // throw new Errors.NamespaceNotFoundException({ key: obj.ns });
+        console.error(new Errors.NamespaceNotFoundException({ key: obj.ns }));
         return;
       }
       const { ns, key, value } = obj;

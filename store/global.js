@@ -1,5 +1,5 @@
-import { defaultLocale } from "~/scripts/locales";
 import { make } from "vuex-pathify";
+import { defaultLocale } from "~/scripts/locales";
 
 export const state = () => ({
   survey: [],

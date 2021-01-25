@@ -1,6 +1,6 @@
-import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 import { make } from "vuex-pathify";
 import clone from "lodash.clonedeep";
+import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 
 export const state = () => ({
   profiles: {},

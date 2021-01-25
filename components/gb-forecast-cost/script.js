@@ -53,7 +53,7 @@ export default {
     defaultGb = this.$clone(gbsData[Object.keys(gbsData)[0]]);
 
     const data = {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
       labels: [],
       datasets: [],
       options: {
@@ -203,7 +203,7 @@ export default {
     },
     duration() {
       if (this.$data.fpBy24h > 0) {
-        let result = Math.ceil(
+        const result = Math.ceil(
           (this.$data.previsionResult.global.totalPreparations - this.$data.alreadyInvested) / this.$data.fpBy24h
         );
         return result < 0 ? 0 : result;
@@ -216,7 +216,7 @@ export default {
     lang() {
       this.$moment.locale(this.$store.get("locale"));
       if (this.$data.fpBy24h > 0) {
-        let duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
+        const duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
         this.$data.estimatedTime = Utils.getFormatedDuration(this.$moment.duration(duration, "days"), this.$i18n);
         this.$data.estimatedTimeSwapThreads = Utils.getFormatedDuration(
           this.$moment.duration(Math.ceil(this.$data.previsionResult.global.cost / this.$data.fpBy24h), "days"),
@@ -470,7 +470,7 @@ export default {
         grey: "rgba(201, 203, 207, " + defaultAlpha + ")",
       };
 
-      let data = [
+      const data = [
         {
           label: this.$t(i18nPrefix + "graph.label.default"),
           data: this.$data.previsionDefault.levels.map((x) => x.cost),
@@ -497,7 +497,7 @@ export default {
         });
       }
 
-      for (let elt of data) {
+      for (const elt of data) {
         datasets.push({
           label: elt.label,
           fill: "start",
@@ -544,7 +544,7 @@ export default {
       );
 
       if (this.$data.fpBy24h > 0) {
-        let duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
+        const duration = Math.ceil(this.$data.previsionResult.global.totalPreparations / this.$data.fpBy24h);
         this.$data.estimatedTime = Utils.getFormatedDuration(this.$moment.duration(duration, "days"), this.$i18n);
         this.$data.estimatedTimeSwapThreads = Utils.getFormatedDuration(
           this.$moment.duration(Math.ceil(this.$data.previsionResult.global.cost / this.$data.fpBy24h), "days"),
@@ -554,8 +554,8 @@ export default {
       this.updatePrevisionGraph();
     },
     checkQuery(data) {
-      let noCheck = ["from", "to", "investorPercentageCustom"];
-      let result = {};
+      const noCheck = ["from", "to", "investorPercentageCustom"];
+      const result = {};
       let change = Utils.FormCheck.NO_CHANGE;
       let investorPercentageCustom = Array.apply(null, Array(5)).map(() => defaultArcPercentage);
       let tmp;
@@ -569,7 +569,7 @@ export default {
         result.gb = JSON.parse(JSON.stringify(gbsData[this.$route.query[queryKey.gb]]));
       }
 
-      for (let key in inputComparator) {
+      for (const key in inputComparator) {
         if (!(key in noCheck)) {
           tmp = Utils.checkFormNumeric(
             this.$route.query[queryKey[key]],

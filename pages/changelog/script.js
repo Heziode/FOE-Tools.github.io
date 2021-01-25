@@ -16,7 +16,7 @@ export default {
     };
   },
   mounted() {
-    let self = this;
+    const self = this;
     this.$axios
       .$get(this.$data.url)
       .then((markdown) => {

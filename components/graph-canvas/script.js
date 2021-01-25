@@ -1,7 +1,7 @@
 import merge from "lodash.merge";
 import Chart from "chart.js";
-import Utils from "~/scripts/utils";
 import { sync } from "vuex-pathify";
+import Utils from "~/scripts/utils";
 
 export default {
   name: "GraphCanvas",
@@ -99,11 +99,11 @@ export default {
   },
   mounted() {
     this.updateCanvas();
-    let self = this;
+    const self = this;
     document.getElementById(this.$props.id).onclick = function (evt) {
       setTimeout(() => {
         const { layerX, layerY } = evt;
-        let legendHitBoxes = JSON.parse(JSON.stringify(document.chart.legend.legendHitBoxes));
+        const legendHitBoxes = JSON.parse(JSON.stringify(document.chart.legend.legendHitBoxes));
 
         for (let i = 0; i < legendHitBoxes.length; i++) {
           if (

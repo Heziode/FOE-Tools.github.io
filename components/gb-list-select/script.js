@@ -28,7 +28,7 @@ export default {
       .sort((a, b) => (a.text > b.text ? 1 : b.text > a.text ? -1 : 0));
 
     return {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
       foeGBList: gbList,
       gbData,
       selected: this.$props.current,
@@ -40,13 +40,13 @@ export default {
   computed: {
     filteredDataObj: /* istanbul ignore next */ function () {
       return this.gbData.filter((option) => {
-        return option.text.toString().toLowerCase().indexOf(this.name.toLowerCase()) >= 0;
+        return option.text.toString().toLowerCase().includes(this.name.toLowerCase());
       });
     },
     gbSelectModeDatalist: sync("global/gbSelectMode"),
     gbSelectSortMode: sync("global/gbSelectSortMode"),
     bookmarks: /* istanbul ignore next */ function () {
-      let r = this.$store
+      const r = this.$store
         .get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)
         .filter((elt) => elt.name === "GbInvestment");
       return r;

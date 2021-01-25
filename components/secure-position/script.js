@@ -1,7 +1,7 @@
+import { get } from "vuex-pathify";
 import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
 import numberinput from "~/components/number-input/NumberInput";
-import { get } from "vuex-pathify";
 
 const i18nPrefix = "components.secure_position.";
 const urlPrefix = "sp_";
@@ -263,7 +263,7 @@ export default {
       const value = !val || val.length === 0 ? 0 : val;
       this.$data.change = true;
       if (this.haveInputLevelCost()) {
-        if (this.$props.levelData.investment.map((k) => k.reward).indexOf(value) >= 0) {
+        if (this.$props.levelData.investment.map((k) => k.reward).includes(value)) {
           this.$data.errors.fpTargetReward = false;
           this.$store.commit("UPDATE_URL_QUERY", {
             key: queryKey.fpTargetReward,
@@ -344,10 +344,10 @@ export default {
     checkFormValid() {
       this.$data.formValid = true;
 
-      this.$data.errors["levelCost"] = false;
-      this.$data.errors["currentDeposits"] = false;
-      this.$data.errors["yourParticipation"] = false;
-      this.$data.errors["otherParticipation"] = false;
+      this.$data.errors.levelCost = false;
+      this.$data.errors.currentDeposits = false;
+      this.$data.errors.yourParticipation = false;
+      this.$data.errors.otherParticipation = false;
 
       if (
         Utils.normalizeNumberValue(this.$data.levelCost) === Utils.normalizeNumberValue(this.$data.currentDeposits) &&
@@ -361,31 +361,31 @@ export default {
 
       if (!(Utils.normalizeNumberValue(this.$data.levelCost) > 0)) {
         this.$data.formValid = false;
-        this.$data.errors["levelCost"] = true;
+        this.$data.errors.levelCost = true;
       }
 
       if (
         !(Utils.normalizeNumberValue(this.$data.currentDeposits) < Utils.normalizeNumberValue(this.$data.levelCost))
       ) {
         this.$data.formValid = false;
-        this.$data.errors["levelCost"] = true;
-        this.$data.errors["currentDeposits"] = true;
+        this.$data.errors.levelCost = true;
+        this.$data.errors.currentDeposits = true;
       }
 
       if (
         !(Utils.normalizeNumberValue(this.$data.yourParticipation) < Utils.normalizeNumberValue(this.$data.levelCost))
       ) {
         this.$data.formValid = false;
-        this.$data.errors["yourParticipation"] = true;
-        this.$data.errors["levelCost"] = true;
+        this.$data.errors.yourParticipation = true;
+        this.$data.errors.levelCost = true;
       }
 
       if (
         !(Utils.normalizeNumberValue(this.$data.otherParticipation) < Utils.normalizeNumberValue(this.$data.levelCost))
       ) {
         this.$data.formValid = false;
-        this.$data.errors["otherParticipation"] = true;
-        this.$data.errors["levelCost"] = true;
+        this.$data.errors.otherParticipation = true;
+        this.$data.errors.levelCost = true;
       }
 
       if (
@@ -396,9 +396,9 @@ export default {
         )
       ) {
         this.$data.formValid = false;
-        this.$data.errors["yourParticipation"] = true;
-        this.$data.errors["otherParticipation"] = true;
-        this.$data.errors["currentDeposits"] = true;
+        this.$data.errors.yourParticipation = true;
+        this.$data.errors.otherParticipation = true;
+        this.$data.errors.currentDeposits = true;
       }
 
       return this.$data.formValid;
@@ -414,10 +414,10 @@ export default {
      * an object with corresponding values
      */
     checkQuery() {
-      let result = {};
+      const result = {};
       let change = Utils.FormCheck.NO_CHANGE;
       let tmp;
-      for (let key in inputComparator) {
+      for (const key in inputComparator) {
         tmp = Utils.checkFormNumeric(
           this.$route.query[queryKey[key]],
           -1,

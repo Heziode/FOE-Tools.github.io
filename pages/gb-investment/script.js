@@ -26,7 +26,7 @@ export default {
     gbList = this.$store.get("foe/gbs@gbList");
 
     return {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
       GBsByAge: Utils.splitArray(gbList, 2, true),
     };
   },

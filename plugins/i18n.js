@@ -1,6 +1,6 @@
 import Vue from "vue";
 
-export default async function ({ app, store }) {
+export default function ({ app, store }) {
   Vue.prototype.$t = (...values) => app.i18n.t(...values);
   Vue.prototype.$tc = (...values) => app.i18n.tc(...values);
   Vue.prototype.$te = (...values) => app.i18n.te(...values);
@@ -17,7 +17,7 @@ export default async function ({ app, store }) {
     app.i18n.mergeLocaleMessage(app.i18n.locale, require("../translations/common.json"));
   }
 
-  app.i18n.onLanguageSwitched = async (oldLocale, newLocale) => {
+  app.i18n.onLanguageSwitched = (oldLocale, newLocale) => {
     app.i18n.mergeLocaleMessage(newLocale, require("../translations/common.json"));
   };
 }

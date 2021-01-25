@@ -1,8 +1,8 @@
+import { v4 as uuidv4 } from "uuid";
 import yesNo from "~/components/yes-no/YesNo";
 import numberinput from "~/components/number-input/NumberInput";
 import * as PMBuilder from "~/scripts/promotion-message-builder";
 import Observatory from "~/lib/foe-data/gbs-data/Observatory";
-import { v4 as uuidv4 } from "uuid";
 
 const i18nPrefix = "components.promotion_message_builder.";
 const defaultTemplateNameRegex = /Default\s\d+/;
@@ -152,7 +152,7 @@ export default {
       }
     },
     addFieldName(val) {
-      if (Object.keys(this.$data.result.customFields).indexOf(val) >= 0) {
+      if (Object.keys(this.$data.result.customFields).includes(val)) {
         this.$data.errors.addFieldName.found = true;
         this.$data.errors.addFieldName.message = this.$t(i18nPrefix + "errors.custom_name_already_exists");
       } else {
@@ -164,7 +164,7 @@ export default {
   methods: {
     successCopy(index) {
       this.tooltips[index] = true;
-      let self = this;
+      const self = this;
       /* istanbul ignore next */
       setTimeout(function () {
         self.tooltips[index] = false;
@@ -194,7 +194,7 @@ export default {
       }
       const ids = this.customTemplates.map((elt) => elt.id);
       if (this.action === "update") {
-        let index = ids.indexOf(this.IdEditedTemplate);
+        const index = ids.indexOf(this.IdEditedTemplate);
         if (index >= 0) {
           // Otherwise, the user try to edit an template that do not exists
           result[index] = { ...this.customTemplates[index], name: this.templateName, config: this.result };
@@ -203,7 +203,7 @@ export default {
         let id;
         do {
           id = uuidv4();
-        } while (ids.indexOf(id) >= 0);
+        } while (ids.includes(id));
         result.push({ id, name: this.templateName, config: this.result });
         this.action = "update";
         this.startFromTemplate = id;
@@ -237,7 +237,7 @@ export default {
         this.$data.errors.addFieldName.message = this.$t(i18nPrefix + "errors.custom_name_empty");
         return;
       }
-      if (Object.keys(this.$data.result.customFields).indexOf(this.$data.addFieldName) >= 0) {
+      if (Object.keys(this.$data.result.customFields).includes(this.$data.addFieldName)) {
         this.$data.errors.addFieldName.found = true;
         this.$data.errors.addFieldName.message = this.$t(i18nPrefix + "errors.custom_name_already_exists");
         return;
@@ -245,7 +245,7 @@ export default {
       this.$data.errors.addFieldName.found = false;
       this.$data.errors.addFieldName.message = "";
 
-      let obj = { ...this.$data.result.customFields };
+      const obj = { ...this.$data.result.customFields };
       obj[this.$data.addFieldName] = {
         key: this.$data.addFieldName,
         value: "",
@@ -257,7 +257,7 @@ export default {
       this.$data.addFieldValue = "";
     },
     removeCustomField(name) {
-      let obj = { ...this.$data.result.customFields };
+      const obj = { ...this.$data.result.customFields };
       delete obj[name];
       this.$data.result.customFields = obj;
     },

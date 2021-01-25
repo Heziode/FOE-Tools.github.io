@@ -1,6 +1,6 @@
-import YesNo from "~/components/yes-no/YesNo";
-import DayNight from "../dialogDayNight/DialogDayNight";
 import { sync } from "vuex-pathify";
+import DayNight from "../dialogDayNight/DialogDayNight";
+import YesNo from "~/components/yes-no/YesNo";
 
 const i18nPrefix = "components.site_layout.global_config_dialog.";
 const defaultConfig = {

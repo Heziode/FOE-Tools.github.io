@@ -1,3 +1,5 @@
+/* eslint no-template-curly-in-string: "off" */
+
 /**
  * Create common interpolation
  *
@@ -154,14 +156,14 @@ export function buildMessage(gbKey, data, interpolationValues, placeInterpolatio
     result = result.replace(new RegExp(`\\\${${interpolation.key}}`, "gi"), interpolation.value);
   });
 
-  result = result.replace(new RegExp(`\\\${LF}`, "gi"), `\n`);
+  result = result.replace(/\${LF}/gi, `\n`);
 
   if (data.prefix && data.prefix.length) {
-    result = `${data.prefix}${[" ", `\n`].indexOf(result.charAt(0)) >= 0 ? result : ` ${result}`}`;
+    result = `${data.prefix}${[" ", `\n`].includes(result.charAt(0)) ? result : ` ${result}`}`;
   }
 
   if (data.suffix && data.suffix.length) {
-    result = `${[" ", `\n`].indexOf(result.charAt(result.length - 1)) >= 0 ? result : `${result} `}${data.suffix}`;
+    result = `${[" ", `\n`].includes(result.charAt(result.length - 1)) ? result : `${result} `}${data.suffix}`;
   }
 
   return result;

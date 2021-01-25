@@ -1,14 +1,14 @@
 import { JSDOM } from "jsdom";
-import { defaultLocale, supportedLocales } from "./scripts/locales";
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import { gbs } from "./lib/foe-data/gbs";
 import { bestFacebookLocaleFor } from "facebook-locales";
 import colors from "tailwindcss/colors";
+import { gbs } from "./lib/foe-data/gbs";
+import { defaultLocale, supportedLocales } from "./scripts/locales";
 
 Vue.use(VueI18n);
 
-let i18n = new VueI18n({
+const i18n = new VueI18n({
   locale: "en",
   fallbackLocale: "en",
   messages: {
@@ -30,7 +30,7 @@ const extraSeoByPages = {
  * @return {string} Renvoie les paramètres régionaux associés à cette route
  */
 const getLocale = (route) => {
-  for (let locale of supportedLocales) {
+  for (const locale of supportedLocales) {
     if (route.indexOf("/" + locale) === 0) {
       return locale;
     }
@@ -63,12 +63,10 @@ const getPageKey = (path) => {
 const modifyHtml = (page, locale) => {
   const { window } = new JSDOM(page.html).window;
   const currentURL = hostname + page.route;
-  let pageKey = getPageKey(page.route);
+  const pageKey = getPageKey(page.route);
   let text;
   let node;
   let tmp;
-  let title;
-  let description;
   let image;
   let index = 0;
 
@@ -93,7 +91,7 @@ const modifyHtml = (page, locale) => {
     text = i18n.t(`routes.${pageKey[0]}.title`, { lng: locale });
     node.content = `${hostname}/icon.png`;
   }
-  title = text;
+  const title = text;
   window.document.querySelector("title").innerHTML = text;
   window.document.querySelector("head").appendChild(node);
 
@@ -146,7 +144,7 @@ const modifyHtml = (page, locale) => {
     ],
     { lng: locale }
   );
-  description = text;
+  const description = text;
   node = window.document.createElement("p");
   node.innerHTML = text;
   text = node.textContent;
@@ -234,26 +232,22 @@ const modifyHtml = (page, locale) => {
   window.document.querySelector("head").appendChild(node);
 
   // Set alternatives lang
-  for (let supportedLocale of supportedLocales) {
+  for (const supportedLocale of supportedLocales) {
     if (supportedLocale === locale) {
       continue;
     }
     if (locale === defaultLocale) {
       tmp = `/${supportedLocale}${page.route}`;
-    } else {
-      if (supportedLocale === defaultLocale) {
-        if (page.route === `/${locale}/`) {
-          tmp = "/";
-        } else {
-          tmp = page.route.substr(locale.length + 1);
-        }
+    } else if (supportedLocale === defaultLocale) {
+      if (page.route === `/${locale}/`) {
+        tmp = "/";
       } else {
-        if (page.route === `/${locale}/`) {
-          tmp = `/${supportedLocale}/`;
-        } else {
-          tmp = `/${supportedLocale}${page.route.substr(locale.length + 1)}`;
-        }
+        tmp = page.route.substr(locale.length + 1);
       }
+    } else if (page.route === `/${locale}/`) {
+      tmp = `/${supportedLocale}/`;
+    } else {
+      tmp = `/${supportedLocale}${page.route.substr(locale.length + 1)}`;
     }
     node = window.document.createElement("link");
     node.rel = "alternate";
@@ -294,7 +288,7 @@ const modifyHtml = (page, locale) => {
         itemListElement: [],
       };
       index = 0;
-      for (let gbKey in gbs) {
+      for (const gbKey in gbs) {
         tmp.itemListElement.push({
           "@type": "ListItem",
           position: index,
@@ -352,13 +346,13 @@ function generateSitemapRoutes(locales, routes) {
   const result = [];
   const baseURL = "";
   const lastmodISO = new Date().toISOString();
-  for (let route of routes) {
-    let obj = {};
+  for (const route of routes) {
+    const obj = {};
     obj.url = `${baseURL}${route.route}`;
     obj.changefreq = "weekly";
     obj.lastmodISO = lastmodISO;
     const links = [];
-    for (let locale of locales) {
+    for (const locale of locales) {
       if (locale === defaultLocale) {
         links.push({ lang: locale, url: `${baseURL}${route.route}` });
       } else {
@@ -368,13 +362,13 @@ function generateSitemapRoutes(locales, routes) {
     obj.links = links;
 
     result.push(obj);
-    for (let subRoute of route.dynamic) {
-      let subObj = {};
+    for (const subRoute of route.dynamic) {
+      const subObj = {};
       subObj.url = `${baseURL}${route.route}/${subRoute}`;
       subObj.changefreq = "weekly";
       subObj.lastmodISO = lastmodISO;
       const links = [];
-      for (let locale of locales) {
+      for (const locale of locales) {
         if (locale === defaultLocale) {
           links.push({ lang: locale, url: `${baseURL}${route.route}/${subRoute}` });
         } else {
@@ -394,7 +388,7 @@ function generateRobotTxt(SitemapURL) {
   const result = [{ UserAgent: "*" }];
   let prefix;
 
-  for (let locale of supportedLocales) {
+  for (const locale of supportedLocales) {
     prefix = locale === defaultLocale ? "" : `/${locale}`;
     result.push({ Disallow: `${prefix}/survey` });
     result.push({ Disallow: `${prefix}/donate` });
@@ -451,7 +445,7 @@ const sitemap =
 
 const apiURL = process.env.DEPLOY_ENV === "GH_PAGES" ? "https://api.foe.tools" : "https://api.docker.localhost";
 
-module.exports = {
+export default {
   ...routerBase,
   ...sitemap,
 
@@ -486,14 +480,14 @@ module.exports = {
   ],
   generate: {
     fallback: true,
-    routes: function () {
-      let result = [];
+    routes() {
+      const result = [];
       let prefix;
-      for (let locale of supportedLocales) {
+      for (const locale of supportedLocales) {
         prefix = locale === defaultLocale ? "" : `/${locale}`;
-        for (let route of defaultRoutes) {
+        for (const route of defaultRoutes) {
           result.push(prefix + route.route);
-          for (let subRoute of route.dynamic) {
+          for (const subRoute of route.dynamic) {
             if (route.payload) {
               result.push({
                 route: `${prefix}${route.route}/${subRoute}`,
@@ -722,5 +716,11 @@ module.exports = {
     },
   },
 
-  buildModules: ["@nuxtjs/router-extras", "@nuxtjs/svg", "@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "nuxt-purgecss"],
+  buildModules: [
+    "@nuxtjs/router-extras",
+    "@nuxtjs/svg",
+    "@nuxtjs/color-mode",
+    "nuxtjs-tailwindcss-custom",
+    "nuxt-purgecss",
+  ],
 };

@@ -68,7 +68,7 @@ function dayNightMode(store, $clone, $moment, $colorMode) {
           setTimeout(updateDayNightMode, 0);
           break;
       }
-    } else if (["global/SET_NIGHT_START", "global/SET_DAY_START"].indexOf(mutation.type) >= 0) {
+    } else if (["global/SET_NIGHT_START", "global/SET_DAY_START"].includes(mutation.type)) {
       updateDayNightMode();
     }
   });
@@ -97,7 +97,7 @@ async function getSurvey(store, $axios) {
   }
   try {
     const { data } = await $axios.get(`${process.env.surveyURL}${urlParam}`);
-    if (data && data instanceof Array) {
+    if (data && Array.isArray(data)) {
       store.set("survey", data);
     }
   } catch (e) {
@@ -113,7 +113,7 @@ function initStore(store) {
     const ids = store.get("global/profiles").map((k) => k.key);
     do {
       currentProfileID = uuidv4();
-    } while (ids.indexOf(currentProfileID) >= 0);
+    } while (ids.includes(currentProfileID));
 
     store.set("global/profiles", [{ id: currentProfileID, name: defaultProfileName }]);
     store.set("global/currentProfile", currentProfileID);
@@ -160,7 +160,7 @@ function checkLocaleNotCompleted(store, translationState, $i18n) {
     // case translation doesn't started
     localesNotCompleted.push(detectedLocale);
   }
-  if (localesNotCompleted.indexOf($i18n.locale) < 0 && translationState[$i18n.locale] < 80) {
+  if (!localesNotCompleted.includes($i18n.locale) && translationState[$i18n.locale] < 80) {
     localesNotCompleted.push($i18n.locale);
   }
   store.set("localesNotCompleted", localesNotCompleted);
@@ -169,7 +169,7 @@ function checkLocaleNotCompleted(store, translationState, $i18n) {
 async function getLocaleCompletion(store, $axios, $i18n) {
   const urlPrefix = process.env.NODE_ENV === "production" ? "" : "https://cors-anywhere.herokuapp.com/";
   let url = "https://translate.foe.tools/api/components/foe-tools-website/website/statistics/";
-  let obj = {};
+  const obj = {};
   do {
     const localesStatistics = await $axios.get(urlPrefix + url);
     for (const elt of localesStatistics.data.results) {
