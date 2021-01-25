@@ -79,7 +79,7 @@ div.content#gbiContent
         div.column.is-half
           yes-no#fieldDisplayCard(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
 
-    div.table-wrapper(v-if="result !== null")
+    div.table-wrapper.overflow-x-auto(v-if="result !== null")
       table.table.is-bordered.is-striped.is-narrow.is-fullwidth.gbiTable(:class="displayTableCard ? 'is-hidden-touch' : ''")
         thead
           tr
