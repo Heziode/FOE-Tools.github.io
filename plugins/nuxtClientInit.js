@@ -172,9 +172,9 @@ async function getLocaleCompletion(store, $axios, $i18n) {
   let obj = {};
   do {
     const localesStatistics = await $axios.get(urlPrefix + url);
-    localesStatistics.data.results.map((elt) => {
+    for (const elt of localesStatistics.data.results) {
       obj[elt.code] = elt.translated_percent;
-    });
+    }
     url = localesStatistics.data.next;
   } while (url);
 

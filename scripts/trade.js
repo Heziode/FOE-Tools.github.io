@@ -337,6 +337,7 @@ export function getBestOffersSplitted(tradeInput, iHave, iWant, amount, splitVal
         .map((k) => {
           return { value: k.from, count: k.count ? k.count : 1 };
         })
+        // eslint-disable-next-line array-callback-return
         .reduce((oldVal, val) => {
           if (oldVal !== undefined) {
             r += oldVal.value * oldVal.count;
