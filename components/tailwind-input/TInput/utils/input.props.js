@@ -9,6 +9,10 @@ export const inputProps = {
     type: Boolean,
     default: true,
   },
+  focusStyle: {
+    type: Boolean,
+    default: true,
+  },
   isReadOnly: Boolean,
   isDisabled: Boolean,
   isInvalid: Boolean,

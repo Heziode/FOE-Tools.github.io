@@ -49,17 +49,14 @@ div.content#gbiContent
         t-label#fieldAddInvestors(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors" :type="haveError('addInvestors')")
           numberinput(inputId="giAddInvestors" :min="0" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" :isDisabled="maxInvestment <= 0" @click.native="haveReadTipAboutAddInvestor")
             template(#after="{ isDisabled, isInvalid }")
-              button(:title="$t('utils.Add')" @click="addInvestor" :disabled="maxInvestment <= 0" :class=`{
-                  "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
-                  "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle": true,
-                  "border-red-500": isInvalid,
-                  "dark:border-gray-500": !isInvalid,
-                  "bg-blueGray-100 dark:bg-blueGray-400 text-gray-400 dark:text-gray-600 cursor-not-allowed": isDisabled,
-                  "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": !isDisabled,
-                }`)
-                  span.icon.inline-block
-                    i.fas.fa-user-plus
-
+              t-button(
+                :title="$t('utils.Add')"
+                @click="addInvestor"
+                :disabled="maxInvestment <= 0"
+                iconLeft="fas fa-user-plus"
+                :borderLeft="false"
+                :roundedTopLeft="false"
+                :roundedBottomLeft="false")
     div.columns.form-short.pt-4(v-if="result !== null")
       // Investor participation
       div.column(v-if="investorParticipation.length > 0")
@@ -383,11 +380,12 @@ div.content#gbiContent
               t-input(inputId="giPrefix" type="text" v-model.trim="prefix" name="prefix" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')")
                 template(#after)
                   b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
-                    button(:title="showPrefix ? $t('utils.Hide') : $t('utils.Show')" @click="switchPrefix" :disabled="maxInvestment <= 0" :class=`{
-                      "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
-                      "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
-                      "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
-                    }`)
+                    t-button(
+                      :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')"
+                      @click="switchPrefix"
+                      :borderLeft="false"
+                      :roundedTopLeft="false"
+                      :roundedBottomLeft="false")
                       span.icon.inline-block(v-show="showPrefix")
                         i.fas.fa-eye
                       span.icon.inline-block(v-show="!showPrefix")
@@ -398,11 +396,12 @@ div.content#gbiContent
               t-input(inputId="giSuffix" type="text" v-model.trim="suffix" name="suffix" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')")
                 template(#after)
                   b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
-                    button(@click="switchSuffix" :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')" :class=`{
-                      "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
-                      "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
-                      "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
-                    }`)
+                    t-button(
+                      :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')"
+                      @click="switchSuffix"
+                      :borderLeft="false"
+                      :roundedTopLeft="false"
+                      :roundedBottomLeft="false")
                       span.icon.inline-block(v-show="showSuffix")
                         i.fas.fa-eye
                       span.icon.inline-block(v-show="!showSuffix")
@@ -424,11 +423,12 @@ div.content#gbiContent
                     t-input(:inputId="'custom_field_' + elt.key" type="text" :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key")
                       template(#after)
                         b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
-                          button(@click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show" :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')" :class=`{
-                            "font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
-                            "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
-                            "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
-                          }`)
+                          t-button(
+                            :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')"
+                            @click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show"
+                            :borderLeft="false"
+                            :roundedTopLeft="false"
+                            :roundedBottomLeft="false")
                             span.icon.inline-block(v-show="promotionMessageList[i].config.customFields[elt.key].show")
                               i.fas.fa-eye
                             span.icon.inline-block(v-show="!promotionMessageList[i].config.customFields[elt.key].show")
@@ -439,22 +439,24 @@ div.content#gbiContent
                   t-input(:as="nbMultiLine(value.message) ? 'textarea' : 'input'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : undefined" :value="value.message" isReadOnly)
                     template(#before)
                       b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
-                        button(:title="$t('utils.Remove')" @click="removePromotionMessage(i)" :class=`{
-                          "h-full font-bold py-2 px-4 border-t border-b border-l rounded-l focus:outline-none focus:border focus:ring focus:border-blue-300": true,
-                          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
-                          "bg-red-600 text-white hover:bg-red-700 dark:hover:bg-red-500": true
-                        }`)
-                          span.icon.inline-block
-                            i.fas.fa-trash
+                        t-button(
+                          :title="$t('utils.Remove')"
+                          @click="removePromotionMessage(i)"
+                          iconLeft="fas fa-trash"
+                          :borderRight="false"
+                          :roundedTopRight="false"
+                          :roundedBottomRight="false" type="danger")
                     template(#after)
                       b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
-                        button(v-clipboard="value.message" @success="successCopy(i)" :title="$t('utils.Copy')" :class=`{
-                          "h-full font-bold py-2 px-4 border-t border-b border-r rounded-r focus:outline-none focus:border focus:ring focus:border-blue-300": true,
-                          "inline-flex flex-wrap items-center justify-center text-center flex-shrink-0 align-middle dark:border-gray-500": true,
-                          "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true
-                        }`)
-                          span.icon.inline-block
-                            i.far.fa-copy
+                        t-button(
+                          v-clipboard="value.message"
+                          @success="successCopy(i)"
+                          :title="$t('utils.Copy')"
+                          :disabled="maxInvestment <= 0"
+                          iconLeft="far fa-copy"
+                          :borderLeft="false"
+                          :roundedTopLeft="false"
+                          :roundedBottomLeft="false")
 
           div.columns
             div.column

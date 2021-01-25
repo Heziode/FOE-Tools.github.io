@@ -2,7 +2,7 @@ import { shallowMount } from "@vue/test-utils";
 import Component from "../../../components/yes-no/YesNo";
 import { getView } from "../localVue";
 
-let value = true;
+const value = true;
 const factory = () => {
   const { localVue, store } = getView();
   return shallowMount(Component, {
@@ -25,13 +25,15 @@ describe("YesNo", () => {
 
   test("Can select no", () => {
     const wrapper = factory();
-    expect(wrapper.vm.$data.newValue).toBe(true);
-
-    wrapper.find("div div.control div.inline-flex button:nth-child(2)").trigger("click");
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.emitted().input).toBeTruthy();
-      expect(wrapper.emitted().input[0]).toEqual([false]);
-      expect(wrapper.vm.$data.newValue).toBe(false);
+      expect(wrapper.vm.$data.newValue).toBe(true);
+
+      wrapper.find("div div.control div.inline-flex button:nth-child(1)").trigger("click");
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.emitted().input).toBeTruthy();
+        expect(wrapper.emitted().input[0]).toEqual([false]);
+        expect(wrapper.vm.$data.newValue).toBe(false);
+      });
     });
   });
 

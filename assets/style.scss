@@ -369,3 +369,11 @@ input[type=number] {
 label.t-label .t-input {
   @apply mt-2;
 }
+
+.bg-oldGray-200 {
+  background-color: #edf2f7;
+}
+
+.dark .dark\:bg-oldGray-500 {
+  background-color: #a0aec0;
+}
