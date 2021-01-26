@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
-"PO-Revision-Date: 2021-01-24 17:53+0000\n"
+"PO-Revision-Date: 2021-01-27 13:28+0000\n"
 "Last-Translator: Юрбан <tkachenkojurii@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
@@ -1489,7 +1489,7 @@ msgid "foe_data.gb_short.The_Arc"
 msgstr "Арка"
 
 msgid "foe_data.gb_short.Atlantis_Museum"
-msgstr "Атлантида"
+msgstr "Музей Атлантиды"
 
 msgid "foe_data.gb_short.The_Kraken"
 msgstr "Кракен"
@@ -1507,7 +1507,7 @@ msgid "foe_data.gb_short.Temple_of_Relics"
 msgstr "Храм"
 
 msgid "foe_data.gb_short.Space_Carrier"
-msgstr "Авианосец"
+msgstr "Космический авианосец"
 
 msgid "foe_data.gb_short.Star_Gazer"
 msgstr "Звездочет"
@@ -1579,7 +1579,7 @@ msgid "foe_data.gb_short.Deal_Castle"
 msgstr "Диль"
 
 msgid "foe_data.gb_short.Castel_del_Monte"
-msgstr "Кастель"
+msgstr "Кастель-дель-Монте"
 
 msgid "foe_data.gb_short.Saint_Basil_s_Cathedral"
 msgstr "Вася"
@@ -3023,7 +3023,7 @@ msgid "routes.about.cookie.info.cookieConsent"
 msgstr ""
 
 msgid "utils.Save"
-msgstr ""
+msgstr "Сохранить"
 
 msgid "utils.Show"
 msgstr ""
@@ -3164,3 +3164,172 @@ msgid "routes.trade.tab.fair_trade.message"
 msgstr ""
 "Этот тип торговли учитывает стоимость производства товара (монет и ресурсов) "
 "для определения ставок между товарами."
+
+msgid "foe_data.province.Dungbie_Trough"
+msgstr "Дангби Тру"
+
+msgid "foe_data.province.Ursula_s_Valley"
+msgstr "Долина Урсулы"
+
+msgid "foe_data.province.Ahoy_Alee"
+msgstr "Ахой Эйли"
+
+msgid "foe_data.province.Anchorage_Ruin"
+msgstr "Развалины якорной стоянки"
+
+msgid "foe_data.province.Nemo_s_Dock"
+msgstr "Стоянка Немо"
+
+msgid "foe_data.province.Man_O_War"
+msgstr "Сифинофора"
+
+msgid "foe_data.province.Medusa_Cove"
+msgstr "Бухта медузы"
+
+msgid "foe_data.province.Privateer_Helm"
+msgstr "Шлем корсара"
+
+msgid "foe_data.province.Craggy_Cay"
+msgstr "Скалистое мелководье"
+
+msgid "foe_data.province.Buccaneer_Plateau"
+msgstr "Плато буканьера"
+
+msgid "foe_data.province.Raging_Tides"
+msgstr "Свирепый поток"
+
+msgid "foe_data.province.Sunken_Leviathan"
+msgstr "Затонувший левиафан"
+
+msgid "foe_data.province.Dagon_s_Dagger"
+msgstr "Кинжал Дагона"
+
+msgid "foe_data.province.Monkey_s_Fist"
+msgstr "Кулак мартышки"
+
+msgid "foe_data.province.Deadeye_Admiral"
+msgstr "Меткий адмирал"
+
+msgid "foe_data.province.Adamastor"
+msgstr "Адамастор"
+
+msgid "foe_data.province.Galley_Commodore"
+msgstr "Камбуз командора"
+
+msgid "foe_data.province.Ahab_s_Tomb"
+msgstr "Могила Ахаба"
+
+msgid "foe_data.province.Barnacle_Deck"
+msgstr "Палуба старого моряка"
+
+msgid "foe_data.province.Capricorn_Waterway"
+msgstr "Водный путь козерога"
+
+msgid "foe_data.province.R_lyeh_Reef"
+msgstr "Риф Р'льеха"
+
+msgid "foe_data.province.Grog_Wash"
+msgstr "Море грога"
+
+msgid "foe_data.province.Sextant_Mast"
+msgstr "Столб для секстанта"
+
+msgid "foe_data.province.Bermuda_Quay"
+msgstr "Бермудская набережная"
+
+msgid "foe_data.province.Adrift_Liner"
+msgstr "Дрейфующий лайнер"
+
+msgid "foe_data.province.Breakwater_Wharf"
+msgstr "Причал-волнорез"
+
+msgid "foe_data.province.Tide_Ascent"
+msgstr "Начало прилива"
+
+msgid "foe_data.province.Scuba_Bay"
+msgstr "Подводная бухта"
+
+msgid "foe_data.province.Tangled_Fins"
+msgstr "Запутанные плавники"
+
+msgid "foe_data.province.Seagull_Domain"
+msgstr "Владения чаек"
+
+msgid "foe_data.province.Sponge_Sands"
+msgstr "Губчатые пески"
+
+msgid "foe_data.province.Telescopic_Barrel"
+msgstr "Телескопический бочонок"
+
+msgid "foe_data.province.Coral_Kingdom"
+msgstr "Коралловое королевство"
+
+msgid "foe_data.province.Cursed_Lip"
+msgstr "Проклятье"
+
+msgid "foe_data.province.Single_Wave"
+msgstr "Одиночная волна"
+
+msgid "foe_data.province.Treacherous_Surf"
+msgstr "Коварный прибой"
+
+msgid "foe_data.province.Translucent_Algae"
+msgstr "Полупрозрачные водоросли"
+
+msgid "foe_data.province.Grey_Clouds"
+msgstr "Серые тучи"
+
+msgid "foe_data.province.Silver_Crest"
+msgstr "Серебряный герб"
+
+msgid "foe_data.province.Furious_Storm"
+msgstr "Яростный шторм"
+
+msgid "foe_data.province.Deep_Dive"
+msgstr "Глубокое погружение"
+
+msgid "foe_data.province.Ravenous_Tides"
+msgstr "Хищные приливы"
+
+msgid "foe_data.province.Nautilus_Mirage"
+msgstr "Мираж наутилуса"
+
+msgid "foe_data.province.Ripped_Sails"
+msgstr "Порванные паруса"
+
+msgid "foe_data.province.Restless_Buoy"
+msgstr "Беспокойный бакен"
+
+msgid "foe_data.province.Nautical_Parlay"
+msgstr "Морской штаб"
+
+msgid "foe_data.province.Jak"
+msgstr "Джак"
+
+msgid "foe_data.goods.platinum_crystals"
+msgstr "Кристаллы платины"
+
+msgid "foe_data.goods.bromine"
+msgstr "Бромин"
+
+msgid "foe_data.goods.compound_fluid"
+msgstr "Составные жидкости"
+
+msgid "foe_data.goods.processed_materials"
+msgstr "Обработанные материалы"
+
+msgid "foe_data.goods.nickel"
+msgstr "Никель"
+
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Галатская башня"
+
+msgid "foe_data.gb.Galata_Tower"
+msgstr "Галатская башня"
+
+msgid "routes.help_to_translate_the_site.p2_html"
+msgstr ""
+"@ :( common.site_title) переведено пользователями. Мы используем платформу @ "
+":( common.links.translation_platform) для облегчения процесса перевода. "
+"Чтобы присоединиться к команде, просто перейдите по следующей ссылке и "
+"зарегистрируйтесь: @ :( common.links.translation_platform)"
