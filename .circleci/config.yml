@@ -58,7 +58,7 @@ jobs:
           at: ~/project
       - run:
           name: Lint
-          command: yarn test:lint
+          command: npm run test:lint
 
   # --------------------------------------------------------------------------
   # Phase 3: Unit
@@ -71,7 +71,7 @@ jobs:
           at: ~/project
       - run:
           name: Unit Tests
-          command: yarn test:unit:coverage --coverageReporters lcov && yarn coverage
+          command: npm run test:unit:coverage --coverageReporters lcov && npm run coverage
 
 # Workflow definition
 workflows:
