@@ -14,7 +14,7 @@ This repo is the [website](https://foe-tools.github.io/) of FOE Tools, a set of 
 Using npm:
 
 ```bash
-npm install # or yarn install
+npm install
 ```
 
 ## Start the server
@@ -22,7 +22,7 @@ npm install # or yarn install
 Using npm:
 
 ```bash
-npm start # or yarn start
+npm start
 ```
 
 
@@ -31,7 +31,7 @@ npm start # or yarn start
 Using npm:
 
 ```bash
-npm run dev # or yarn run dev
+npm run dev
 ```
 
 
@@ -43,7 +43,7 @@ Build the project in production mode:
 Using npm:
 
 ```bash
-npm run build # or yarn run build
+npm run build
 ```
 
 
@@ -55,7 +55,7 @@ The generated static site will be placed in `dist/`.
 Generate all files for production (or test for production):
 
 ```bash
-npm run generate:gh # or yarn run generate:gh
+npm run generate:gh
 ```
 
 
