@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
 "PO-Revision-Date: 2021-01-28 04:39+0000\n"
-"Last-Translator: Юрбан <tkachenkojurii@gmail.com>\n"
+"Last-Translator: Nazar Tertyshnyi <nazar.tertyshny@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
 "Language: ru\n"
@@ -3011,7 +3011,7 @@ msgid "foe_data.bonus.relic_hunt.gb_description"
 msgstr ""
 
 msgid "components.promotion_message_builder.message_builder"
-msgstr ""
+msgstr "Конструктор сообщения"
 
 msgid "components.promotion_message_builder.place_builder_title"
 msgstr ""
@@ -3020,7 +3020,7 @@ msgid "components.promotion_message_builder.message_builder_title"
 msgstr ""
 
 msgid "routes.about.cookie.info.cookieConsent"
-msgstr ""
+msgstr "Настройки cookie"
 
 msgid "utils.Save"
 msgstr "Сохранить"
@@ -3036,18 +3036,20 @@ msgstr ""
 
 msgid "routes.help_to_translate_the_site.p1"
 msgstr ""
+"Ваш язык недоступен, перевод не полный или содержит ошибки? Присоединяйтесь "
+"к команде переводчиков сайта"
 
 msgid "routes.trade.tab.fair_trade.title"
-msgstr ""
+msgstr "Честная сделка"
 
 msgid "routes.help_to_translate_the_site.hero.subtitle"
-msgstr ""
+msgstr "Становитесь частью команды переводчиков"
 
 msgid "routes.help_to_translate_the_site.how_to_join_the_team"
-msgstr ""
+msgstr "Как присоединиться к команде?"
 
 msgid "routes.trade.tab.trade_2_1.title"
-msgstr ""
+msgstr "2:1"
 
 msgid "routes.help_to_translate_the_site.state_of_translation"
 msgstr ""
@@ -3372,3 +3374,7 @@ msgstr "Разлом барки"
 
 msgid "foe_data.province.Idlers_Range"
 msgstr "Область лентяя"
+
+msgid "routes.help_to_translate_the_site.title"
+msgstr ""
+"@:(маршруты.помошь_в_переводе_сайта.герой.название)|@:(общее.название_сайта)"
