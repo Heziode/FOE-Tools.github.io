@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
-"PO-Revision-Date: 2021-01-27 13:28+0000\n"
+"PO-Revision-Date: 2021-01-28 04:39+0000\n"
 "Last-Translator: Юрбан <tkachenkojurii@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
@@ -3333,3 +3333,42 @@ msgstr ""
 ":( common.links.translation_platform) для облегчения процесса перевода. "
 "Чтобы присоединиться к команде, просто перейдите по следующей ссылке и "
 "зарегистрируйтесь: @ :( common.links.translation_platform)"
+
+msgid "foe_data.province.Typhoon_Peninsula"
+msgstr "Полуостров Тайфуна"
+
+msgid "foe_data.province.Leviathan_Wreck"
+msgstr "Крушение левиафана"
+
+msgid "foe_data.province.Blackwater_Cape"
+msgstr "Мыс Блекуотер"
+
+msgid "foe_data.province.Seafarer_s_Current"
+msgstr "Течение морехода"
+
+msgid "foe_data.province.Neptune_s_Galleon"
+msgstr "Галеон Нептуна"
+
+msgid "foe_data.province.Undertow_Bank"
+msgstr "Берег подводного течения"
+
+msgid "foe_data.province.Capsize_Lagoon"
+msgstr "Лагуна крушений"
+
+msgid "foe_data.province.Scurvy_Atoll"
+msgstr "Атолл цинги"
+
+msgid "foe_data.province.Ghost_Trench"
+msgstr "Призрачный окоп"
+
+msgid "foe_data.province.Scuttle_Ridge"
+msgstr "Хребет Беглеца"
+
+msgid "foe_data.province.Nock_s_Turn"
+msgstr "Поворот Нока"
+
+msgid "foe_data.province.Wherry_Gap"
+msgstr "Разлом барки"
+
+msgid "foe_data.province.Idlers_Range"
+msgstr "Область лентяя"
