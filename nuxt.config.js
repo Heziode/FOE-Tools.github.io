@@ -720,7 +720,7 @@ export default {
     "@nuxtjs/router-extras",
     "@nuxtjs/svg",
     "@nuxtjs/color-mode",
-    "nuxtjs-tailwindcss-custom",
+    "@nuxtjs/tailwindcss",
     "nuxt-purgecss",
   ],
 };
