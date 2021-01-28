@@ -50,3 +50,4 @@ test
 tmp
 lib/vuex-pathify
 lib/tailwindcss-module
+.github
