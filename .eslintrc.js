@@ -11,11 +11,11 @@ module.exports = {
   },
   extends: [
     "@nuxtjs",
-    "prettier",
     "prettier/vue",
-    "plugin:prettier/recommended",
     "plugin:vue/recommended",
     "plugin:nuxt/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
   ],
   rules: {
     "no-console": "off",
