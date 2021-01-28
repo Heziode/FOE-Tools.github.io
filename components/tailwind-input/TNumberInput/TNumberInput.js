@@ -495,7 +495,8 @@ const TNumberInput = {
         class: {
           "inline-flex t-input": true,
           "w-full": this.isFullWidth,
-          "ring border-blue-300 rounded": this.isFocused,
+          "ring rounded": this.isFocused,
+          "ring-red-300 dark:ring-red-900 rounded": this.isFocused && this.isInvalid,
         },
         props: {
           align: "stretch",

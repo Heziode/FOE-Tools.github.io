@@ -639,8 +639,11 @@ export default {
         },
       },
       variants: {
-        borderRadius: ["responsive", "first", "last", "hover", "focus"],
-        borderWidth: ["responsive", "first", "last", "hover", "focus"],
+        extend: {
+          borderRadius: ["responsive", "first", "last", "hover", "focus"],
+          borderWidth: ["responsive", "first", "last", "hover", "focus"],
+          backgroundOpacity: ["dark"],
+        },
       },
       plugins: [],
       purge: {
