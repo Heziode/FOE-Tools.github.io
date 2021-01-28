@@ -1,5 +1,6 @@
 module.exports = {
-  testRegex: "test/unit/.*.test.js$",
+  // testRegex: "test/unit/.*.test.js$",
+  testMatch: ["<rootDir>/test/unit/*.test.js"],
   moduleFileExtensions: [
     "js",
     "json",
