@@ -3,6 +3,9 @@
 
 name: Tests CI
 
+env:
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
 on:
   pull_request:
     branches: [ develop ]
