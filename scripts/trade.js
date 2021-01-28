@@ -176,7 +176,11 @@ function uniformCostSearch(graph, start, goal) {
     for (const neighbor of neighbors(tradeArrayValues[graph.name], node.key)) {
       if (!Object.keys(explored).includes(neighbor.key)) {
         frontier.queue({ key: neighbor.key, cost: neighbor.cost + node.cost });
-        explored[neighbor.key] = { key: neighbor.key, cost: neighbor.cost + node.cost, parent: node.key };
+        explored[neighbor.key] = {
+          key: neighbor.key,
+          cost: neighbor.cost + node.cost,
+          parent: node.key,
+        };
       }
     }
   } while (frontier.length !== 0);

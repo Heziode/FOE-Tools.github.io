@@ -24,7 +24,7 @@ const ages = [
   "OceanicFuture",
   "VirtualFuture",
   "SpaceAgeMars",
-  "SpaceAgeAsteroidBelt"
+  "SpaceAgeAsteroidBelt",
 ];
 
 const promises = [];
@@ -47,22 +47,24 @@ module.exports = [
 `;
   return new Promise((resolve) => {
     download(urlConfig.url + urlConfig[age])
-      .pipe(csv({
-        mapHeaders: ({ index }) => {
-          switch (index) {
-            case 0:
-              return "level";
-            case 2:
-              return "cost";
-            case 3:
-              return "reward";
-            default:
-              return null;
-          }
-        }
-      }))
-      .on('data', (value) => results.push(value))
-      .on('end', () => {
+      .pipe(
+        csv({
+          mapHeaders: ({ index }) => {
+            switch (index) {
+              case 0:
+                return "level";
+              case 2:
+                return "cost";
+              case 3:
+                return "reward";
+              default:
+                return null;
+            }
+          },
+        })
+      )
+      .on("data", (value) => results.push(value))
+      .on("end", () => {
         let counter = 0;
 
         for (let i = age !== "HighMiddleAges" ? 0 : 9; i < results.length; i++) {
@@ -77,13 +79,16 @@ module.exports = [
         result += `];\n`;
 
         if (counter > config[age]) {
-          fs.writeFileSync(path.join(__dirname, `../lib/foe-data/ages-cost/${age !== "HighMiddleAges" ? age : 'defaultCost'}.js`), result);
+          fs.writeFileSync(
+            path.join(__dirname, `../lib/foe-data/ages-cost/${age !== "HighMiddleAges" ? age : "defaultCost"}.js`),
+            result
+          );
 
           diff[age] = {
             age,
-            from: config[age] + 1
+            from: config[age] + 1,
           };
-          if ((counter - config[age]) > 1) {
+          if (counter - config[age] > 1) {
             diff[age].to = counter;
           }
         }
@@ -103,7 +108,7 @@ module.exports = [
  *   - to : (optional) to level if is a range
  */
 function generateCommitMessage(value) {
-    if (Object.keys(value).length === 0) {
+  if (Object.keys(value).length === 0) {
     console.log("Nothing to do.");
     return;
   }
@@ -112,16 +117,20 @@ function generateCommitMessage(value) {
 Add GB levels (cost and reward) of:\n`;
 
   for (let age of ages) {
-    if  (!(age in value)) {
+    if (!(age in value)) {
       continue;
     }
     config[age] = value[age].to ? value[age].to : value[age].from;
     if (age === "HighMiddleAges") {
-      commitMessage += `- ${locale["foe_data.age.HighMiddleAges"]} / ${locale["foe_data.age.NoAge"]}: ${value.HighMiddleAges.to ?
-        value.HighMiddleAges.from + ' to ' + value.HighMiddleAges.to : value.HighMiddleAges.from}\n`;
+      commitMessage += `- ${locale["foe_data.age.HighMiddleAges"]} / ${locale["foe_data.age.NoAge"]}: ${
+        value.HighMiddleAges.to
+          ? value.HighMiddleAges.from + " to " + value.HighMiddleAges.to
+          : value.HighMiddleAges.from
+      }\n`;
     } else {
-      commitMessage += `- ${locale[`foe_data.age.${age}`]}: ${value[age].to ?
-        value[age].from + ' to ' + value[age].to : value[age].from}\n`;
+      commitMessage += `- ${locale[`foe_data.age.${age}`]}: ${
+        value[age].to ? value[age].from + " to " + value[age].to : value[age].from
+      }\n`;
     }
   }
 
@@ -136,8 +145,10 @@ for (let i = 0; i < ages.length; i++) {
   promises.push(updateAge(i));
 }
 
-return Promise.all(promises).then(() => {
-  generateCommitMessage(diff);
-}).catch((error) => {
-  console.error("error: ", error);
-});
+return Promise.all(promises)
+  .then(() => {
+    generateCommitMessage(diff);
+  })
+  .catch((error) => {
+    console.error("error: ", error);
+  });

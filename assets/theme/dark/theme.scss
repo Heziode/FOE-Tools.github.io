@@ -53,29 +53,32 @@ body.dark-theme {
 
   footer {
     background-color: #2f3640;
-    small, p {
+    small,
+    p {
       color: $white;
     }
   }
   .copy {
-    color: #D7DCE1;
-    background-image: linear-gradient(-180deg, #616263 0%, #565A5D 90%);
+    color: #d7dce1;
+    background-image: linear-gradient(-180deg, #616263 0%, #565a5d 90%);
   }
 
   .copy:hover {
-    background-image: linear-gradient(-180deg, #48494A 0%, #3D4144 90%);
+    background-image: linear-gradient(-180deg, #48494a 0%, #3d4144 90%);
   }
 
   .is-dark-light {
     border-color: #888888 !important;
   }
 
-  .is-outlined:hover, .is-outlined:hover {
+  .is-outlined:hover,
+  .is-outlined:hover {
     background-color: $grey-darker !important;
     color: white !important;
   }
 
-  .table.has-mobile-cards, .table.has-table-cards {
+  .table.has-mobile-cards,
+  .table.has-table-cards {
     background-color: rgb(69, 69, 69) !important;
     tr {
       background-color: #363636 !important;
@@ -93,7 +96,8 @@ body.dark-theme {
     color: $light-invert !important;
   }
 
-  .custom-link-style.is-active, .custom-link-style.nuxt-link-active {
+  .custom-link-style.is-active,
+  .custom-link-style.nuxt-link-active {
     color: $grey-light;
   }
 

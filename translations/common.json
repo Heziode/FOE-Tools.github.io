@@ -14,10 +14,18 @@
       "hu": { "en": "Hungarian", "original": "Magyar", "flag": "🇭🇺" },
       "it": { "en": "Italian", "original": "Italiana", "flag": "🇮🇹" },
       "nl": { "en": "Dutch", "original": "Nederlands", "flag": "🇳🇱" },
-      "nb-NO": { "en": "Norwegian Bokmål", "original": "Norsk bokmål", "flag": "🇳🇴" },
+      "nb-NO": {
+        "en": "Norwegian Bokmål",
+        "original": "Norsk bokmål",
+        "flag": "🇳🇴"
+      },
       "pl": { "en": "Polish", "original": "Polski", "flag": "🇵🇱" },
       "pt": { "en": "Portuguese", "original": "Português", "flag": "🇵🇹" },
-      "pt-BR": { "en": "Portuguese (Brasil)", "original": "Português", "flag": "🇧🇷" },
+      "pt-BR": {
+        "en": "Portuguese (Brasil)",
+        "original": "Português",
+        "flag": "🇧🇷"
+      },
       "ro": { "en": "Romanian", "original": "Română", "flag": "🇷🇴" },
       "ru": { "en": "Russian", "original": "Русский", "flag": "🇷🇺" },
       "sk": { "en": "Slovak", "original": "Slovensko", "flag": "🇸🇰" },

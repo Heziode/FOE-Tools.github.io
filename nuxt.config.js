@@ -12,7 +12,10 @@ const i18n = new VueI18n({
   locale: "en",
   fallbackLocale: "en",
   messages: {
-    en: { ...require("./translations/common.json"), ...require("./lang/en.json") },
+    en: {
+      ...require("./translations/common.json"),
+      ...require("./lang/en.json"),
+    },
   },
   pluralizationRules: require("./plugins/vue-i18n-plural"),
 });
@@ -335,7 +338,10 @@ const modifyHtml = (page, locale) => {
   if (tmp && typeof tmp === "object") {
     node = window.document.createElement("script");
     node.setAttribute("type", "application/ld+json");
-    node.innerHTML = JSON.stringify({ "@context": "https://schema.org", ...tmp });
+    node.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      ...tmp,
+    });
     window.document.querySelector("head").appendChild(node);
   }
 
@@ -370,9 +376,15 @@ function generateSitemapRoutes(locales, routes) {
       const links = [];
       for (const locale of locales) {
         if (locale === defaultLocale) {
-          links.push({ lang: locale, url: `${baseURL}${route.route}/${subRoute}` });
+          links.push({
+            lang: locale,
+            url: `${baseURL}${route.route}/${subRoute}`,
+          });
         } else {
-          links.push({ lang: locale, url: `${baseURL}/${locale}${route.route}/${subRoute}` });
+          links.push({
+            lang: locale,
+            url: `${baseURL}/${locale}${route.route}/${subRoute}`,
+          });
         }
       }
       subObj.links = links;

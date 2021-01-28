@@ -30,7 +30,10 @@ const INPUT_COMPARATOR = {
   from: { comparator: [">=", 1], type: "int" },
   to: { comparator: [">=", 1], type: "int" },
   yourArcBonus: { comparator: [">=", 0], type: "float" },
-  takingPlaceInConsideration: { comparator: [0, MAX_TAKING_PLACE_IN_CONSIDERATION], type: "int" },
+  takingPlaceInConsideration: {
+    comparator: [0, MAX_TAKING_PLACE_IN_CONSIDERATION],
+    type: "int",
+  },
   investorPercentageGlobal: { comparator: [">=", 0], type: "float" },
   investorPercentageCustom: { comparator: [">=", 0], type: "float" },
 };
@@ -117,7 +120,11 @@ export default {
       value: data.from,
       ns: "gbii",
     });
-    this.$store.commit("ADD_URL_QUERY", { key: QUERY_KEY.to, value: data.to, ns: "gbii" });
+    this.$store.commit("ADD_URL_QUERY", {
+      key: QUERY_KEY.to,
+      value: data.to,
+      ns: "gbii",
+    });
     this.$store.commit("ADD_URL_QUERY", {
       key: QUERY_KEY.yourArcBonus,
       value: data.yourArcBonus,

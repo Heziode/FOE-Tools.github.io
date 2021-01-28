@@ -151,7 +151,9 @@ const TNumberInput = {
           "aria-disabled": this.isDisabled,
           "aria-valuenow": this.value,
           "aria-invalid": this.isInvalid || this.isOutOfRange,
-          ...(this.getAriaValueText && { "aria-valuetext": this.ariaValueText }),
+          ...(this.getAriaValueText && {
+            "aria-valuetext": this.ariaValueText,
+          }),
           readOnly: this.isReadOnly,
           disabled: this.isDisabled,
           autoComplete: "off",

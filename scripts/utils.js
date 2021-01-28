@@ -30,22 +30,31 @@ export default {
     }
 
     if (!moment.isDuration(duration)) {
-      throw new Errors.InvalidTypeError({ expected: "Duration", actual: duration.constructor.name });
+      throw new Errors.InvalidTypeError({
+        expected: "Duration",
+        actual: duration.constructor.name,
+      });
     }
 
     let result = "";
     if (duration.$d.years) {
-      result += i18n.tc("utils.moment.year", duration.$d.years, { count: i18n.n(duration.$d.years) });
+      result += i18n.tc("utils.moment.year", duration.$d.years, {
+        count: i18n.n(duration.$d.years),
+      });
     }
 
     if (duration.$d.months) {
       result += result.length > 0 ? ", " : "";
-      result += i18n.tc("utils.moment.month", duration.$d.months, { count: i18n.n(duration.$d.months) });
+      result += i18n.tc("utils.moment.month", duration.$d.months, {
+        count: i18n.n(duration.$d.months),
+      });
     }
 
     if (duration.$d.days) {
       result += result.length > 0 ? ", " : "";
-      result += i18n.tc("utils.moment.day", duration.$d.days, { count: i18n.n(duration.$d.days) });
+      result += i18n.tc("utils.moment.day", duration.$d.days, {
+        count: i18n.n(duration.$d.days),
+      });
     }
 
     return result;
@@ -108,18 +117,30 @@ export default {
 
     if (typeof comparator[0] === "string") {
       if (!["<", "<=", ">", ">=", "==", "==="].includes(comparator[0])) {
-        throw new Errors.InvalidComparatorError({ firstParam: true, value: comparator[0] });
+        throw new Errors.InvalidComparatorError({
+          firstParam: true,
+          value: comparator[0],
+        });
       }
     } else if (typeof comparator[0] !== "number") {
-      throw new Errors.InvalidComparatorError({ firstParam: true, value: typeof comparator[0] });
+      throw new Errors.InvalidComparatorError({
+        firstParam: true,
+        value: typeof comparator[0],
+      });
     }
 
     if (typeof comparator[1] !== "number") {
-      throw new Errors.InvalidComparatorError({ firstParam: false, value: typeof comparator[1] });
+      throw new Errors.InvalidComparatorError({
+        firstParam: false,
+        value: typeof comparator[1],
+      });
     }
 
     if (!["int", "float"].includes(type)) {
-      throw new Errors.InvalidTypeError({ expected: ["int", "float"], actual: type });
+      throw new Errors.InvalidTypeError({
+        expected: ["int", "float"],
+        actual: type,
+      });
     }
 
     if (!isNaN(value) && !isNaN(currentValue)) {
@@ -249,11 +270,17 @@ export default {
       !ctx.$cookies.set ||
       ctx.$data.$cookies === null
     ) {
-      throw new Errors.FieldNullError({ firstParam: "ctx", value: "handlerForm" });
+      throw new Errors.FieldNullError({
+        firstParam: "ctx",
+        value: "handlerForm",
+      });
     }
 
     if (saveCookie && (!cookieKey || cookieKey.length === 0)) {
-      throw new Errors.FieldNullError({ firstParam: "cookieKey", value: "handlerForm" });
+      throw new Errors.FieldNullError({
+        firstParam: "cookieKey",
+        value: "handlerForm",
+      });
     }
 
     if (typeof cookieKey !== "string") {
@@ -283,7 +310,10 @@ export default {
   shadeRGBColor(color, percent) {
     const regexColor = /rgb\s*\(\s*[0-9]+,\s*[0-9]+,\s*[0-9]+\s*\)/;
     if (!regexColor.test(color)) {
-      throw new Errors.InvalidRegexMatchError({ value: color, regex: regexColor.toString() });
+      throw new Errors.InvalidRegexMatchError({
+        value: color,
+        regex: regexColor.toString(),
+      });
     }
 
     if (!this.inRange(percent, -1.0, 1.0)) {
@@ -313,16 +343,25 @@ export default {
    */
   roundTo(num, scale) {
     if (!["number", "string"].includes(typeof num)) {
-      throw new Errors.InvalidTypeError({ expected: ["number", "string"], actual: typeof num });
+      throw new Errors.InvalidTypeError({
+        expected: ["number", "string"],
+        actual: typeof num,
+      });
     }
 
     if (typeof scale !== "number") {
-      throw new Errors.InvalidTypeError({ expected: "number", actual: typeof scale });
+      throw new Errors.InvalidTypeError({
+        expected: "number",
+        actual: typeof scale,
+      });
     }
 
     const inputNumRegex = /[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?/;
     if (!inputNumRegex.test(num)) {
-      throw new Errors.InvalidRegexMatchError({ value: num, regex: inputNumRegex.toString() });
+      throw new Errors.InvalidRegexMatchError({
+        value: num,
+        regex: inputNumRegex.toString(),
+      });
     }
 
     if (!("" + num).includes("e")) {
@@ -345,7 +384,10 @@ export default {
    */
   normalizeNumberValue(value, defaultValue = 0) {
     if (typeof defaultValue !== "number") {
-      throw new Errors.InvalidTypeError({ expected: "number", actual: typeof defaultValue });
+      throw new Errors.InvalidTypeError({
+        expected: "number",
+        actual: typeof defaultValue,
+      });
     }
     return !value || value.length === 0 || typeof value !== "number" ? defaultValue : value;
   },
@@ -359,10 +401,16 @@ export default {
    */
   normalizeNumberArray(array, defaultValue = 0) {
     if (!Array.isArray(array)) {
-      throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof array });
+      throw new Errors.InvalidTypeError({
+        expected: "Array",
+        actual: typeof array,
+      });
     }
     if (typeof defaultValue !== "number") {
-      throw new Errors.InvalidTypeError({ expected: "number", actual: typeof defaultValue });
+      throw new Errors.InvalidTypeError({
+        expected: "number",
+        actual: typeof defaultValue,
+      });
     }
 
     return array.map((k) => this.normalizeNumberValue(k, defaultValue));
@@ -376,7 +424,10 @@ export default {
    */
   normalizeBooleanArray(array) {
     if (!Array.isArray(array)) {
-      throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof array });
+      throw new Errors.InvalidTypeError({
+        expected: "Array",
+        actual: typeof array,
+      });
     }
 
     return array.map((k) => !!k);

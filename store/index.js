@@ -26,7 +26,10 @@ export const state = () => ({
     gb_forecast_cost: { key: "gb_forecast_cost", link: "GbForecastCost" },
     trade: { key: "trade", link: "Trade" },
     campaign_cost: { key: "campaign_cost", link: "CampaignCost" },
-    help_to_translate_the_site: { key: "help_to_translate_the_site", link: "HelpToTranslateTheSite" },
+    help_to_translate_the_site: {
+      key: "help_to_translate_the_site",
+      link: "HelpToTranslateTheSite",
+    },
     survey: { key: "survey", link: "Survey" },
     contact: { key: "contact", link: "Contact" },
     cookie_policy: { key: "cookie_policy", link: "CookiePolicy" },
@@ -128,7 +131,11 @@ export const mutations = {
          * See: https://github.com/nuxt/nuxt.js/issues/4757
          */
         // throw new Errors.KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key });
-        console.error(new Errors.KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: obj.key }));
+        console.error(
+          new Errors.KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({
+            key: obj.key,
+          })
+        );
         return;
       }
       if (!(obj.ns in urlQueryNamespace)) {

@@ -13,6 +13,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .eslintignore .",
+    "prettierfix": "prettier --write .",
     "build:gh": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
     "generate:gh": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
     "release": "standard-version",
