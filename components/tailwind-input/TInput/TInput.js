@@ -61,8 +61,8 @@ const TInput = {
           // eslint-disable-next-line max-len
           "py-2 px-4 text-gray-700 dark:text-gray-300 border-t first:border-l first:rounded-l last:border-r last:rounded-r border-b block placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none": true,
           "border-gray-300 dark:border-gray-600 bg-white": !this.formControl.isInvalid,
-          // eslint-disable-next-line max-len
-          "border-red-500 dark:border-red-500 dark:bg-opacity-25 dark:bg-red-900 bg-red-100": this.formControl.isInvalid,
+          "border-red-500 dark:border-red-500 dark:bg-opacity-25 dark:bg-red-900 bg-red-100": this.formControl
+            .isInvalid,
           "w-full min-w-0": this.isFullWidth,
           "bg-blueGray-50 dark:bg-blueGray-700 dark:text-gray-500 cursor-not-allowed": this.formControl.isDisabled,
           "dark:bg-blueGray-800": !this.formControl.isDisabled && !this.formControl.isInvalid,
