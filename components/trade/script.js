@@ -44,7 +44,7 @@ export default {
   },
   watch: {
     iHave(val) {
-      if (Object.keys(this.$props.tradeInput.value).indexOf(val) >= 0) {
+      if (Object.keys(this.$props.tradeInput.value).includes(val)) {
         this.$data.errors.iHave = false;
         this.compute();
       } else {
@@ -52,7 +52,7 @@ export default {
       }
     },
     iWant(val) {
-      if (Object.keys(this.$props.tradeInput.value).indexOf(val) >= 0) {
+      if (Object.keys(this.$props.tradeInput.value).includes(val)) {
         this.$data.errors.iWant = false;
         this.compute();
       } else {

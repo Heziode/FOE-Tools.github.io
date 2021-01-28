@@ -1,7 +1,7 @@
 export default {
   name: "LanguageSelector",
   data() {
-    let supportedLocales = [];
+    const supportedLocales = [];
     for (const key of this.$store.get("supportedLocales")) {
       supportedLocales.push({
         key,

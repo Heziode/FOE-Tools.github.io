@@ -429,18 +429,18 @@ export default {
      * an object with corresponding values
      */
     checkQuery(maxLevel, defaultFrom, defaultTo, defaultCustomPercentage) {
-      let noCheck = ["from", "to", "investorPercentageCustom"];
-      let result = {};
+      const noCheck = ["from", "to", "investorPercentageCustom"];
+      const result = {};
       let change = Utils.FormCheck.NO_CHANGE;
-      let investorPercentageCustom = Array.apply(null, Array(5)).map(() => defaultArcPercentage);
+      const investorPercentageCustom = Array.apply(null, Array(5)).map(() => defaultArcPercentage);
       let tmp;
       let from = defaultFrom;
       let to = defaultTo;
       let fromToChange = 0;
       let customPercentage = defaultCustomPercentage;
 
-      for (let key in INPUT_COMPARATOR) {
-        if (noCheck.indexOf(key) >= 0) {
+      for (const key in INPUT_COMPARATOR) {
+        if (noCheck.includes(key)) {
           continue;
         }
         tmp = Utils.checkFormNumeric(
@@ -510,8 +510,8 @@ export default {
       }
 
       if (this.$route.query[QUERY_KEY.showPlace]) {
-        let tmpShowPlace = JSON.parse(this.$route.query[QUERY_KEY.showPlace]);
-        if (tmpShowPlace instanceof Array) {
+        const tmpShowPlace = JSON.parse(this.$route.query[QUERY_KEY.showPlace]);
+        if (Array.isArray(tmpShowPlace)) {
           result.showPlace = Utils.normalizeBooleanArray(tmpShowPlace);
         }
       }

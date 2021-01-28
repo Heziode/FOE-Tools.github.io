@@ -81,7 +81,7 @@ describe("Store", () => {
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     // expect(() => wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" })).toThrow(
-    //   new Errors.keyAlreadyExistsInUrlQueryException({ key: "foo" })
+    //   new Errors.KeyAlreadyExistsInUrlQueryException({ key: "foo" })
     // );
   });
 
@@ -94,7 +94,7 @@ describe("Store", () => {
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar", ns: "baz" });
     // expect(() => wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar", ns: "baz" })).toThrow(
-    //   new Errors.keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: "foo" })
+    //   new Errors.KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException({ key: "foo" })
     // );
   });
 
@@ -107,7 +107,7 @@ describe("Store", () => {
     wrapper.vm.$store.commit("ADD_URL_QUERY", { key: "foo", value: "bar" });
     wrapper.vm.$store.commit("UPDATE_URL_QUERY", { key: "foo", value: "bar", ns: "baz" });
     // expect(() => wrapper.vm.$store.commit("UPDATE_URL_QUERY", { key: "foo", value: "bar", ns: "baz" })).toThrow(
-    //   new Errors.namespaceNotFoundException({ key: "baz" })
+    //   new Errors.NamespaceNotFoundException({ key: "baz" })
     // );
   });
 

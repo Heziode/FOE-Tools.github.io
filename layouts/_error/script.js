@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
     };
   },
   computed: {

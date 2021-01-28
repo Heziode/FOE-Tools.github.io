@@ -39,13 +39,13 @@ export default {
           : [],
     };
 
-    for (let question of obj.survey) {
+    for (const question of obj.survey) {
       obj.errors[question.name] = false;
       if (question.type === "checkbox") {
         obj.result[question.name] = [];
       } else if (question.type === "matrix") {
         obj.result[question.name] = {};
-        for (let row of question.rows) {
+        for (const row of question.rows) {
           obj.result[question.name][row.value] = null;
         }
       } else if (question.type === "sortablelist") {
@@ -58,7 +58,7 @@ export default {
             id: elt._name,
           });
         }
-      } else if (["html"].indexOf(question.type) < 0) {
+      } else if (!["html"].includes(question.type)) {
         // Remember, this branch shall always be the last
         obj.result[question.name] = null;
       }
@@ -78,7 +78,7 @@ export default {
   },
   methods: {
     getSurveyLocal(locales) {
-      return this.$store.get("locale") in locales ? locales[this.$store.get("locale")] : locales["default"];
+      return this.$store.get("locale") in locales ? locales[this.$store.get("locale")] : locales.default;
     },
     getConstraint(question, constraint) {
       return question.validators.filter((k) => constraint in k).map((k) => k[constraint])[0];
@@ -94,12 +94,14 @@ export default {
       const customExpression = /\{([^{]+)\}/g;
       if (simpleExpression.test(question.visibleIf)) {
         r = simpleExpression.exec(question.visibleIf);
+        // eslint-disable-next-line no-eval
         return eval(`${this.$data.result[r[1]]}===${r[2]}`);
       } else if (containsExpression.test(question.visibleIf)) {
         r = containsExpression.exec(question.visibleIf);
-        return this.$data.result[r[1]] && this.$data.result[r[1]].indexOf(r[2]) >= 0;
+        return this.$data.result[r[1]] && this.$data.result[r[1]].includes(r[2]);
       }
 
+      // eslint-disable-next-line no-eval
       return eval(
         question.visibleIf.replace(customExpression, (match, text) => {
           return this.$data.result[text] ? `'${this.$data.result[text].replace(/\n/gm, "")}'` : "''";
@@ -149,7 +151,7 @@ export default {
       if (!validity) {
         return false;
       }
-      for (let question of this.survey) {
+      for (const question of this.survey) {
         this.$data.errors[question.name] = false;
       }
 
@@ -157,7 +159,7 @@ export default {
         const question = this.survey.find((elt) => elt.name === formFieldName);
         if (
           // Check required array
-          (this.$data.result[formFieldName] instanceof Array &&
+          (Array.isArray(this.$data.result[formFieldName]) &&
             question.isRequired &&
             this.checkCondition(question) &&
             this.$data.result[formFieldName].length === 0) ||
@@ -174,7 +176,7 @@ export default {
           this.checkCondition(question)
         ) {
           // Check required object
-          for (let subElt in this.$data.result[formFieldName]) {
+          for (const subElt in this.$data.result[formFieldName]) {
             if (this.$data.result[formFieldName][subElt] === null) {
               this.$data.errors[formFieldName] = true;
               validity = false;
@@ -209,7 +211,7 @@ export default {
         path: "/",
         expires: Utils.getDefaultCookieExpireTime(),
       });
-      let surveyList = this.$clone(this.$store.get("global/survey"));
+      const surveyList = this.$clone(this.$store.get("global/survey"));
       surveyList.push(currentSurvey);
       this.$store.set("global/survey", surveyList);
       this.$buefy.notification.open(notifParams);

@@ -5,17 +5,17 @@ div#surveyContainer
       div(v-if="question.type === 'html'" v-html="getSurveyLocal(question.html)")
 
       template(v-else-if="question.type === 'radiogroup' && checkCondition(question)")
-        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="errors[question.name] ? 'is-danger' : ''" :message="getErrorMessage(question)")
+        t-label(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="errors[question.name] ? 'is-danger' : ''" :message="getErrorMessage(question)")
         b-field(v-for="(elt, eltIndex) in question.choices" :key="question.name + '__' + elt.value")
           b-radio(v-model="result[question.name]" :native-value="elt.value" :disabled="loading") {{getSurveyLocal(elt.text)}}
 
       template(v-else-if="question.type === 'checkbox' && checkCondition(question)")
-        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        t-label(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
         b-field(v-for="(elt, eltIndex) in question.choices" :key="question.name + '__' + elt.value")
           b-checkbox(v-model="result[question.name]" :native-value="elt.value" :disabled="loading") {{getSurveyLocal(elt.text)}}
 
       template(v-else-if="question.type === 'comment' && checkCondition(question)")
-        b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        t-label(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
           t-input(:inputId="question.name" as="textarea" v-model="result[question.name]" :isRequired="question.isRequired && checkCondition(question)" :isDisabled="loading" :maxlength="getConstraint(question, 'maxLength')")
 
       template(v-else-if="question.type === 'dropdown' && checkCondition(question)")
@@ -24,11 +24,11 @@ div#surveyContainer
             option(v-for="(elt, eltIndex) in question.choices" v-model="result[question.name]" :native-value="elt" :key="question.name + '__' + elt") {{elt}}
 
       template(v-else-if="question.type === 'text' && checkCondition(question)")
-        b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        t-label(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
          t-input(:as="question.inputType ? question.inputType : 'text'" v-model="result[question.name]" :isRequired="question.isRequired && checkCondition(question)" :isDisabled="loading")
 
       template(v-else-if="question.type === 'matrix' && checkCondition(question)")
-        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        t-label(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
         div.table-wrapper
           table.table.is-bordered.is-striped.is-narrow.is-fullwidth
             thead
@@ -43,7 +43,7 @@ div#surveyContainer
                   b-radio(v-model="result[question.name][row.value]" :native-value="column.value" :disabled="loading")
 
       template(v-else-if="question.type === 'sortablelist' && checkCondition(question)")
-        b-field(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+        t-label(:label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
         SortableList(lockAxis="y" v-model="question.sortablelist" :useDragHandle="true" @input="onSortableListInput(question.name, $event)" style="margin:auto")
           SortableItem(v-for="(item, index) in question.sortablelist" :key="index" :index="index" :item="{ ...item, value: getSurveyLocal(item.value) }" :showHandle="true")
 

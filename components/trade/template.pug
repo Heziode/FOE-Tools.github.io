@@ -8,7 +8,7 @@ div
           option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'split_value', { count: $n(maxSplitValue) })" :label-for="splitValueId" :type="haveError('splitValue')")
+      t-label(:label="$t(i18nPrefix + 'split_value', { count: $n(maxSplitValue) })" :label-for="splitValueId" :type="haveError('splitValue')")
         numberinput(:inputId="splitValueId" :min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue")
 
   div.columns
@@ -18,7 +18,7 @@ div
           option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'label.amount')" :type="haveError('value')" :label-for="valueId")
+      t-label(:label="$t(i18nPrefix + 'label.amount')" :type="haveError('value')" :label-for="valueId")
         numberinput(:inputId="valueId" :min="0" v-model.number="value" :name="valueId")
 
   p(v-if="result.length > 0") {{$t(i18nPrefix + 'message.result', { from: $n(result[0].amount), to: $n(value), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + iHave), ageTo: $t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + iWant), count: $n(splitValue) })}}

@@ -7,7 +7,7 @@ export default {
   },
   computed: {
     bookmarks: /* istanbul ignore next */ function () {
-      let r = this.$store
+      const r = this.$store
         .get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)
         .filter((elt) => elt.name === "GbInvestment");
       return r;

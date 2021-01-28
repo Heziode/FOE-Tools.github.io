@@ -95,24 +95,24 @@ export default {
       this.$props.cm.saveAndApplyConsents();
     },
     toggle(purposeKeys, value) {
-      purposeKeys.map((purpose) => {
+      for (const purpose of purposeKeys) {
         const purposeServices = this.purposes[purpose];
         for (const service of purposeServices) {
           if (!service.required) {
             this.$props.cm.updateConsent(service.name, value);
           }
         }
-      });
+      }
     },
     toggleAll(value) {
       this.toggle(Object.keys(this.purposes), value);
     },
     toggleServices(services, value) {
-      services.map((service) => {
+      for (const service of services) {
         if (!service.required) {
           this.$props.cm.updateConsent(service.name, value);
         }
-      });
+      }
     },
     toggleService(service, value) {
       this.toggleServices([service], value);

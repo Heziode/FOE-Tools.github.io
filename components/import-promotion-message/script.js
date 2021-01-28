@@ -1,9 +1,9 @@
+import { get } from "vuex-pathify";
+import { v4 as uuidv4 } from "uuid";
 import yesNo from "~/components/yes-no/YesNo";
 import numberinput from "~/components/number-input/NumberInput";
 import * as PMBuilder from "~/scripts/promotion-message-builder";
 import Observatory from "~/lib/foe-data/gbs-data/Observatory";
-import { get } from "vuex-pathify";
-import { v4 as uuidv4 } from "uuid";
 
 const i18nPrefix = "components.import_promotion_message.";
 const defaultTemplateNameRegex = /Default\s\d+/;
@@ -142,7 +142,7 @@ export default {
   methods: {
     successCopy(index) {
       this.tooltips[index] = true;
-      let self = this;
+      const self = this;
       /* istanbul ignore next */
       setTimeout(function () {
         self.tooltips[index] = false;
@@ -203,12 +203,12 @@ export default {
         }
       }
 
-      let result = this.$clone(this.$store.get(`global/customPromotionMessagesTemplates`));
+      const result = this.$clone(this.$store.get(`global/customPromotionMessagesTemplates`));
       const ids = result.map((e) => e.id);
       let id;
       do {
         id = uuidv4();
-      } while (ids.indexOf(id) >= 0);
+      } while (ids.includes(id));
       result.push({ id, name: this.templateName, config: template });
       this.$store.set(`global/customPromotionMessagesTemplates`, this.$clone(result));
       this.$buefy.notification.open({

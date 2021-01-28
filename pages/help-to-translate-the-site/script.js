@@ -26,7 +26,7 @@ export default {
         }
         return 0;
       };
-      let arr = Object.keys(this.$store.get("translationState"))
+      const arr = Object.keys(this.$store.get("translationState"))
         .map((elt) => ({
           key: elt,
           locale: this.$t("common.lang." + elt.replace("_", "-") + (elt === "en" ? ".original" : ".en")),

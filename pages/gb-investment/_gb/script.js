@@ -59,7 +59,7 @@ export default {
     });
 
     const data = {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
       gb: this.$store.get(`foe/gbs@gbsData[${this.$nuxt._route.params.gb}]`),
       levelData: null,
       gbi_tab: tab,
@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     checkQuery() {
-      let result = {};
+      const result = {};
       let isPermalink = false;
 
       // Check level

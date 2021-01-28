@@ -4,11 +4,11 @@ div.modal-card(style="width: auto")
   section.modal-card-body
     yes-no(v-model="fixedMainMenu" :label="$t(i18nPrefix + 'fixed_main_menu')")
 
-    b-field(:label="$t(i18nPrefix + 'select_gb_style')")
+    t-label(:label="$t(i18nPrefix + 'select_gb_style')")
     b-field(v-for="(style, index) in gbSelectModes" :key="style.key")
       b-radio(:native-value="style.key" type="is-info" v-model="gbSelectMode") {{style.text}}
 
-    b-field(:label="$t(i18nPrefix + 'day_night')")
+    t-label(:label="$t(i18nPrefix + 'day_night')")
     b-field(v-for="(style, index) in dayNightModes" :key="style.key")
       b-radio(:native-value="style.key" type="is-info" v-model="dayNightMode") {{style.text}}
 

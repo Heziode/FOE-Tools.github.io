@@ -1,6 +1,6 @@
 {
   "reject": [
-    "eslint",
+    "vue-content-loader",
     "enumify",
     "shepherd.js"
   ]

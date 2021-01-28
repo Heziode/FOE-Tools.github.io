@@ -170,11 +170,11 @@ export class KeyNotFoundError extends Error {
  * Error throw when the key already exists in urlQuery in store.
  * @param key Key that already exists
  */
-export class keyAlreadyExistsInUrlQueryException extends Error {
+export class KeyAlreadyExistsInUrlQueryException extends Error {
   constructor({ key }, ...params) {
     super(...params);
 
-    this.name = "keyAlreadyExistsInUrlQueryException";
+    this.name = "KeyAlreadyExistsInUrlQueryException";
     this.message = `"${key}" already defined in state.urlQuery`;
   }
 }
@@ -183,11 +183,11 @@ export class keyAlreadyExistsInUrlQueryException extends Error {
  * Error throw when the key already exists in urlQuery or in urlQueryNamespace in store.
  * @param key Key that already exists
  */
-export class keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException extends Error {
+export class KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException extends Error {
   constructor({ key }, ...params) {
     super(...params);
 
-    this.name = "keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException";
+    this.name = "KeyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException";
     this.message = `"${key}" already defined in state.urlQuery or state.urlQueryNamespace`;
   }
 }
@@ -196,11 +196,11 @@ export class keyAlreadyExistsInUrlQueryOrUrlQueryNamespaceException extends Erro
  * Error throw when a namespace are not found in urlQueryNamespace in store.
  * @param namespace Namespace that is not found
  */
-export class namespaceNotFoundException extends Error {
+export class NamespaceNotFoundException extends Error {
   constructor({ namespace }, ...params) {
     super(...params);
 
-    this.name = "namespaceNotFoundException";
+    this.name = "NamespaceNotFoundException";
     this.message = `"${namespace}" not found in state.urlQueryNamespace`;
   }
 }

@@ -24,7 +24,7 @@ export default {
     agesGoods = this.$store.get("foe/goods@agesGoods");
     delete agesGoods.SpaceAgeAsteroidBelt; // TODO: to be deleted when fair trade ratio found
 
-    let data = {
+    const data = {
       i18nPrefix,
       agesGoods,
       value: 0,
@@ -41,7 +41,7 @@ export default {
       },
     };
 
-    for (let age in agesGoods) {
+    for (const age in agesGoods) {
       data.values[age] = 0;
       data.results[age] = { show: false, value: 0, ratio: 0, split: "" };
     }
@@ -68,7 +68,7 @@ export default {
      * @param currentAge Age where we not set value to 0
      */
     resetForm(currentAge) {
-      for (let age in agesGoods) {
+      for (const age in agesGoods) {
         if (currentAge !== age) {
           Vue.set(this.$data.values, age, 0);
         }
@@ -81,7 +81,7 @@ export default {
      * @param currentAge Reference of current age, it is not very important here
      */
     resetFormIfAllZero(currentAge) {
-      for (let age in agesGoods) {
+      for (const age in agesGoods) {
         if (this.$data.values[age] > 0) {
           return;
         }
@@ -101,12 +101,12 @@ export default {
 
     compute() {
       const currentAge = this.$data.currentAge;
-      for (let age in this.$props.tradeArray[currentAge]) {
+      for (const age in this.$props.tradeArray[currentAge]) {
         if (!Utils.inRange(this.$props.tradeArray[currentAge][age], MIN_DEFAULT_RATIO, MAX_DEFAULT_RATIO)) {
           continue;
         }
 
-        let value = Math.round(this.$props.tradeArray[currentAge][age] * this.$data.values[currentAge]);
+        const value = Math.round(this.$props.tradeArray[currentAge][age] * this.$data.values[currentAge]);
         let result = value;
 
         if (this.$data.split) {

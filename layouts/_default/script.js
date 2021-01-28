@@ -1,5 +1,5 @@
-import packageConfig from "~/package.json";
 import { get } from "vuex-pathify";
+import packageConfig from "~/package.json";
 import mainHeader from "~/components/main-header/MainHeader";
 import mainFooter from "~/components/main-footer/MainFooter";
 
@@ -20,7 +20,7 @@ export default {
       ],
       htmlAttrs: {
         lang: this.lang,
-        class: this.$store.get("isDarkTheme") ? "dark-theme" : "light-theme",
+        class: this.$store.get("isDarkTheme") ? "dark-theme dark" : "light-theme",
       },
       bodyAttrs: {
         class:
@@ -39,7 +39,7 @@ export default {
     }
 
     return {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
       siteVersion: packageConfig.version,
       nbUpdateSinceLastVisit: 0,
       haveReadLocaleInfoAvailable: this.$clone(this.$store.get("global/haveReadLocaleInfoAvailable")),
@@ -119,11 +119,11 @@ export default {
     },
   },
   mounted: /* istanbul ignore next */ function () {
-    let addToAnyScript1 = document.createElement("script");
-    addToAnyScript1.innerText = `var a2a_config = {};
+    const addToAnyScript1 = document.createElement("script");
+    addToAnyScript1.textContent = `var a2a_config = {};
     a2a_config.locale = "${this.$clone(this.$store.get("locale"))}";`;
     document.head.appendChild(addToAnyScript1);
-    let addToAnyScript2 = document.createElement("script");
+    const addToAnyScript2 = document.createElement("script");
     addToAnyScript2.setAttribute("src", "https://static.addtoany.com/menu/page.js");
     document.head.appendChild(addToAnyScript2);
 
@@ -133,7 +133,7 @@ export default {
     // Check updates
     if (this.$store.get("global/lastVisitVersion") !== this.$data.siteVersion) {
       const lastVisitVersion = this.$clone(this.$store.get("global/lastVisitVersion"));
-      let self = this;
+      const self = this;
       this.$axios
         .$get(tagURL)
         .then((tags) => {

@@ -1,9 +1,9 @@
+import Vue from "vue";
+import { sync } from "vuex-pathify";
 import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettings";
 import languageSelector from "~/components/language-selector/LanguageSelector";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import Utils from "~/scripts/utils";
-import Vue from "vue";
-import { sync } from "vuex-pathify";
 
 const OFFSET = 10;
 

@@ -6,12 +6,11 @@ const nightStartMinutes = 30;
 
 export default {
   data() {
-    let dS, nS;
     const regexTime = /([0-9]{2}):([0-9]{2})/;
     const cookieDayStart = this.$store.get("global/dayStart");
     const cookieNightStart = this.$store.get("global/nightStart");
 
-    dS = new Date();
+    const dS = new Date();
     if (cookieDayStart && regexTime.test(cookieDayStart)) {
       const match = regexTime.exec(cookieDayStart);
       dS.setHours(parseInt(match[1]));
@@ -23,7 +22,7 @@ export default {
       this.$store.set("global/dayStart", this.$moment(dS).format("HH:mm"));
     }
 
-    nS = new Date();
+    const nS = new Date();
     if (cookieNightStart && regexTime.test(cookieNightStart)) {
       const match = regexTime.exec(cookieNightStart);
       nS.setHours(parseInt(match[1]));
@@ -35,7 +34,7 @@ export default {
     }
 
     return {
-      i18nPrefix: i18nPrefix,
+      i18nPrefix,
       dayStart: dS,
       nightStart: nS,
     };

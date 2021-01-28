@@ -224,7 +224,7 @@ const TNumberInput = {
       () => {
         if (this.incrementTimerId) clearTimeout(this.incrementTimerId);
         if (this.incrementPressed) {
-          this.incrementTimerId = setTimeout(this.handleIncrement, 100);
+          this.incrementTimerId = setTimeout(this.handleIncrement, 250);
         } else {
           clearTimeout(this.incrementTimerId);
         }
@@ -269,7 +269,7 @@ const TNumberInput = {
       () => {
         if (this.decrementTimerId) clearTimeout(this.decrementTimerId);
         if (this.decrementPressed) {
-          this.decrementTimerId = setTimeout(this.handleDecrement, 100);
+          this.decrementTimerId = setTimeout(this.handleDecrement, 250);
         } else {
           clearTimeout(this.decrementTimerId);
         }
@@ -489,9 +489,9 @@ const TNumberInput = {
       "div",
       {
         class: {
-          "inline-flex": true,
+          "inline-flex t-input": true,
           "w-full": this.isFullWidth,
-          "shadow-outline border-blue-300 rounded": this.isFocused,
+          "ring border-blue-300 rounded": this.isFocused,
         },
         props: {
           align: "stretch",
@@ -548,6 +548,7 @@ const TNumberInputField = {
         isDisabled,
         size,
         value,
+        focusStyle: false,
       },
       class: "text-center",
       attrs: {
@@ -594,11 +595,28 @@ const TStepperButton = {
       "button",
       {
         class: {
-          "select-none font-bold py-2 px-4 border-t border-b focus:outline-none focus:border focus:shadow-outline focus:border-blue-300": true,
+          // Alignment
+          "align-middle": true,
+          // Focus
+          "focus:border focus:border-blue-300 focus:outline-none focus:ring": true,
+          // Font style
+          "font-bold": true,
+          // Full height
+          "h-full": true,
+          // Center items
+          "items-center justify-center text-center": true,
+          // Padding
+          "py-2 px-4": true,
+          // Flex
+          "flex-shrink-0 flex-wrap inline-flex": true,
+          // Text cannot be selected
+          "select-none": true,
+          // Borders
+          "border-t border-b": true,
           "border-red-500": this.context.isInvalid,
-          "dark:border-gray-600": !this.context.isInvalid,
-          "bg-gray-200 dark:bg-gray-500 text-gray-500 dark:text-gray-700 cursor-not-allowed": isDisabled,
-          "bg-gray-300 hover:bg-gray-400 dark-hover:bg-gray-200 text-gray-800": !isDisabled,
+          "border-gray-300 dark:border-gray-600": !this.context.isInvalid,
+          "bg-oldGray-200 dark:bg-oldGray-500 text-gray-400 dark:text-gray-600 cursor-not-allowed": isDisabled,
+          "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": !isDisabled,
         },
         domProps: {
           disabled: isDisabled,

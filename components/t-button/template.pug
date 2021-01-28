@@ -1,0 +1,40 @@
+component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners" :class=`{
+    ...typeClass,
+    // Alignment
+    "align-middle": true,
+    // Default borders
+    "border-t": borderTop,
+    "border-b": borderBottom,
+    "border-l": borderLeft,
+    "border-r": borderRight,
+    "border-gray-300 dark:border-gray-600": !isInvalid,
+    "border-red-500": isInvalid,
+    // Focus
+    "focus:border focus:outline-none focus:ring": true,
+    "focus:border-blue-300": !isInvalid,
+    "focus:ring-red-300": isInvalid,
+    // Font style
+    "font-bold": true,
+    // Full height
+    "h-full": true,
+    // Center items
+    "items-center justify-center text-center": true,
+    // Padding
+    "py-2 px-4": true,
+    // Rounded borders
+    "rounded-tl": roundedTopLeft,
+    "rounded-tr": roundedTopRight,
+    "rounded-bl": roundedBottomLeft,
+    "rounded-br": roundedBottomRight,
+    // Flex
+    "flex-shrink-0 flex-wrap inline-flex": true,
+    // Text cannot be selected
+    "select-none": true
+}`)
+  span.icon.inline-block(v-if="iconLeft")
+    i(:class="iconLeft")
+  span(v-if="label") {{ label }}
+  span(v-else-if="$slots.default")
+    slot
+  span.icon.inline-block(v-if="iconRight")
+    i(:class="iconRight")

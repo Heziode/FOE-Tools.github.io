@@ -1,5 +1,5 @@
 module.exports = {
-  testRegex: "/test/unit/.*.test.js$",
+  testMatch: ["<rootDir>/test/unit/*.test.js"],
   moduleFileExtensions: [
     "js",
     "json",
@@ -33,6 +33,8 @@ module.exports = {
     "!**/components/main-header/components/**",
     "!**/components/sortable-item/**",
     "!**/components/sortable-list/**",
+    "!**/components/t-button/**",
+    "!**/components/t-label/**",
     "!**/components/tailwind-input/**",
     "!**/components/cookie-consent/**",
     "!**/components/show-bookmarks/**",
