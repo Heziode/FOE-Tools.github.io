@@ -71,7 +71,7 @@ jobs:
           at: ~/project
       - run:
           name: Unit Tests
-          command: npm run test:unit:coverage --coverageReporters lcov && npm run coverage
+          command: npm run test:unit:coverage && npm run coverage
 
 # Workflow definition
 workflows:

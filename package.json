@@ -22,7 +22,7 @@
     "contributors:generate": "all-contributors --config all-contributorsrc.json generate",
     "test:lint": "eslint --ext .js,.vue --ignore-path .eslintignore .",
     "test:unit": "NODE_OPTIONS=--max_old_space_size=4096 jest --clearCache && NODE_OPTIONS=--max_old_space_size=4096 jest --coverage=false",
-    "test:unit:coverage": "NODE_OPTIONS=--max_old_space_size=4096 jest --clearCache && NODE_OPTIONS=--max_old_space_size=4096 jest --coverage=true",
+    "test:unit:coverage": "NODE_OPTIONS=--max_old_space_size=4096 jest --clearCache && NODE_OPTIONS=--max_old_space_size=4096 jest --coverage=true --coverageReporters=lcov",
     "test:unit:watch": "NODE_OPTIONS=--max_old_space_size=4096 jest --clearCache && NODE_OPTIONS=--max_old_space_size=4096 jest --coverage=false --testRegex ^.*.test.js$ test/unit/ --watch",
     "test": "NODE_OPTIONS=--max_old_space_size=4096 npm run test:unit",
     "update-foe-data": "node .scripts/update-gb-data.js",
