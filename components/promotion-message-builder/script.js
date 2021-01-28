@@ -197,7 +197,11 @@ export default {
         const index = ids.indexOf(this.IdEditedTemplate);
         if (index >= 0) {
           // Otherwise, the user try to edit an template that do not exists
-          result[index] = { ...this.customTemplates[index], name: this.templateName, config: this.result };
+          result[index] = {
+            ...this.customTemplates[index],
+            name: this.templateName,
+            config: this.result,
+          };
         }
       } else {
         let id;

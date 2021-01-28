@@ -252,7 +252,10 @@ export default {
 
       for (const province in campaignCost[age]) {
         if (!(province in this.campaignConquired[age])) {
-          set(this.campaignConquired, `${age}.${province}`, { _state: 0, sectors: [] });
+          set(this.campaignConquired, `${age}.${province}`, {
+            _state: 0,
+            sectors: [],
+          });
           campaignConquiredUpdated = true;
         }
 

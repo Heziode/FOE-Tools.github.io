@@ -14,8 +14,14 @@ export default {
     return {
       i18nPrefix,
       gbSelectModes: [
-        { key: "datalist", text: this.$t(i18nPrefix + "select_gb_style_mode.datalist") },
-        { key: "select", text: this.$t(i18nPrefix + "select_gb_style_mode.select") },
+        {
+          key: "datalist",
+          text: this.$t(i18nPrefix + "select_gb_style_mode.datalist"),
+        },
+        {
+          key: "select",
+          text: this.$t(i18nPrefix + "select_gb_style_mode.select"),
+        },
       ],
       dayNightModes: [
         { key: "day", text: this.$t(i18nPrefix + "day_night_mode.Day") },

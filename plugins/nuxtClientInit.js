@@ -117,7 +117,10 @@ function initStore(store) {
 
     store.set("global/profiles", [{ id: currentProfileID, name: defaultProfileName }]);
     store.set("global/currentProfile", currentProfileID);
-    store.commit("profile/addProfile", { key: currentProfileID, profile: store.get("profile/getDefaultProfile") });
+    store.commit("profile/addProfile", {
+      key: currentProfileID,
+      profile: store.get("profile/getDefaultProfile"),
+    });
   }
 }
 

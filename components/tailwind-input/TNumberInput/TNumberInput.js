@@ -147,11 +147,15 @@ const TNumberInput = {
           role: "spinbutton",
           type: "text",
           "aria-valuemin": this.min,
+          min: this.min,
           "aria-valuemax": this.max,
+          max: this.max,
           "aria-disabled": this.isDisabled,
           "aria-valuenow": this.value,
           "aria-invalid": this.isInvalid || this.isOutOfRange,
-          ...(this.getAriaValueText && { "aria-valuetext": this.ariaValueText }),
+          ...(this.getAriaValueText && {
+            "aria-valuetext": this.ariaValueText,
+          }),
           readOnly: this.isReadOnly,
           disabled: this.isDisabled,
           autoComplete: "off",
@@ -491,7 +495,8 @@ const TNumberInput = {
         class: {
           "inline-flex t-input": true,
           "w-full": this.isFullWidth,
-          "ring border-blue-300 rounded": this.isFocused,
+          "ring rounded": this.isFocused,
+          "ring-red-300 dark:ring-red-900 rounded": this.isFocused && this.isInvalid,
         },
         props: {
           align: "stretch",

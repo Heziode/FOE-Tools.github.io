@@ -3,10 +3,7 @@
   "projectOwner": "Heziode",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "files": [
-    "CONTRIBUTORS.md",
-    "README.md"
-  ],
+  "files": ["CONTRIBUTORS.md", "README.md"],
   "imageSize": 100,
   "commit": false,
   "contributorsPerLine": 6,
@@ -133,629 +130,476 @@
       "name": "Von Willem",
       "avatar_url": "https://forum.fr.forgeofempires.com/data/avatars/l/37/37209.jpg?1454012509",
       "profile": "https://forum.fr.forgeofempires.com/index.php?members/von-willem.37209/",
-      "contributions": [
-        "inspired_tool",
-        "ideas"
-      ]
+      "contributions": ["inspired_tool", "ideas"]
     },
     {
       "login": "Ozyman Tremble Weaklings",
       "name": "Ozyman Tremble Weaklings",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "inspired_tool",
-        "ideas",
-        "question"
-      ]
+      "contributions": ["inspired_tool", "ideas", "question"]
     },
     {
       "login": "Le-Normand-76",
       "name": "Le-Normand-76",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "https://forum.fr.forgeofempires.com/index.php?members/le-normand-76.44142/",
-      "contributions": [
-        "inspired_tool",
-        "ideas"
-      ]
+      "contributions": ["inspired_tool", "ideas"]
     },
     {
       "login": "doosterkamp",
       "name": "Dennis",
       "avatar_url": "https://avatars2.githubusercontent.com/u/1842171?v=4",
       "profile": "http://www.fidonet.nl",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "aviriel",
       "name": "Oksana Kurysheva",
       "avatar_url": "https://avatars3.githubusercontent.com/u/596948?v=4",
       "profile": "http://www.itdhq.com",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "Nlossae",
       "name": "Michael Hudak",
       "avatar_url": "https://avatars3.githubusercontent.com/u/6510075?v=4",
       "profile": "https://github.com/Nlossae",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "KingSasquatch",
       "name": "KingSasquatch",
       "avatar_url": "https://avatars1.githubusercontent.com/u/5184069?v=4",
       "profile": "https://github.com/KingSasquatch",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "AntoineBouron",
       "name": "Antoine Bouron",
       "avatar_url": "https://avatars2.githubusercontent.com/u/12555872?v=4",
       "profile": "https://github.com/AntoineBouron",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "DasRifftierchen",
       "name": "Stefan",
       "avatar_url": "https://avatars1.githubusercontent.com/u/39431201?v=4",
       "profile": "https://github.com/DasRifftierchen",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "kTitan",
       "name": "Alexander Schneider",
       "avatar_url": "https://avatars0.githubusercontent.com/u/516661?v=4",
       "profile": "http://www.magicspace.eu",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "thewaiters",
       "name": "thewaiters",
       "avatar_url": "https://avatars1.githubusercontent.com/u/5732845?v=4",
       "profile": "https://github.com/thewaiters",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "placid88",
       "name": "placid88",
       "avatar_url": "https://forum.fr.forgeofempires.com/data/avatars/l/14/14156.jpg?1450635748",
       "profile": "https://forum.fr.forgeofempires.com/index.php?members/placid88.14156/",
-      "contributions": [
-        "data"
-      ]
+      "contributions": ["data"]
     },
     {
       "login": "Pusso",
       "name": "Pusso",
       "avatar_url": "https://forum.fr.forgeofempires.com/data/avatars/l/50/50829.jpg?1516574022",
       "profile": "https://forum.fr.forgeofempires.com/index.php?members/pusso.50829/",
-      "contributions": [
-        "data"
-      ]
+      "contributions": ["data"]
     },
     {
       "login": "Dams54320",
       "name": "Dams54320",
       "avatar_url": "https://forum.fr.forgeofempires.com/data/avatars/l/22/22838.jpg?1512901809",
       "profile": "https://forum.fr.forgeofempires.com/index.php?members/dams54320.22838/",
-      "contributions": [
-        "question"
-      ]
+      "contributions": ["question"]
     },
     {
       "login": "Zaro ZaroZaro",
       "name": "Zaro ZaroZaro",
       "avatar_url": "https://forum.fr.forgeofempires.com/data/avatars/l/37/37202.jpg?1520984122",
       "profile": "https://forum.fr.forgeofempires.com/index.php?members/zaro-zarozaro.37202/",
-      "contributions": [
-        "ideas",
-        "translation"
-      ]
+      "contributions": ["ideas", "translation"]
     },
     {
       "login": "-kikou-",
       "name": "-kikou-",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Sirthael",
       "name": "Sirthael",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Bkui",
       "name": "Bkui",
       "avatar_url": "https://forum.fr.forgeofempires.com/data/avatars/l/26/26696.jpg?1447316567",
       "profile": "https://forum.fr.forgeofempires.com/index.php?members/bkui.26696/",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "qaccy",
       "name": "qaccy",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "https://forum.us.forgeofempires.com/index.php?members/qaccy.10786/",
-      "contributions": [
-        "question"
-      ]
+      "contributions": ["question"]
     },
     {
       "login": "mestileryan",
       "name": "mestileryan",
       "avatar_url": "https://avatars2.githubusercontent.com/u/42813379?v=4",
       "profile": "https://github.com/mestileryan",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Mighte2 FOE",
       "name": "Mighte2 FOE",
       "avatar_url": "https://yt3.ggpht.com/a-/AN66SAyC9Mfjo5Zlf4NEwDALsLSwNetA6tVuqzQOqg=s288-mo-c-c0xffffffff-rj-k-no",
       "profile": "https://www.youtube.com/watch?v=eSEQ2-Oi708",
-      "contributions": [
-        "tutorial",
-        "video",
-        "talk"
-      ]
+      "contributions": ["tutorial", "video", "talk"]
     },
     {
       "login": "Dawid -Tieru- Saworski",
       "name": "Dawid -Tieru- Saworski",
       "avatar_url": "https://yt3.ggpht.com/a-/AN66SAx4uNhP4u3JvoQQOFij58F9tp6U_JAm7HrTGA=s288-mo-c-c0xffffffff-rj-k-no",
       "profile": "https://www.youtube.com/watch?v=kcy-bo70GRE",
-      "contributions": [
-        "tutorial",
-        "video",
-        "talk",
-        "translation"
-      ]
+      "contributions": ["tutorial", "video", "talk", "translation"]
     },
     {
       "login": "Iron Phip (FR)",
       "name": "Iron Phip (FR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Equinox The Great (EN)",
       "name": "Equinox The Great (EN)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "Hakosukà (FR)",
       "name": "Hakosukà (FR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "daniel-bray",
       "name": "Daniel J. Bray",
       "avatar_url": "https://avatars3.githubusercontent.com/u/5752937?v=4",
       "profile": "https://github.com/daniel-bray",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "kistom4",
       "name": "kistom4",
       "avatar_url": "https://avatars3.githubusercontent.com/u/41628634?v=4",
       "profile": "https://github.com/kistom4",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "dontwannaname (EN)",
       "name": "dontwannaname (EN)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "RoyalAdnan (EN)",
       "name": "RoyalAdnan (EN)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "myDEXTERid (EN)",
       "name": "myDEXTERid (EN)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "Tiraje (ZZ)",
       "name": "Tiraje (ZZ)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "ideas",
-        "bug"
-      ]
+      "contributions": ["ideas", "bug"]
     },
     {
       "login": "vvval",
       "name": "Valentin V",
       "avatar_url": "https://avatars0.githubusercontent.com/u/11367763?v=4",
       "profile": "http://spiralscout.com",
-      "contributions": [
-        "bug",
-        "ideas"
-      ]
+      "contributions": ["bug", "ideas"]
     },
     {
       "login": "soodvarun",
       "name": "Varun Sood",
       "avatar_url": "https://avatars3.githubusercontent.com/u/1323253?v=4",
       "profile": "https://github.com/soodvarun",
-      "contributions": [
-        "ideas",
-        "bug"
-      ]
+      "contributions": ["ideas", "bug"]
     },
     {
       "login": "jimmcclintock",
       "name": "Jim McClintock",
       "avatar_url": "https://avatars1.githubusercontent.com/u/16402515?v=4",
       "profile": "https://github.com/jimmcclintock",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "Hontoo",
       "name": "Hontoo",
       "avatar_url": "https://avatars0.githubusercontent.com/u/48545882?v=4",
       "profile": "https://github.com/Hontoo",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "DaEgo",
       "name": "Chris",
       "avatar_url": "https://avatars2.githubusercontent.com/u/1351055?v=4",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Paweł Daroń",
       "name": "Paweł Daroń",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "Cycloth",
       "name": "Cycloth",
       "avatar_url": "https://avatars3.githubusercontent.com/u/48488704?v=4",
       "profile": "https://github.com/Cycloth",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "CRS.love (PL)",
       "name": "CRS.love (PL)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "roberttrone",
       "name": "Robert Trone",
       "avatar_url": "https://avatars3.githubusercontent.com/u/30301600?v=4",
       "profile": "https://github.com/roberttrone",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Ray the Lion Heart I (US)",
       "name": "Ray the Lion Heart I (US)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Iolanta 324 la Terrible (FR)",
       "name": "Iolanta 324 la Terrible (FR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Ambrune (FR)",
       "name": "Ambrune (FR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "pajoonk (PL)",
       "name": "pajoonk (PL)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "scottarooe (US)",
       "name": "scottarooe (US)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "FoE Tips from The Forge",
       "name": "FoE Tips from The Forge",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "tutorial",
-        "video",
-        "talk"
-      ]
+      "contributions": ["tutorial", "video", "talk"]
     },
     {
       "login": "Nisse-X (SE)",
       "name": "Nisse-X (SE)",
       "avatar_url": "https://forum.se.forgeofempires.com/data/avatars/l/2/2083.jpg?1536624082",
       "profile": "https://forum.se.forgeofempires.com/index.php?members/nisse-x.2083/",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "Frank the dude (US)",
       "name": "Frank the dude (US)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "https://forum.us.forgeofempires.com/index.php?members/frank-the-dude.32691/",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "TrueRaptor (PT)",
       "name": "TrueRaptor (PT)",
       "avatar_url": "/img/contributors/TrueRaptor.jpg",
       "profile": "https://forum.us.forgeofempires.com/index.php?members/frank-the-dude.32691/",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "Geribaldi (NL)",
       "name": "Geribaldi (NL)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "waldmann (SK)",
       "name": "waldmann (SK)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug",
-        "translation"
-      ]
+      "contributions": ["bug", "translation"]
     },
     {
       "login": "inanagyuz (TR)",
       "name": "inanagyuz (TR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "Yuga (TR)",
       "name": "Yuga (TR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "Coup de Grace (TR)",
       "name": "Coup de Grace (TR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation",
-        "bug"
-      ]
+      "contributions": ["translation", "bug"]
     },
     {
       "login": "Philio",
       "name": "Phil Bayfield",
       "avatar_url": "https://avatars2.githubusercontent.com/u/237850?v=4",
       "profile": "https://philio.me/",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Red1983",
       "name": "Red1983",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "vince1989",
       "name": "vince1989",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "Hats",
       "name": "Hats",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "Gold Fluffy (FR)",
       "name": "Gold Fluffy (FR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "najbic (CZ)",
       "name": "najbic (CZ)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "https://forum.cz.forgeofempires.com/index.php?members/najbic.15840/",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "TBone1985 (DK)",
       "name": "TBone1985 (DK)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "https://forum.dk.forgeofempires.com/index.php?members/tbone1985.2832/",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "akotulu",
       "name": "Ako",
       "avatar_url": "https://avatars3.githubusercontent.com/u/1204475?v=4",
       "profile": "http://existanz.planet.ee",
-      "contributions": [
-        "ideas"
-      ]
+      "contributions": ["ideas"]
     },
     {
       "login": "jean bambois (FR)",
       "name": "jean bambois (FR)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "bug"
-      ]
+      "contributions": ["bug"]
     },
     {
       "login": "VPetr (CZ)",
       "name": "VPetr (CZ)",
       "avatar_url": "https://forum.cz.forgeofempires.com/data/avatars/l/16/16739.jpg?1587495458",
       "profile": "http://forum.cz.forgeofempires.com/index.php?members/vpetr.16739/",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "MacGiver (PT)",
       "name": "MacGiver (PT)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "ax1z (HU)",
       "name": "ax1z (HU)",
       "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
       "profile": "",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "JhonnyBn",
       "name": "JhonnyBn",
       "avatar_url": "https://avatars1.githubusercontent.com/u/29382833?v=4",
       "profile": "https://github.com/JhonnyBn",
-      "contributions": [
-        "translation"
-      ]
+      "contributions": ["translation"]
     },
     {
       "login": "FJduFou",
       "name": "François-Joseph du Fou",
       "avatar_url": "https://avatars0.githubusercontent.com/u/46401854?v=4",
       "profile": "https://github.com/FJduFou",
-      "contributions": [
-        "design"
-      ]
+      "contributions": ["design"]
     }
   ],
   "commitConvention": "none"

@@ -2,11 +2,7 @@
 
 Please, create a fork and an explicit branch/flow name. For exemple, if you fix something (ex: mail sending) create a branch like this: `git checkout -b fix/mail-sending` or with flow `git flow hotfix mail-sending`.
 
-
-
 For commit message, follow [this convention](https://conventionalcommits.org/).
-
-
 
 **PR are accepted on `develop` branch**. `master` branch only contains compiled sources (from production branch) to host the website on GitHub static page. `production` branch contains the stable code used in production, It is from there that the code of branch `master` is generated.
 
@@ -35,4 +31,4 @@ In `scripts/locales.js`, add your locale in **supportedLocales**.
 
 Finally, in `nuxt.config.js`, in `i18n.locales`, add your language.
 
-*Note: the code of language shall respect the [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) standard.*
+_Note: the code of language shall respect the [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) standard._

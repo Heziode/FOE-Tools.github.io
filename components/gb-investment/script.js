@@ -269,7 +269,10 @@ export default {
     investorParticipationNormalized() {
       /* istanbul ignore next */
       if (!Array.isArray(this.$data.investorParticipation)) {
-        throw new Errors.InvalidTypeError({ expected: "Array", actual: typeof this.$data.investorParticipation });
+        throw new Errors.InvalidTypeError({
+          expected: "Array",
+          actual: typeof this.$data.investorParticipation,
+        });
       }
 
       return this.$data.investorParticipation.map((k) => {
@@ -690,7 +693,11 @@ export default {
         }
         placesInterpolationValues.push([
           { key: "PI", value: i + 1 },
-          { key: "PV", value: this.result.investment[i].participation, free: this.placeFree[i].state },
+          {
+            key: "PV",
+            value: this.result.investment[i].participation,
+            free: this.placeFree[i].state,
+          },
           { key: "PP", value: this.result.investment[i].preparation },
           { key: "FLVL", value: this.level - 1 },
           { key: "TLVL", value: this.level },
@@ -923,7 +930,10 @@ export default {
         Utils.handlerForm(this, "addInvestors", !val || val.length === 0 ? 0 : val, 0, [1, this.maxInvestment]) ===
         Utils.FormCheck.VALID
       ) {
-        this.$data.investorParticipation.push({ value: val, isPotentialSniper: true });
+        this.$data.investorParticipation.push({
+          value: val,
+          isPotentialSniper: true,
+        });
         // Not efficient, but small array
         /* istanbul ignore next */
         this.$data.investorParticipation = this.$data.investorParticipation.sort((a, b) => b.value - a.value);
@@ -958,7 +968,11 @@ export default {
         }
         placesInterpolationValues.push([
           { key: "PI", value: i + 1 },
-          { key: "PV", value: this.result.investment[i].participation, free: this.placeFree[i].state },
+          {
+            key: "PV",
+            value: this.result.investment[i].participation,
+            free: this.placeFree[i].state,
+          },
           { key: "PP", value: this.result.investment[i].preparation },
           { key: "FLVL", value: this.level - 1 },
           { key: "TLVL", value: this.level },
@@ -968,7 +982,12 @@ export default {
       return buildMessage.call(
         this,
         this.gb.key,
-        { ...template, prefix: this.prefix, suffix: this.suffix, displayGbName: this.displayGbName },
+        {
+          ...template,
+          prefix: this.prefix,
+          suffix: this.suffix,
+          displayGbName: this.displayGbName,
+        },
         messageInterpolation,
         placesInterpolationValues
       );
@@ -1116,7 +1135,11 @@ export default {
       ];
 
       const TableColumnData = [
-        { i18nKey: "place", stepId: "thPlace", attachTo: { element: ".tableDataPlace", on: "top" } },
+        {
+          i18nKey: "place",
+          stepId: "thPlace",
+          attachTo: { element: ".tableDataPlace", on: "top" },
+        },
         {
           i18nKey: "default_rewards",
           stepId: "thDefaultRewards",
@@ -1137,13 +1160,21 @@ export default {
           stepId: "thNumberOfFPAlreadyIn",
           attachTo: { element: ".tableDataNumberOfFPAlreadyIn", on: "top" },
         },
-        { i18nKey: "spot_snipe", stepId: "thSpotSnipe", attachTo: { element: ".tableDataSpotSnipe", on: "top" } },
+        {
+          i18nKey: "spot_snipe",
+          stepId: "thSpotSnipe",
+          attachTo: { element: ".tableDataSpotSnipe", on: "top" },
+        },
         {
           i18nKey: "percentage_investors",
           stepId: "thPercentageInvestors",
           attachTo: { element: ".tableDataPercentageInvestors", on: "top" },
         },
-        { i18nKey: "is_sniper", stepId: "thIsSniper", attachTo: { element: ".tableDataIsSniper", on: "top" } },
+        {
+          i18nKey: "is_sniper",
+          stepId: "thIsSniper",
+          attachTo: { element: ".tableDataIsSniper", on: "top" },
+        },
         {
           i18nKey: "include_in_copy_boxes",
           stepId: "thIncludeInCopyBoxes",
@@ -1152,18 +1183,46 @@ export default {
       ];
 
       const promotionMessage = [
-        { i18nKey: "tabs", stepId: "thDefaultRewards", attachTo: { element: "#giPromotionMessageTab nav", on: "top" } },
-        { i18nKey: "prefix", stepId: "giPrefix", attachTo: { element: "#pmPrefix", on: "top" } },
-        { i18nKey: "suffix", stepId: "giSuffix", attachTo: { element: "#pmSuffix", on: "top" } },
-        { i18nKey: "display_gb_name", stepId: "pmDisplayGbName", attachTo: { element: "#pmDisplayGbName", on: "top" } },
-        { i18nKey: "use_short_name", stepId: "pmShortName", attachTo: { element: "#pmShortName", on: "top" } },
-        { i18nKey: "show_level", stepId: "pmShowLevel", attachTo: { element: "#pmShowLevel", on: "top" } },
+        {
+          i18nKey: "tabs",
+          stepId: "thDefaultRewards",
+          attachTo: { element: "#giPromotionMessageTab nav", on: "top" },
+        },
+        {
+          i18nKey: "prefix",
+          stepId: "giPrefix",
+          attachTo: { element: "#pmPrefix", on: "top" },
+        },
+        {
+          i18nKey: "suffix",
+          stepId: "giSuffix",
+          attachTo: { element: "#pmSuffix", on: "top" },
+        },
+        {
+          i18nKey: "display_gb_name",
+          stepId: "pmDisplayGbName",
+          attachTo: { element: "#pmDisplayGbName", on: "top" },
+        },
+        {
+          i18nKey: "use_short_name",
+          stepId: "pmShortName",
+          attachTo: { element: "#pmShortName", on: "top" },
+        },
+        {
+          i18nKey: "show_level",
+          stepId: "pmShowLevel",
+          attachTo: { element: "#pmShowLevel", on: "top" },
+        },
         {
           i18nKey: "show_only_secured_places",
           stepId: "pmShowOnlySecuredPlaces",
           attachTo: { element: "#pmShowOnlySecuredPlaces", on: "top" },
         },
-        { i18nKey: "custom_fields", stepId: "pmCustomField", attachTo: { element: ".custom_field", on: "top" } },
+        {
+          i18nKey: "custom_fields",
+          stepId: "pmCustomField",
+          attachTo: { element: ".custom_field", on: "top" },
+        },
       ];
 
       const makeTutoLinks = () => {
@@ -1388,7 +1447,10 @@ export default {
         bookmarks.splice(index, 1);
       } else {
         // Add in bookmarks
-        bookmarks.push({ name: this.$route.name.replace(/___.*$/, ""), params: this.$route.params });
+        bookmarks.push({
+          name: this.$route.name.replace(/___.*$/, ""),
+          params: this.$route.params,
+        });
       }
       this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`, bookmarks);
     },

@@ -72,7 +72,12 @@ export default {
         if (currentAge !== age) {
           Vue.set(this.$data.values, age, 0);
         }
-        this.$data.results[age] = { show: false, value: 0, ratio: 0, split: "" };
+        this.$data.results[age] = {
+          show: false,
+          value: 0,
+          ratio: 0,
+          split: "",
+        };
       }
     },
 

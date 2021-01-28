@@ -20,15 +20,15 @@ table.trade .image {
   overflow: hidden;
 }
 
-.b-radio.radio input[type=radio]:checked + .check {
+.b-radio.radio input[type="radio"]:checked + .check {
   border-color: $info;
 }
 
-.b-radio.radio:hover input[type=radio] + .check {
+.b-radio.radio:hover input[type="radio"] + .check {
   border-color: $info;
 }
 
-.b-radio.radio input[type=radio] + .check:before {
+.b-radio.radio input[type="radio"] + .check:before {
   background-color: $info;
 }
 
@@ -45,7 +45,7 @@ main {
 .fixed {
   position: fixed;
   bottom: 0;
-  width:100%;
+  width: 100%;
   z-index: 10000;
 }
 
@@ -59,7 +59,10 @@ main {
   transition: 0.3s top;
 }
 
-a.navbar-item:hover, a.navbar-item.is-active, a.navbar-link:hover, a.navbar-link.is-active {
+a.navbar-item:hover,
+a.navbar-item.is-active,
+a.navbar-link:hover,
+a.navbar-link.is-active {
   border-radius: 4px;
   color: $link;
   margin-block: auto;
@@ -157,7 +160,8 @@ section.hero.is-dark-blue .subtitle a:hover {
 // Bulma fix
 
 @media screen and (min-width: $desktop) and (max-width: $widescreen - 1) {
-  .navbar.is-fixed-top .navbar-menu, .navbar.is-fixed-top-touch .navbar-menu {
+  .navbar.is-fixed-top .navbar-menu,
+  .navbar.is-fixed-top-touch .navbar-menu {
     overflow: inherit !important;
   }
 }
@@ -186,9 +190,9 @@ $map: (
   "TheFuture": #8dc73f,
   "ArcticFuture": #e9f7f7,
   "OceanicFuture": #225a4b,
-  "VirtualFuture": #551A8B,
-  "SpaceAgeMars": #BB653D,
-  "SpaceAgeAsteroidBelt": #094ebd
+  "VirtualFuture": #551a8b,
+  "SpaceAgeMars": #bb653d,
+  "SpaceAgeAsteroidBelt": #094ebd,
 );
 
 @each $key, $color in $map {
@@ -199,7 +203,8 @@ $map: (
 }
 
 table.table.has-table-cards {
-  tbody, tfoot {
+  tbody,
+  tfoot {
     tr {
       display: table;
       width: 100%;
@@ -262,7 +267,7 @@ table.table.has-table-cards {
   background: linear-gradient(-139deg, #4d83ff, #5fdede);
   padding: 0.6rem;
   border-radius: 0.75em;
-  box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
   font-size: 0.75rem;
   font-weight: bold;
 }
@@ -272,7 +277,7 @@ table.table.has-table-cards {
 }
 
 .columns.form-short .column {
-  padding-bottom: 0 !important;;
+  padding-bottom: 0 !important;
 }
 
 .donation {
@@ -290,8 +295,8 @@ table.table.has-table-cards {
 
 // Style of the GB selector inside the menu bar
 div.navbar-brand .field {
-  margin-bottom: .5em;
-  margin-top: .5em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 // Remove padding of the main content on small screens
@@ -353,16 +358,17 @@ div.navbar-brand .field {
  * MIGRATION to Tailwind
  * FIX on Bulma
  */
-input, textarea {
+input,
+textarea {
   margin-bottom: 0 !important;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
-input[type=number] {
-  -moz-appearance:textfield;
+input[type="number"] {
+  -moz-appearance: textfield;
   appearance: textfield;
 }
 
