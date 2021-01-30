@@ -29,7 +29,9 @@ component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners"
     // Flex
     "flex-shrink-0 flex-wrap inline-flex": true,
     // Text cannot be selected
-    "select-none": true
+    "select-none": true,
+    // Width
+    "w-full": expanded
 }`)
   span.icon.inline-block(v-if="iconLeft")
     i(:class="iconLeft")
