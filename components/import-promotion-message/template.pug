@@ -11,10 +11,10 @@ div
       t-label(:label="$t('components.promotion_message_builder.message_preview')" label-for="ipmMessagePreview")
         t-input(inputId="ipmMessagePreview" :as="nbMultiLine(resultMessage) ? 'textarea' : 'input'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : undefined" v-model.trim="resultMessage" name="ipmMessagePreview" isDisabled)
 
+  div.mb-2
+    t-label(:label="$t('components.promotion_message_builder.template_name')" label-for="ipmTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
   div.columns
     div.column.is-half
-      t-label(:label="$t('components.promotion_message_builder.template_name')" label-for="ipmTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
-        t-input(inputId="ipmTemplateName" type="text" v-model.trim="templateName" name="ipmTemplateName" :isInvalid="errors.templateName.found")
+      t-input(inputId="ipmTemplateName" type="text" v-model.trim="templateName" name="ipmTemplateName" :isInvalid="errors.templateName.found")
     div.column.is-half
-      b-field.has-text-centered(label=" ")
-        b-button.is-fullwidth(type="is-info" @click="save" expanded) {{$t('utils.Save')}}
+      t-button(type="success" @click="save" :disabled="!template || !template.length || errors.template.found || !templateName || !templateName.length || errors.templateName.found" expanded) {{$t('utils.Save')}}

@@ -206,15 +206,15 @@ div
         t-label(:label="$t(i18nPrefix + 'message_preview')" label-for="pmbMessagePreview")
           t-input(inputId="pmbMessagePreview" :as="nbMultiLine(resultMessage) ? 'textarea' : 'input'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : undefined" :value.trim="resultMessage" name="pmbMessagePreview" isDisabled)
 
+    div.mb-2
+      t-label(:label="$t(i18nPrefix + 'template_name')" label-for="pmbTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
     div.columns
       div.column.is-half
-        t-label(:label="$t(i18nPrefix + 'template_name')" label-for="pmbTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
-          t-input(inputId="pmbTemplateName" type="text" v-model.trim="templateName" name="pmbTemplateName" :isInvalid="errors.templateName.found")
+        t-input(inputId="pmbTemplateName" type="text" v-model.trim="templateName" name="pmbTemplateName" :isInvalid="errors.templateName.found")
       div.column.is-half
-        b-field.has-text-centered(label=" ")
-          b-button.is-fullwidth(type="is-info" @click="save") {{$t('utils.Save')}}
+        t-button(type="info" @click="save" :disabled="errors.templateName.found" expanded) {{$t('utils.Save')}}
 
   template(v-else)
     div.columns
       div.column.is-half.is-offset-3
-        b-button.is-fullwidth(type="is-danger" @click="deleteTemplate") {{$t('utils.Remove')}}
+        t-button(type="danger" @click="deleteTemplate" :disabled="!startFromTemplate" expanded) {{$t('utils.Remove')}}
