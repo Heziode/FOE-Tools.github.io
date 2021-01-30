@@ -119,6 +119,7 @@
     "@nuxtjs/robots": "^2.4.2",
     "@nuxtjs/sentry": "^5.0.0",
     "@panter/vue-i18next": "^0.15.2",
+    "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "all-contributors-cli": "^6.19.0",
     "autoprefixer": "^9.8.6",

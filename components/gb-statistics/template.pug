@@ -13,9 +13,11 @@ div.content
   p {{$t(i18nPrefix + 'p1')}}
 
   p {{$t(i18nPrefix + 'represent')}}
-  ul
-    li(v-for="(value, key, index) in graphType" :key="key" style="list-style-type: none;")
-      b-radio(v-model="statSelector" :id="key" :native-value="key" type="is-info") {{value.title}}
+  ul.list-none(style="list-style-type: none;")
+    li.mt-2(class="first:mt-0" v-for="(value, key, index) in graphType" :key="key")
+      t-label
+        input(type="radio" v-model="statSelector" :value="key")
+        span.ml-3 {{value.title}}
 
   div.columns
     div.column.is-half

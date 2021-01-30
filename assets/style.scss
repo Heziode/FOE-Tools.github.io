@@ -20,18 +20,6 @@ table.trade .image {
   overflow: hidden;
 }
 
-.b-radio.radio input[type="radio"]:checked + .check {
-  border-color: $info;
-}
-
-.b-radio.radio:hover input[type="radio"] + .check {
-  border-color: $info;
-}
-
-.b-radio.radio input[type="radio"] + .check:before {
-  background-color: $info;
-}
-
 main {
   @media screen and (max-width: $tablet - 1px) {
     section.section {
