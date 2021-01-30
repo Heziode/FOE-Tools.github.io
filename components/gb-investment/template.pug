@@ -461,17 +461,20 @@ div.content#gbiContent
           div.columns
             div.column
               b-field#pmAddMessage
-                b-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" expanded)
+                t-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" :roundedTopRight="false" :roundedBottomRight="false")
                   optgroup(:label="$t('components.promotion_message_builder.templates.default')")
                     option(v-for="template in defaultPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
                   optgroup(v-if="customPromotionMessagesTemplates.length" :label="$t('components.promotion_message_builder.templates.custom')")
                     option(v-for="template in customPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
 
-                p.control
-                  button.button.is-info(:title="$t('utils.Add')" @click="addPromotionMessageTemplate" :disabled="maxInvestment <= 0")
-                    span.icon
-                      i.fas.fa-plus
-                    | &nbsp;&nbsp;{{$t('utils.Add')}}
+                  template(#after)
+                    t-button(
+                      :title="$t('utils.Add')"
+                      @click="addPromotionMessageTemplate"
+                      iconLeft="fas fa-plus"
+                      :borderLeft="false"
+                      :roundedTopLeft="false"
+                      :roundedBottomLeft="false" type="info") {{$t('utils.Add')}}
 
         b-tab-item(:label="$t('components.import_promotion_message.title')")
           ImportPromotionMessage

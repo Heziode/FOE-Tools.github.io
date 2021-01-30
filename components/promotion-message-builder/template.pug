@@ -24,7 +24,7 @@ div
   div.columns
     div.column
       b-field(:label="selectLabel" label-for="pmbStartFromTemplate")
-        b-select#pmbStartFromTemplate(v-model.trim="startFromTemplate" name="startFromTemplate" autocomplete="off" expanded)
+        t-select#pmbStartFromTemplate(v-model.trim="startFromTemplate" name="startFromTemplate" autocomplete="off" expanded)
           template(v-if="action === 'create'")
             optgroup(:label="$t(i18nPrefix + 'templates.default')")
               option(v-for="template in defaultTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}

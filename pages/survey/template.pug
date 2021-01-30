@@ -26,7 +26,7 @@ div#surveyContainer
 
       template(v-else-if="question.type === 'dropdown' && checkCondition(question)")
         b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
-          b-select(:id="question.name" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading" expanded)
+          t-select(:id="question.name" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading")
             option(v-for="(elt, eltIndex) in question.choices" v-model="result[question.name]" :native-value="elt" :key="question.name + '__' + elt") {{elt}}
 
       template(v-else-if="question.type === 'text' && checkCondition(question)")
