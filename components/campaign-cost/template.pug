@@ -46,7 +46,7 @@ div
         tr(v-for="(age, ageKey) in campaignTotalCost" v-if="ageKey in ages")
           th {{$t('foe_data.age.' + ageKey)}}
           td
-            b-checkbox(:value="campaignConquired[ageKey]._state" :indeterminate="campaignConquired[ageKey]._state === -1" :true-value="1" :false-value="0" type="is-success" @input="switchConquired({ age: ageKey }, $event)")
+            t-checkbox(:checked=`campaignConquired[ageKey]._state === 1 ? true : (campaignConquired[ageKey]._state === 0 ? false : undefined)` :indeterminate="campaignConquired[ageKey]._state === -1" @input="switchConquired({ age: ageKey }, $event ? 1 : 0)")
 
           template(v-for="(cost, age) in campaignTotalCost._totalCost" v-if="age in ages")
             template(v-if="age in campaignTotalCost[ageKey]._totalCost")
@@ -97,7 +97,7 @@ div
           th
             p {{$t('foe_data.province.' + province)}}
           td
-            b-checkbox(:value="campaignConquired[currentAge][province]._state" :indeterminate="campaignConquired[currentAge][province]._state === -1" :true-value="1" :false-value="0" type="is-success" @input="switchConquired({ age: currentAge, province: province }, $event)")
+            t-checkbox(:checked=`campaignConquired[currentAge][province]._state === 1 ? true : (campaignConquired[currentAge][province]._state === 0 ? false : undefined)` :indeterminate="campaignConquired[currentAge][province]._state === -1" @input="switchConquired({ age: currentAge, province: province }, $event ? 1 : 0)")
 
           template(v-for="(cost, age) in campaignTotalCost[currentAge]._totalCost" v-if="age in ages")
             template(v-if="age in campaignTotalCost[currentAge].provinces[province]._totalCost")
@@ -154,7 +154,7 @@ div
                 p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
                 p(v-else) {{$n(reward.value)}}
           td
-            b-checkbox(:value="campaignConquired[currentAge][province.key].sectors[index]" type="is-success" @input="switchConquired({ age: currentAge, province: province.key, sector: index }, $event)")
+            t-checkbox(:checked=`campaignConquired[currentAge][province.key].sectors[index]` @input="switchConquired({ age: currentAge, province: province.key, sector: index }, $event)")
 
           td(v-for="value in getGoodsOrSpecialGoods(true)")
             template(v-if="Object.keys(sector).indexOf('cost') >= 0")
@@ -182,7 +182,7 @@ div
                   figure.image-inherit.image(style="margin-left: .5em !important; margin-right: 1em !important;" :class="reward.type !== 'pvp_tower' ? 'is-24x24' : 'is-30xauto'")
                     img(v-if="reward.type !== 'pvp_tower'" :src="'/img/foe/bonus/' + reward.type + '.png'" :alt="$t('foe_data.bonus.' + reward.type + '.name')" :title="$t('foe_data.bonus.' + reward.type + '.name')")
                     img(v-else :src="'/img/foe/bonus/' + currentAge + '_tower.png'" :alt="$t('foe_data.bonus.' + reward.type + '.name')" :title="$t('foe_data.bonus.' + reward.type + '.name')")
-                div.media-content(:style="{ overflow: ((reward.type === 'good_bonus') && reward.age ? 'unset' : 'hidden') }")
+                div.media-content(:style="{ overflow: ((reward.type === 'good_bonus') && reward.age ? 'unset' : 'hidden') }")
                   p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
                     template(v-if="reward.age")
                       | &nbsp;
