@@ -84,6 +84,7 @@ const TNumberInput = {
       isFocused: false,
       prevNexValue: null,
       inputNode: undefined,
+      hasIncDecButtons: false,
       incrementPressed: false,
       decrementPressed: false,
       incrementEvents: {},
@@ -103,6 +104,10 @@ const TNumberInput = {
         isInvalid: this.isInvalid,
         isDisabled: this.isDisabled,
         isFocused: this.isFocused,
+        toggleIncDecButton: (value) => {
+          this.hasIncDecButtons = value;
+        },
+        hasIncDecButtons: this.$data.hasIncDecButtons,
         incrementStepper: this.incrementStepperProps,
         decrementStepper: this.decrementStepperProps,
         incrementButton: {
@@ -536,6 +541,7 @@ const TNumberInputField = {
     const {
       size,
       inputId,
+      hasIncDecButtons,
       input: {
         value,
         onBlur: _onBlur,
@@ -556,6 +562,7 @@ const TNumberInputField = {
         size,
         value,
         focusStyle: false,
+        hasIncDecButtons,
       },
       class: "text-center",
       attrs: {
@@ -597,7 +604,8 @@ const TStepperButton = {
     },
   },
   render(h) {
-    const { isDisabled } = this.context;
+    const { isDisabled, toggleIncDecButton } = this.context;
+    toggleIncDecButton(true);
     return h(
       "button",
       {

@@ -351,11 +351,12 @@ textarea {
   margin-bottom: 0 !important;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.number-appearance-textfield::-webkit-inner-spin-button,
+.number-appearance-textfield::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
-input[type="number"] {
+
+.number-appearance-textfield {
   -moz-appearance: textfield;
   appearance: textfield;
 }
