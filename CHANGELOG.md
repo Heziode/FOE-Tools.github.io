@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.80.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.79.3...v2.80.0) (2021-01-31)
+
+
+### Features
+
+* **foe-data:** add levels of several ages ([131d48a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/131d48af857edf21f238a9938849eedc9a44f060))
+* **l10n:** update translation ([f7e63af](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f7e63af778053cb0a8e7deada6deb1603e90b86c))
+* **style:** update to Tailwind 2 ([cd27652](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/cd27652e6b113785335434f59acf25b9a3a3f459))
+* **yes-no:** invert Yes and No to be more consistent ([029a605](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/029a6057f2326113da28453b4b88dad889ae63af))
+
+
+### Bug Fixes
+
+* **campaign-cost:** fix issue related to negative costs ([8b8e20a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8b8e20a64ae02c08e2e98007c3dde11b42dd0a69))
+* show spin arrow on number input if there is no +/- buttons ([8a77091](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/8a7709171ed5206aa367b437e3500b5797d9f930))
+* **gb-investment:** fix horizontal table overflow ([984a1e1](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/984a1e1d23f25f4444563e295b06e5a62b324752))
+* **number-input:** increase the press delay to 250ms to prevent long click on simple click ([74728f9](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/74728f992d1890937c556b8fc66d03de459e83cc))
+
+
+### Translation
+
+* Merge branch 'origin/develop' into Weblate. ([7d50572](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/7d50572c2c44d99be97b72c6b7ce7521561bb1e3))
+* Translated using Weblate (Hungarian) ([45a809c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/45a809c406d1b0b3efa02efdb7c7a566e3b93455))
+* Translated using Weblate (Russian) ([567590c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/567590c65ffd26fa355e4c163cc447c6e96b1df7))
+* Translated using Weblate (Russian) ([eb1c6b4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/eb1c6b43a980d65d7d11b6c596ee270d29f728b6))
+* Translated using Weblate (Russian) ([02204e3](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/02204e3d60bbcd22dc2c2eafe792de7c718df9fd))
+* Translated using Weblate (Russian) ([6754752](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/675475261c96728b1a876ecf2b9efbaf4750233d))
+* Translated using Weblate (Russian) ([fffac74](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fffac7436f9d0dd54add3285b8a7bae19cc7acad))
+* Translated using Weblate (Swedish) ([ddd753c](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/ddd753cd37da645f67bf6e17f8e0ae0abb3ee735))
+
 ### [2.79.3](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.79.2...v2.79.3) (2021-01-19)
 
 ### Bug Fixes
