@@ -7,14 +7,14 @@ div
 
   div.columns
     div.column.is-half
-      b-field#current-age-container(:label="$t('utils.choose_age')" label-for="current-age" :type="haveError('currentAge')")
-        t-select#current-age(v-model="currentAge" name="current-age")
+      t-label#current-age-container(:label="$t('utils.choose_age')" label-for="current-age" :type="haveError('currentAge')")
+        t-select.mt-2#current-age(v-model="currentAge" name="current-age")
           option(value="__all__" :selected="currentAge == '__all__'" :id="'option_all'" autocomplete="off") {{$t(i18nPrefix + 'all_ages')}}
           option(v-for="age in ages" :value="age.key" :key="age.key" :selected="currentAge == age.key" :id="'option_' + age.key" autocomplete="off") {{$t('foe_data.age.' + age.key)}}
 
     div.column.is-half(v-if="!errors.currentAge && currentAge !== '__all__'")
-      b-field(:label="$t(i18nPrefix + 'choose_province')" label-for="provinceContainer" :type="haveError('province')")
-        t-select#provinceContainer(v-model="province")
+      t-label(:label="$t(i18nPrefix + 'choose_province')" label-for="provinceContainer" :type="haveError('province')")
+        t-select.mt-2#provinceContainer(v-model="province")
           option(value="__all__" :selected="province.key == '__all__'" :id="'option_all'" autocomplete="off") {{$t(i18nPrefix + 'all_provinces')}}
           option(v-if="campaignCost !== null" v-for="value of sortProvinceArray(campaignCost, currentAge)" :key="value.key" :selected="province.key === value.key" :value="value") {{$t('foe_data.province.' + value.key)}}
 

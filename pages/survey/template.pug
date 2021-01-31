@@ -25,8 +25,8 @@ div#surveyContainer
           t-input(:inputId="question.name" as="textarea" v-model="result[question.name]" :isRequired="question.isRequired && checkCondition(question)" :isDisabled="loading" :maxlength="getConstraint(question, 'maxLength')")
 
       template(v-else-if="question.type === 'dropdown' && checkCondition(question)")
-        b-field(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
-          t-select(:id="question.name" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading")
+        t-label(:label-for="question.name" :label="getSurveyLocal(question.title) + (question.isRequired ? ' *' : '')" :type="{ 'is-danger': errors[question.name] }" :message="getErrorMessage(question)")
+          t-select.mt-2(:id="question.name" v-model="result[question.name]" :required="question.isRequired && checkCondition(question)" :disabled="loading")
             option(v-for="(elt, eltIndex) in question.choices" v-model="result[question.name]" :native-value="elt" :key="question.name + '__' + elt") {{elt}}
 
       template(v-else-if="question.type === 'text' && checkCondition(question)")

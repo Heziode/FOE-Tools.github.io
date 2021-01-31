@@ -3,8 +3,8 @@ div
 
   div.columns
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'label.i_have')" :label-for="iHaveId")
-        t-select(:id="iHaveId" v-model="iHave")
+      t-label(:label="$t(i18nPrefix + 'label.i_have')" :label-for="iHaveId")
+        t-select.mt-2(:id="iHaveId" v-model="iHave")
           option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
     div.column.is-half
@@ -13,8 +13,8 @@ div
 
   div.columns
     div.column.is-half
-      b-field(:label="$t(i18nPrefix + 'label.i_want')" :label-for="iWantId")
-        t-select(:id="iWantId" v-model="iWant")
+      t-label(:label="$t(i18nPrefix + 'label.i_want')" :label-for="iWantId")
+        t-select.mt-2(:id="iWantId" v-model="iWant")
           option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
     div.column.is-half

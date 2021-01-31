@@ -22,8 +22,8 @@ div
   // Row 1
   div.columns
     div.column.is-half
-      b-field#your-age-container(:label="$t(i18nPrefix + 'block_cfc.your_age')" label-for="your-age" :type="haveError('yourAge')")
-        t-select#your-age(v-model="yourAge" name="your-age")
+      t-label#your-age-container(:label="$t(i18nPrefix + 'block_cfc.your_age')" label-for="your-age" :type="haveError('yourAge')")
+        t-select#your-age.mt-2(v-model="yourAge" name="your-age")
           option(v-for="age in questData.ages" :value="age.key" :key="age.key" :selected="yourAge == age.key" :id="'option_' + age.key" autocomplete="off") {{$t('foe_data.age.' + age.key)}}
     div.column.is-half
       t-label#your-cf-boost-container(:label="$t(i18nPrefix + 'block_cfc.your_cf_boost')" label-for="your-cf-boost" :type="haveError('yourCfBoost')")
