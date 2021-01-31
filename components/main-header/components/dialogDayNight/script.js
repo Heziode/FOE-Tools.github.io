@@ -23,7 +23,7 @@ export default {
     if (!storeNightStart || !regexTime.test(storeNightStart)) {
       nS.setHours(nightStartHour);
       nS.setMinutes(nightStartMinutes);
-      this.$store.set("global/nightStart", this.$moment(nS).format("HH:mm"));ç
+      this.$store.set("global/nightStart", this.$moment(nS).format("HH:mm"));
       storeNightStart = this.$store.get("global/nightStart");
     }
 
