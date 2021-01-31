@@ -176,18 +176,14 @@ export default {
       };
 
       const updateProgressionProvince = (path) => {
-        Vue.set(
-          this.campaignConquired[path.age][path.province],
-          "sectors",
-          Array.from(new Array(this.campaignConquired[path.age][path.province].sectors.length), () => !!value)
-        );
         Vue.set(this.campaignConquired[path.age][path.province], "_state", value ? 1 : 0);
 
         // Update values
         for (let i = 0; i < this.campaignTotalCost[path.age].provinces[path.province].sectors.length; i++) {
           const previousConquiredState = this.campaignConquired[path.age][path.province].sectors[i];
-          if (previousConquiredState !== value) {
-            this.updateConquiredValue(this.$data.campaignTotalCost, { ...path, sector: i }, value);
+          if (previousConquiredState !== !!value) {
+            this.updateConquiredValue(this.$data.campaignTotalCost, { ...path, sector: i }, !!value);
+            Vue.set(this.campaignConquired[path.age][path.province].sectors, i, !!value);
           }
         }
         updateProgression(path);

@@ -46,7 +46,9 @@ div
         tr(v-for="(age, ageKey) in campaignTotalCost" v-if="ageKey in ages")
           th {{$t('foe_data.age.' + ageKey)}}
           td
-            t-checkbox(:checked=`campaignConquired[ageKey]._state === 1 ? true : (campaignConquired[ageKey]._state === 0 ? false : undefined)` :indeterminate="campaignConquired[ageKey]._state === -1" @input="switchConquired({ age: ageKey }, $event ? 1 : 0)")
+            t-checkbox(:checked=`campaignConquired[ageKey]._state === 1 ? true : (campaignConquired[ageKey]._state === 0 ? false : undefined)`
+              :indeterminate="campaignConquired[ageKey]._state === -1"
+              @input="switchConquired({ age: ageKey }, $event ? 1 : 0)")
 
           template(v-for="(cost, age) in campaignTotalCost._totalCost" v-if="age in ages")
             template(v-if="age in campaignTotalCost[ageKey]._totalCost")
@@ -97,7 +99,9 @@ div
           th
             p {{$t('foe_data.province.' + province)}}
           td
-            t-checkbox(:checked=`campaignConquired[currentAge][province]._state === 1 ? true : (campaignConquired[currentAge][province]._state === 0 ? false : undefined)` :indeterminate="campaignConquired[currentAge][province]._state === -1" @input="switchConquired({ age: currentAge, province: province }, $event ? 1 : 0)")
+            t-checkbox(:checked=`campaignConquired[currentAge][province]._state === 1 ? true : (campaignConquired[currentAge][province]._state === 0 ? false : undefined)`
+              :indeterminate="campaignConquired[currentAge][province]._state === -1"
+              @input="switchConquired({ age: currentAge, province: province }, $event ? 1 : 0)")
 
           template(v-for="(cost, age) in campaignTotalCost[currentAge]._totalCost" v-if="age in ages")
             template(v-if="age in campaignTotalCost[currentAge].provinces[province]._totalCost")
@@ -154,7 +158,8 @@ div
                 p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
                 p(v-else) {{$n(reward.value)}}
           td
-            t-checkbox(:checked=`campaignConquired[currentAge][province.key].sectors[index]` @input="switchConquired({ age: currentAge, province: province.key, sector: index }, $event)")
+            t-checkbox(:checked=`campaignConquired[currentAge][province.key].sectors[index]`
+              @input="switchConquired({ age: currentAge, province: province.key, sector: index }, $event)")
 
           td(v-for="value in getGoodsOrSpecialGoods(true)")
             template(v-if="Object.keys(sector).indexOf('cost') >= 0")
