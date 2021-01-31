@@ -960,5 +960,13 @@
   "components.gb_investment.tutorial.promotion_message.display_gb_name": "Megjeleníti a GB nevét (ha az üzenetsablon tartalmazza).",
   "components.gb_investment.tutorial.promotion_message.tabs": "Az üzenetek sablont követnek. Importálhat egy sablont a \"@ :( components.import_promotion_message.title)\" fülről, vagy létrehozhat sajátot a \"@ :( components.promotion_message_builder.title)\" fülről.",
   "components.gb_investment.tutorial.promotion_message.message": "Ez a szakasz lehetővé teszi, hogy üzeneteket küldjön az aktuális GB-szintről és helyekről. Másolhat egy üzenetet, és beillesztheti közvetlenül a játékba, például egy 1.9 topichoz.",
-  "components.gb_investment.tutorial.table.rewards_with_rate": "Ez a tulajdonos által várt FP-k száma, amikor egy befektető helyet foglal."
+  "components.gb_investment.tutorial.table.rewards_with_rate": "Ez a tulajdonos által várt FP-k száma, amikor egy befektető helyet foglal.",
+  "components.promotion_message_builder.variables.place.PV": "Érték betétele (FP-ben)",
+  "components.promotion_message_builder.place_builder_title": "Épület letétele",
+  "components.promotion_message_builder.place_builder": "Helyépítő",
+  "components.site_layout.new_year.message": "@ :( common.site_title) ünnepli {count} évét | @:(common.site_title) ünnepli a {count} éveit",
+  "components.gb_forecast_cost.graph.title": "Előrejelzés a tulajdonos felkészülési összegéről a (z) \"{gb}\" számára",
+  "components.gb_investment.tutorial.table.percentage_investors": "Mint a \"@ :( components.gb_investment.gb_investment.form.investor_percentage)\", ez az oszlop lehetővé teszi a tulajdonos számára, hogy meghatározza a befektetőktől elvárt befektetést, de lehetővé teszi az egyes helyek értékének megadását.",
+  "components.gb_investment.tutorial.display_card": "Ez a mező lehetővé teszi a táblázat adatainak megjelenítését \"Kártyanézetben\".\nEz okostelefonon történő olvasásra „optimalizált”, így nem kell vízszintesen görgetni.\nEz a mező csak egy kis képernyőn jelenik meg.",
+  "components.gb_investment.tutorial.show_snipe": "Ez a mező a befektetők számára készült, és egy további oszlop megjelenítésére szolgál a táblázatban, amelynek neve \"@ :( components.gb_investment.gb_investment.form.show_snipe)\".\nEz az oszlop megmondja (a \"@ :( components.secure_position.block_place.your_arc_bonus)\" -ban megadott érték alapján), hogy hány FP-t kell elhelyeznie a GB-on a hely biztosításához.\nEz azt is jelzi, hogy milyen profitot vagy veszteséget fog elérni."
 }
