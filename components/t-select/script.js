@@ -2,7 +2,7 @@ export default {
   name: "TSelect",
   props: {
     value: {
-      type: [String, Number],
+      type: [String, Number, Object],
       required: true,
     },
     id: String,
