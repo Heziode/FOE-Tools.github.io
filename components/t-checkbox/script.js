@@ -1,15 +1,13 @@
 export default {
   name: "TCheckbox",
   props: {
-    value: {
-      type: Boolean,
-      required: true,
-    },
+    value: Boolean,
+    checked: Boolean,
     indeterminate: Boolean,
   },
   data() {
     return {
-      newValue: this.value,
+      newValue: this.value || this.checked,
     };
   },
   watch: {
