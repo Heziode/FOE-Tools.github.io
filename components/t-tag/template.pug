@@ -1,0 +1,62 @@
+.items-center.flex.flex-wrap.justify-start(v-if='attached && closable')
+  span(:class=`{
+    ...typeClass,
+    // Rounded borders
+    "rounded-tl": true,
+    "rounded-tr": !closable,
+    "rounded-bl": true,
+    "rounded-br": !closable,
+    // Padding
+    "px-3 py-1": true,
+    "border-t": true,
+    "border-b": true,
+    "border-l": true,
+    "border-r": !closable
+  }`)
+    slot
+  button(role='button' :aria-label='ariaCloseLabel' :tabindex='tabstop ? 0 : false' :disabled='disabled' :class=`{
+    // Rounded borders
+    "rounded-tr": true,
+    "rounded-br": true,
+    // Padding
+    "px-1 py-1": true,
+    // Background
+    "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": true,
+    // Animation
+    "duration-100 ease-in-out transition": true,
+    // Focus
+    "focus:border focus:outline-none focus:ring": true,
+    "focus:border-blue-300": true,
+  }` @click='close' @keyup.delete.prevent='close')
+    span.icon.inline-block
+      i.fas.fa-times
+span.items-center.inline-flex.flex-wrap.justify-start(v-else='' :class=`{
+    ...typeClass,
+    // Rounded borders
+    "rounded-tl": true,
+    "rounded-tr": !closable,
+    "rounded-bl": true,
+    "rounded-br": !closable,
+    // Padding
+    "px-3 py-1": true,
+    "border-t": true,
+    "border-b": true,
+    "border-l": true,
+    "border-r": !closable
+  }`)
+  slot
+  button(role='button' :aria-label='ariaCloseLabel' :tabindex='tabstop ? 0 : false' :disabled='disabled' :class=`{
+      // Rounded borders
+      "rounded-full": true,
+      // Background
+      "bg-black bg-opacity-30 hover:bg-opacity-40": true,
+      // Margin
+      "ml-2": true,
+      // Animation
+      "duration-100 ease-in-out transition": true,
+      // Focus
+      "focus:border focus:outline-none focus:ring": true,
+      "focus:border-blue-300": true,
+    }` @click='close' @keyup.delete.prevent='close')
+    span.icon.inline-block
+      i.fas.fa-times
