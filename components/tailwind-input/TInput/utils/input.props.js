@@ -24,4 +24,5 @@ export const inputProps = {
     type: [String, Number],
     default: undefined,
   },
+  hasIncDecButtons: Boolean,
 };

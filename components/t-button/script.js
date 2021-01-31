@@ -105,7 +105,7 @@ export default {
         case "info":
           return {
             "bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400 text-white": !this.$attrs.disabled,
-            "bg-blue-400 dark:bg-blue-300 text-gray-500 dark:text-gray-600 cursor-not-allowed": this.$attrs.disabled,
+            "bg-blue-400 dark:bg-blue-300 text-gray-200 dark:text-gray-600 cursor-not-allowed": this.$attrs.disabled,
           };
         case "danger":
           return {

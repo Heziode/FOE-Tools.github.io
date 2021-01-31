@@ -20,18 +20,6 @@ table.trade .image {
   overflow: hidden;
 }
 
-.b-radio.radio input[type="radio"]:checked + .check {
-  border-color: $info;
-}
-
-.b-radio.radio:hover input[type="radio"] + .check {
-  border-color: $info;
-}
-
-.b-radio.radio input[type="radio"] + .check:before {
-  background-color: $info;
-}
-
 main {
   @media screen and (max-width: $tablet - 1px) {
     section.section {
@@ -363,11 +351,12 @@ textarea {
   margin-bottom: 0 !important;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+.number-appearance-textfield::-webkit-inner-spin-button,
+.number-appearance-textfield::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
-input[type="number"] {
+
+.number-appearance-textfield {
   -moz-appearance: textfield;
   appearance: textfield;
 }
@@ -382,4 +371,8 @@ label.t-label .t-input {
 
 .dark .dark\:bg-oldGray-500 {
   background-color: #a0aec0;
+}
+
+.focus-shadow-none:focus {
+  box-shadow: none;
 }

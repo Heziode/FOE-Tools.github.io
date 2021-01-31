@@ -96,8 +96,9 @@ div.content
     div.column.is-half
       t-label(:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
       div.block
-        template(v-for="(value, index) in showPlace")
-          b-switch(v-model="showPlace[index]" type="is-info") {{ index + 1 }}
+        t-label.inline-flex.mx-2(v-for="(value, index) in showPlace" :key="index")
+          t-checkbox(v-model="showPlace[index]")
+          span.ml-2.cursor-pointer {{ index + 1 }}
 
   div.table-wrapper(style="overflow-y:auto;")
     table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-if="result !== null")

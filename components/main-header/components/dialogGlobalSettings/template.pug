@@ -5,12 +5,18 @@ div.modal-card(style="width: auto")
     yes-no(v-model="fixedMainMenu" :label="$t(i18nPrefix + 'fixed_main_menu')")
 
     t-label(:label="$t(i18nPrefix + 'select_gb_style')")
-    b-field(v-for="(style, index) in gbSelectModes" :key="style.key")
-      b-radio(:native-value="style.key" type="is-info" v-model="gbSelectMode") {{style.text}}
+    ul.list-none(style="list-style-type: none;")
+      li.mt-2(v-for="(style, index) in gbSelectModes" :key="style.key")
+        t-label
+          input(type="radio" v-model="gbSelectMode" :value="style.key")
+          span.ml-3 {{style.text}}
 
     t-label(:label="$t(i18nPrefix + 'day_night')")
-    b-field(v-for="(style, index) in dayNightModes" :key="style.key")
-      b-radio(:native-value="style.key" type="is-info" v-model="dayNightMode") {{style.text}}
+    ul.list-none(style="list-style-type: none;")
+      li.mt-2(v-for="(style, index) in dayNightModes" :key="style.key")
+        t-label
+          input(type="radio" v-model="dayNightMode" :value="style.key")
+          span.ml-3 {{style.text}}
 
     day-night(v-if="dayNightMode === 'auto'" @dayStartChange="$emit('dayStartChange')" @nightStartChange="$emit('nightStartChange')")
 

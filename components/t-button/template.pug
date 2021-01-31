@@ -9,6 +9,8 @@ component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners"
     "border-r": borderRight,
     "border-gray-300 dark:border-gray-600": !isInvalid,
     "border-red-500": isInvalid,
+    // Animation
+    "duration-100 ease-in-out transition": true,
     // Focus
     "focus:border focus:outline-none focus:ring": true,
     "focus:border-blue-300": !isInvalid,
@@ -29,7 +31,9 @@ component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners"
     // Flex
     "flex-shrink-0 flex-wrap inline-flex": true,
     // Text cannot be selected
-    "select-none": true
+    "select-none": true,
+    // Width
+    "w-full": expanded
 }`)
   span.icon.inline-block(v-if="iconLeft")
     i(:class="iconLeft")

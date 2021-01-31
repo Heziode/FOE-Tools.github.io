@@ -640,12 +640,13 @@ export default {
       },
       variants: {
         extend: {
+          margin: ["first"],
           borderRadius: ["responsive", "first", "last", "hover", "focus"],
           borderWidth: ["responsive", "first", "last", "hover", "focus"],
           backgroundOpacity: ["dark"],
         },
       },
-      plugins: [],
+      plugins: [require("@tailwindcss/forms")],
       purge: {
         keyframes: true,
         enabled: process.env.NODE_ENV === "production",

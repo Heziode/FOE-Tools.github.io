@@ -7,52 +7,38 @@ const nightStartMinutes = 30;
 export default {
   data() {
     const regexTime = /([0-9]{2}):([0-9]{2})/;
-    const cookieDayStart = this.$store.get("global/dayStart");
-    const cookieNightStart = this.$store.get("global/nightStart");
+    let storeDayStart = this.$store.get("global/dayStart");
+    let storeNightStart = this.$store.get("global/nightStart");
 
     const dS = new Date();
-    if (cookieDayStart && regexTime.test(cookieDayStart)) {
-      const match = regexTime.exec(cookieDayStart);
-      dS.setHours(parseInt(match[1]));
-      dS.setMinutes(parseInt(match[2]));
-    } else {
+    if (!storeDayStart || !regexTime.test(storeDayStart)) {
       dS.setHours(dayStartHour);
       dS.setMinutes(dayStartMinutes);
 
       this.$store.set("global/dayStart", this.$moment(dS).format("HH:mm"));
+      storeDayStart = this.$store.get("global/dayStart");
     }
 
     const nS = new Date();
-    if (cookieNightStart && regexTime.test(cookieNightStart)) {
-      const match = regexTime.exec(cookieNightStart);
-      nS.setHours(parseInt(match[1]));
-      nS.setMinutes(parseInt(match[2]));
-    } else {
+    if (!storeNightStart || !regexTime.test(storeNightStart)) {
       nS.setHours(nightStartHour);
       nS.setMinutes(nightStartMinutes);
       this.$store.set("global/nightStart", this.$moment(nS).format("HH:mm"));
+      storeNightStart = this.$store.get("global/nightStart");
     }
 
     return {
       i18nPrefix,
-      dayStart: dS,
-      nightStart: nS,
+      dayStart: storeDayStart,
+      nightStart: storeNightStart,
     };
-  },
-  computed: {
-    defaultDayStart: /* istanbul ignore next */ function () {
-      return this.$moment().hour(8).minute(0).toDate();
-    },
-    defaultNightStart: /* istanbul ignore next */ function () {
-      return this.$moment().hour(19).minute(30).toDate();
-    },
   },
   watch: {
     dayStart(val) {
-      this.$store.set("global/dayStart", this.$moment(val || this.defaultDayStart).format("HH:mm"));
+      this.$store.set("global/dayStart", val);
     },
     nightStart(val) {
-      this.$store.set("global/nightStart", this.$moment(val || this.defaultNightStart).format("HH:mm"));
+      this.$store.set("global/nightStart", val);
     },
   },
   methods: {

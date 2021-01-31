@@ -1,14 +1,11 @@
-b-field(:label-for="id")
-  template(v-if="!onlySelector" slot="label")
-    .media
-      span.media-content {{$t(i18nPrefix + 'label')}}
-      div.media-right
-        b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined)
-          span.icon
-            i.far.fa-question-circle
-        b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined position="is-left")
-          span.icon
-            i.far.fa-question-circle
+t-label(:label-for="id" :label="onlySelector ? '' : $t(i18nPrefix + 'label')")
+  template(#labelAfter v-if="!onlySelector")
+    b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined)
+      span.icon
+        i.far.fa-question-circle
+    b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined position="is-left")
+      span.icon
+        i.far.fa-question-circle
 
   b-autocomplete.autocomplete(
     v-if="gbSelectModeDatalist === 'datalist'"
@@ -22,14 +19,18 @@ b-field(:label-for="id")
     @focus.prevent="onFocus($event)"
     expanded)
 
-  b-field(v-else)
-    p.control
-      b-button(class="button is-dark" @click.prevent="$store.set('global/gbSelectSortMode', gbSelectSortMode === 'age' ? 'alpha' : 'age')")
-        span.icon(v-show="gbSelectSortMode === 'age'" style="margin: 0 !important")
-          i.far.fa-building
-        span.icon(v-show="gbSelectSortMode === 'alpha'" style="margin: 0 !important")
-          i.fas.fa-sort-alpha-down
-    b-select(v-model="selected" :id="id" :name="id" expanded)
+  template(v-else)
+    t-select(v-model="selected" :id="id" :name="id" :borderLeft="false" :roundedTopLeft="false" :roundedBottomLeft="false")
+      template(#before)
+        t-button(
+          @click.prevent="$store.set('global/gbSelectSortMode', gbSelectSortMode === 'age' ? 'alpha' : 'age')"
+          :borderRight="false"
+          :roundedTopRight="false"
+          :roundedBottomRight="false")
+          span.icon.inline-block(v-show="gbSelectSortMode === 'age'" style="margin: 0 !important")
+            i.far.fa-building
+          span.icon.inline-block(v-show="gbSelectSortMode === 'alpha'")
+            i.fas.fa-sort-alpha-down
       optgroup(v-if="bookmarks.length" :label="$t('utils.favourites')")
         option(v-for="gb in bookmarks" :value="gb.params.gb") {{$t('foe_data.gb.' + gb.params.gb)}}
       template(v-if="gbSelectSortMode === 'age'")

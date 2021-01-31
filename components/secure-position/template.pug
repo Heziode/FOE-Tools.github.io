@@ -49,7 +49,7 @@ div.content
       div.column.is-half
         t-label(:label="$t(i18nPrefix + 'block_place.target_reward')" label-for="fpTargetReward" :type="haveError('fpTargetReward')")
       div.column.is-half
-        b-select#fpTargetReward(v-model="fpTargetReward" name="fp-target-reward" expanded)
+        t-select#fpTargetReward(v-model="fpTargetReward" name="fp-target-reward")
           option(v-for="(place, i) in levelData.investment" :value="place.reward" :key="i" :id="'option_' + i" autocomplete="off") {{$tc(i18nPrefix + 'block_place.place', place.reward, { place: i + 1, count: $n(place.reward) })}}
     template(v-else)
       div.column.is-half

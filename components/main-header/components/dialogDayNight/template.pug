@@ -1,5 +1,6 @@
-div
-  b-field(:label="$t('components.site_layout.day_night.start_day')")
-    b-timepicker(v-model="dayStart" inline)
-  b-field(:label="$t('components.site_layout.day_night.start_night')")
-    b-timepicker(v-model="nightStart" inline)
+div.mt-2
+  t-label(:label="$t('components.site_layout.day_night.start_day')")
+    t-input(type="time" v-model="dayStart")
+  .mt-2
+  t-label(:label="$t('components.site_layout.day_night.start_night')")
+    t-input(type="time" v-model="nightStart")

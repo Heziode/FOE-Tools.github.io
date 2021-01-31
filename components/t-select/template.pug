@@ -1,0 +1,35 @@
+div.flex
+  slot(name="before")
+  select(v-model="newValue" :id="id" :class=`{
+    // Background
+    "bg-white dark:bg-blueGray-800": true,
+    // Default borders
+    "border-t": borderTop,
+    "border-b": borderBottom,
+    "border-l": borderLeft,
+    "border-r": borderRight,
+    "border-gray-300 dark:border-gray-600 focus:border-gray-300 dark:focus:border-gray-600": true,
+    // Pointer
+    "cursor-pointer": true,
+    // Disabled
+    "disabled:opacity-50 disabled:cursor-not-allowed": true,
+    // Animation
+    "duration-100 ease-in-out transition": true,
+    // Focus
+    "focus:border-transparent focus:ring focus:ring-blue-500 focus:outline-none focus:ring-opacity-50": true,
+    // Display
+    "inline-flex": true,
+    // Padding
+    "pl-3 pr-10 py-2": true,
+    // Text
+    "placeholder-gray-400 text-gray-700 dark:text-gray-300": true,
+    // Rounded borders
+    "rounded-tl": roundedTopLeft,
+    "rounded-tr": roundedTopRight,
+    "rounded-bl": roundedBottomLeft,
+    "rounded-br": roundedBottomRight,
+    // Width
+    "w-full": true,
+  }`)
+    slot
+  slot(name="after")

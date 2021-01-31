@@ -61,9 +61,8 @@ div.content#gbiContent
       // Investor participation
       div.column(v-if="investorParticipation.length > 0")
         t-label(:label="$t(i18nPrefix + 'gb_investment.form.investors_list')")
-        b-field(grouped group-multiline)
-          div.control(v-for="(investor,index) in investorParticipation")
-            b-tag(:type="isNaN(investor.value) ? 'is-danger' : 'is-primary'" attached closable @close="removeInvestor(index)" size="is-medium") {{investor.value}}
+        .flex.flex-wrap.justify-start.flex-row.space-x-3
+          t-tag.mt-3(v-for="(investor,index) in investorParticipation" :type="isNaN(investor.value) ? 'danger' : 'info'" attached closable @close="removeInvestor(index)" size="is-medium") {{investor.value}}
 
     div.columns(style="margin-top:0.5rem !important;")
       div.column.is-half
@@ -181,12 +180,13 @@ div.content#gbiContent
             td
               numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i]" :name="'investorPercentageCustom_' + i")
             // Potential sniper switch
-            td(v-show="investorParticipation.length > 0 || tutoMode")
+            td(v-show="investorParticipation.length > 0 || tutoMode" style="text-align: center; vertical-align: middle;")
               template(v-if="place.defaultParticipationIndex >= 0")
-                b-switch(:value="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)") {{investorParticipation[place.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
+                t-checkbox(v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)")
             // Place free
-            td
-              b-switch(:value="placeFree[i].state" type="is-info" @input="changePlaceFree(i, $event)") {{placeFree[i].state ? $t('utils.Yes') : $t('utils.No')}}
+            td(style="text-align: center; vertical-align: middle;")
+              t-label
+                t-checkbox(v-model="placeFree[i].state" @input="changePlaceFree(i, $event)")
 
           template(v-if="(result.otherInvestment.length && showExtraInvestors) || tutoMode")
             tr(v-for="(place, i) in result.otherInvestment")
@@ -205,8 +205,8 @@ div.content#gbiContent
                       | )
               td(:colspan="nbColumns-7")
               // Potential sniper switch
-              td
-                b-switch(:value="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)") {{investorParticipation[place.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
+              td(style="text-align: center; vertical-align: middle;")
+                t-checkbox(v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)")
               td
 
         tfoot
@@ -336,12 +336,12 @@ div.content#gbiContent
                 template(v-if="props.defaultParticipationIndex >= 0")
                   th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
                   td
-                    b-switch(:value="investorParticipation[props.defaultParticipationIndex].isPotentialSniper" type="is-info" @input="changeIsPotentialSniper(props.defaultParticipationIndex, $event)") {{investorParticipation[props.defaultParticipationIndex].isPotentialSniper ? $t('utils.Yes') : $t('utils.No')}}
+                    t-checkbox(v-model="investorParticipation[props.defaultParticipationIndex].isPotentialSniper" @input="changeIsPotentialSniper(props.defaultParticipationIndex, $event)")
               // Place free
               tr.tableDataIncludeInCopyBoxes.last-in-card(v-if="index < result.investment.length")
                 th {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th6') }}
                 td
-                  b-switch(:value="placeFree[index].state" type="is-info" @input="changePlaceFree(index, $event)") {{placeFree[index].state ? $t('utils.Yes') : $t('utils.No')}}
+                  t-checkbox(v-model="placeFree[index].state" @input="changePlaceFree(index, $event)")
 
           tfoot
             tr
@@ -452,7 +452,6 @@ div.content#gbiContent
                           v-clipboard="value.message"
                           @success="successCopy(i)"
                           :title="$t('utils.Copy')"
-                          :disabled="maxInvestment <= 0"
                           iconLeft="far fa-copy"
                           :borderLeft="false"
                           :roundedTopLeft="false"
@@ -460,18 +459,21 @@ div.content#gbiContent
 
           div.columns
             div.column
-              b-field#pmAddMessage
-                b-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" expanded)
+              #pmAddMessage
+                t-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" :roundedTopRight="false" :roundedBottomRight="false")
                   optgroup(:label="$t('components.promotion_message_builder.templates.default')")
                     option(v-for="template in defaultPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
                   optgroup(v-if="customPromotionMessagesTemplates.length" :label="$t('components.promotion_message_builder.templates.custom')")
                     option(v-for="template in customPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
 
-                p.control
-                  button.button.is-info(:title="$t('utils.Add')" @click="addPromotionMessageTemplate" :disabled="maxInvestment <= 0")
-                    span.icon
-                      i.fas.fa-plus
-                    | &nbsp;&nbsp;{{$t('utils.Add')}}
+                  template(#after)
+                    t-button(
+                      :title="$t('utils.Add')"
+                      @click="addPromotionMessageTemplate"
+                      iconLeft="fas fa-plus"
+                      :borderLeft="false"
+                      :roundedTopLeft="false"
+                      :roundedBottomLeft="false" type="info") {{$t('utils.Add')}}
 
         b-tab-item(:label="$t('components.import_promotion_message.title')")
           ImportPromotionMessage
