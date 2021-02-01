@@ -931,9 +931,17 @@ export default {
         Utils.handlerForm(this, "addInvestors", !val || val.length === 0 ? 0 : val, 0, [1, this.maxInvestment]) ===
         Utils.FormCheck.VALID
       ) {
+        const isPotentialSniper = !this.$data.result.investment
+          // First, we select only free place
+          .filter((elt) => !elt.isInvestorParticipation)
+          // Then, we extract the expected participation
+          .map((elt) => elt.expectedParticipation)
+          // Finally, we check if the added investor match a value.
+          // If the result is True, then the added investor is probably not a sniper
+          .includes(val);
         this.$data.investorParticipation.push({
           value: val,
-          isPotentialSniper: true,
+          isPotentialSniper,
         });
         // Not efficient, but small array
         /* istanbul ignore next */
