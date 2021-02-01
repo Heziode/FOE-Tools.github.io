@@ -62,7 +62,7 @@ div.content#gbiContent
       div.column(v-if="investorParticipation.length > 0")
         t-label(:label="$t(i18nPrefix + 'gb_investment.form.investors_list')")
         .flex.flex-wrap.justify-start.flex-row.space-x-3
-          t-tag.mt-3(v-for="(investor,index) in investorParticipation" :type="isNaN(investor.value) ? 'danger' : 'info'" attached closable @close="removeInvestor(index)" size="is-medium") {{investor.value}}
+          t-tag.mt-3(v-for="(investor,index) in investorParticipation" :type="isNaN(investor.value) ? 'danger' : 'info'" attached closable @close="removeInvestor(index)" :key="index" size="is-medium") {{investor.value}}
 
     div.columns(style="margin-top:0.5rem !important;")
       div.column.is-half
