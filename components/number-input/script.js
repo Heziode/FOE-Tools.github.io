@@ -12,7 +12,7 @@ import {
   TNumberInputField,
   TNumberIncrementStepper,
   TNumberDecrementStepper,
-} from "~/components/tailwind-input/TNumberInput";
+} from "~/components/tailwind-comps/TNumberInput";
 
 extend("between", between);
 

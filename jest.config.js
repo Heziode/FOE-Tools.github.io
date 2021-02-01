@@ -35,7 +35,7 @@ module.exports = {
     "!**/components/sortable-list/**",
     "!**/components/t-button/**",
     "!**/components/t-label/**",
-    "!**/components/tailwind-input/**",
+    "!**/components/tailwind-comps/**",
     "!**/components/cookie-consent/**",
     "!**/components/show-bookmarks/**",
     "!**/modules/**",

@@ -1,7 +1,7 @@
 import Vue from "vue";
 import TButton from "~/components/t-button/TButton";
 import TCheckbox from "~/components/t-checkbox/TCheckbox";
-import TInput from "~/components/tailwind-input/TInput/wrapper/TInput";
+import TInput from "~/components/tailwind-comps/TInput/wrapper/TInput";
 import TSelect from "~/components/t-select/TSelect";
 import TLabel from "~/components/t-label/TLabel";
 
