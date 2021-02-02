@@ -1,12 +1,15 @@
-b-tabs(v-model="tab" type="is-toggle" expanded)
-  b-tab-item(:label="$t(i18nPrefix + 'tab.trade_2_1.title')")
-    h3.title.is-3 {{$t(i18nPrefix + 'tab.trade_2_1.title')}}
-    p {{$t(i18nPrefix + 'tab.trade_2_1.message')}}
-    complex-trade(:trade-input="{ age: true, value: simpleTradeArray, type: TradeArrayType.SIMPLE }")
-    simple-trade(:trade-array="simpleTradeArray")
-
-  b-tab-item(:label="$t(i18nPrefix + 'tab.fair_trade.title')")
-    h3.title.is-3 {{$t(i18nPrefix + 'tab.fair_trade.title')}}
-    p {{$t(i18nPrefix + 'tab.fair_trade.message')}}
-    complex-trade(:trade-input="{ age: true, value: fairTradeArray, type: TradeArrayType.FAIR }")
-    simple-trade(:trade-array="fairTradeArray")
+t-tabs(v-model="tab")
+  t-tab-list
+    t-tab {{$t(i18nPrefix + 'tab.trade_2_1.title')}}
+    t-tab {{$t(i18nPrefix + 'tab.fair_trade.title')}}
+  t-tab-panels
+    t-tab-panel
+      h3.title.is-3 {{$t(i18nPrefix + 'tab.trade_2_1.title')}}
+      p {{$t(i18nPrefix + 'tab.trade_2_1.message')}}
+      complex-trade(:trade-input="{ age: true, value: simpleTradeArray, type: TradeArrayType.SIMPLE }")
+      simple-trade(:trade-array="simpleTradeArray")
+    t-tab-panel
+      h3.title.is-3 {{$t(i18nPrefix + 'tab.fair_trade.title')}}
+      p {{$t(i18nPrefix + 'tab.fair_trade.message')}}
+      complex-trade(:trade-input="{ age: true, value: fairTradeArray, type: TradeArrayType.FAIR }")
+      simple-trade(:trade-array="fairTradeArray")

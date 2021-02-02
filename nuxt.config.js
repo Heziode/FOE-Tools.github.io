@@ -3,6 +3,7 @@ import Vue from "vue";
 import VueI18n from "vue-i18n";
 import { bestFacebookLocaleFor } from "facebook-locales";
 import colors from "tailwindcss/colors";
+import tailwindConf from "tailwindcss/defaultConfig";
 import { gbs } from "./lib/foe-data/gbs";
 import { defaultLocale, supportedLocales } from "./scripts/locales";
 
@@ -637,6 +638,10 @@ export default {
         colors: {
           ...colors,
         },
+        minHeight: {
+          ...tailwindConf.theme.minHeight,
+          8: "2rem",
+        },
       },
       variants: {
         extend: {
@@ -704,7 +709,6 @@ export default {
       /select/,
       /switch/,
       /modal/,
-      /b-tabs/,
       /autocomplete/,
       /dropdown/,
       /progress.*/,

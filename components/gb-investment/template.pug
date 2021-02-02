@@ -370,115 +370,117 @@ div.content#gbiContent
                 p.level-right {{$n(result.cost)}}
 
     div#giPromotionMessage
-      h4.title.is-4.margin-top-one-em(v-if="result !== null") {{$t($data.i18nPrefix + 'promotion.title')}}
+      t-tabs#giPromotionMessageTab(v-model="promotionMessageTab")
+        t-tab-list
+          t-tab {{$t(i18nPrefix + 'promotion.title')}}
+          t-tab {{$t('components.import_promotion_message.title')}}
+          t-tab {{$t('components.promotion_message_builder.title')}}
+        t-tab-panels
+          t-tab-panel
+            div.columns
+              div.column.is-half#pmPrefix
+                t-label(:label="$t('utils.Prefix')" label-for="giPrefix")
+                t-input(inputId="giPrefix" type="text" v-model.trim="prefix" name="prefix" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')")
+                  template(#after)
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
+                      t-button(
+                        :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')"
+                        @click="switchPrefix"
+                        :borderLeft="false"
+                        :roundedTopLeft="false"
+                        :roundedBottomLeft="false")
+                        span.icon.inline-block(v-show="showPrefix")
+                          i.fas.fa-eye
+                        span.icon.inline-block(v-show="!showPrefix")
+                          i.fas.fa-eye-slash
 
-      b-tabs#giPromotionMessageTab(v-model="promotionMessageTab" expanded)
-        b-tab-item(:label="$t($data.i18nPrefix + 'promotion.title')")
-          div.columns
-            div.column.is-half#pmPrefix
-              t-label(:label="$t('utils.Prefix')" label-for="giPrefix")
-              t-input(inputId="giPrefix" type="text" v-model.trim="prefix" name="prefix" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')")
-                template(#after)
-                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showPrefix ? $t('utils.Hide') : $t('utils.Show')")
-                    t-button(
-                      :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')"
-                      @click="switchPrefix"
-                      :borderLeft="false"
-                      :roundedTopLeft="false"
-                      :roundedBottomLeft="false")
-                      span.icon.inline-block(v-show="showPrefix")
-                        i.fas.fa-eye
-                      span.icon.inline-block(v-show="!showPrefix")
-                        i.fas.fa-eye-slash
+              div.column.is-half#pmSuffix
+                t-label(:label="$t('utils.Suffix')" label-for="giSuffix")
+                t-input(inputId="giSuffix" type="text" v-model.trim="suffix" name="suffix" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')")
+                  template(#after)
+                    b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
+                      t-button(
+                        :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')"
+                        @click="switchSuffix"
+                        :borderLeft="false"
+                        :roundedTopLeft="false"
+                        :roundedBottomLeft="false")
+                        span.icon.inline-block(v-show="showSuffix")
+                          i.fas.fa-eye
+                        span.icon.inline-block(v-show="!showSuffix")
+                          i.fas.fa-eye-slash
 
-            div.column.is-half#pmSuffix
-              t-label(:label="$t('utils.Suffix')" label-for="giSuffix")
-              t-input(inputId="giSuffix" type="text" v-model.trim="suffix" name="suffix" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')")
-                template(#after)
-                  b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="showSuffix ? $t('utils.Hide') : $t('utils.Show')")
-                    t-button(
-                      :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')"
-                      @click="switchSuffix"
-                      :borderLeft="false"
-                      :roundedTopLeft="false"
-                      :roundedBottomLeft="false")
-                      span.icon.inline-block(v-show="showSuffix")
-                        i.fas.fa-eye
-                      span.icon.inline-block(v-show="!showSuffix")
-                        i.fas.fa-eye-slash
+            .grid.grid-cols-1.mb-8(class="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4")
+              yes-no(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
+              yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
+              yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
+              yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
 
-          .grid.grid-cols-1.mb-8(class="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4")
-            yes-no(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
-            yes-no(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
-            yes-no(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
-            yes-no(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
-
-          div(v-if="result !== null")
-            template(v-for="(value, i) in promotion")
-              // Show custom fields
-              template(v-if="promotionMessageList[promotionMessageList.map(val => val.name).indexOf(value.name)].config.customFields")
-                div.columns(v-for="(line, index) in getSplittedCustomFields(value.name)")
-                  div.column.is-half(v-for="(elt, index) in line")
-                    t-label.custom_field(:label="elt.key" :label-for="'custom_field_' + elt.key")
-                    t-input(:inputId="'custom_field_' + elt.key" type="text" :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key")
-                      template(#after)
-                        b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
+            div(v-if="result !== null")
+              template(v-for="(value, i) in promotion")
+                // Show custom fields
+                template(v-if="promotionMessageList[promotionMessageList.map(val => val.name).indexOf(value.name)].config.customFields")
+                  div.columns(v-for="(line, index) in getSplittedCustomFields(value.name)")
+                    div.column.is-half(v-for="(elt, index) in line")
+                      t-label.custom_field(:label="elt.key" :label-for="'custom_field_' + elt.key")
+                      t-input(:inputId="'custom_field_' + elt.key" type="text" :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key")
+                        template(#after)
+                          b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')")
+                            t-button(
+                              :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')"
+                              @click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show"
+                              :borderLeft="false"
+                              :roundedTopLeft="false"
+                              :roundedBottomLeft="false")
+                              span.icon.inline-block(v-show="promotionMessageList[i].config.customFields[elt.key].show")
+                                i.fas.fa-eye
+                              span.icon.inline-block(v-show="!promotionMessageList[i].config.customFields[elt.key].show")
+                                i.fas.fa-eye-slash
+                // Show value
+                div.columns
+                  div.column
+                    t-input(:as="nbMultiLine(value.message) ? 'textarea' : 'input'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : undefined" :value="value.message" isReadOnly)
+                      template(#before)
+                        b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
                           t-button(
-                            :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')"
-                            @click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show"
+                            :title="$t('utils.Remove')"
+                            @click="removePromotionMessage(i)"
+                            iconLeft="fas fa-trash"
+                            :borderRight="false"
+                            :roundedTopRight="false"
+                            :roundedBottomRight="false" type="danger")
+                      template(#after)
+                        b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
+                          t-button(
+                            v-clipboard="value.message"
+                            @success="successCopy(i)"
+                            :title="$t('utils.Copy')"
+                            iconLeft="far fa-copy"
                             :borderLeft="false"
                             :roundedTopLeft="false"
                             :roundedBottomLeft="false")
-                            span.icon.inline-block(v-show="promotionMessageList[i].config.customFields[elt.key].show")
-                              i.fas.fa-eye
-                            span.icon.inline-block(v-show="!promotionMessageList[i].config.customFields[elt.key].show")
-                              i.fas.fa-eye-slash
-              // Show value
-              div.columns
-                div.column
-                  t-input(:as="nbMultiLine(value.message) ? 'textarea' : 'input'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : undefined" :value="value.message" isReadOnly)
-                    template(#before)
-                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
-                        t-button(
-                          :title="$t('utils.Remove')"
-                          @click="removePromotionMessage(i)"
-                          iconLeft="fas fa-trash"
-                          :borderRight="false"
-                          :roundedTopRight="false"
-                          :roundedBottomRight="false" type="danger")
+
+            div.columns
+              div.column
+                #pmAddMessage
+                  t-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" :roundedTopRight="false" :roundedBottomRight="false")
+                    optgroup(:label="$t('components.promotion_message_builder.templates.default')")
+                      option(v-for="template in defaultPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
+                    optgroup(v-if="customPromotionMessagesTemplates.length" :label="$t('components.promotion_message_builder.templates.custom')")
+                      option(v-for="template in customPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
+
                     template(#after)
-                      b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="value.active" always)
-                        t-button(
-                          v-clipboard="value.message"
-                          @success="successCopy(i)"
-                          :title="$t('utils.Copy')"
-                          iconLeft="far fa-copy"
-                          :borderLeft="false"
-                          :roundedTopLeft="false"
-                          :roundedBottomLeft="false")
-
-          div.columns
-            div.column
-              #pmAddMessage
-                t-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" :roundedTopRight="false" :roundedBottomRight="false")
-                  optgroup(:label="$t('components.promotion_message_builder.templates.default')")
-                    option(v-for="template in defaultPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
-                  optgroup(v-if="customPromotionMessagesTemplates.length" :label="$t('components.promotion_message_builder.templates.custom')")
-                    option(v-for="template in customPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
-
-                  template(#after)
-                    t-button(
-                      :title="$t('utils.Add')"
-                      @click="addPromotionMessageTemplate"
-                      iconLeft="fas fa-plus"
-                      :borderLeft="false"
-                      :roundedTopLeft="false"
-                      :roundedBottomLeft="false" type="info") {{$t('utils.Add')}}
-
-        b-tab-item(:label="$t('components.import_promotion_message.title')")
-          ImportPromotionMessage
-        b-tab-item(:label="$t('components.promotion_message_builder.title')")
-          PromotionMessageBuilder
+                      t-button(
+                        :title="$t('utils.Add')"
+                        @click="addPromotionMessageTemplate"
+                        iconLeft="fas fa-plus"
+                        :borderLeft="false"
+                        :roundedTopLeft="false"
+                        :roundedBottomLeft="false" type="info") {{$t('utils.Add')}}
+          t-tab-panel
+            ImportPromotionMessage
+          t-tab-panel
+            PromotionMessageBuilder
 
     div(v-if="result" style="margin-top: 2rem;")
       secure-position(:levelData="result" ns="gbi" :customYourArcBonus="getCustomArcBonus" :canCustomYourArcBonus="showSnipe" @customYourArcBonus="yourArcBonus = $event")
