@@ -92,7 +92,7 @@ div.content#gbiContent
             th.tableDataRewardsWithRate {{$t($data.i18nPrefix + 'gb_investment.table.thead.th4')}}
             th.tableDataNumberOfFPAlreadyIn(v-if="investorParticipationNormalizedSum || tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
             th.tableDataSpotSnipe(v-show="showSnipe|| tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')}}
-            th.tableDataPercentageInvestors {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
+            th.tableDataPercentageInvestors.min-w-48 {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
             th.tableDataIsSniper(v-show="investorParticipationNormalizedSum|| tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper')}}
             th.tableDataIncludeInCopyBoxes(width="100px") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th6')}}
         tbody

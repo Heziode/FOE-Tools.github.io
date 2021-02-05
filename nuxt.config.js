@@ -642,6 +642,10 @@ export default {
           ...tailwindConf.theme.minHeight,
           8: "2rem",
         },
+        minWidth: {
+          ...tailwindConf.theme.minWidth,
+          48: "12rem",
+        },
       },
       variants: {
         extend: {
