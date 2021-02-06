@@ -1,0 +1,53 @@
+/*
+ * Dropdown
+ */
+
+.t-dropdown-menu {
+  @apply absolute
+  block
+  left-0
+  min-w-48
+  pt-1
+  top-auto
+  w-full z-20;
+}
+
+.t-dropdown-content {
+  @apply bg-white
+  max-h-48
+  overflow-auto
+  py-2
+  rounded
+  shadow-lg;
+}
+
+.t-dropdown-item {
+  @apply block
+  disabled:cursor-not-allowed
+  disabled:opacity-50
+  hover:bg-gray-100
+  hover:text-black
+  overflow-ellipsis
+  overflow-x-hidden
+  px-4
+  py-1.5
+  relative
+  text-gray-700
+  whitespace-nowrap;
+
+  &.is-hovered {
+    @apply bg-gray-100 text-black;
+  }
+
+  &.is-disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+}
+
+a.t-dropdown-item {
+  color: theme("colors.gray.600") !important;
+
+  &.is-hovered, &:hover {
+    color: black !important;
+  }
+}

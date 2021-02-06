@@ -19,6 +19,6 @@ div.inline-flex.w-full.t-input(:class=`{
     :autoComplete="autoComplete"
     :maxlength="maxlength"
     :rows="rows"
-    @focus="inputFocused = true"
-    @blur="inputFocused = false")
+    @focus="focused"
+    @blur="onBlur")
   slot(name="after" v-bind:isInvalid="isInvalid" v-bind:isDisabled="isDisabled" v-bind:inputFocused="inputFocused")

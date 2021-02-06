@@ -7,7 +7,7 @@ t-label(:label-for="id" :label="onlySelector ? '' : $t(i18nPrefix + 'label')")
       span.icon
         i.far.fa-question-circle
 
-  b-autocomplete.autocomplete(
+  t-autocomplete(
     v-if="gbSelectModeDatalist === 'datalist'"
     v-model="name"
     :placeholder="$t('foe_data.gb.' + selected)"
@@ -17,7 +17,7 @@ t-label(:label-for="id" :label="onlySelector ? '' : $t(i18nPrefix + 'label')")
     field="text"
     @select="onSelect($event)"
     @focus.prevent="onFocus($event)"
-    expanded)
+    isFullWidth)
 
   template(v-else)
     t-select(v-model="selected" :id="id" :name="id" :borderLeft="false" :roundedTopLeft="false" :roundedBottomLeft="false")

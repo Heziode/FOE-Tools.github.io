@@ -40,6 +40,16 @@ export default {
       this.$emit("input", value);
     },
   },
+  methods: {
+    focused(...event) {
+      this.inputFocused = true;
+      this.$emit("focus", ...event);
+    },
+    onBlur(...event) {
+      this.inputFocused = false;
+      this.$emit("blur", ...event);
+    },
+  },
   components: {
     LegacyTNumberInput,
   },

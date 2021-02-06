@@ -559,6 +559,7 @@ export default {
   },
 
   css: [
+    "~assets/newStyle.scss",
     "~assets/theme/light/theme.scss",
     "~assets/theme/dark/theme.scss",
     "~assets/style.scss",
@@ -642,6 +643,10 @@ export default {
           ...tailwindConf.theme.minHeight,
           8: "2rem",
         },
+        maxHeight: {
+          ...tailwindConf.theme.maxHeight,
+          48: "12rem",
+        },
         minWidth: {
           ...tailwindConf.theme.minWidth,
           48: "12rem",
@@ -653,6 +658,8 @@ export default {
           borderRadius: ["responsive", "first", "last", "hover", "focus"],
           borderWidth: ["responsive", "first", "last", "hover", "focus"],
           backgroundOpacity: ["dark"],
+          opacity: ["disabled"],
+          cursor: ["disabled"],
         },
       },
       plugins: [require("@tailwindcss/forms")],
