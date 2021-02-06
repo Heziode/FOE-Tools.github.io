@@ -12,10 +12,11 @@ div.content
   div.has-text-centered
     .columns
       .column.is-three-fifths.is-offset-one-fifth
-        b-progress(v-for="elt in sortedLocales"
+        t-progress(v-for="elt in sortedLocales"
           :value="$store.get(`translationState@${elt}`)"
-          size="is-medium"
+          size="h-5"
+          text-size="leading-5 text-sm font-bold"
           :type="getType($store.get(`translationState@${elt}`))"
-          show-value :key="elt")
-            template(v-if="elt !== 'en'") {{$t('common.lang.' + elt.replace("_", "-") + '.en')}} ({{$t('common.lang.' + elt.replace("_", "-") + '.original')}}): {{$n($store.get(`translationState@${elt}`))}}
-            template(v-else) {{$t('common.lang.' + elt.replace("_", "-") + '.original')}}: {{$n($store.get(`translationState@${elt}`))}}
+          show-value :key=`elt + "-2"`)
+          template(v-if="elt !== 'en'") {{$t('common.lang.' + elt.replace("_", "-") + '.en')}} ({{$t('common.lang.' + elt.replace("_", "-") + '.original')}}): {{$n($store.get(`translationState@${elt}`))}}
+          template(v-else) {{$t('common.lang.' + elt.replace("_", "-") + '.original')}}: {{$n($store.get(`translationState@${elt}`))}}

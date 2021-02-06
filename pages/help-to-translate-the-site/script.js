@@ -1,3 +1,5 @@
+import TProgress from "~/components/t-progress/TProgress";
+
 const i18nPrefix = "routes.help_to_translate_the_site.";
 
 export default {
@@ -47,5 +49,8 @@ export default {
         return "is-danger";
       }
     },
+  },
+  components: {
+    TProgress,
   },
 };

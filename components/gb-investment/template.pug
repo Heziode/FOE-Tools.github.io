@@ -83,8 +83,13 @@ div.content#gbiContent
               p {{$t($data.i18nPrefix + 'gb_investment.table.title', {gb_key: $t('foe_data.gb.' + gb.key), level: result.level, fromLevel: (result.level - 1)})}}
           tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
             th.has-text-centered(:colspan="tutoMode ? maxColumns : nbColumns")
-              progress.progress.is-success(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized" :max="result.cost" style="margin-bottom: 0;")
-              p {{$n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost)}} ({{$n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
+              t-progress(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized"
+                :max="result.cost" style="margin-bottom: 0;"
+                size="h-5"
+                text-size="leading-5 text-sm font-bold"
+                type="is-success"
+                show-value)
+                | {{$n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost)}} ({{$n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
           tr
             th.tableDataPlace {{$t($data.i18nPrefix + 'gb_investment.table.thead.th1')}}
             th.tableDataDefaultRewards {{$t($data.i18nPrefix + 'gb_investment.table.thead.th2')}}
@@ -248,8 +253,13 @@ div.content#gbiContent
                 p {{$t($data.i18nPrefix + 'gb_investment.table.title', {gb_key: $t('foe_data.gb.' + gb.key), level: result.level, fromLevel: (result.level - 1)})}}
             tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
               th.has-text-centered(:colspan=2)
-                progress.progress.is-success(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized" :max="result.cost" style="margin-bottom: 0;")
-                p {{$n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost)}} ({{$n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
+                t-progress(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized"
+                  :max="result.cost" style="margin-bottom: 0;"
+                  size="h-5"
+                  text-size="leading-5 text-sm font-bold"
+                  type="is-success"
+                  show-value)
+                  | {{$n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost)}} ({{$n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
           // Table content
           tbody
             template(v-for="(props, index) in result.investment.concat(showExtraInvestors ? result.otherInvestment : [])")

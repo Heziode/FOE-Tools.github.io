@@ -13,6 +13,7 @@ import PromotionMessageBuilder from "~/components/promotion-message-builder/Prom
 import ImportPromotionMessage from "~/components/import-promotion-message/ImportPromotionMessage";
 import { defaultPromotionMessages, buildMessage } from "~/scripts/promotion-message-builder";
 import { getVideoTag, formatTuto } from "~/scripts/tutorial";
+import TProgress from "~/components/t-progress/TProgress";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -1476,5 +1477,6 @@ export default {
     ImportPromotionMessage,
     ContentLoader,
     TTag,
+    TProgress,
   },
 };

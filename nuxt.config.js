@@ -654,7 +654,7 @@ export default {
       },
       variants: {
         extend: {
-          margin: ["first"],
+          margin: ["first", "last"],
           borderRadius: ["responsive", "first", "last", "hover", "focus"],
           borderWidth: ["responsive", "first", "last", "hover", "focus"],
           backgroundOpacity: ["dark"],

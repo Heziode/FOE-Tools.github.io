@@ -67,3 +67,101 @@ a.t-dropdown-item {
 
   border-top-color: theme("colors.blue.400");
 }
+
+/*
+ * Progress
+ */
+
+.t-progress-wrapper {
+  @apply overflow-hidden relative mb-6 last:mb-0;
+
+  .t-progress-value {
+    @apply absolute top-0 left-1/2 transform -translate-x-1/2 whitespace-nowrap;
+  }
+}
+
+.t-progress {
+  @apply block border-none overflow-hidden p-0 rounded-full w-full;
+  -webkit-appearance: none;
+}
+
+.t-progress::-webkit-progress-bar, .t-progress-wrapper.is-not-native::-webkit-progress-bar {
+  background-color: theme("colors.gray.100");
+}
+
+.t-progress::-webkit-progress-value, .t-progress-wrapper.is-not-native::-webkit-progress-value {
+  @apply bg-trueGray-600;
+}
+
+.t-progress::-moz-progress-bar, .t-progress-wrapper.is-not-native::-moz-progress-bar {
+  @apply bg-trueGray-600;
+}
+
+.t-progress::-ms-fill, .t-progress-wrapper.is-not-native::-ms-fill {
+  @apply bg-trueGray-600;
+  border: none;
+}
+
+.t-progress.is-success::-webkit-progress-value, .is-success.t-progress-wrapper.is-not-native::-webkit-progress-value {
+  @apply bg-green-500;
+}
+
+.t-progress.is-success::-moz-progress-bar, .is-success.t-progress-wrapper.is-not-native::-moz-progress-bar {
+  @apply bg-green-500;
+}
+
+.t-progress.is-success::-ms-fill, .is-success.t-progress-wrapper.is-not-native::-ms-fill {
+  @apply bg-green-500;
+}
+
+.t-progress.is-success:indeterminate, .is-success.t-progress-wrapper.is-not-native:indeterminate {
+  background-image: linear-gradient(to right, theme("colors.green.500") 30%, theme("colors.gray.100") 30%);
+}
+
+.t-progress.is-info::-webkit-progress-value, .is-info.t-progress-wrapper.is-not-native::-webkit-progress-value {
+  @apply bg-blue-500;
+}
+
+.t-progress.is-info::-moz-progress-bar, .is-info.t-progress-wrapper.is-not-native::-moz-progress-bar {
+  @apply bg-blue-500;
+}
+
+.t-progress.is-info::-ms-fill, .is-info.t-progress-wrapper.is-not-native::-ms-fill {
+  @apply bg-blue-500;
+}
+
+.t-progress.is-info:indeterminate, .is-info.t-progress-wrapper.is-not-native:indeterminate {
+  background-image: linear-gradient(to right, theme("colors.blue.500") 30%, theme("colors.gray.100") 30%);
+}
+
+.t-progress.is-danger::-webkit-progress-value, .is-danger.t-progress-wrapper.is-not-native::-webkit-progress-value {
+  @apply bg-red-500;
+}
+
+.t-progress.is-danger::-moz-progress-bar, .is-danger.t-progress-wrapper.is-not-native::-moz-progress-bar {
+  @apply bg-red-500;
+}
+
+.t-progress.is-danger::-ms-fill, .is-danger.t-progress-wrapper.is-not-native::-ms-fill {
+  @apply bg-red-500;
+}
+
+.t-progress.is-danger:indeterminate, .is-danger.t-progress-wrapper.is-not-native:indeterminate {
+  background-image: linear-gradient(to right, theme("colors.red.500") 30%, theme("colors.gray.100") 30%);
+}
+
+.t-progress.is-warning::-webkit-progress-value, .is-warning.t-progress-wrapper.is-not-native::-webkit-progress-value {
+  @apply bg-yellow-400;
+}
+
+.t-progress.is-warning::-moz-progress-bar, .is-warning.t-progress-wrapper.is-not-native::-moz-progress-bar {
+  @apply bg-yellow-400;
+}
+
+.t-progress.is-warning::-ms-fill, .is-warning.t-progress-wrapper.is-not-native::-ms-fill {
+  @apply bg-yellow-400;
+}
+
+.t-progress.is-warning:indeterminate, .is-warning.t-progress-wrapper.is-not-native:indeterminate {
+  background-image: linear-gradient(to right, theme("colors.yellow.400") 30%, theme("colors.gray.100") 30%);
+}
