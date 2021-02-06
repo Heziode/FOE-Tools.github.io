@@ -1,4 +1,5 @@
 import Remark from "~/components/remark/Remark";
+import TLoading from "~/components/t-loading/TLoading";
 
 const i18nPrefix = "routes.changelog.";
 
@@ -28,5 +29,6 @@ export default {
   },
   components: {
     Remark,
+    TLoading,
   },
 };

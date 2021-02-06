@@ -2,6 +2,7 @@ import VueHcaptcha from "@hcaptcha/vue-hcaptcha";
 import Utils from "~/scripts/utils";
 import SortableItem from "~/components/sortable-item/SortableItem";
 import SortableList from "~/components/sortable-list/SortableList";
+import TLoading from "~/components/t-loading/TLoading";
 
 const i18nPrefix = "routes.survey.";
 
@@ -233,5 +234,6 @@ export default {
     VueHcaptcha,
     SortableItem,
     SortableList,
+    TLoading,
   },
 };

@@ -51,3 +51,19 @@ a.t-dropdown-item {
     color: black !important;
   }
 }
+
+/*
+ * Loader
+ */
+
+.loader {
+  @apply animate-spin
+  border-8
+  border-gray-200
+  border-solid
+  h-24
+  rounded-full
+  w-24;
+
+  border-top-color: theme("colors.blue.400");
+}

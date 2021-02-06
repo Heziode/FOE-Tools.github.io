@@ -1,5 +1,5 @@
 div#surveyContainer
-  b-loading(:is-full-page="false" :active.sync="loading")
+  t-loading(v-if="loading")
   form(v-if="dataInitialized" ref="formSurvey" @submit.prevent="onSubmit")
     section.margin-top-two-em(v-for="(question, index) of survey")
       div(v-if="question.type === 'html'" v-html="getSurveyLocal(question.html)")
