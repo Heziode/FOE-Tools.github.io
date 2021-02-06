@@ -186,7 +186,6 @@ const TTabs = {
       {
         class: [this.className],
         attrs: this.computedAttrs,
-        on: this.computedListeners,
       },
       this.$slots.default
     );
