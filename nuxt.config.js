@@ -485,6 +485,7 @@ export default {
     { src: "~/plugins/clone.js" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/clipboard.js" },
+    { src: "~/plugins/tooltip.js" },
     { src: "~/plugins/moment.js" },
     { src: "~/plugins/cookieConsent.js" },
     { src: "~/plugins/fontawesome.js" },

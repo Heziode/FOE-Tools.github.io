@@ -165,3 +165,59 @@ a.t-dropdown-item {
 .t-progress.is-warning:indeterminate, .is-warning.t-progress-wrapper.is-not-native:indeterminate {
   background-image: linear-gradient(to right, theme("colors.yellow.400") 30%, theme("colors.gray.100") 30%);
 }
+
+/*
+ * Tooltip
+ */
+
+.tippy-tooltip.custom-theme {
+  @apply bg-gray-800 dark:bg-gray-200 dark:text-black text-white shadow-lg;
+}
+
+.tippy-tooltip.custom-theme[x-placement^=top] .tippy-arrow {
+  @apply border-t-8 border-l-8 border-r-8 border-solid;
+  border-top-color: theme("colors.gray.800");
+}
+
+.dark .tippy-tooltip.custom-theme[x-placement^=top] .tippy-arrow {
+  border-top-color: white;
+}
+
+.tippy-tooltip.custom-theme[x-placement^=bottom] .tippy-arrow {
+  @apply border-b-8 border-l-8 border-r-8 border-solid;
+  border-bottom-color: theme("colors.gray.800");
+}
+
+.dark .tippy-tooltip.custom-theme[x-placement^=bottom] .tippy-arrow {
+  border-bottom-color: white;
+}
+
+.tippy-tooltip.custom-theme[x-placement^=left] .tippy-arrow {
+  @apply border-t-8 border-l-8 border-b-8 border-solid;
+  border-left-color: theme("colors.gray.800");
+}
+
+.dark .tippy-tooltip.custom-theme[x-placement^=left] .tippy-arrow {
+  border-left-color: white;
+}
+
+.tippy-tooltip.custom-theme[x-placement^=right] .tippy-arrow {
+  @apply border-t-8 border-b-8 border-r-8 border-solid;
+  border-right-color: theme("colors.gray.800");
+}
+
+.dark .tippy-tooltip.custom-theme[x-placement^=right] .tippy-arrow {
+  border-right-color: white;
+}
+
+.tippy-tooltip.custom-theme .tippy-backdrop {
+  @apply dark:bg-white bg-gray-800;
+}
+
+.tippy-tooltip.custom-theme .tippy-roundarrow {
+  @apply fill-current dark:text-white text-gray-800;
+}
+
+.tippy-tooltip.custom-theme[data-animatefill] {
+  @apply dark:bg-white bg-gray-800;
+}

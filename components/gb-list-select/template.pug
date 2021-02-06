@@ -1,11 +1,7 @@
 t-label(:label-for="id" :label="onlySelector ? '' : $t(i18nPrefix + 'label')")
   template(#labelAfter v-if="!onlySelector")
-    b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined)
-      span.icon
-        i.far.fa-question-circle
-    b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined position="is-left")
-      span.icon
-        i.far.fa-question-circle
+    span.icon(v-tippy="{ content: $t(i18nPrefix + 'info') }")
+      i.far.fa-question-circle
 
   t-autocomplete(
     v-if="gbSelectModeDatalist === 'datalist'"
