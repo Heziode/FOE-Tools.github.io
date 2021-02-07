@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
 "PO-Revision-Date: 2021-02-07 18:57+0000\n"
-"Last-Translator: Balastov <lexiusb@gmail.com>\n"
+"Last-Translator: Юрбан <tkachenkojurii@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
 "Language: ru\n"
@@ -3026,7 +3026,7 @@ msgid "utils.Save"
 msgstr "Сохранить"
 
 msgid "utils.Show"
-msgstr ""
+msgstr "Показать"
 
 msgid "routes.donate.donation_message"
 msgstr ""
@@ -3394,3 +3394,132 @@ msgstr ""
 
 msgid "routes.survey.title"
 msgstr "@:(routes.survey.hero.title) | @:(common.site_title)"
+
+msgid "contributions.question"
+msgstr "Ответы на вопросы"
+
+msgid "contributions.plugin"
+msgstr "Плагин / инструменты"
+
+msgid "contributions.platform"
+msgstr "Упаковка / перенос на новую платформу"
+
+msgid "contributions.infra"
+msgstr "Инфраструктура (хостинг, инструменты для сборки и т.д.)"
+
+msgid "contributions.ideas"
+msgstr "Идеи, планы и отзывы"
+
+msgid "contributions.fundingFinding"
+msgstr "Поиск финансирования"
+
+msgid "contributions.financial"
+msgstr "Финансовый"
+
+msgid "contributions.eventOrganizing"
+msgstr "Организация мероприятий"
+
+msgid "contributions.doc"
+msgstr "Документация"
+
+msgid "contributions.design"
+msgstr "Дизайн"
+
+msgid "contributions.code"
+msgstr "Код"
+
+msgid "contributions.bug"
+msgstr "Отчеты об ошибках"
+
+msgid "contributions.blog"
+msgstr "Сообщения в блоге"
+
+msgid "utils.alpha_order"
+msgstr "Алфавитный порядок"
+
+msgid "utils.favourites"
+msgstr "Избранное"
+
+msgid "utils.errors.field_cannot_be_empty"
+msgstr "Это поле не может быть пустым"
+
+msgid "utils.Donate"
+msgstr "Пожертвовать"
+
+msgid "utils.Tutorial"
+msgstr "Руководство"
+
+msgid "utils.FP"
+msgid_plural "utils.FP"
+msgstr[0] "{count} СО"
+msgstr[1] "{count} СО"
+msgstr[2] "{count} СО"
+
+msgid "utils.Done"
+msgstr "Готово"
+
+msgid "utils.Exit"
+msgstr "Выход"
+
+msgid "utils.Previous"
+msgstr "←"
+
+msgid "utils.Next"
+msgstr "→"
+
+msgid "utils.Hide"
+msgstr "Спрятать"
+
+msgid "utils.Switch"
+msgstr "Переключить"
+
+msgid "utils.Reset_values"
+msgstr "Сбросить значения"
+
+msgid "utils.Submit"
+msgstr "Разместить"
+
+msgid "utils.between_range"
+msgstr "между {min} и {max}"
+
+msgid "utils.Close"
+msgstr "Закрыть"
+
+msgid "utils.Confirm"
+msgstr "Подтвердить"
+
+msgid "utils.Reset"
+msgstr "Сбросить"
+
+msgid "utils.Conquered"
+msgstr "Завоевано"
+
+msgid "utils.Cost"
+msgstr "Стоимость"
+
+msgid "utils.Description"
+msgstr "Описание"
+
+msgid "utils.Name"
+msgstr "Имя"
+
+msgid "utils.Path"
+msgstr "Путь"
+
+msgid "foe_data.bonus.exploration_site.gb_description"
+msgstr "---"
+
+msgid "routes.donate.hero.subtitle"
+msgstr "Пожертвовать @:(common.site_title)"
+
+msgid "routes.donate.hero.title"
+msgstr "@:(utils.Donate)"
+
+msgid "routes.donate.donation_options"
+msgstr "Поддержать через @:(common.links.donorbox) или @:(common.links.paypal)."
+
+msgid "routes.donate.conversion"
+msgstr "Если вам нравится моя работа, вы можете пожертвовать на развитие."
+
+msgid "routes.donate.title"
+msgstr "@:(routes.donate.hero.title) | @:(common.site_title)"
