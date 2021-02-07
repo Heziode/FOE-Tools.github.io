@@ -1032,20 +1032,6 @@ export default {
       this.$data.investorParticipation.splice(index, 1);
       this.calculate();
     },
-    haveReadTipAboutAddInvestor: /* istanbul ignore next */ function () {
-      if (!this.$store.get("global/haveReadTipAboutAddInvestor")) {
-        const self = this;
-        this.$buefy.snackbar.open({
-          message: this.$t(i18nPrefix + "gb_investment.form.tooltip_add_investors"),
-          position: "is-top",
-          actionText: this.$t("utils.Ok"),
-          indefinite: true,
-          onAction: () => {
-            self.$store.set("global/haveReadTipAboutAddInvestor", true);
-          },
-        });
-      }
-    },
     switchPrefix() {
       this.showPrefix = !this.showPrefix;
 

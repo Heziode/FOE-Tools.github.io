@@ -43,7 +43,7 @@ div.content#gbiContent
           numberinput(inputId="giOwnerInvestment" :min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" showIncDec)
       div.column.is-half
         t-label#fieldAddInvestors(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors" :type="haveError('addInvestors')")
-          numberinput(inputId="giAddInvestors" :min="0" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" :isDisabled="maxInvestment <= 0" @click.native="haveReadTipAboutAddInvestor")
+          numberinput(inputId="giAddInvestors" :min="0" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" :isDisabled="maxInvestment <= 0")
             template(#after="{ isDisabled, isInvalid }")
               t-button(
                 :title="$t('utils.Add')"
