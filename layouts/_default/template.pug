@@ -34,14 +34,14 @@
                   div.content.article-body
                     div.columns(v-show="isConversionDate")
                       div.column
-                        b-message(:title="$t('utils.Information')" type="is-info" has-icon @close="onCloseDonationMessage") {{this.$t("routes.donate.conversion")}}
+                        t-message.mb-4(:title="$t('utils.Information')" type="is-info" has-icon @close="onCloseDonationMessage") {{this.$t("routes.donate.conversion")}}
                           p
                           p
-                            nuxt-link.button.is-warning(:to="localePath({ name: 'Donate' })" exact)
-                              span {{$t('utils.Donate')}}
+                            nuxt-link.font-bold(:to="localePath({ name: 'Donate' })" exact class="p-3 rounded bg-yellow-400 hover:bg-yellow-500 dark:hover:bg-yellow-300" style="color: black")
+                              | {{$t('utils.Donate')}}
                     div.columns(v-show="isPermalink")
                       div.column
-                        b-message(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
+                        t-message.mb-4(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
                     nuxt
 
     span.button.scroll-to-top(:class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" @click="backToTop")

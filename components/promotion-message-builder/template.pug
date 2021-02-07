@@ -67,7 +67,7 @@ div
 
     div.columns
       div.column.is-half
-        b-message(type="is-info")
+        t-message(type="is-info")
           p {{$t($data.i18nPrefix + 'available_variables')}}
           ul
             li
@@ -121,7 +121,7 @@ div
 
     h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'place_builder_title')}}
 
-    b-message(type="is-info")
+    t-message.mb-4(type="is-info")
       p {{$t($data.i18nPrefix + 'available_variables')}}
       ul
         li
@@ -159,7 +159,7 @@ div
 
     h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'message_builder_title')}}
 
-    b-message(type="is-info")
+    t-message.mb-4(type="is-info")
       p {{$t($data.i18nPrefix + 'available_variables')}}
       ul
         li

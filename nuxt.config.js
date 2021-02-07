@@ -642,15 +642,22 @@ export default {
         },
         minHeight: {
           ...tailwindConf.theme.minHeight,
+          5: "1.25rem",
           8: "2rem",
         },
         maxHeight: {
           ...tailwindConf.theme.maxHeight,
+          5: "1.25rem",
           48: "12rem",
         },
         minWidth: {
           ...tailwindConf.theme.minWidth,
+          5: "1.25rem",
           48: "12rem",
+        },
+        maxWidth: {
+          ...tailwindConf.theme.minWidth,
+          5: "1.25rem",
         },
       },
       variants: {
@@ -716,6 +723,9 @@ export default {
       /is-expanded/,
       /is-clearfix/,
       /has-addons/,
+      // Fontawesome
+      /svg.*/,
+      /fa.*/,
     ],
     whitelistPatternsChildren: [
       /select/,

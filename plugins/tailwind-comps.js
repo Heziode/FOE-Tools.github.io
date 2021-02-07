@@ -4,6 +4,7 @@ import TButton from "~/components/t-button/TButton";
 import TCheckbox from "~/components/t-checkbox/TCheckbox";
 import TInput from "~/components/tailwind-comps/TInput/wrapper/TInput";
 import TLabel from "~/components/t-label/TLabel";
+import TMessage from "~/components/t-message/TMessage";
 import TSelect from "~/components/t-select/TSelect";
 import * as TTabs from "~/components/tailwind-comps/TTabs";
 
@@ -12,6 +13,7 @@ Vue.component("TButton", TButton);
 Vue.component("TCheckbox", TCheckbox);
 Vue.component("TInput", TInput);
 Vue.component("TLabel", TLabel);
+Vue.component("TMessage", TMessage);
 Vue.component("TSelect", TSelect);
 Vue.component("TTab", TTabs.TTab);
 Vue.component("TTabs", TTabs.TTabs);

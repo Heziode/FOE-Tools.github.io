@@ -1,0 +1,21 @@
+transition(name='fade')
+  article.rounded(v-if='isActive' :class='[computedArticleBg, type, size]')
+    header.text-white.items-center.flex.relative.justify-between.rounded-t.py-3.px-4.font-bold(v-if='$slots.header || title' :class="computedHeaderBg" style="display: flex")
+      div(v-if='$slots.header')
+        slot(name='header')
+      p(v-else-if='title') {{ title }}
+      button.bg-opacity-20.min-h-5.max-h-5.min-w-5.max-w-5.rounded-full.w-5.h-5.align-middle.align-center.text-white.bg-trueGray-900(type='button' @click='close' :aria-label='ariaCloseLabel')
+        i.fas.fa-times(style="vertical-align: initial")
+    section.py-5.px-5(v-if='$slots.default' :class=`{
+      "border-l-4 rounded": !$slots.header && !title,
+      [computedBorderColor]: !$slots.header && !title,
+      [computedTextColor]: true,
+    }`)
+      .flex.items-start
+        .flex-grow-0.flex-shrink-0.m-auto.pl-4(v-if='computedIcon && hasIcon' class="-ml-6 mr-6")
+          i(:class="[iconPack, computedIcon, type, newIconSize]" style="width: 4rem; height: 4rem")
+        .flex-grow.flex-shrink
+          slot
+        .flex-grow-0.flex-shrink-0(v-if='closable && !$slots.header && !title')
+          button.bg-opacity-20.min-h-5.max-h-5.min-w-5.max-w-5.rounded-full.w-5.h-5.align-middle.align-center.text-white.bg-trueGray-900(type='button' @click='close' :aria-label='ariaCloseLabel')
+            i.fas.fa-times(style="vertical-align: initial")

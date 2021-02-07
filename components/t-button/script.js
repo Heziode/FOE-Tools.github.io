@@ -107,6 +107,12 @@ export default {
             "bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400 text-white": !this.$attrs.disabled,
             "bg-blue-400 dark:bg-blue-300 text-gray-200 dark:text-gray-600 cursor-not-allowed": this.$attrs.disabled,
           };
+        case "warning":
+          return {
+            "bg-yellow-400 hover:bg-yellow-500 dark:hover:bg-yellow-300 text-black": !this.$attrs.disabled,
+            "bg-yellow-300 hover:bg-yellow-300 text-gray-100 dark:text-gray-100 cursor-not-allowed": this.$attrs
+              .disabled,
+          };
         case "danger":
           return {
             "bg-red-600 hover:bg-red-700 dark:hover:bg-red-500 text-white": !this.$attrs.disabled,

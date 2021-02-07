@@ -64,7 +64,7 @@ div
         numberinput(inputId="other-rq" :min="0" v-model.number="otherRq" name="other-rq" )
 
   div#infinityGenerator.mb-8(v-show="infinityGenerator || tutoMode")
-    b-message(:title="$t('utils.Information')" type="is-info" has-icon :closable="false") {{$t(i18nPrefix + 'block_cfc.infinity_generator.message')}}
+    t-message.mb-4(:title="$t('utils.Information')" type="is-info" has-icon :closable="false") {{$t(i18nPrefix + 'block_cfc.infinity_generator.message')}}
 
     div.columns
       div.column.is-half
