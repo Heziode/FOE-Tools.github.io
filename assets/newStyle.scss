@@ -47,7 +47,8 @@
 a.t-dropdown-item {
   color: theme("colors.gray.600") !important;
 
-  &.is-hovered, &:hover {
+  &.is-hovered,
+  &:hover {
     color: black !important;
   }
 }
@@ -85,84 +86,104 @@ a.t-dropdown-item {
   -webkit-appearance: none;
 }
 
-.t-progress::-webkit-progress-bar, .t-progress-wrapper.is-not-native::-webkit-progress-bar {
+.t-progress::-webkit-progress-bar,
+.t-progress-wrapper.is-not-native::-webkit-progress-bar {
   background-color: theme("colors.gray.100");
 }
 
-.t-progress::-webkit-progress-value, .t-progress-wrapper.is-not-native::-webkit-progress-value {
+.t-progress::-webkit-progress-value,
+.t-progress-wrapper.is-not-native::-webkit-progress-value {
   @apply bg-trueGray-600;
 }
 
-.t-progress::-moz-progress-bar, .t-progress-wrapper.is-not-native::-moz-progress-bar {
+.t-progress::-moz-progress-bar,
+.t-progress-wrapper.is-not-native::-moz-progress-bar {
   @apply bg-trueGray-600;
 }
 
-.t-progress::-ms-fill, .t-progress-wrapper.is-not-native::-ms-fill {
+.t-progress::-ms-fill,
+.t-progress-wrapper.is-not-native::-ms-fill {
   @apply bg-trueGray-600;
   border: none;
 }
 
-.t-progress.is-success::-webkit-progress-value, .is-success.t-progress-wrapper.is-not-native::-webkit-progress-value {
+.t-progress.is-success::-webkit-progress-value,
+.is-success.t-progress-wrapper.is-not-native::-webkit-progress-value {
   @apply bg-green-500;
 }
 
-.t-progress.is-success::-moz-progress-bar, .is-success.t-progress-wrapper.is-not-native::-moz-progress-bar {
+.t-progress.is-success::-moz-progress-bar,
+.is-success.t-progress-wrapper.is-not-native::-moz-progress-bar {
   @apply bg-green-500;
 }
 
-.t-progress.is-success::-ms-fill, .is-success.t-progress-wrapper.is-not-native::-ms-fill {
+.t-progress.is-success::-ms-fill,
+.is-success.t-progress-wrapper.is-not-native::-ms-fill {
   @apply bg-green-500;
 }
 
-.t-progress.is-success:indeterminate, .is-success.t-progress-wrapper.is-not-native:indeterminate {
+.t-progress.is-success:indeterminate,
+.is-success.t-progress-wrapper.is-not-native:indeterminate {
   background-image: linear-gradient(to right, theme("colors.green.500") 30%, theme("colors.gray.100") 30%);
 }
 
-.t-progress.is-info::-webkit-progress-value, .is-info.t-progress-wrapper.is-not-native::-webkit-progress-value {
+.t-progress.is-info::-webkit-progress-value,
+.is-info.t-progress-wrapper.is-not-native::-webkit-progress-value {
   @apply bg-blue-500;
 }
 
-.t-progress.is-info::-moz-progress-bar, .is-info.t-progress-wrapper.is-not-native::-moz-progress-bar {
+.t-progress.is-info::-moz-progress-bar,
+.is-info.t-progress-wrapper.is-not-native::-moz-progress-bar {
   @apply bg-blue-500;
 }
 
-.t-progress.is-info::-ms-fill, .is-info.t-progress-wrapper.is-not-native::-ms-fill {
+.t-progress.is-info::-ms-fill,
+.is-info.t-progress-wrapper.is-not-native::-ms-fill {
   @apply bg-blue-500;
 }
 
-.t-progress.is-info:indeterminate, .is-info.t-progress-wrapper.is-not-native:indeterminate {
+.t-progress.is-info:indeterminate,
+.is-info.t-progress-wrapper.is-not-native:indeterminate {
   background-image: linear-gradient(to right, theme("colors.blue.500") 30%, theme("colors.gray.100") 30%);
 }
 
-.t-progress.is-danger::-webkit-progress-value, .is-danger.t-progress-wrapper.is-not-native::-webkit-progress-value {
+.t-progress.is-danger::-webkit-progress-value,
+.is-danger.t-progress-wrapper.is-not-native::-webkit-progress-value {
   @apply bg-red-500;
 }
 
-.t-progress.is-danger::-moz-progress-bar, .is-danger.t-progress-wrapper.is-not-native::-moz-progress-bar {
+.t-progress.is-danger::-moz-progress-bar,
+.is-danger.t-progress-wrapper.is-not-native::-moz-progress-bar {
   @apply bg-red-500;
 }
 
-.t-progress.is-danger::-ms-fill, .is-danger.t-progress-wrapper.is-not-native::-ms-fill {
+.t-progress.is-danger::-ms-fill,
+.is-danger.t-progress-wrapper.is-not-native::-ms-fill {
   @apply bg-red-500;
 }
 
-.t-progress.is-danger:indeterminate, .is-danger.t-progress-wrapper.is-not-native:indeterminate {
+.t-progress.is-danger:indeterminate,
+.is-danger.t-progress-wrapper.is-not-native:indeterminate {
   background-image: linear-gradient(to right, theme("colors.red.500") 30%, theme("colors.gray.100") 30%);
 }
 
-.t-progress.is-warning::-webkit-progress-value, .is-warning.t-progress-wrapper.is-not-native::-webkit-progress-value {
+.t-progress.is-warning::-webkit-progress-value,
+.is-warning.t-progress-wrapper.is-not-native::-webkit-progress-value {
   @apply bg-yellow-400;
 }
 
-.t-progress.is-warning::-moz-progress-bar, .is-warning.t-progress-wrapper.is-not-native::-moz-progress-bar {
+.t-progress.is-warning::-moz-progress-bar,
+.is-warning.t-progress-wrapper.is-not-native::-moz-progress-bar {
   @apply bg-yellow-400;
 }
 
-.t-progress.is-warning::-ms-fill, .is-warning.t-progress-wrapper.is-not-native::-ms-fill {
+.t-progress.is-warning::-ms-fill,
+.is-warning.t-progress-wrapper.is-not-native::-ms-fill {
   @apply bg-yellow-400;
 }
 
-.t-progress.is-warning:indeterminate, .is-warning.t-progress-wrapper.is-not-native:indeterminate {
+.t-progress.is-warning:indeterminate,
+.is-warning.t-progress-wrapper.is-not-native:indeterminate {
   background-image: linear-gradient(to right, theme("colors.yellow.400") 30%, theme("colors.gray.100") 30%);
 }
 
@@ -174,39 +195,39 @@ a.t-dropdown-item {
   @apply bg-gray-800 dark:bg-gray-200 dark:text-black text-white shadow-lg;
 }
 
-.tippy-tooltip.custom-theme[x-placement^=top] .tippy-arrow {
+.tippy-tooltip.custom-theme[x-placement^="top"] .tippy-arrow {
   @apply border-t-8 border-l-8 border-r-8 border-solid;
   border-top-color: theme("colors.gray.800");
 }
 
-.dark .tippy-tooltip.custom-theme[x-placement^=top] .tippy-arrow {
+.dark .tippy-tooltip.custom-theme[x-placement^="top"] .tippy-arrow {
   border-top-color: white;
 }
 
-.tippy-tooltip.custom-theme[x-placement^=bottom] .tippy-arrow {
+.tippy-tooltip.custom-theme[x-placement^="bottom"] .tippy-arrow {
   @apply border-b-8 border-l-8 border-r-8 border-solid;
   border-bottom-color: theme("colors.gray.800");
 }
 
-.dark .tippy-tooltip.custom-theme[x-placement^=bottom] .tippy-arrow {
+.dark .tippy-tooltip.custom-theme[x-placement^="bottom"] .tippy-arrow {
   border-bottom-color: white;
 }
 
-.tippy-tooltip.custom-theme[x-placement^=left] .tippy-arrow {
+.tippy-tooltip.custom-theme[x-placement^="left"] .tippy-arrow {
   @apply border-t-8 border-l-8 border-b-8 border-solid;
   border-left-color: theme("colors.gray.800");
 }
 
-.dark .tippy-tooltip.custom-theme[x-placement^=left] .tippy-arrow {
+.dark .tippy-tooltip.custom-theme[x-placement^="left"] .tippy-arrow {
   border-left-color: white;
 }
 
-.tippy-tooltip.custom-theme[x-placement^=right] .tippy-arrow {
+.tippy-tooltip.custom-theme[x-placement^="right"] .tippy-arrow {
   @apply border-t-8 border-b-8 border-r-8 border-solid;
   border-right-color: theme("colors.gray.800");
 }
 
-.dark .tippy-tooltip.custom-theme[x-placement^=right] .tippy-arrow {
+.dark .tippy-tooltip.custom-theme[x-placement^="right"] .tippy-arrow {
   border-right-color: white;
 }
 
