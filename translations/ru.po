@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
-"PO-Revision-Date: 2021-02-07 18:57+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2021-02-08 19:59+0000\n"
+"Last-Translator: Юрбан <tkachenkojurii@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
 "Language: ru\n"
@@ -3523,3 +3523,12 @@ msgstr "Если вам нравится моя работа, вы можете 
 
 msgid "routes.donate.title"
 msgstr "@:(routes.donate.hero.title) | @:(common.site_title)"
+
+msgid "foe_data.bonus.fierce_resistance.name"
+msgstr "Яростное сопротивление"
+
+msgid "foe_data.province.Mutiny_Canyon"
+msgstr "Каньон мятежа"
+
+msgid "foe_data.province.Corsair_s_Skerry"
+msgstr "Рифы корсара"
