@@ -28,7 +28,7 @@ header
 
       b-navbar-item(tag="div")
         div.field
-          b-tooltip.control.is-hidden-touch(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.site_layout.global_config')" position="is-bottom")
+          .control.is-hidden-touch(v-tippy="{ content: $t('components.site_layout.global_config') }")
             button.button(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
               p.icon
                 i.fas.fa-cog

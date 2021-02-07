@@ -193,6 +193,7 @@ export default {
         result = [];
       }
       const ids = this.customTemplates.map((elt) => elt.id);
+      let message = "";
       if (this.action === "update") {
         const index = ids.indexOf(this.IdEditedTemplate);
         if (index >= 0) {
@@ -203,6 +204,7 @@ export default {
             config: this.result,
           };
         }
+        message = "template_updated";
       } else {
         let id;
         do {
@@ -211,13 +213,13 @@ export default {
         result.push({ id, name: this.templateName, config: this.result });
         this.action = "update";
         this.startFromTemplate = id;
+        message = "template_saved";
       }
       this.$store.set(`global/customPromotionMessagesTemplates`, this.$clone(result));
       this.customTemplates = result;
-      this.$buefy.notification.open({
-        message: this.$t(i18nPrefix + (this.action === "update" ? "template_updated" : "template_saved")),
-        type: "is-success",
-        duration: 5000,
+      this.$toast({
+        description: this.$t(i18nPrefix + message),
+        status: "success",
       });
     },
     deleteTemplate() {
@@ -229,10 +231,9 @@ export default {
 
       this.$store.set(`global/customPromotionMessagesTemplates`, this.$clone(this.customTemplates));
       this.action = "create";
-      this.$buefy.notification.open({
-        message: this.$t(i18nPrefix + "template_deleted"),
-        type: "is-success",
-        duration: 5000,
+      this.$toast({
+        description: this.$t(i18nPrefix + "template_deleted"),
+        status: "success",
       });
     },
     addCustomField() {

@@ -14,7 +14,7 @@ import VueI18n from "vue-i18n";
 import Buefy from "buefy";
 import * as gbs from "~/lib/foe-data/gbs.js";
 import * as goods from "~/lib/foe-data/goods.js";
-import TInput from "../../components/tailwind-input/TInput/wrapper/TInput";
+import TInput from "../../components/tailwind-comps/TInput/wrapper/TInput";
 import TLabel from "../../components/t-label/TLabel";
 import TButton from "../../components/t-button/TButton";
 
@@ -230,7 +230,6 @@ const getAllCookies = () => {
     haveReadLocaleInfoAvailable: false,
     customPromotionMessagesTemplates: [],
     displayTableCard: false,
-    haveReadTipAboutAddInvestor: false,
     dayNightMode: "day",
     dayStart: "07:00",
     nightStart: "18:30",

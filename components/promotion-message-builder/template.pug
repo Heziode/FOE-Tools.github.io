@@ -37,23 +37,19 @@ div
       div.column
         t-label(:label="$t(i18nPrefix + 'config')" label-for="pmbConfig")
           template(slot="labelAfter")
-            b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined)
-              span.icon
-                i.far.fa-question-circle
-            b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'info')" multilined position="is-left")
-              span.icon
-                i.far.fa-question-circle
+            span.icon(v-tippy="{ content: $t(i18nPrefix + 'info') }")
+              i.far.fa-question-circle
           t-input(inputId="pmbConfig" type="text" :value.trim="resultString" name="config" isDisabled)
             template(#after)
-              b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Copyed')" :active="tooltips.config" always)
-                t-button(
-                  v-clipboard="resultString"
-                  @success="successCopy('config')"
-                  :title="$t('utils.Copy')"
-                  iconLeft="far fa-copy"
-                  :borderLeft="false"
-                  :roundedTopLeft="false"
-                  :roundedBottomLeft="false")
+              t-button(
+                v-clipboard="resultString"
+                @success="successCopy('config')"
+                :title="$t('utils.Copy')"
+                iconLeft="far fa-copy"
+                :borderLeft="false"
+                :roundedTopLeft="false"
+                :roundedBottomLeft="false"
+                v-tippy="{ content: $t('utils.Copyed'), trigger: 'click' }")
 
     div.columns
       div.column.is-half
@@ -71,7 +67,7 @@ div
 
     div.columns
       div.column.is-half
-        b-message(type="is-info")
+        t-message(type="is-info" :closable="false")
           p {{$t($data.i18nPrefix + 'available_variables')}}
           ul
             li
@@ -112,20 +108,20 @@ div
         div.column.is-half
           t-input(type="text" v-model="customField.key")
             template(#before)
-              b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('utils.Remove')")
-                t-button(
-                  :title="$t('utils.Remove')"
-                  @click="removeCustomField(customField.key)"
-                  iconLeft="fas fa-trash"
-                  :borderRight="false"
-                  :roundedTopRight="false"
-                  :roundedBottomRight="false" type="danger")
+              t-button(
+                :title="$t('utils.Remove')"
+                @click="removeCustomField(customField.key)"
+                iconLeft="fas fa-trash"
+                :borderRight="false"
+                :roundedTopRight="false"
+                :roundedBottomRight="false" type="danger"
+                v-tippy="{ content: $t('utils.Remove') }")
         div.column.is-half
           t-input(type="text" v-model="customField.placeholder")
 
     h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'place_builder_title')}}
 
-    b-message(type="is-info")
+    t-message.mb-4(type="is-info" :closable="false")
       p {{$t($data.i18nPrefix + 'available_variables')}}
       ul
         li
@@ -163,7 +159,7 @@ div
 
     h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'message_builder_title')}}
 
-    b-message(type="is-info")
+    t-message.mb-4(type="is-info" :closable="false")
       p {{$t($data.i18nPrefix + 'available_variables')}}
       ul
         li

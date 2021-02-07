@@ -13,6 +13,7 @@ import PromotionMessageBuilder from "~/components/promotion-message-builder/Prom
 import ImportPromotionMessage from "~/components/import-promotion-message/ImportPromotionMessage";
 import { defaultPromotionMessages, buildMessage } from "~/scripts/promotion-message-builder";
 import { getVideoTag, formatTuto } from "~/scripts/tutorial";
+import TProgress from "~/components/t-progress/TProgress";
 
 const i18nPrefix = "components.gb_investment.";
 
@@ -931,9 +932,17 @@ export default {
         Utils.handlerForm(this, "addInvestors", !val || val.length === 0 ? 0 : val, 0, [1, this.maxInvestment]) ===
         Utils.FormCheck.VALID
       ) {
+        const isPotentialSniper = !this.$data.result.investment
+          // First, we select only free place
+          .filter((elt) => !elt.isInvestorParticipation)
+          // Then, we extract the expected participation
+          .map((elt) => elt.expectedParticipation)
+          // Finally, we check if the added investor match a value.
+          // If the result is True, then the added investor is probably not a sniper
+          .includes(val);
         this.$data.investorParticipation.push({
           value: val,
-          isPotentialSniper: true,
+          isPotentialSniper,
         });
         // Not efficient, but small array
         /* istanbul ignore next */
@@ -1022,20 +1031,6 @@ export default {
 
       this.$data.investorParticipation.splice(index, 1);
       this.calculate();
-    },
-    haveReadTipAboutAddInvestor: /* istanbul ignore next */ function () {
-      if (!this.$store.get("global/haveReadTipAboutAddInvestor")) {
-        const self = this;
-        this.$buefy.snackbar.open({
-          message: this.$t(i18nPrefix + "gb_investment.form.tooltip_add_investors"),
-          position: "is-top",
-          actionText: this.$t("utils.Ok"),
-          indefinite: true,
-          onAction: () => {
-            self.$store.set("global/haveReadTipAboutAddInvestor", true);
-          },
-        });
-      }
     },
     switchPrefix() {
       this.showPrefix = !this.showPrefix;
@@ -1468,5 +1463,6 @@ export default {
     ImportPromotionMessage,
     ContentLoader,
     TTag,
+    TProgress,
   },
 };

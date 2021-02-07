@@ -33,22 +33,14 @@ div
     div.column.is-half
       t-label#coins-container(:label="$t(i18nPrefix + 'block_cfc.coins_to_use')" label-for="coins" :type="haveError('coins')")
         template(slot="labelAfter")
-          b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minCoins })" multilined)
-            span.icon
-              i.far.fa-question-circle
-          b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minCoins })" multilined position="is-left")
-            span.icon
-              i.far.fa-question-circle
+          span.icon(v-tippy="{ content: $t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minCoins }) }")
+            i.far.fa-question-circle
         numberinput(inputId="coins" :min="minCoins" :step="1000" v-model.number="coins" name="coins" )
     div.column.is-half
       t-label#supplies-container(:label="$t(i18nPrefix + 'block_cfc.supplies_to_use')" label-for="supplies" :type="haveError('supplies')")
         template(slot="labelAfter")
-          b-tooltip.is-hidden-touch(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minSupplies })" multilined)
-            span.icon
-              i.far.fa-question-circle
-          b-tooltip.is-hidden-desktop(type='is-dark' :label="$t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minSupplies })" multilined position="is-left")
-            span.icon
-              i.far.fa-question-circle
+          span.icon(v-tippy="{ content: $t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minSupplies }) }")
+            i.far.fa-question-circle
         numberinput(inputId="supplies" :min="minSupplies" :step="1000" v-model.number="supplies" name="supplies" )
 
   div.columns
@@ -72,7 +64,7 @@ div
         numberinput(inputId="other-rq" :min="0" v-model.number="otherRq" name="other-rq" )
 
   div#infinityGenerator.mb-8(v-show="infinityGenerator || tutoMode")
-    b-message(:title="$t('utils.Information')" type="is-info" has-icon :closable="false") {{$t(i18nPrefix + 'block_cfc.infinity_generator.message')}}
+    t-message.mb-4(:title="$t('utils.Information')" type="is-info" has-icon :closable="false") {{$t(i18nPrefix + 'block_cfc.infinity_generator.message')}}
 
     div.columns
       div.column.is-half

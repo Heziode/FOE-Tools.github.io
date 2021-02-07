@@ -10,7 +10,6 @@ export const state = () => ({
   haveReadLocaleNotComplete: false,
   customPromotionMessagesTemplates: [],
   displayTableCard: false,
-  haveReadTipAboutAddInvestor: false,
   dayNightMode: "system",
   dayStart: "07:00",
   nightStart: "18:30",

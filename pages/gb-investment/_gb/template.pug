@@ -1,6 +1,9 @@
-div
-  b-tabs#GBInvestmentVueMode(v-model="gbi_tab" type="is-toggle" expanded)
-    b-tab-item(:label="$t(i18nPrefix + 'tab.owner_view.title')")
+t-tabs(v-model="gbi_tab")
+  t-tab-list
+    t-tab {{$t(i18nPrefix + 'tab.owner_view.title')}}
+    t-tab {{$t(i18nPrefix + 'tab.investors_view.title')}}
+  t-tab-panels
+    t-tab-panel
       gb-investment(:gb="gb" :canPermalink="true")
-    b-tab-item(:label="$t(i18nPrefix + 'tab.investors_view.title')")
+    t-tab-panel
       gb-investment-investors(:gb="gb" :canPermalink="true")

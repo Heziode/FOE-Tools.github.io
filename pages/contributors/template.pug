@@ -17,7 +17,4 @@ div.content
                   a(v-if="user.profile" :href="user.profile" target="_blank") {{user.name}}
                   template(v-else) {{user.name}}
             div.content.contributor-icons
-              b-tooltip.is-hidden-touch(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
-                span {{allContributorsrc.types[contribution].symbol}}
-              b-tooltip.is-hidden-desktop(v-for="contribution in user.contributions" :key="contribution" :label="$t('contributions.' + contribution)" :type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" position="is-right")
-                span {{allContributorsrc.types[contribution].symbol}}
+              span.mr-2(v-for="contribution in user.contributions" :key="contribution" v-tippy="{ content: $t('contributions.' + contribution) }") {{allContributorsrc.types[contribution].symbol}}

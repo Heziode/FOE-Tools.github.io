@@ -1,0 +1,45 @@
+.relative(:class="{ 'w-full': isFullWidth }")
+  t-input(
+    v-model='newValue'
+    :inputId="$props.id"
+    ref='input'
+    type='text'
+    :maxlength='maxlength'
+    :use-html5-validation='false'
+    :isFullWidth="isFullWidth"
+    v-bind='$attrs'
+    @input='onInput'
+    @focus='focused'
+    @blur='onBlur'
+    @keyup.native.esc.prevent='isActive = false'
+    @keydown.native='keydown'
+    @keydown.native.up.prevent="keyArrows('up')"
+    @keydown.native.down.prevent="keyArrows('down')"
+    @icon-right-click='rightIconClick'
+    @icon-click="(event) => $emit('icon-click', event)")
+  transition(name='fade')
+    .t-dropdown-menu(
+      :class="{ 'is-opened-top': isOpenedTop && !appendToBody }"
+      :style='style'
+      v-show='isActive && (!isEmpty || hasEmptySlot || hasHeaderSlot)'
+      ref='dropdown')
+      .t-dropdown-content(v-show='isActive' :style='contentStyle')
+        .t-dropdown-item(v-if='hasHeaderSlot')
+          slot(name='header')
+        template(v-for='(element, groupindex) in computedData')
+          .t-dropdown-item(v-if='element.group' :key="groupindex + 'group'")
+            slot(v-if='hasGroupSlot' name='group' :group='element.group' :index='groupindex')
+            span.has-text-weight-bold(v-else='')
+              | {{ element.group }}
+          a.t-dropdown-item(
+            v-for='(option, index) in element.items'
+            :key="groupindex + ':' + index"
+            :class="{ 'is-hovered': option === hovered }"
+            @click='setSelected(option, undefined, $event)')
+            slot(v-if='hasDefaultSlot' :option='option' :index='index')
+            span(v-else='')
+              | {{ getValue(option, true) }}
+        .t-dropdown-item.is-disabled(v-if='isEmpty && hasEmptySlot')
+          slot(name='empty')
+        .t-dropdown-item(v-if='hasFooterSlot')
+          slot(name='footer')

@@ -2,6 +2,7 @@ import VueHcaptcha from "@hcaptcha/vue-hcaptcha";
 import Utils from "~/scripts/utils";
 import SortableItem from "~/components/sortable-item/SortableItem";
 import SortableList from "~/components/sortable-list/SortableList";
+import TLoading from "~/components/t-loading/TLoading";
 
 const i18nPrefix = "routes.survey.";
 
@@ -121,25 +122,26 @@ export default {
           // handle success
           this.$data.loading = false;
           this.complete({
-            message: this.$t(i18nPrefix + "survey_complete"),
-            type: "is-success",
-            indefinite: true,
+            description: this.$t(i18nPrefix + "survey_complete"),
+            status: "success",
           });
         })
         .catch((error) => {
           // handle error
           this.$data.loading = false;
           if (error.response.status === 400) {
-            this.$buefy.notification.open({
-              message: this.$t(i18nPrefix + "error"),
-              type: "is-danger",
-              indefinite: true,
+            this.$toast({
+              description: this.$t(i18nPrefix + "error"),
+              status: "error",
+              isClosable: true,
+              duration: 100000,
             });
           } else {
-            this.$buefy.notification.open({
-              message: this.$t(i18nPrefix + "unknown_error"),
-              type: "is-danger",
-              indefinite: true,
+            this.$toast({
+              description: this.$t(i18nPrefix + "unknown_error"),
+              status: "error",
+              isClosable: true,
+              duration: 100000,
             });
           }
           console.error("error: ", error);
@@ -214,7 +216,7 @@ export default {
       const surveyList = this.$clone(this.$store.get("global/survey"));
       surveyList.push(currentSurvey);
       this.$store.set("global/survey", surveyList);
-      this.$buefy.notification.open(notifParams);
+      this.$toast(notifParams);
       this.$router.push(this.localePath({ name: "Home" }));
     },
     onExpire() {
@@ -233,5 +235,6 @@ export default {
     VueHcaptcha,
     SortableItem,
     SortableList,
+    TLoading,
   },
 };

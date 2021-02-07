@@ -23,7 +23,6 @@ export function getDefaultStore(profileID = "testID", customConf = {}) {
       haveReadLocaleInfoAvailable: false,
       customPromotionMessagesTemplates: [],
       displayTableCard: false,
-      haveReadTipAboutAddInvestor: false,
       dayNightMode: "day",
       dayStart: "07:00",
       nightStart: "18:30",

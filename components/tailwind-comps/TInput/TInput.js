@@ -92,8 +92,8 @@ const TInput = {
         on: {
           ...this.computedListeners,
           input: this.emitValue,
-          focus: () => this.$emit("focus", true),
-          blur: () => this.$emit("blur", false),
+          focus: (event) => this.$emit("focus", true, event),
+          blur: (event) => this.$emit("blur", false, event),
         },
         ref: "input",
       },

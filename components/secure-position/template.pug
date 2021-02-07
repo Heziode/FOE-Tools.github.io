@@ -78,8 +78,7 @@ div.content
             b {{$n(fp)}}
             template(v-if="((fp >= yourParticipation) && (fp - yourParticipation) > 0) && (yourParticipation > 0)")
               | &nbsp;(
-              b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t(i18nPrefix + 'block_place.result.still_to_put')" dashed)
-                span {{$n(fp - yourParticipation)}}
+              span(v-tippy="{ content: $t(i18nPrefix + 'block_place.result.still_to_put') }") {{$n(fp - yourParticipation)}}
               | )
             template(v-if="roi > 0")
               | &nbsp;(

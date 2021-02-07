@@ -130,14 +130,14 @@ div.content
           template(v-for="(value, index) in showPlace")
             td.has-text-right(v-show="showPlace[index]")
               p(v-if="takingPlaceInConsideration === 2") {{$n(line.investment[index].reward) + " ("}}
-                b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.expected_participation')" dashed) {{$n(line.investment[index].participation)}}
+                span(v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.expected_participation') }") {{$n(line.investment[index].participation)}}
                 | &nbsp;|&nbsp;
-                b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.real_participation')" dashed) {{$n(line.investment[index].realParticipation)}}
+                span(v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.real_participation') }") {{$n(line.investment[index].realParticipation)}}
                 | )
               p(v-else) {{$n(line.investment[index].reward) + (line.investment[index].participation ? " (" + $n(line.investment[index].participation) + ")" : "") }}
             td.has-text-right(v-show="showPlace[index]")
               p(v-if="takingPlaceInConsideration === 2") {{$n(line.investment[index].participation) + " ("}}
-                b-tooltip(:type="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" :label="$t('components.gb_investment.gb_investment.table.thead.th3')" dashed) {{$n(line.investment[index].preparation)}}
+                span(v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.th3') }") {{$n(line.investment[index].preparation)}}
                 | )
               p(v-else) {{$n(line.investment[index].fp)}}
             td.has-text-right(v-show="showPlace[index]")

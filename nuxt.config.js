@@ -3,6 +3,7 @@ import Vue from "vue";
 import VueI18n from "vue-i18n";
 import { bestFacebookLocaleFor } from "facebook-locales";
 import colors from "tailwindcss/colors";
+import tailwindConf from "tailwindcss/defaultConfig";
 import { gbs } from "./lib/foe-data/gbs";
 import { defaultLocale, supportedLocales } from "./scripts/locales";
 
@@ -484,11 +485,12 @@ export default {
     { src: "~/plugins/clone.js" },
     { src: "~/plugins/i18n.js" },
     { src: "~/plugins/clipboard.js" },
+    { src: "~/plugins/tooltip.js" },
     { src: "~/plugins/moment.js" },
     { src: "~/plugins/cookieConsent.js" },
     { src: "~/plugins/fontawesome.js" },
-    { src: "~/plugins/nuxtClientInit.js", mode: "client" }, // It must always be the last
     { src: "~/plugins/tailwind-comps.js" },
+    { src: "~/plugins/nuxtClientInit.js", mode: "client" }, // It must always be the last
   ],
   generate: {
     fallback: true,
@@ -558,6 +560,7 @@ export default {
   },
 
   css: [
+    "~assets/newStyle.scss",
     "~assets/theme/light/theme.scss",
     "~assets/theme/dark/theme.scss",
     "~assets/style.scss",
@@ -637,13 +640,36 @@ export default {
         colors: {
           ...colors,
         },
+        minHeight: {
+          ...tailwindConf.theme.minHeight,
+          5: "1.25rem",
+          8: "2rem",
+        },
+        maxHeight: (theme) => ({
+          ...tailwindConf.theme.maxHeight(theme),
+          5: "1.25rem",
+          48: "12rem",
+        }),
+        minWidth: {
+          ...tailwindConf.theme.minWidth,
+          5: "1.25rem",
+          12: "3rem",
+          48: "12rem",
+          md: "28rem",
+        },
+        maxWidth: (theme, { breakpoints }) => ({
+          ...tailwindConf.theme.maxWidth(theme, { breakpoints }),
+          5: "1.25rem",
+        }),
       },
       variants: {
         extend: {
-          margin: ["first"],
+          margin: ["first", "last"],
           borderRadius: ["responsive", "first", "last", "hover", "focus"],
           borderWidth: ["responsive", "first", "last", "hover", "focus"],
           backgroundOpacity: ["dark"],
+          opacity: ["disabled"],
+          cursor: ["disabled"],
         },
       },
       plugins: [require("@tailwindcss/forms")],
@@ -699,12 +725,14 @@ export default {
       /is-expanded/,
       /is-clearfix/,
       /has-addons/,
+      // Fontawesome
+      /svg.*/,
+      /fa.*/,
     ],
     whitelistPatternsChildren: [
       /select/,
       /switch/,
       /modal/,
-      /b-tabs/,
       /autocomplete/,
       /dropdown/,
       /progress.*/,
