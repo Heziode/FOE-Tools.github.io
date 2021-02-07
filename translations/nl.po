@@ -1,16 +1,17 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"Report-Msgid-Bugs-To: foe-tools@protonmail.com\n"
+"Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.519Z\n"
-"PO-Revision-Date: 2020-10-29 09:30+0000\n"
+"PO-Revision-Date: 2021-02-07 18:57+0000\n"
+"Last-Translator: Weblate Admin <admin@foe.tools>\n"
 "Language-Team: Dutch <https://translate.foe.tools/projects/foe-tools-website/"
 "website/nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "mime-version: 1.0\n"
 
 msgid "main_menu.home"
@@ -47,7 +48,7 @@ msgid "footer_menu.contributors"
 msgstr "Bijdragers"
 
 msgid "footer_menu.changelog"
-msgstr "Wijzigingen"
+msgstr "Wijzigingenbestand"
 
 msgid "footer_menu.contact"
 msgstr "Contact"
@@ -59,7 +60,7 @@ msgid "components.campaign_cost.choose_province"
 msgstr "Kies een provincie"
 
 msgid "components.campaign_cost.message.haveUnknownCosts"
-msgstr "Deze provincie bevat één of meer sectoren met ontbrekende gegevens."
+msgstr "Deze provincie bevat één of meer sectoren waarvan gegevens ontbreken."
 
 msgid "components.campaign_cost.provinces"
 msgstr "Provincies"
@@ -68,7 +69,7 @@ msgid "components.campaign_cost.all_provinces"
 msgstr "Alle provincies"
 
 msgid "components.campaign_cost.all_ages"
-msgstr "Alle Tijdperken"
+msgstr "Alle tijdperken"
 
 msgid "components.cf_calculator.block_cfc.title"
 msgstr "@:(routes.cf_calculator.hero.title)"
@@ -84,23 +85,23 @@ msgstr "Munten voor de NVF Quest"
 
 msgid "components.cf_calculator.block_cfc.coins_supplies_info"
 msgstr ""
-"Deze waarde moet groter of gelijk zijn aan {min}omdat hieronder geen winst "
-"kan worden gegarandeerd (statistisch)"
+"Deze waarde moet groter of gelijk zijn aan {min}omdat (statistisch) "
+"hieronder geen winst kan worden gegarandeerd."
 
 msgid "components.cf_calculator.block_cfc.supplies_to_use"
 msgstr "Voorraden voor de NVF Quest"
 
 msgid "components.cf_calculator.block_cfc.gb_plunder_goods"
-msgstr "GG & Plunder Goederen"
+msgstr "GG & plunder goederen"
 
 msgid "components.cf_calculator.block_cfc.fp_by_24h"
-msgstr "24 Uurs FP Productie"
+msgstr "24-uurs FP-productie"
 
 msgid "components.cf_calculator.block_cfc.other_rq"
 msgstr "Andere dagelijks WQ's"
 
 msgid "components.cf_calculator.block_cfc.second_rq"
-msgstr "Tweede WQ donor?"
+msgstr "Tweede WQ doneur?"
 
 msgid "components.cf_calculator.block_cfc.supplies_gathered"
 msgstr "Voorraden verzameld"
@@ -121,10 +122,10 @@ msgid "components.cf_calculator.block_cfc.table_reward.thead.th4"
 msgstr "FP's"
 
 msgid "components.cf_calculator.block_cfc.reward_message.daily_ubq"
-msgstr "Dagelijkse NVF Quests: {count}"
+msgstr "Dagelijkse NVF missies: {count}"
 
 msgid "components.cf_calculator.block_cfc.reward_message.bonus_ubq"
-msgstr "Bonus NVF Quests: {count}"
+msgstr "Bonus NVF missies: {count}"
 
 msgid ""
 "components.cf_calculator.block_cfc.reward_message.second_rq_"
@@ -132,7 +133,7 @@ msgid ""
 msgstr "2de WQ's afgerond: {count}"
 
 msgid "components.cf_calculator.block_cfc.reward_message.total_goods"
-msgstr "Totaal Goederen: {count}"
+msgstr "Totaal goederen: {count}"
 
 msgid "components.cf_calculator.block_cfc.reward_message.total_fp"
 msgstr "Totaal FP's: {count}"
@@ -154,13 +155,12 @@ msgstr "Voorraad terug"
 msgid "components.cf_calculator.block_cfc.infinity_generator.message"
 msgstr ""
 "Met de huidige bonus van @:(foe_data.gb.Chateau_Frontenac), zul je meer "
-"munten en voorraden verdienen, dan dat nodig is om de quest af te ronden. "
-"Kies a.u.b. een aantal "
-"\"@:(components.cf_calculator.block_cfc.infinity_generator.label)\" die je "
-"wilt uitvoeren."
+"munten en voorraden verdienen, dan nodig is om de quest af te ronden. Kies "
+"a.u.b. een aantal \"@:(components.cf_calculator.block_cfc.infinity_generator."
+"label)\" die je wilt uitvoeren."
 
 msgid "components.cf_calculator.block_cfc.infinity_generator.label"
-msgstr "Aaneengesloten Quests"
+msgstr "Aaneengesloten missies"
 
 msgid "components.cf_calculator.tutorial.welcome"
 msgstr ""
@@ -176,12 +176,12 @@ msgstr ""
 "Verzamel X voorraden.</i>."
 
 msgid "components.cf_calculator.tutorial.fpBy24h"
-msgstr "Vul aantal FP's in die je per 24 uur verzamelt."
+msgstr "Vul aantal FP's in dat je per 24 uur verzamelt."
 
 msgid "components.cf_calculator.tutorial.goods"
 msgstr ""
-"Hoeveelheid goederen die je krijgt bij het plunderen en bij Incasseren van "
-"GG's."
+"Vul de hoeveelheid goederen in die je krijgt via het innen van GG's en van "
+"plunderen."
 
 msgid "components.cf_calculator.tutorial.supplies"
 msgstr "Vul het aantal voorraden in dat je voor alle missies wenst te gebruiken."
@@ -196,16 +196,18 @@ msgstr ""
 "Bijv: bij 450%, voer in: 450."
 
 msgid "components.cf_calculator.tutorial.yourAge"
-msgstr "Kies uw Tijdperk."
+msgstr "Kies uw tijdperk."
 
 msgid "components.cf_calculator.tutorial.cumulativeQuest"
 msgstr "In dat geval, moet je aangeven hoeveel missies je wilt doen."
 
 msgid "components.cf_calculator.tutorial.suppliesGathered"
-msgstr "Vul in hoeveel voorraden je wil gebruiken voor..."
+msgstr ""
+"Vul de hoeveelheid voorraden in die je wilt gebruiken voor de tweede "
+"herhalende missie."
 
 msgid "components.gb_investment.gb_list_select.label"
-msgstr "Kies Groot Gebouw"
+msgstr "Schakel naar een ander groots gebouw"
 
 msgid "components.gb_investment.gb_list_select.info"
 msgstr ""
@@ -217,7 +219,7 @@ msgstr "@:(routes.gb_investment_gb_chooser.hero.title)"
 
 msgid "components.gb_investment.gb_investment.description.p1"
 msgstr ""
-"Voer het level ( naar lvl) en Arc bonus % in. De tabelwaarden worden "
+"Voer het level (naar lvl) en Arc bonus % in. De tabelwaarden worden "
 "automatisch bijgewerkt."
 
 msgid "components.gb_investment.gb_investment.description.p2_html"
@@ -230,16 +232,16 @@ msgstr ""
 "\"@:(components.gb_investment.gb_investment.form.submit_custom)\"."
 
 msgid "components.gb_investment.gb_investment.form.level"
-msgstr "GG Niveau (tussen {min} en {max})"
+msgstr "GG niveau (tussen {min} en {max})"
 
 msgid "components.gb_investment.gb_investment.form.investor_percentage"
 msgstr "% Arc bonus"
 
 msgid "components.gb_investment.gb_investment.form.submit_global"
-msgstr "Globale Berekening"
+msgstr "Globale berekening"
 
 msgid "components.gb_investment.gb_investment.form.submit_custom"
-msgstr "Aangepaste Berekening"
+msgstr "Aangepaste berekening"
 
 msgid "components.gb_investment.gb_investment.form.owner_investment"
 msgstr "Aantal FP's dat door de GG eigenaar tot nu is gestort (max. {max})"
@@ -266,7 +268,7 @@ msgid ""
 msgstr "Toon alleen beveiligde plaatsen"
 
 msgid "components.gb_investment.gb_investment.form.display_card"
-msgstr "Toon tabel in kaart overzicht (klein scherm)"
+msgstr "Wil je de tabel in kaartoverzicht tonen? (op een klein scherm)"
 
 msgid "components.gb_investment.gb_investment.table.title"
 msgstr "{gb_key} niveau {fromLevel} → {level}"
@@ -278,7 +280,7 @@ msgid "components.gb_investment.gb_investment.table.thead.th2"
 msgstr "Standaard beloningen"
 
 msgid "components.gb_investment.gb_investment.table.thead.th3"
-msgstr "FP's van de eigenaar om positie veilig te stellen"
+msgstr "FP's die de eigenaar moet storten om positie veilig te stellen"
 
 msgid "components.gb_investment.gb_investment.table.thead.th4"
 msgstr "Beloning incl. Arc bonus"
@@ -308,7 +310,7 @@ msgid ""
 msgstr "FP verkregen met jouw Arc bonus %"
 
 msgid "components.gb_investment.gb_investment.table.thead.is_sniper"
-msgstr "Potentiele Sniper?"
+msgstr "Potentiële sniper?"
 
 msgid ""
 "components.gb_investment.gb_investment.table.tbody.button_show_"
@@ -316,8 +318,8 @@ msgid ""
 msgid_plural ""
 "components.gb_investment.gb_investment.table.tbody.button_show_"
 "extra_investor"
-msgstr[0] "Extra investeerder tonen"
-msgstr[1] "Extra investeerders tonen"
+msgstr[0] "Toon extra investeerder"
+msgstr[1] "Toon extra investeerders"
 
 msgid ""
 "components.gb_investment.gb_investment.table.tbody.button_hide_"
@@ -325,18 +327,18 @@ msgid ""
 msgid_plural ""
 "components.gb_investment.gb_investment.table.tbody.button_hide_"
 "extra_investor"
-msgstr[0] "Extra investeerder verbergen"
-msgstr[1] "Extra investeerders verbergen"
+msgstr[0] "Verberg extra investeerder"
+msgstr[1] "Verberg extra investeerders"
 
 msgid "components.gb_investment.gb_investment.table.tbody.loss"
 msgid_plural "components.gb_investment.gb_investment.table.tbody.loss"
-msgstr[0] "Deze speler verliest FP"
-msgstr[1] "Deze speler verliest FP's"
+msgstr[0] "Deze speler zal FP verliezen"
+msgstr[1] "Deze speler zal FP's verliezen"
 
 msgid ""
 "components.gb_investment.gb_investment.table.tbody.tooltip_"
 "owner_investment"
-msgstr "De door de eigenaar nog te storten FPs om de plaats veilig te stellen"
+msgstr "De nog door de eigenaar te storten FP's om de plaats veilig te stellen"
 
 msgid ""
 "components.gb_investment.gb_investment.table.tbody.tooltip_"
@@ -344,7 +346,7 @@ msgid ""
 msgstr "Verwachte investering"
 
 msgid "components.gb_investment.gb_investment.table.tbody.profit"
-msgstr "Deze speler maakt (FP) winst"
+msgstr "Deze speler zal winst maken"
 
 msgid "components.gb_investment.gb_investment.table.tbody.neutral"
 msgstr "Deze speler maakt geen winst of verlies"
@@ -363,22 +365,22 @@ msgid "components.gb_investment.gb_investment.table.tfoot.level_cost"
 msgstr "Kosten niveau"
 
 msgid "components.gb_investment.gb_investment.display_gb_name"
-msgstr "GG Naam weergeven?"
+msgstr "GG naam weergeven?"
 
 msgid "components.gb_investment.gb_investment.use_short_name"
-msgstr "GG Afkorting gebruiken?"
+msgstr "Afkorting GG gebruiken?"
 
 msgid "components.gb_investment.gb_investment.show_level"
 msgstr "Level tonen?"
 
 msgid "components.gb_investment.promotion.title"
-msgstr "Promotie bericht"
+msgstr "Promotiebericht"
 
 msgid "components.gb_investment.promotion.prefix_placeholder"
-msgstr "tekst voor het promotion promotie"
+msgstr "tekst voor het promotiebericht"
 
 msgid "components.gb_investment.promotion.suffix_placeholder"
-msgstr "tekst na het promotion promotie"
+msgstr "tekst na het promotiebericht"
 
 msgid "components.gb_investment.promotion.promo"
 msgstr ""
@@ -457,7 +459,7 @@ msgid "components.gb_forecast_cost.custom_percentage"
 msgstr "Aangepaste Arc bonus (voor elke positie)"
 
 msgid "components.gb_forecast_cost.estimated_time"
-msgstr "Schat tijd om het volgende niveau te halen"
+msgstr "Schat de tijd om het volgende niveau te halen"
 
 msgid "components.gb_forecast_cost.message.diff"
 msgid_plural "components.gb_forecast_cost.message.diff"
@@ -508,22 +510,22 @@ msgstr ""
 "geval na (@:(foe_data.gb.Oracle_of_Delphi))."
 
 msgid "components.gb_statistics.represent"
-msgstr "Vertegenwoordigd:"
+msgstr "Vertegenwoordigt:"
 
 msgid "components.gb_statistics.graph.title_1"
 msgstr "Evolutie van de kosten van de niveaus t.o.v. de niveaus"
 
 msgid "components.gb_statistics.graph.title_2"
-msgstr "Evolutie van de opbrengst van de eerste positie t.o.v. de niveaus"
+msgstr "Ontwikkeling van de opbrengst van de eerste positie t.o.v. de niveaus"
 
 msgid "components.gb_statistics.graph.title_3"
 msgstr ""
-"Evolutie van de kosten van de niveaus t.o.v. de opbrengst van de eerste "
+"Ontwikkeling van de kosten van de niveaus t.o.v. de opbrengst van de eerste "
 "positie"
 
 msgid "components.gb_statistics.graph.title_4"
 msgstr ""
-"Evolutie van de opbrengst van de eerste positie t.o.v. de kosten van de "
+"Ontwikkeling van de opbrengst van de eerste positie t.o.v. de kosten van de "
 "niveaus"
 
 msgid "components.secure_position.block_place.fp_to_complete_level"
@@ -3351,7 +3353,7 @@ msgstr ""
 "oplevert dan je uitgeeft."
 
 msgid "components.cf_calculator.tutorial.otherRq"
-msgstr "Stel het aantal herhalende missies in die je op moment hebt gedaan."
+msgstr "Stel het aantal herhalende missies in die je op dit moment hebt gedaan."
 
 msgid "components.cf_calculator.tutorial.coinSupplyReturn"
 msgstr ""
@@ -3361,13 +3363,13 @@ msgstr ""
 
 msgid "components.cf_calculator.tutorial.bonusUbq"
 msgstr ""
-"Het aantal van je onverjaardag missies die je (statistisch) kan voltooien "
-"met het aantal munten en voorraden die je op dat moment hebt en wat je er "
-"mee zal verdienen."
+"Het aantal van je onverjaardagmissies die je (statistisch) kan voltooien met "
+"het aantal munten en voorraden die je op dat moment hebt en wat je er mee "
+"zal verdienen."
 
 msgid "components.cf_calculator.tutorial.dailyUbq"
 msgstr ""
-"Het aantal van je onverjaardag missies die je kan voltooien op basis van het "
+"Het aantal van de onverjaardagmissie die je kan voltooien op basis van het "
 "aantal munten en voorraden die je wilt uitgeven."
 
 msgid "components.cf_calculator.tutorial.secondRqCompleted"
@@ -3380,10 +3382,10 @@ msgid "routes.about.cookie.info.cookieConsent"
 msgstr "Jouw cookie voorkeuren"
 
 msgid "footer_menu.privacy_policy"
-msgstr "Privacy verklaring"
+msgstr "Privacybeleid"
 
 msgid "footer_menu.cookie_policy"
-msgstr "Cookie verklaring"
+msgstr "Cookiebeleid"
 
 msgid "components.gb_investment.tutorial.owner_investment"
 msgstr ""
@@ -3429,7 +3431,7 @@ msgstr ""
 "verlies."
 
 msgid "components.gb_investment.tutorial.display_modes.title"
-msgstr "Weergave modi"
+msgstr "Weergavemodi"
 
 msgid "components.gb_investment.tutorial.snipe.content"
 msgstr ""
@@ -3497,3 +3499,19 @@ msgstr ""
 "Je kan op onderstaande links klikken om meer te weten te komen.\n"
 "Om verder te gaan met de tutorial klik alstublieft op de \"@:(utils.Next)\" "
 "knop."
+
+msgid "components.gb_investment.tutorial.table.fp_to_put_by_the_owner"
+msgstr ""
+"Zoals de naam als zegt, het verwijst naar de hoeveelheid FP die de eigenaar "
+"in zijn GG moet storten om een plak veilig te stellen."
+
+msgid "components.gb_investment.tutorial.table.default_rewards"
+msgstr "Dit is de standaard beloning (zonder Arkbonus) van die plek."
+
+msgid "components.gb_investment.tutorial.your_arc_bonus"
+msgstr ""
+"Dit veld is bedoeld voor investeerders en \n"
+"@:(components.gb_investment.gb_investment.form.show_snipe)\" moet ingesteld "
+"worden op \"@:(utils.Yes)\".\n"
+"Het vertelt je hoeveel FP je moet doneren om een plek veilig te stellen; het "
+"zegt je ook hoeveel winst of verlies je zal maken."
