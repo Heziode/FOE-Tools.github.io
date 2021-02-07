@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.81.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.80.0...v2.81.0) (2021-02-07)
+
+
+### Features
+
+* **gb-investment:** set "Is potential sniper" to "No" if the added investor have the expected amount ([9cf7e07](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9cf7e07852296f385cd35f8336ba4f4abbef79d6))
+
+
+### Translation
+
+* Translated using Weblate (Danish) ([2a7d4e4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/2a7d4e4588a1dbd585ba00d0d634e2aef8d11579))
+* Translated using Weblate (Dutch) ([7062167](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/706216712ebe159b1f1fda304f07744371c10e6d))
+* Translated using Weblate (Russian) ([fed7901](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fed79011b2ce31795e571f7d6ab5ca8fed624806))
+* Translated using Weblate (Russian) ([34db4cb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/34db4cb7c2470c88e9931e137087a3ae9304d023))
+* Translated using Weblate (Russian) ([26cbb75](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/26cbb750d5168c693d3f35aaddd0e117e7980fcb))
+* Translated using Weblate (Russian) ([37840e7](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/37840e7011f64aec9453d23f3c0b70b46f92d85c))
+* Translated using Weblate (Russian) ([308534a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/308534a68d2f96b10472836b94c3479424299ca8))
+* Translated using Weblate (Russian) ([abef5d3](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/abef5d39ca5ebb4f38661d41e253742e0c2a6178))
+* Translated using Weblate (Russian) ([1f27bc4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1f27bc48fecafaf3aa99c53cfc9fff734aee9dc8))
+* Translated using Weblate (Russian) ([1e371ca](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1e371ca233a5a9a0fe448c61fe9d8ff15eb34ed6))
+
 ## [2.80.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.79.3...v2.80.0) (2021-01-31)
 
 ### Features
