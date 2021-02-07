@@ -323,7 +323,7 @@ div.content#gbiContent
                         | &nbsp;
                       span(v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(props.roi), { count: $n(Math.abs(props.roi)) }) }") {{$n(Math.abs(props.snipe.roi))}}
 
-                    span(v-else).icon.is-small(style="vertical-align: middle;" v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }")
+                    span.icon.is-small(v-else style="vertical-align: middle;" v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }")
                       i.fas.fa-exchange-alt
                     | )
               // Custom arc bonus
