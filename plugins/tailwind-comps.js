@@ -7,6 +7,9 @@ import TLabel from "~/components/t-label/TLabel";
 import TMessage from "~/components/t-message/TMessage";
 import TSelect from "~/components/t-select/TSelect";
 import * as TTabs from "~/components/tailwind-comps/TTabs";
+import useToast from "~/components/tailwind-comps/TToast";
+
+Vue.prototype.$toast = useToast();
 
 Vue.component("TAutocomplete", TAutocomplete);
 Vue.component("TButton", TButton);

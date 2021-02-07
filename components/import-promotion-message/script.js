@@ -211,10 +211,9 @@ export default {
       } while (ids.includes(id));
       result.push({ id, name: this.templateName, config: template });
       this.$store.set(`global/customPromotionMessagesTemplates`, this.$clone(result));
-      this.$buefy.notification.open({
-        message: this.$t(i18nPrefix + "template_imported"),
-        type: "is-success",
-        duration: 5000,
+      this.$toast({
+        description: this.$t(i18nPrefix + "template_imported"),
+        status: "success",
       });
     },
     nbMultiLine(src) {

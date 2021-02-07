@@ -645,20 +645,22 @@ export default {
           5: "1.25rem",
           8: "2rem",
         },
-        maxHeight: {
-          ...tailwindConf.theme.maxHeight,
+        maxHeight: (theme) => ({
+          ...tailwindConf.theme.maxHeight(theme),
           5: "1.25rem",
           48: "12rem",
-        },
+        }),
         minWidth: {
           ...tailwindConf.theme.minWidth,
           5: "1.25rem",
+          12: "3rem",
           48: "12rem",
+          md: "28rem",
         },
-        maxWidth: {
-          ...tailwindConf.theme.minWidth,
+        maxWidth: (theme, { breakpoints }) => ({
+          ...tailwindConf.theme.maxWidth(theme, { breakpoints }),
           5: "1.25rem",
-        },
+        }),
       },
       variants: {
         extend: {
