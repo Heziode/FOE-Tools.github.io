@@ -35,20 +35,17 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      newTypeText: [this.textSize, "text-trueGray-600"],
+    };
+  },
   computed: {
     isIndeterminate() {
       return this.value === undefined || this.value === null;
     },
     newType() {
       return [this.size, this.type];
-    },
-    newTypeText() {
-      let textColor = this.value && this.value > this.max / 2 ? "text-white" : "text-trueGray-600";
-
-      if (this.type === "is-warning") {
-        textColor = "text-trueGray-600";
-      }
-      return [this.textSize, textColor];
     },
     newValue() {
       return this.calculateValue(this.value);
@@ -79,6 +76,9 @@ export default {
         }
       });
     },
+    value() {
+      this.setNewTypeText();
+    },
   },
   methods: {
     calculateValue(value) {
@@ -101,5 +101,24 @@ export default {
         maximumFractionDigits: maximumFractionDigits,
       }).format(value);
     },
+    setNewTypeText() {
+      let textColor = "text-trueGray-600";
+      if (this.$refs.progress && this.$refs.content) {
+        const max = this.$refs.progress.clientWidth;
+        const textWidth = this.$refs.content.clientWidth;
+        const endText = max / 2 + textWidth / 2;
+        const valueToWidth = (this.value * max) / this.max;
+        textColor = endText <= valueToWidth ? "text-white" : "text-trueGray-600";
+      }
+
+      if (this.type === "is-warning") {
+        textColor = "text-trueGray-600";
+      }
+      this.newTypeText = [this.textSize, textColor];
+    },
+  },
+  mounted() {
+    this.setNewTypeText();
+    window.addEventListener("resize", this.setNewTypeText);
   },
 };
