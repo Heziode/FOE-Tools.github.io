@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.81.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.81.0...v2.81.1) (2021-02-08)
 
-
 ### Bug Fixes
 
-* **t-progress:** fix text color on progress bar depending of jauge progress ([f5e8e0a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f5e8e0a656f23e089e5ce0bc119b1c9d90647b9b))
+- **t-progress:** fix text color on progress bar depending of jauge progress ([f5e8e0a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f5e8e0a656f23e089e5ce0bc119b1c9d90647b9b))
 
 ## [2.81.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.80.0...v2.81.0) (2021-02-07)
 
