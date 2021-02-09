@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.833Z\n"
-"PO-Revision-Date: 2021-01-16 13:15+0000\n"
-"Last-Translator: Weblate Admin <admin@foe.tools>\n"
+"PO-Revision-Date: 2021-02-10 17:59+0000\n"
+"Last-Translator: Mario Carapinha <omega.2delta@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.foe.tools/projects/"
 "foe-tools-website/website/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "mime-version: 1.0\n"
 
 msgid "main_menu.home"
@@ -155,7 +155,7 @@ msgstr "Retorno de Mantimentos"
 msgid "components.cf_calculator.block_cfc.infinity_generator.message"
 msgstr ""
 "Com este bónus de @:(foe_data.gb.Chateau_Frontenac),ganharas mais moedas e "
-"mantimentos,do que aqueles que usaste para concluíres a missão.Escolhe o "
+"mantimentos do que aqueles que usaste para concluíres a missão. Escolhe o "
 "numero de @:(components.cf_calculator.block_cfc.infinity_generator.label) "
 "que queres fazer."
 
@@ -200,8 +200,8 @@ msgstr "Em nesse caso, precisas de dizer o numero de missões que queres fazer."
 
 msgid "components.cf_calculator.tutorial.infiniteGenerator"
 msgstr ""
-"Esta secção mostra apenas quando o @:(foe_data.gb.Chateau_Frontenac) ajuda "
-"(de acordo com a tua Era) da estatisticamente mais moedas e mantimentos do "
+"Esta secção mostra apenas quando o @:(foe_data.gb.Chateau_Frontenac) ajuda ("
+"de acordo com a tua Era) dá estatisticamente mais moedas e mantimentos do "
 "que vais gastar."
 
 msgid "components.cf_calculator.tutorial.otherRq"
@@ -218,11 +218,10 @@ msgstr ""
 
 msgid "components.cf_calculator.tutorial.suppliesGathered"
 msgstr ""
-"Coloca a quantidade de mantimentos que quer usar na segunda missão "
-"recorrente."
+"Coloca a quantidade de mantimentos para usar na segunda missão recorrente."
 
 msgid "components.cf_calculator.tutorial.fpBy24h"
-msgstr "Coloca o numero de PF's que recolhes após 24 horas."
+msgstr "Coloca o numero de PF's da recolha de 24 horas."
 
 msgid "components.cf_calculator.tutorial.goods"
 msgstr "Coloca o numero de mercadorias que ganhas do teu GE e das pilhagens."
@@ -272,13 +271,13 @@ msgstr ""
 "form.submit_custom)\"."
 
 msgid "components.gb_investment.gb_investment.form.level"
-msgstr "Level {fromLevel} → {level} (@:(utils.between_range))"
+msgstr "Nível {fromLevel} → {level} (@:(utils.between_range))"
 
 msgid "components.gb_investment.gb_investment.form.investor_percentage"
 msgstr "% do bónus dos investidores (bónus da arca)"
 
 msgid "components.gb_investment.gb_investment.form.submit_global"
-msgstr "Calculo Global"
+msgstr "Cálculo Global"
 
 msgid "components.gb_investment.gb_investment.form.submit_custom"
 msgstr "Cálculo personalizado"
@@ -287,7 +286,7 @@ msgid "components.gb_investment.gb_investment.form.owner_investment"
 msgstr "Número de PFs actualmente colocados pelo proprietário (max {max})"
 
 msgid "components.gb_investment.gb_investment.form.add_investors"
-msgstr "Adicione investidor,@:(utils.between_range))"
+msgstr "Adicione investidor(coloca valor dos PF's ,@:(utils.between_range))"
 
 msgid ""
 "components.gb_investment.gb_investment.form.tooltip_add_"
@@ -300,7 +299,7 @@ msgid "components.gb_investment.gb_investment.form.investors_list"
 msgstr "Lista de investidores adicionados"
 
 msgid "components.gb_investment.gb_investment.form.show_snipe"
-msgstr "Mostrar lugar/intruso"
+msgstr "Mostrar lugar/Intruso"
 
 msgid ""
 "components.gb_investment.gb_investment.form.show_only_secured_"
@@ -549,8 +548,8 @@ msgstr ""
 msgid "components.gb_investment.tutorial.table.is_sniper"
 msgstr ""
 "Esta coluna é apenas mostrada quando é definido pelo menos 1 investidor. É "
-"usada para definir se um jogador é um potencial intruso ou não.\n"
-"Esta informação é usada para calcular um lugar seguro."
+"usada para definir se um jogador é um potencial intruso ou não. Esta "
+"informação é usada para calcular um lugar seguro."
 
 msgid "components.gb_investment.tutorial.table.percentage_investors"
 msgstr ""
@@ -771,9 +770,9 @@ msgstr "@:(routes.gb_statistics.hero.title)"
 
 msgid "components.gb_statistics.p1"
 msgstr ""
-"Os gráficos são feitos de acordo com a idade, pois o custo / prémio dos GEs "
-"é o mesmo para cada GE de uma idade, excepto em um caso específico "
-"(@:(foe_data.gb.Oracle_of_Delphi))."
+"Os gráficos são feitos de acordo com a era, pois o custo / prémio dos GEs é "
+"o mesmo para cada GE de uma era, exceto em casos específicos (@:(foe_data.gb."
+"Oracle_of_Delphi))."
 
 msgid "components.gb_statistics.represent"
 msgstr "Representa:"
@@ -995,7 +994,7 @@ msgid "components.site_layout.switch_locale"
 msgstr "@:(common.site_title) está disponível na sua língua"
 
 msgid "components.trade.title"
-msgstr "Versão da  Forma"
+msgstr "Versão da Forma"
 
 msgid "components.trade.label.i_have"
 msgstr "Eu tenho"
@@ -1140,7 +1139,7 @@ msgstr ""
 "Numero de PFs colocados pelo dono para o lugar \"x\"(sendo \"x\" de 1 a 5)"
 
 msgid "components.promotion_message_builder.variables.message.LF"
-msgstr "Adicionar Linha, adicione uma nova linha"
+msgstr "Adicionar Linha, coloque uma nova linha"
 
 msgid "components.promotion_message_builder.variables.message.LC"
 msgstr "Custo do nível"
@@ -1179,7 +1178,7 @@ msgid "components.import_promotion_message.title"
 msgstr "Importar mensagem de promoção"
 
 msgid "components.import_promotion_message.config_placeholder"
-msgstr "Cole a sua configuração aqui"
+msgstr "Coloque a sua configuração aqui"
 
 msgid "components.import_promotion_message.errors.invalid_data"
 msgstr "Dados inválidos"
@@ -1410,9 +1409,9 @@ msgstr ""
 
 msgid "routes.about.dev_info.p3_html"
 msgstr ""
-"Queres acrescentar uma funcionalidade ? Notas te algum problema?Podes criar "
-"um ticket em @:(common.links.github) or send me an email (in English or in "
-"French) at @:(common.links.contact_foe_tools)."
+"Queres acrescentar uma funcionalidade ? Notas te algum problema? Podes criar "
+"um ticket em @:(common.links.github) ou enviar me um email (em Inglês ou em "
+"Francês) para @:(common.links.contact_foe_tools)."
 
 msgid "routes.about.dev_info.message_info_github_issue"
 msgstr ""
@@ -1438,7 +1437,7 @@ msgstr "Calculadora do Château Frontenac"
 msgid "routes.cf_calculator.hero.subtitle"
 msgstr ""
 "Uma ferramenta que ajuda a previsão de produtos e produções de pf das "
-"missões  recorrentes e missões de festa de aniversário (Rinbin)."
+"missões recorrentes e missões de festa de aniversário (Rinbin)."
 
 msgid "routes.changelog.title"
 msgstr "Changelog | @:(common.site_title)"
@@ -1626,7 +1625,7 @@ msgid "routes.donate.hero.title"
 msgstr "@:(utils.Donate)"
 
 msgid "routes.donate.donation_options"
-msgstr "Doa com @:(common.links.donorbox) or @:(common.links.paypal)."
+msgstr "Doar aqui @:(common.links.donorbox) or @:(common.links.paypal)."
 
 msgid "routes.donate.conversion"
 msgstr "Se aprecias o meu trabalho, por favor considera uma doação."
@@ -1690,7 +1689,7 @@ msgid "foe_data.age.TheFuture"
 msgstr "O Futuro"
 
 msgid "foe_data.age.ArcticFuture"
-msgstr "O Futuro  Árctico"
+msgstr "O Futuro Árctico"
 
 msgid "foe_data.age.OceanicFuture"
 msgstr "Futuro Oceânico"
@@ -1726,7 +1725,7 @@ msgid "foe_data.age_short.ColonialAge"
 msgstr "Co"
 
 msgid "foe_data.age_short.IndustrialAge"
-msgstr "IND"
+msgstr "Ind"
 
 msgid "foe_data.age_short.ProgressiveEra"
 msgstr "PRO"
@@ -1768,7 +1767,7 @@ msgid "foe_data.gb.Oracle_of_Delphi"
 msgstr "Oráculo de Delphi"
 
 msgid "foe_data.gb.Tower_of_Babel"
-msgstr "Torre de babel"
+msgstr "Torre de Babel"
 
 msgid "foe_data.gb.Statue_of_Zeus"
 msgstr "Estátua de Zeus"
@@ -1882,7 +1881,7 @@ msgid "foe_data.gb_short.Observatory"
 msgstr "Obs"
 
 msgid "foe_data.gb_short.Temple_of_Relics"
-msgstr "ToR"
+msgstr "TdR"
 
 msgid "foe_data.gb_short.Oracle_of_Delphi"
 msgstr "OdD"
@@ -1975,10 +1974,10 @@ msgid "foe_data.gb_short.Seed_Vault"
 msgstr "SGS"
 
 msgid "foe_data.gb_short.Atlantis_Museum"
-msgstr "Atlântida"
+msgstr "Museu"
 
 msgid "foe_data.gb_short.The_Kraken"
-msgstr "O Monstro Marinho"
+msgstr "Monstro"
 
 msgid "foe_data.gb_short.The_Blue_Galaxy"
 msgstr "GA"
@@ -1999,10 +1998,10 @@ msgid "foe_data.gb_short.Space_Carrier"
 msgstr "Cargueiro"
 
 msgid "foe_data.goods.dye"
-msgstr "Tintura"
+msgstr "Corante"
 
 msgid "foe_data.goods.lumber"
-msgstr "Troncos de Madeira"
+msgstr "Madeira"
 
 msgid "foe_data.goods.marble"
 msgstr "Mármore"
@@ -2158,7 +2157,7 @@ msgid "foe_data.goods.gas"
 msgstr "Gás"
 
 msgid "foe_data.goods.plastics"
-msgstr "Plásticos"
+msgstr "Plástico"
 
 msgid "foe_data.goods.robots"
 msgstr "Robots"
@@ -2197,7 +2196,7 @@ msgid "foe_data.goods.ai_data"
 msgstr "Dados da I.A."
 
 msgid "foe_data.goods.bioplastics"
-msgstr "Bioplásticos"
+msgstr "Bioplástico"
 
 msgid "foe_data.goods.nanowire"
 msgstr "Nanotubos de Carbono"
@@ -2227,7 +2226,7 @@ msgid "foe_data.goods.promethium"
 msgstr "Promécio"
 
 msgid "foe_data.goods.orichalcum"
-msgstr "Orichalco"
+msgstr "Oricalco"
 
 msgid "foe_data.goods.cryptocash"
 msgstr "Criptomoeda"
@@ -2242,7 +2241,7 @@ msgid "foe_data.goods.nanites"
 msgstr "Nanorrobôs"
 
 msgid "foe_data.goods.tea_silk"
-msgstr "Seda De Chá"
+msgstr "Seda de Chá"
 
 msgid "foe_data.goods.superalloys"
 msgstr "Superligas"
@@ -3106,7 +3105,7 @@ msgid "foe_data.province.Aerial_Boulevard"
 msgstr "Aerial Boulevard"
 
 msgid "foe_data.province.Slate_13"
-msgstr "Aerial Boulevard"
+msgstr "Slate 13"
 
 msgid "foe_data.province.New_final_final_exe"
 msgstr "New_final_final.exe"
@@ -3324,7 +3323,7 @@ msgstr "Reforço de Mantimentos"
 msgid "foe_data.bonus.supply_boost.gb_description"
 msgstr ""
 "Aumenta o resultado de seus edifícios de produção, produtividade, a "
-"motivação e outros aumentos na oferta."
+"motivação e mantimentos."
 
 msgid "foe_data.bonus.good_production.name"
 msgstr "Produção de Mercadorias"
@@ -3375,8 +3374,8 @@ msgstr "Reforço da Recompensa da Missão"
 
 msgid "foe_data.bonus.quest_reward_boost.gb_description"
 msgstr ""
-"Quando recebes moedas, mantimentos, mercadorias, Diamantes ou medalhas como "
-"recompensa pelas missões, recebes uma percentagem adicional."
+"Aumenta apenas as moedas, mantimentos, mercadorias ou diamantes das missões "
+"historia ou recorrentes."
 
 msgid "foe_data.bonus.penal_unit.gb_description"
 msgstr ""
@@ -3399,7 +3398,7 @@ msgid "foe_data.bonus.support_pool_bonus.name"
 msgstr "Bonificação da Pool de Apoio"
 
 msgid "foe_data.bonus.support_pool_bonus.gb_description"
-msgstr "A guilda recebe pool de apoio,aumenta a cada nível."
+msgstr "A guilda recebe pool de apoio, que aumenta a cada nível."
 
 msgid "foe_data.bonus.aid_goods.name"
 msgstr "Mercadorias de Auxílio"
@@ -3414,7 +3413,7 @@ msgstr "Mercadorias de Saque"
 
 msgid "foe_data.bonus.plunder_goods.gb_description"
 msgstr ""
-"Nas primeiras vezes que saqueias um edifício, recebes uma mercadoria "
+"Das primeiras vezes que saqueias um edifício, recebes uma mercadoria "
 "aleatória da era desse edifício."
 
 msgid "foe_data.bonus.contribution_boost.name"
@@ -3466,8 +3465,8 @@ msgstr "Saquear e Pilhar"
 
 msgid "foe_data.bonus.plunder_and_pillage.gb_description"
 msgstr ""
-"Probabilidade de duplicar a quantidade de recursos saqueados. Poderá dobrar "
-"todos os recursos que pode pilhar, incluído pontos forge e Poder da Guilda."
+"Probabilidade de duplicar a quantidade de recursos saqueados. Poderás dobrar "
+"todos os recursos que podes pilhar, incluído pontos forge e Poder da Guilda."
 
 msgid "foe_data.bonus.first_strike.name"
 msgstr "Impacto Inicial"
@@ -3638,7 +3637,7 @@ msgid "utils.graph.gb_reward_1st_place"
 msgstr "Recompensa do nível (1º lugar)"
 
 msgid "utils.Donate"
-msgstr "Doa"
+msgstr "Doar"
 
 msgid "utils.Tutorial"
 msgstr "Tutorial"
@@ -3661,7 +3660,7 @@ msgid "utils.Previous"
 msgstr "←"
 
 msgid "contributions.blog"
-msgstr "Noticias no blog"
+msgstr "Noticias do blog"
 
 msgid "contributions.bug"
 msgstr "Relatório de erros"
@@ -3872,3 +3871,124 @@ msgstr "Euphrosyne A-20"
 
 msgid "foe_data.province.Ceres_E_6"
 msgstr "Ceres E-6"
+
+msgid "utils.alpha_order"
+msgstr "Ordem Alfabética"
+
+msgid "utils.favourites"
+msgstr "Favoritos"
+
+msgid "components.gb_investment.add_favourite"
+msgstr "Adicionar aos Favoritos"
+
+msgid "cookieConsent.purposes.quality"
+msgstr "Qualidade"
+
+msgid "cookieConsent.purposes.performance.title"
+msgstr "Otimização da Performance"
+
+msgid "cookieConsent.purposes.performance.description"
+msgstr ""
+"Estes serviços processam informação pessoal para otimização dos serviços "
+"prestados pelo site."
+
+msgid "cookieConsent.purposes.functional.title"
+msgstr "Prestação de Serviços"
+
+msgid "cookieConsent.purposes.functional.description"
+msgstr ""
+"Estes serviços são fundamentais para o correto funcionamento deste site. Não "
+"podes desabilitar para o correto funcionamento do site."
+
+msgid "cookieConsent.purposes.advertising.title"
+msgstr "Anuncio"
+
+msgid "cookieConsent.purposes.advertising.description"
+msgstr ""
+"Estes serviços processam data pessoal para te mostrar anúncios "
+"personalizados."
+
+msgid "cookieConsent.ok"
+msgstr "Esta OK para mim"
+
+msgid "cookieConsent.consentNotice.edit"
+msgstr ""
+"Está OK para ti ? Podes sempre cancelar ou retirar o teu consentimento mais "
+"tarde."
+
+msgid "cookieConsent.consentNotice.description"
+msgstr "Nós gostávamos de adicionar alguns serviços com este propósito:"
+
+msgid "cookieConsent.consentNotice.changeDescription"
+msgstr ""
+"Existe alterações desde da tua ultima visita, por favor renova o teu "
+"consentimento."
+
+msgid "cookieConsent.consentModal.title"
+msgstr "Serviços que gostaras de usar"
+
+msgid "cookieConsent.consentModal.description"
+msgstr ""
+"Aqui podes alterar os serviços que gostas de usar no site. Estas no comando! "
+"Adiciona ou retira serviços como queiras."
+
+msgid "cookieConsent.acceptSelected"
+msgstr "Completo"
+
+msgid "cookieConsent.acceptAll"
+msgstr "Eu aceito tudo"
+
+msgid "cookieConsent.back"
+msgstr "Para traz"
+
+msgid "cookieConsent.foe-tools.description"
+msgstr ""
+"Toda a informação relacionada com a sua configuração ( Níveis dos Ge's, "
+"investidores, bónus da Arca , etc.)"
+
+msgid "cookieConsent.sentry.description"
+msgstr "Guardar erros para identificar potenciais bugs ( solução pré colocada)"
+
+msgid "cookieConsent.consentNotice.learnMore_nonTogglable"
+msgstr "Aprender Mais"
+
+msgid "cookieConsent.consentNotice.learnMore"
+msgstr "Eu escolho"
+
+msgid "cookieConsent.title"
+msgstr "Olá ! Somos nós … os Cookies!"
+
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Gálata"
+
+msgid "foe_data.gb.Galata_Tower"
+msgstr "Torre Gálata"
+
+msgid "routes.about.cookie.p2"
+msgstr "Para mais informação, por favor escreva nos seguintes links:"
+
+msgid "routes.about.cookie.info.cookieConsent"
+msgstr "As suas preferências de cookies"
+
+msgid "components.site_layout.translation_not_completed.content"
+msgstr "As seguintes traduções não estão completas e aguardam tradução:"
+
+msgid "components.site_layout.translation_not_completed.title"
+msgstr "Tradução incompleta"
+
+msgid "components.site_layout.global_config_dialog.day_night_mode.System"
+msgstr "Sistema preferido"
+
+msgid "components.gb_forecast_cost.message.estimated_time_swap_threads"
+msgstr ""
+"Tempo estimado para alcançar um nível usando a troca de lugares (5/10/20/50/"
+"100 FPs, etc.): {time}"
+
+msgid "components.gb_investment.remove_favourite"
+msgstr "Apagar dos favoritos"
+
+msgid "footer_menu.privacy_policy"
+msgstr "Politica de Privacidade"
+
+msgid "footer_menu.cookie_policy"
+msgstr "Politica de Cookies"
