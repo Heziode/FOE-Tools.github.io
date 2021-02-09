@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.977Z\n"
-"PO-Revision-Date: 2021-02-08 19:59+0000\n"
+"PO-Revision-Date: 2021-02-09 11:19+0000\n"
 "Last-Translator: Юрбан <tkachenkojurii@gmail.com>\n"
 "Language-Team: Russian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/ru/>\n"
@@ -2987,7 +2987,7 @@ msgid "foe_data.bonus.critical_hit.gb_description"
 msgstr ""
 
 msgid "foe_data.bonus.aid_goods.name"
-msgstr ""
+msgstr "Товары за помощь"
 
 msgid "foe_data.bonus.relic_hunt.name"
 msgstr ""
@@ -2999,13 +2999,13 @@ msgid "utils.Result"
 msgstr ""
 
 msgid "foe_data.bonus.guild_goods.name"
-msgstr ""
+msgstr "Товары гильдии"
 
 msgid "foe_data.bonus.guild_goods.gb_description"
-msgstr ""
+msgstr "Производит товары текущей эпохи для казны вашей гильдии."
 
 msgid "foe_data.bonus.plunder_goods.name"
-msgstr ""
+msgstr "Товары за грабёж"
 
 msgid "foe_data.bonus.relic_hunt.gb_description"
 msgstr ""
@@ -3331,10 +3331,10 @@ msgstr "Галатская башня"
 
 msgid "routes.help_to_translate_the_site.p2_html"
 msgstr ""
-"@ :( common.site_title) переведено пользователями. Мы используем платформу @ "
-":( common.links.translation_platform) для облегчения процесса перевода. "
-"Чтобы присоединиться к команде, просто перейдите по следующей ссылке и "
-"зарегистрируйтесь: @ :( common.links.translation_platform)"
+"@:( common.site_title) переведено пользователями. Мы используем платформу @:("
+" common.links.translation_platform) для облегчения процесса перевода. Чтобы "
+"присоединиться к команде, просто перейдите по следующей ссылке и "
+"зарегистрируйтесь: @:( common.links.translation_platform)"
 
 msgid "foe_data.province.Typhoon_Peninsula"
 msgstr "Полуостров Тайфуна"
@@ -3532,3 +3532,140 @@ msgstr "Каньон мятежа"
 
 msgid "foe_data.province.Corsair_s_Skerry"
 msgstr "Рифы корсара"
+
+msgid "foe_data.bonus.plunder_goods.gb_description"
+msgstr ""
+"За первые грабежи здания вы получаете случайный товар той эпохи, к которой "
+"относится здание."
+
+msgid "foe_data.bonus.aid_goods.gb_description"
+msgstr ""
+"За первые случаи помощи зданию вы получаете случайный товар той эпохи, к "
+"которой относится здание."
+
+msgid "foe_data.bonus.support_pool_bonus.gb_description"
+msgstr "Гильдия получает прибавку к резерву."
+
+msgid "foe_data.bonus.support_pool_bonus.name"
+msgstr "Бонус резерва"
+
+msgid "foe_data.bonus.penal_unit.gb_description"
+msgstr ""
+"Каждые 24 часа производит случайные военные юниты из тех, которые вы можете "
+"производить в городе."
+
+msgid "foe_data.bonus.penal_unit.name"
+msgstr "Военный юнит"
+
+msgid "foe_data.bonus.quest_reward_boost.gb_description"
+msgstr ""
+"Увеличивает количество монет, ресурсов, товаров, Бриллиантов или медалей за "
+"выполненные квесты."
+
+msgid "foe_data.bonus.quest_reward_boost.name"
+msgstr "Квест-бонус"
+
+msgid "foe_data.bonus.happiness.gb_description"
+msgstr "Постоянный бонус уровня счастья."
+
+msgid "foe_data.bonus.happiness.name"
+msgstr "Уровень счастья"
+
+msgid "foe_data.bonus.population.gb_description"
+msgstr "Бонус постоянного населения."
+
+msgid "foe_data.bonus.population.name"
+msgstr "Население"
+
+msgid "foe_data.bonus.supply_production.gb_description"
+msgstr "Производит определенное количество ресурсов каждые 24 часа."
+
+msgid "foe_data.bonus.supply_production.name"
+msgstr "Производство ресурсов"
+
+msgid "foe_data.bonus.coin_production.gb_description"
+msgstr "Производит определенное количество монет каждые 24 часа."
+
+msgid "foe_data.bonus.coin_production.name"
+msgstr "Производство монет"
+
+msgid "foe_data.bonus.research.gb_description"
+msgstr "Производит стратегические очки каждые 24 часа."
+
+msgid "foe_data.bonus.research.name"
+msgstr "Исследование"
+
+msgid "foe_data.bonus.medal_production.gb_description"
+msgstr "Производит определенное количество медалей каждые 24 часа."
+
+msgid "foe_data.bonus.medal_production.name"
+msgstr "Производство медалей"
+
+msgid "foe_data.bonus.good_production.gb_description"
+msgstr ""
+"Производит случайные товары из эпохи игрока каждые 24 часа. Начиная с эпохи "
+"Модерна, производит в два раза больше полуфабрикатов."
+
+msgid "foe_data.bonus.good_production.name"
+msgstr "Производство товаров"
+
+msgid "foe_data.bonus.supply_boost.gb_description"
+msgstr ""
+"Повышает эффективность ваших производственных зданий, увеличивает "
+"продуктивность."
+
+msgid "foe_data.bonus.supply_boost.name"
+msgstr "Приток ресурсов"
+
+msgid "foe_data.bonus.coin_boost.gb_description"
+msgstr ""
+"Первые 90 сборов монет увеличатся на определённый процент от изначального "
+"значения."
+
+msgid "foe_data.bonus.coin_boost.name"
+msgstr "Приток монет"
+
+msgid "foe_data.province.Alpha_1_Omega_2"
+msgstr "Alpha 1 Omega 2"
+
+msgid "foe_data.province.LoneHub"
+msgstr "LoneHub"
+
+msgid "foe_data.province.Fort_Duplex"
+msgstr "Fort Duplex"
+
+msgid "foe_data.province.Spoiled_Resort"
+msgstr "Spoiled Resort"
+
+msgid "foe_data.province.Backup_NET"
+msgstr "Backup:NET"
+
+msgid "foe_data.province.Forgotten_Fragments"
+msgstr "Forgotten Fragments"
+
+msgid "foe_data.province.The_Warring_Towers"
+msgstr "The Warring Towers"
+
+msgid "foe_data.province.The_Open_Zone"
+msgstr "The Open Zone"
+
+msgid "foe_data.province.Max_s_Shelter"
+msgstr "Max's Shelter"
+
+msgid "foe_data.province.Pulse_City"
+msgstr "Pulse City"
+
+msgid "foe_data.province.Black_Net_Market"
+msgstr "Black Net Market"
+
+msgid "foe_data.province.Shift_Land"
+msgstr "Shift/Land"
+
+msgid "foe_data.province.Banker_s_Heaven"
+msgstr "Banker's Heaven"
+
+msgid "foe_data.province.End_of_the_Void"
+msgstr "End of the Void"
+
+msgid "foe_data.province.Bytedirt_Planes"
+msgstr "Bytedirt Planes"
