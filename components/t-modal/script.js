@@ -200,8 +200,6 @@ export default {
       }
       this.$emit("after-leave");
     },
-
-
   },
   created() {
     if (typeof window !== "undefined") {
