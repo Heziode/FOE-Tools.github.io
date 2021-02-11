@@ -7,6 +7,11 @@ export default {
     },
     label: String,
     customId: String,
+    defaultLabelClass: {
+      type: String,
+      default: "t-label font-bold",
+    },
+    customLabelClass: String,
   },
   data() {
     return {
