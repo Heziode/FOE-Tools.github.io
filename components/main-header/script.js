@@ -105,7 +105,7 @@ export default {
       Vue.set(this.$data, "burgerMenuVisible", !this.$data.burgerMenuVisible);
     },
     showGlobalSettings: /* istanbul ignore next */ function () {
-      this.$buefy.modal.open({
+      this.$modal({
         parent: this,
         component: GlobalSettings,
         hasModalCard: true,

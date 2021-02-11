@@ -1,25 +1,39 @@
-div.modal-card(style="width: auto")
-  header.modal-card-head
-    p.modal-card-title {{$t('components.site_layout.global_config')}}
-  section.modal-card-body
-    yes-no(v-model="fixedMainMenu" :label="$t(i18nPrefix + 'fixed_main_menu')")
+div
+  .bg-gray-50.px-4.py-3(class='sm:px-6 sm:flex sm:flex-row sm:justify-between dark:bg-gray-600')
+    div(class="my-3 text-center sm:text-left w-full")
+      div(class="text-lg leading-6 font-medium text-gray-900 dark:text-white text-center")
+        h3(class="leading-6 font-medium text-gray-900 dark:text-white" style="font-size: 1.75rem; line-height: 1.75rem; font-weight: 500;") {{$t('components.site_layout.global_config')}}
 
-    t-label(:label="$t(i18nPrefix + 'select_gb_style')")
-    ul.list-none(style="list-style-type: none;")
-      li.mt-2(v-for="(style, index) in gbSelectModes" :key="style.key")
-        t-label
-          input(type="radio" v-model="gbSelectMode" :value="style.key")
-          span.ml-3 {{style.text}}
+  .bg-white.px-4.pt-5.pb-4(class='sm:p-6 sm:pb-4 dark:bg-gray-700')
+    div(class='sm:flex sm:items-start sm:flex-col')
+      div.mt-2(class="sm:ml-4")
+        yes-no(v-model="fixedMainMenu" :label="$t(i18nPrefix + 'fixed_main_menu')" customLabelClass="text-xl")
 
-    t-label(:label="$t(i18nPrefix + 'day_night')")
-    ul.list-none(style="list-style-type: none;")
-      li.mt-2(v-for="(style, index) in dayNightModes" :key="style.key")
-        t-label
-          input(type="radio" v-model="dayNightMode" :value="style.key")
-          span.ml-3 {{style.text}}
+        .mt-4
+        t-label.text-xl(:label="$t(i18nPrefix + 'select_gb_style')")
+        ul.list-none(style="list-style-type: none;")
+          li.mt-2(v-for="(style, index) in gbSelectModes" :key="style.key")
+            t-label
+              input(type="radio" v-model="gbSelectMode" :value="style.key")
+              span.ml-3 {{style.text}}
 
-    day-night(v-if="dayNightMode === 'auto'" @dayStartChange="$emit('dayStartChange')" @nightStartChange="$emit('nightStartChange')")
+        .mt-4
+        t-label.text-xl(:label="$t(i18nPrefix + 'day_night')")
+        ul.list-none(style="list-style-type: none;")
+          li.mt-2(v-for="(style, index) in dayNightModes" :key="style.key")
+            t-label
+              input(type="radio" v-model="dayNightMode" :value="style.key")
+              span.ml-3 {{style.text}}
 
-  footer.modal-card-foot
-    button.button.is-danger(@click="resetSettings()") {{$t('utils.Reset')}}
-    button.button.is-primary(@click="$parent.close()") {{$t('utils.Confirm')}}/{{$t('utils.Close')}}
+        day-night(v-if="dayNightMode === 'auto'" @dayStartChange="$emit('dayStartChange')" @nightStartChange="$emit('nightStartChange')")
+  .bg-gray-50.px-4.py-3(class='sm:px-6 sm:flex sm:flex-row sm:justify-between space-x-0 space-y-4 sm:space-x-4 sm:space-y-0 dark:bg-gray-600')
+    t-button(
+      :title="$t('utils.Reset')"
+      :label="$t('utils.Reset')"
+      @click="resetSettings()"
+      type="danger")
+    t-button(
+      :title="$t('utils.Confirm') + ' / ' + $t('utils.Close')"
+      :label="$t('utils.Confirm') + ' / ' + $t('utils.Close')"
+      @click="$parent.$parent.close()"
+      type="success")
