@@ -1,0 +1,63 @@
+focus-trap(v-model="isActive")
+  .fixed.z-10.inset-0.overflow-y-auto
+    .flex.items-end.justify-center.min-h-screen.max-h-screen.pt-4.px-4.pb-20.text-center(class='sm:block sm:p-0')
+      transition(
+        name="tailwind-modal-bg"
+        enter-active-class="transition-opacity ease-out duration-300"
+        enter-class="opacity-0"
+        enter-to-class="opacity-100"
+        leave-active-class="transition-opacity ease-in duration-200"
+        leave-class="opacity-100"
+        leave-to-class="opacity-0")
+        .fixed.inset-0(v-show="isActive" style="z-index: -1")
+          .absolute.inset-0.bg-gray-800.opacity-75
+      // This element is to trick the browser into centering the modal contents.
+      span.hidden(class='sm:inline-block sm:align-middle sm:h-screen' aria-hidden='true') &ZeroWidthSpace;
+      transition(
+        name="tailwind-modal-modal"
+        enter-active-class="transition-all transform ease-out duration-300"
+        enter-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        enter-to-class="opacity-100 translate-y-0 sm:scale-100"
+        leave-active-class="transition-all transform duration-200"
+        leave-class="opacity-100 translate-y-0 sm:scale-100"
+        leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95")
+        .inline-block.align-bottom.bg-white.rounded-lg.text-left.overflow-hidden.shadow-xl(
+          v-show="isActive"
+          class='sm:my-8 sm:align-middle sm:max-w-lg sm:w-full dark:bg-gray-700'
+          :role="ariaRole"
+          :aria-modal="ariaModal"
+          aria-labelledby='modal-headline')
+          .px-4.pt-5.pb-4(class='sm:p-6 sm:pb-4')
+            div(class='sm:flex sm:items-start')
+              .mx-auto.flex-shrink-0.flex.items-center.justify-center.h-12.w-12.rounded-full(class='sm:mx-0 sm:h-10 sm:w-10' :class="iconColor")
+                i.h-12.w-12(:class="iconByType")
+              .mt-3.text-center(class='sm:mt-0 sm:ml-4 sm:text-left')
+                h3.text-lg.leading-6.font-medium.text-gray-900(v-if="title" class="dark:text-white" style="font-size: 1.25rem; line-height: 1.75rem; font-weight: 500;") {{title}}
+                .mt-2
+                  template(v-if="$slots.default")
+                    slot
+                  template(v-else)
+                    div(v-html="message")
+
+                  div.mt-2(v-if="hasInput")
+                    t-input(v-model='prompt' ref='input' :inputId="promptId" v-bind='inputAttrs' @keyup.enter='confirm')
+
+          .px-4.py-3(class='sm:px-6 sm:flex sm:flex-row space-x-0 space-y-4 sm:space-x-4 sm:space-y-0')
+            div(class="w-1/2")
+              t-button(
+                v-if="showCancel"
+                :id="cancelId"
+                ref="cancelButton"
+                :title="cancelText"
+                :label="cancelText"
+                @click="cancel('button')"
+                expanded)
+            div(class="w-1/2")
+              t-button(
+                :id="confirmId"
+                ref="confirmButton"
+                :title="confirmText"
+                :label="confirmText"
+                @click="confirm"
+                focused
+                :type="type" expanded)
