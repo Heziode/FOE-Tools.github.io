@@ -167,5 +167,7 @@
   "components.gb_investment_investors.takingPlaceInConsideration.label": "Ta andre plasser i betraktning ?",
   "components.gb_investment_investors.description.p1": "Dette feltet tillater deg å se gevinsten som kan tjenes ved å ta en plass, med eller uten å ta i betraktning investeringer i andre plasser. Det er {count} typer vurderinger av andre plasser:",
   "components.gb_investment.tutorial.promotion_message.add_message": "Dette feltet tillater deg å legge til meldinger.",
-  "components.gb_investment.tutorial.promotion_message.custom_fields": "Merk at noen maler har egne felt med deres eget navn."
+  "components.gb_investment.tutorial.promotion_message.custom_fields": "Merk at noen maler har egne felt med deres eget navn.",
+  "components.gb_forecast_cost.prop_already_invested": "FP's som allerede er lagt av eier på nåværende nivå",
+  "components.gb_forecast_cost.message.estimated_time_swap_threads": "Forventet tid for å nå nivået ved bruk av byttetråder (5/10/20/50/100 FPs, etc.): {time}"
 }

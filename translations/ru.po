@@ -3331,10 +3331,10 @@ msgstr "Галатская башня"
 
 msgid "routes.help_to_translate_the_site.p2_html"
 msgstr ""
-"@:( common.site_title) переведено пользователями. Мы используем платформу @:("
-" common.links.translation_platform) для облегчения процесса перевода. Чтобы "
+"@:(common.site_title) переведено пользователями. Мы используем платформу @:("
+"common.links.translation_platform) для облегчения процесса перевода. Чтобы "
 "присоединиться к команде, просто перейдите по следующей ссылке и "
-"зарегистрируйтесь: @:( common.links.translation_platform)"
+"зарегистрируйтесь: @:(common.links.translation_platform)"
 
 msgid "foe_data.province.Typhoon_Peninsula"
 msgstr "Полуостров Тайфуна"
