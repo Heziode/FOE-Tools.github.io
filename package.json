@@ -1,6 +1,6 @@
 {
   "name": "foe-tools",
-  "version": "2.81.1",
+  "version": "2.82.0",
   "description": "Set of tools for Forge of Empires",
   "main": "nuxt.config.js",
   "engines": {
@@ -32,6 +32,10 @@
     "i18n:watch": "vuei18n-po --watch --messagesDir=lang translations/*.po",
     "i18n:generate": "vuei18n-po --messagesDir=lang translations/*.po"
   },
+  "pre-commit": [
+    "lintfix",
+    "prettierfix"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FOE-Tools/FOE-Tools.github.io.git"
@@ -99,6 +103,7 @@
     "lodash.transform": "^4.6.0",
     "lodash.values": "^4.3.0",
     "node-sass": "^5.0.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^2.2.1",
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
