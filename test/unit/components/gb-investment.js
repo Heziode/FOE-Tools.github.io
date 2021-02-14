@@ -301,7 +301,7 @@ describe("GbInvestment", () => {
   test('Change "addInvestors" value', () => {
     const wrapper = factory();
     const newValue = 15;
-    expect(wrapper.vm.addInvestors).toBe(null);
+    expect(wrapper.vm.addInvestors).toBe(0);
     wrapper.vm.addInvestors = newValue;
     wrapper.vm.$nextTick(() => {
       expect(wrapper.vm.addInvestors).toBe(newValue);
@@ -312,7 +312,7 @@ describe("GbInvestment", () => {
   test('Change "addInvestors" invalid value', () => {
     const wrapper = factory();
     const newValue = -1;
-    expect(wrapper.vm.addInvestors).toBe(null);
+    expect(wrapper.vm.addInvestors).toBe(0);
     wrapper.vm.addInvestors = newValue;
     wrapper.vm.$nextTick(() => {
       expect(wrapper.vm.addInvestors).toBe(newValue);
@@ -323,7 +323,7 @@ describe("GbInvestment", () => {
   test('Change "addInvestors" invalid type', () => {
     const wrapper = factory();
     const newValue = "foo";
-    expect(wrapper.vm.addInvestors).toBe(null);
+    expect(wrapper.vm.addInvestors).toBe(0);
     wrapper.vm.addInvestors = newValue;
     wrapper.vm.$nextTick(() => {
       expect(wrapper.vm.addInvestors).toBe(newValue);

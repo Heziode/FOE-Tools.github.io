@@ -6,7 +6,7 @@ const i18nPrefix = "components.site_layout.global_config_dialog.";
 const defaultConfig = {
   fixedMainMenu: true,
   gbSelectMode: "select", // datalist | select
-  dayNightMode: "day", // day | night | auto
+  dayNightMode: "system", // day | night | auto | system
 };
 
 export default {
@@ -44,9 +44,9 @@ export default {
   },
   methods: {
     resetSettings() {
-      this.$data.fixedMainMenu = defaultConfig.fixedMainMenu;
-      this.$data.gbSelectMode = defaultConfig.gbSelectMode;
-      this.$data.dayNightMode = defaultConfig.dayNightMode;
+      this.fixedMainMenu = defaultConfig.fixedMainMenu;
+      this.gbSelectMode = defaultConfig.gbSelectMode;
+      this.dayNightMode = defaultConfig.dayNightMode;
     },
   },
   components: {

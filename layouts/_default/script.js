@@ -82,16 +82,16 @@ export default {
       }
       message += "</ul>";
 
-      this.$buefy.dialog.confirm({
+      this.$dialog.confirm({
         title: this.$t(i18nPrefix + "translation_not_completed.title"),
         message,
-        type: "is-info",
+        type: "info",
         hasIcon: true,
         icon: "exclamation-circle",
         iconPack: "fa",
         cancelText: this.$t("routes.help_to_translate_the_site.hero.title"),
         confirmText: this.$t("utils.Ok"),
-        canCancel: "button",
+        canCancel: ["button"],
         ariaRole: "alertdialog",
         ariaModal: true,
         onCancel: () => {

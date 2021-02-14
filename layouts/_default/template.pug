@@ -15,15 +15,15 @@
         div.container
           div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="isNewYear")
             div.column.is-three-quarters
-              t-message(type="is-info" closable)
+              t-message(type="info" closable)
                 p.text-2xl 🎉&nbsp;&nbsp;{{$tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) })}}&nbsp;&nbsp;🍰
           div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="hasSurvey")
             div.column.is-three-quarters
-              t-message(type="is-info" :closable="false")
+              t-message(type="info" :closable="false")
                 nuxt-link(:to="localePath({ name: 'Survey' })" style="text-decoration: underline;") {{$t(i18nPrefix + 'survey.message')}}
           div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="nbUpdateSinceLastVisit")
             div.column.is-three-quarters
-              t-message(type="is-info" closable)
+              t-message(type="info" closable)
                 p {{$tc(i18nPrefix + 'update', nbUpdateSinceLastVisit, { count: $n(nbUpdateSinceLastVisit) })}}
                 nuxt-link(:to="localePath({ name: 'Changelog' })") {{$t(i18nPrefix + 'whats_new')}}
           div.columns.is-centered.no-lr-margin
@@ -35,14 +35,14 @@
                   div.content.article-body
                     div.columns(v-show="isConversionDate")
                       div.column
-                        t-message.mb-4(:title="$t('utils.Information')" type="is-info" has-icon @close="onCloseDonationMessage") {{this.$t("routes.donate.conversion")}}
+                        t-message.mb-4(:title="$t('utils.Information')" type="info" has-icon @close="onCloseDonationMessage") {{this.$t("routes.donate.conversion")}}
                           p
                           p
                             nuxt-link.font-bold(:to="localePath({ name: 'Donate' })" exact class="p-3 rounded bg-yellow-400 hover:bg-yellow-500 dark:hover:bg-yellow-300" style="color: black")
                               | {{$t('utils.Donate')}}
                     div.columns(v-show="isPermalink")
                       div.column
-                        t-message.mb-4(:title="$t('utils.Information')" type="is-warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
+                        t-message.mb-4(:title="$t('utils.Information')" type="warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
                     nuxt
 
     span.button.scroll-to-top(:class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" @click="backToTop")

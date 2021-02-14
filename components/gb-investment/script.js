@@ -98,7 +98,7 @@ export default {
           }].ownerView.investorParticipation`
         )
       ),
-      addInvestors: null,
+      addInvestors: 0,
       showExtraInvestors: false,
       showSnipe: this.$clone(
         this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].showSnipe`)

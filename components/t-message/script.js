@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       isActive: this.active,
-      newIconSize: this.iconSize || this.size || "is-large",
+      newIconSize: this.iconSize || this.size || "",
     };
   },
   watch: {
@@ -54,27 +54,27 @@ export default {
         return this.icon;
       }
       switch (this.type) {
-        case "is-info":
+        case "info":
           return "fas fa-info-circle";
-        case "is-success":
-          return "check-circle";
-        case "is-warning":
-          return "alert";
-        case "is-danger":
-          return "alert-circle";
+        case "success":
+          return "fas fa-check-circle";
+        case "warning":
+          return "fas fa-exclamation-triangle";
+        case "danger":
+          return "fas fa-exclamation-circle";
         default:
           return null;
       }
     },
     computedArticleBg() {
       switch (this.type) {
-        case "is-info":
+        case "info":
           return "bg-blue-100";
-        case "is-success":
+        case "success":
           return "bg-green-100";
-        case "is-warning":
+        case "warning":
           return "bg-yellow-100";
-        case "is-danger":
+        case "danger":
           return "bg-red-100";
         default:
           return null;
@@ -82,13 +82,13 @@ export default {
     },
     computedHeaderBg() {
       switch (this.type) {
-        case "is-info":
+        case "info":
           return "bg-blue-500";
-        case "is-success":
+        case "success":
           return "bg-green-500";
-        case "is-warning":
+        case "warning":
           return "bg-yellow-500";
-        case "is-danger":
+        case "danger":
           return "bg-red-500";
         default:
           return null;
@@ -96,13 +96,13 @@ export default {
     },
     computedTextColor() {
       switch (this.type) {
-        case "is-info":
+        case "info":
           return "text-blue-900";
-        case "is-success":
+        case "success":
           return "text-green-900";
-        case "is-warning":
+        case "warning":
           return "text-yellow-900";
-        case "is-danger":
+        case "danger":
           return "text-red-900";
         default:
           return null;
@@ -110,13 +110,13 @@ export default {
     },
     computedBorderColor() {
       switch (this.type) {
-        case "is-info":
+        case "info":
           return "border-blue-500";
-        case "is-success":
+        case "success":
           return "border-green-500";
-        case "is-warning":
+        case "warning":
           return "border-yellow-500";
-        case "is-danger":
+        case "danger":
           return "border-red-500";
         default:
           return null;

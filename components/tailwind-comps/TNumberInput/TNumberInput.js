@@ -141,9 +141,15 @@ const TNumberInput = {
           onChange: this.handleChange,
           onKeydown: this.handleKeydown,
           onFocus: () => {
+            if (this._value === 0) {
+              this.updateValue(null);
+            }
             this.isFocused = true;
           },
           onBlur: () => {
+            if (this._value === null) {
+              this.updateValue(0);
+            }
             this.isFocused = false;
             if (this.clampValueOnBlur) {
               this.validateAndClamp();
@@ -367,7 +373,15 @@ const TNumberInput = {
      * @param {Number|String} nextValue value
      */
     updateValue(nextValue) {
-      if (this.prevNextValue === nextValue) return;
+      if (this.prevNextValue === nextValue) {
+        return;
+      } else if (nextValue === null) {
+        this._value = nextValue;
+        this.$emit("change", nextValue);
+        this.prevNextValue = nextValue;
+        return;
+      }
+
       const shouldConvert = this.shouldConvertToNumber(nextValue);
       const converted = shouldConvert ? +nextValue : nextValue;
       if (!this.isControlled) {
@@ -484,7 +498,7 @@ const TNumberInput = {
       let finalValue;
       const { value } = event.target;
       if (["", undefined].includes(value)) {
-        finalValue = 0;
+        finalValue = null;
       } else {
         finalValue = +value;
       }
