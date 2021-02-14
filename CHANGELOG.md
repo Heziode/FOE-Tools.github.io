@@ -4,27 +4,24 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.82.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.81.1...v2.82.0) (2021-02-14)
 
-
 ### Features
 
-* **l10n:** update translation ([267b2a6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/267b2a6ba67baad628a7ee56e8f5e0fbd4653a2d))
-
+- **l10n:** update translation ([267b2a6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/267b2a6ba67baad628a7ee56e8f5e0fbd4653a2d))
 
 ### Bug Fixes
 
-* **global-settings:** fix issue related to "reset button does not reset values" ([cdc7542](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/cdc75425529b4d866f16b6c6f97a7fc606238596))
-* **number-input:** remove 0 on focus and (re-)add 0 if field is empty on blur ([3733089](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/37330899afb8a310bcc187ed05ee2861b71ceae8))
-
+- **global-settings:** fix issue related to "reset button does not reset values" ([cdc7542](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/cdc75425529b4d866f16b6c6f97a7fc606238596))
+- **number-input:** remove 0 on focus and (re-)add 0 if field is empty on blur ([3733089](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/37330899afb8a310bcc187ed05ee2861b71ceae8))
 
 ### Translation
 
-* Translated using Weblate (Danish) ([89e95b6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/89e95b62d7e014ed32180f9ff4e613ef9c7034d1))
-* Translated using Weblate (Danish) ([15fce58](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/15fce5814926e3444319bf17dc40f44d43af511b))
-* Translated using Weblate (Danish) ([1857baa](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1857baa1198ce575f93dc323a70ee67622401f36))
-* Translated using Weblate (Norwegian Bokmål) ([5baf96b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5baf96b43e354da002cf2a3c5be8e90d0e1a6cd1))
-* Translated using Weblate (Portuguese) ([4d257af](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/4d257af1c7017725891f62bdb58c4a8f57a93165))
-* Translated using Weblate (Russian) ([6a71ef5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6a71ef59d940e8e2fe9385220735c33fa422c468))
-* Translated using Weblate (Russian) ([376ebff](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/376ebfff1cf3d0ce49134c837cac574ab80a314b))
+- Translated using Weblate (Danish) ([89e95b6](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/89e95b62d7e014ed32180f9ff4e613ef9c7034d1))
+- Translated using Weblate (Danish) ([15fce58](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/15fce5814926e3444319bf17dc40f44d43af511b))
+- Translated using Weblate (Danish) ([1857baa](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1857baa1198ce575f93dc323a70ee67622401f36))
+- Translated using Weblate (Norwegian Bokmål) ([5baf96b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/5baf96b43e354da002cf2a3c5be8e90d0e1a6cd1))
+- Translated using Weblate (Portuguese) ([4d257af](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/4d257af1c7017725891f62bdb58c4a8f57a93165))
+- Translated using Weblate (Russian) ([6a71ef5](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/6a71ef59d940e8e2fe9385220735c33fa422c468))
+- Translated using Weblate (Russian) ([376ebff](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/376ebfff1cf3d0ce49134c837cac574ab80a314b))
 
 ### [2.81.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.81.0...v2.81.1) (2021-02-08)
 
