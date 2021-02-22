@@ -6,6 +6,7 @@ export default () => {
   const config = {
     elementID: "cookieConsent",
     cookieName: "cookieConsent",
+    cookieExpiresAfterDays: 365,
     privacyPolicy: `https://${process.env.prodUrl}/privacy-policy`,
     services: [
       {
