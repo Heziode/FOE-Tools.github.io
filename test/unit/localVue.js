@@ -1,28 +1,13 @@
 import { config, createLocalVue, RouterLinkStub } from "@vue/test-utils";
-import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 import clone from "lodash.clonedeep";
 import merge from "lodash.merge";
 import pathify, { make } from "vuex-pathify";
 
 import Vuex from "vuex";
-import * as storeStructure from "~/store/index";
-import * as storeGlobalStructure from "~/store/global";
-import * as storeProfilesStructure from "~/store/profile";
 import VueClipboards from "vue-clipboards";
-import { defaultLocale, supportedLocales } from "~/scripts/locales";
 import VueI18n from "vue-i18n";
-import Buefy from "buefy";
-import * as gbs from "~/lib/foe-data/gbs.js";
-import * as goods from "~/lib/foe-data/goods.js";
-import TInput from "../../components/tailwind-comps/TInput/wrapper/TInput";
-import TLabel from "../../components/t-label/TLabel";
-import TButton from "../../components/t-button/TButton";
-
-import en from "../../lang/en.json";
-import fr from "../../lang/en.json";
-import common from "../../translations/common.json";
-
-// Fontawesome import
+import { useModalProgrammatic } from "@/components/t-modal";
+import { useDialogProgrammatic } from "@/components/t-dialog";
 import { library, config as fasConfig, dom } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
@@ -51,9 +36,31 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCopy, faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
-
 import moment from "dayjs";
 import duration from "dayjs/plugin/duration";
+import TAutocomplete from "../../components/t-autocomplete/TAutocomplete";
+import TButton from "../../components/t-button/TButton";
+import TCheckbox from "../../components/t-checkbox/TCheckbox";
+import TInput from "../../components/tailwind-comps/TInput/wrapper/TInput";
+import TLabel from "../../components/t-label/TLabel";
+import TMessage from "../../components/t-message/TMessage";
+import TSelect from "../../components/t-select/TSelect";
+import * as TTabs from "../../components/tailwind-comps/TTabs";
+import useToast from "../../components/tailwind-comps/TToast";
+
+import en from "../../lang/en.json";
+import fr from "../../lang/en.json";
+import common from "../../translations/common.json";
+
+// Fontawesome import
+
+import * as goods from "~/lib/foe-data/goods.js";
+import * as gbs from "~/lib/foe-data/gbs.js";
+import { defaultLocale, supportedLocales } from "~/scripts/locales";
+import * as storeProfilesStructure from "~/store/profile";
+import * as storeGlobalStructure from "~/store/global";
+import * as storeStructure from "~/store/index";
+import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
 moment.extend(duration);
 
 const url = "https://test.foe-tools.github.io";
@@ -72,10 +79,10 @@ export function getView(storeConf) {
   // create an extended `Vue` constructor
   const localVue = createLocalVue();
 
-  //////////
+  /// ///////
   // Vuex //
-  //////////
-  let i18nStoreState = {
+  /// ///////
+  const i18nStoreState = {
     locale: "en",
   };
   localVue.use(Vuex);
@@ -106,15 +113,15 @@ export function getView(storeConf) {
   });
   pathify.plugin(store);
 
-  ///////////////
+  /// ////////////
   // Clipboard //
-  ///////////////
+  /// ////////////
 
   localVue.use(VueClipboards);
 
-  ///////////////
+  /// ////////////
   // Clipboard //
-  ///////////////
+  /// ////////////
 
   localVue.use({
     install(Vue) {
@@ -122,9 +129,9 @@ export function getView(storeConf) {
     },
   });
 
-  //////////
+  /// ///////
   // i18n //
-  //////////
+  /// ///////
 
   localVue.use(VueI18n);
 
@@ -151,21 +158,15 @@ export function getView(storeConf) {
     },
   });
 
-  ///////////
-  // Buefy //
-  ///////////
-
-  localVue.use(Buefy, { defaultIconPack: "fas", materialDesignIcons: false });
-
-  ////////////////
+  /// /////////////
   // Clear mock //
-  ////////////////
+  /// /////////////
 
   config.mocks.$cookies.set.mockClear();
 
-  /////////////////
+  /// //////////////
   // Fontawesome //
-  /////////////////
+  /// //////////////
 
   // This is important, we are going to let Nuxt.js worry about the CSS
   fasConfig.autoAddCss = false;
@@ -201,14 +202,27 @@ export function getView(storeConf) {
   );
 
   // Register the component globally
-  localVue.component("font-awesome-icon", FontAwesomeIcon);
+  localVue.component("FontAwesomeIcon", FontAwesomeIcon);
 
   dom.watch();
 
   // Custom components
+  localVue.prototype.$toast = useToast();
+  localVue.prototype.$modal = useModalProgrammatic(localVue);
+  localVue.prototype.$dialog = useDialogProgrammatic(localVue);
+
+  localVue.component("TAutocomplete", TAutocomplete);
+  localVue.component("TButton", TButton);
+  localVue.component("TCheckbox", TCheckbox);
   localVue.component("TInput", TInput);
   localVue.component("TLabel", TLabel);
-  localVue.component("TButton", TButton);
+  localVue.component("TMessage", TMessage);
+  localVue.component("TSelect", TSelect);
+  localVue.component("TTab", TTabs.TTab);
+  localVue.component("TTabs", TTabs.TTabs);
+  localVue.component("TTabList", TTabs.TTabList);
+  localVue.component("TTabPanel", TTabs.TTabPanel);
+  localVue.component("TTabPanels", TTabs.TTabPanels);
 
   return {
     localVue,
@@ -217,9 +231,9 @@ export function getView(storeConf) {
   };
 }
 
-///////////////////
+/// ////////////////
 // Global Config //
-///////////////////
+/// ////////////////
 
 const getAllCookies = () => {
   return {
@@ -251,7 +265,7 @@ const getAllCookies = () => {
   };
 };
 
-config.mocks["$cookies"] = {
+config.mocks.$cookies = {
   getAll: jest.fn().mockImplementation(getAllCookies),
   get: jest.fn().mockImplementation((key) => {
     const cookies = getAllCookies();
@@ -265,19 +279,19 @@ config.mocks["$cookies"] = {
   remove: jest.fn(),
 };
 
-config.mocks["$nuxt"] = {
+config.mocks.$nuxt = {
   $route: {
     name: "foo",
     path: url,
   },
 };
-config.mocks["$route"] = {
+config.mocks.$route = {
   name: "Foo",
 };
 
-config.mocks["$clone"] = (value) => clone(value);
+config.mocks.$clone = (value) => clone(value);
 
-config.stubs["NuxtLink"] = RouterLinkStub;
+config.stubs.NuxtLink = RouterLinkStub;
 
 global.window = Object.create(window);
 Object.defineProperty(window, "location", {

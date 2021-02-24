@@ -12,12 +12,16 @@ module.exports = {
     // process js with `babel-jest`
     "\\.[jt]sx?$": "babel-jest",
     "vee-validate/dist/rules": "babel-jest",
+    "\\.svg(?:\\?inline)?$": "<rootDir>/test/unit/svgTransform.js",
   },
   // support the same @ -> src alias mapping in source code
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/$1",
-    "^~/(.*)$": "<rootDir>/$1",
+    "^~/([^?]*)(?:\\?inline)?$": "<rootDir>/$1",
     "^~~/(.*)$": "<rootDir>/$1",
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/__mocks__/fileMock.js",
+    "\\.(css|less)$": "identity-obj-proxy",
   },
   setupFiles: ["<rootDir>/test/unit/setup", "jest-localstorage-mock"],
   snapshotSerializers: ["<rootDir>/node_modules/jest-serializer-vue"],
