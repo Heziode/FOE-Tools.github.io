@@ -1,72 +1,61 @@
-div
-  .relative
-    t-button(
-      @click='toggleVisibility'
-      @keydown.space.exact.prevent='toggleVisibility'
-      @keydown.esc.exact='hideDropdown'
-      @keydown.shift.tab='hideDropdown'
-      @keydown.up.exact.prevent='startArrowKeys'
-      @keydown.down.exact.prevent='startArrowKeys')
-      article.inline-flex.flex-start
-        span.flex-shrink-0.flex-grow-0.mr-4 {{$t(`common.lang.${$i18n.locale}.${$i18n.locale === "en" ? "flag_GB" : "flag"}`)}}
-        span {{ $t('common.lang.' + $i18n.locale + '.original') }}
-          span.flex-shrink.flex-grow(v-if="$i18n.locale.replace('-', '_') in $store.get('translationState') && $store.get(`translationState@${$i18n.locale.replace('-', '_')}`) < 80")  ({{$store.get(`translationState@${$i18n.locale.replace('-', '_')}`)}}%)
-        span.flex-shrink-0.flex-grow-0.ml-4(v-if="$i18n.locale === 'en'") {{$t("common.lang.en.flag_US")}}
-        span.flex-shrink-0.flex-grow-0.ml-2
-          span.icon
-            i.fas.fa-chevron-down
+.relative(v-click-outside='hideDropdown')
+  button.navbar-item.flex.items-center.rounded-lg.btn.btn-sm.btn-white.w-full.justify-center.mb-2(
+    tabindex="0"
+    class="sm:mb-0"
+    @click='toggleVisibility'
+    @keydown.space.exact.prevent='toggleVisibility'
+    @keydown.esc.exact='hideDropdown'
+    @keydown.shift.tab='hideDropdown'
+    @keydown.up.exact.prevent='startArrowKeys'
+    @keydown.down.exact.prevent='startArrowKeys')
+    span.inline-flex.flex-start.items-center
+      span.mr-2 {{$t(`common.lang.${$i18n.locale}.${$i18n.locale === "en" ? "flag_GB" : "flag"}`)}}
+      span {{ $t('common.lang.' + $i18n.locale + '.original') }}
+        span(v-if="$i18n.locale.replace('-', '_') in $store.get('translationState') && $store.get(`translationState@${$i18n.locale.replace('-', '_')}`) < 80")  ({{$store.get(`translationState@${$i18n.locale.replace('-', '_')}`)}}%)
+      span.ml-2(v-if="$i18n.locale === 'en'") {{$t("common.lang.en.flag_US")}}
+      ArrowSvg(
+        class="flex-none w-4 h-4 ml-1 -mr-1 transition duration-200 ease-out transform"
+        :class="{ 'rotate-180': isVisible }"
+      )
 
-    transition(name='dropdown-fade')
-      ul.normal-case.z-30.font-normal.bg-white.overflow-hidden.rounded.mt-2.py-1(
-        v-on-clickaway='hideDropdown'
-        v-if='isVisible'
-        ref='dropdown'
-        class='w-100 xs:left-0 lg:right-0 lg:z-20 right-0 lg:absolute lg:w-max lg:shadow lg:border border-gray-300 dark:border-gray-600 dark:bg-blueGray-800')
+  transition(name='navbar-fade')
+    .p-2.mx-0.my-4.text-sm.text-gray-800.bg-white.rounded-xl.shadow-lg.transform(
+      v-show="isVisible"
+      class="sm:my-12 sm:top-4 sm:z-50 sm:w-screen sm:absolute sm:left-1/2 sm:-translate-x-1/2 sm:max-w-sm dark:bg-coolGray-100")
+      .grid.grid-cols-1.gap-2.mb-2
+        ul.space-y-1(ref="dropdown")
+          li(v-for="lang in supportedLocales")
+            a.flex.items-center.px-3.py-3.rounded-lg.ring-inset(href="#" @click.prevent="setLocale(lang.key)"
+              class="cursor-pointer duration-100 ease-in-out focus:border focus:outline-none focus:ring focus:border-blue-300 select-none transition"
+              :class=`{
+                "hover:bg-blue-600 dark:hover:bg-blue-400 bg-blue-500 text-white": lang.key === $i18n.locale,
+                "hover:bg-coolGray-200": lang.key !== $i18n.locale,
+              }`
+              :style=`'color:' + (lang.key === $i18n.locale ? 'white' : 'currentColor')`
+              @keydown.up.exact.prevent='focusedIndex === 0 ? "" : focusPrevious(true)'
+              @keydown.down.exact.prevent='focusedIndex === supportedLocales.length - 1 ? "" : focusNext(true)'
+              @keydown.tab.exact='focusedIndex === supportedLocales.length - 1 ? hideDropdown : focusNext(false)'
+              @keydown.esc.exact='hideDropdown'
+              @keydown.shift.tab='focusedIndex === supportedLocales.length - 1 ? focusPrevious(false) : ""')
 
-        li(v-for="lang in supportedLocales")
-          a.flex.items-center.px-3.py-3(href="#" @click.prevent="setLocale(lang.key)"
+              span.inline-flex.flex-start
+                span.flex-shrink-0.flex-grow-0.mr-4 {{$t(`common.lang.${lang.key}.${lang.key === "en" ? "flag_GB" : "flag"}`)}}
+                span {{ lang.displayName }}
+                  strong(v-if="lang.key.replace('-', '_') in $store.get('translationState')" style="color: currentColor;")  ({{$store.get(`translationState@${lang.key.replace('-', '_')}`)}}%)
+                span.flex-shrink-0.flex-grow-0.ml-4(v-if="lang.key === 'en'") {{$t("common.lang.en.flag_US")}}
+          li
+            .bg-gray-100.h-1
+          li
+          nuxt-link.flex.items-center.px-3.py-3.rounded-lg(:to=`localePath({ name: 'HelpToTranslateTheSite' })`
+            class="cursor-pointer duration-100 ease-in-out focus:border focus:outline-none focus:ring focus:border-blue-300 select-none transition"
             :class=`{
-              "select-none cursor-pointer": true,
-              "hover:bg-blue-600 dark:hover:bg-blue-400 bg-blue-500 text-white": lang.key === $i18n.locale,
-              "hover:bg-gray-100 dark:hover:bg-blueGray-700": lang.key !== $i18n.locale,
-              // Animation
-              "duration-100 ease-in-out transition": true,
-              // Focus
-              "focus:border focus:outline-none focus:ring focus:border-blue-300": true,
+              "hover:bg-blue-600 dark:hover:bg-blue-400 bg-blue-500 text-white": onHelpToTranslatePage,
+              "hover:bg-coolGray-200": !onHelpToTranslatePage,
             }`
-            :style=`'color:' + (lang.key === $i18n.locale ? 'white' : 'currentColor')`
-            @keydown.up.exact.prevent='focusedIndex === 0 ? "" : focusPrevious(true)'
-            @keydown.down.exact.prevent='focusedIndex === supportedLocales.length - 1 ? "" : focusNext(true)'
-            @keydown.tab.exact='focusedIndex === supportedLocales.length - 1 ? hideDropdown : focusNext(false)'
-            @keydown.esc.exact='hideDropdown'
-            @keydown.shift.tab='focusedIndex === supportedLocales.length - 1 ? focusPrevious(false) : ""')
-
-            span.inline-flex.flex-start
-              span.flex-shrink-0.flex-grow-0.mr-4 {{$t(`common.lang.${lang.key}.${lang.key === "en" ? "flag_GB" : "flag"}`)}}
-              span {{ lang.displayName }}
-                strong(v-if="lang.key.replace('-', '_') in $store.get('translationState')" style="color: currentColor;")  ({{$store.get(`translationState@${lang.key.replace('-', '_')}`)}}%)
-              span.flex-shrink-0.flex-grow-0.ml-4(v-if="lang.key === 'en'") {{$t("common.lang.en.flag_US")}}
-        li
-          .bg-gray-100.h-1
-        li
-        nuxt-link.flex.items-center.px-3.py-3(:to=`localePath({ name: 'HelpToTranslateTheSite' })`
-          :class=`{
-            "select-none cursor-pointer": true,
-            "hover:bg-blue-600 dark:hover:bg-blue-400 bg-blue-500 text-white": onHelpToTranslatePage,
-            "hover:bg-gray-100 dark:hover:bg-blueGray-700": !onHelpToTranslatePage,
-            // Animation
-            "duration-100 ease-in-out transition": true,
-            // Focus
-            "focus:border focus:outline-none focus:ring focus:border-blue-300": true,
-          }`
-          :style=`'color:' + (onHelpToTranslatePage ? 'white' : 'currentColor')`
-          @keydown.up.exact.prevent='focusedIndex === 0 ? "" : focusPrevious(true)'
-          @keydown.down.exact.prevent='focusedIndex === supportedLocales.length - 1 ? "" : focusNext(true)'
-          @keydown.tab.exact='focusedIndex === supportedLocales.length - 1 ? hideDropdown : focusNext(false)'
-          @keydown.esc.exact='hideDropdown'
-          @keydown.shift.tab='focusedIndex === supportedLocales.length - 1 ? focusPrevious(false) : ""')
-            span.inline-flex.flex-start
-              span.flex-shrink-0.flex-grow-0.mr-4.ml-2
-                span.icon.is-icon-2rem
-                  i.fas.fa-language
-              span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("routes.help_to_translate_the_site.hero.title")}}
+            :style=`'color:' + (onHelpToTranslatePage ? 'white' : 'currentColor')`
+            tabindex="0")
+              span.inline-flex.flex-start.items-center
+                span.flex-shrink-0.flex-grow-0
+                  span.w-8.h-8
+                    i.fas.fa-language(style="width:1rem;height:1rem;")
+                span(style="vertical-align: middle;") &nbsp;&nbsp;&nbsp;{{$t("routes.help_to_translate_the_site.hero.title")}}
