@@ -1,13 +1,39 @@
-div
-  show-bookmarks(v-if="$store.get(`profile/profiles@[\"${this.$store.get(\"global/currentProfile\")}\"].bookmarks`).length")
+.px-0(class="md:mx-16 lg:mx-32 xl:mx-64")
+  show-bookmarks(v-if="$store.get(`profile/profiles@[${this.$store.get('global/currentProfile')}].bookmarks`).length")
 
-  h3.title.is-3 {{$t(i18nPrefix + 'choose_gb.title')}}
+  h3.title.mt-8.mb-4
+    t-button.mr-2(@click.prevent="$store.set('global/gbSelectSortMode', gbSelectSortMode === 'age' ? 'alpha' : 'age')")
+      span.icon.inline-block(v-show="gbSelectSortMode === 'age'", style="margin: 0 !important")
+        i.far.fa-building
+      span.icon.inline-block(v-show="gbSelectSortMode === 'alpha'")
+        i.fas.fa-sort-alpha-down
+    | {{ $t(i18nPrefix + 'choose_gb.title') }}
 
-  div.tile.is-ancestor(v-for="items of GBsByAge")
-    div.tile.is-parent(v-for="item of items")
-      article.tile.is-child.box(v-if="item !== null")
-        p.title.is-4(:class="getGbStyle(item.key)") {{$t('foe_data.age.' + item.key)}}
-        div.content
-          ul
-            li(v-for="gb in item.gbs")
-              nuxt-link(:to="localePath({ name: 'GbInvestment', params: { gb } })" exact) {{$t('foe_data.gb.' + gb)}}
+  .grid.grid-cols-1.gap-6.mt-4(v-if="gbSelectSortMode === 'age'", class="md:grid-cols-2")
+    .bg-white.p-4.rounded-lg.shadow-lg.ease-in-out.border-t-4.transition-light-dark(
+      v-for="item of gbList",
+      class="dark:bg-gray-800",
+      :class="getGbStyle(item.key)"
+    )
+      h4.title.-mt-2 {{ $t('foe_data.age.' + item.key) }}
+
+      .flex.flex-col.space-y-2
+        nuxt-link.bg-white.p-4.rounded-lg.border.shadow-sm(
+          v-for="gb in item.gbs",
+          class="dark:bg-gray-800",
+          :key="gb",
+          :to="localePath({ name: 'GbInvestment', params: { gb } })",
+          exact
+        )
+          p.font-semibold.text-lg.text-black(class="dark:text-white") {{ $t('foe_data.gb.' + gb) }}
+
+  .grid.grid-cols-1.gap-6.mt-4(v-else, class="sm:grid-cols-2 xl:grid-cols-3")
+    nuxt-link.bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(
+      class="hover:shadow-md dark:bg-gray-800",
+      style="transition: box-shadow 200ms, background-color 500ms, border-color 500ms, color 500ms, fill 500ms, stroke 500ms",
+      v-for="gb in gbListAlpha",
+      :key="gb.value",
+      :to="localePath({ name: 'GbInvestment', params: { gb: gb.value } })",
+      exact
+    )
+      p.font-semibold.text-lg.text-black(class="dark:text-white") {{ $t('foe_data.gb.' + gb.value) }}

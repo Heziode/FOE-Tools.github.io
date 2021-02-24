@@ -1,172 +1,263 @@
-div.content
-  div.columns
-    div.column.is-half
-      div.field
-        h3.title.is-3 {{$t('foe_data.gb.' + gb.key)}}
-      div.field
-        gb-list-select(:current="gb.key" @change="goTo($event)")
-    div.column.is-half(v-show="canPermalink")
-      div.field
-        nuxt-link#permalink.level-right(:to="localePath(permaLink)" exact)
-          span.icon
-            i.fas.fa-link
-          | &nbsp;{{$t('utils.permalink')}}
+div
+  .t-content-container
+    .t-columns.mb-4.space-x-4
+      .w-full(class="sm:w-1/2")
+        .inline-flex.w-full
+          h3.title.mb-0.w-full {{ $t('foe_data.gb.' + gb.key) }}
+          #bookmark.text-right
+            a(
+              @click="toggleFavourite",
+              href="#",
+              v-tippy="{ content: $t('components.gb_investment.' + (isBookmarked ? 'remove_favourite' : 'add_favourite')) }"
+            )
+              font-awesome-icon(:icon="[isBookmarked ? 'fas' : 'far', 'bookmark']", size="2x")
+      .w-full(class="sm:w-1/2")
+        .text-right(v-show="canPermalink")
+          nuxt-link#permalink(:to="localePath(permaLink)", exact)
+            span.icon
+              i.fas.fa-link
+            | &nbsp;{{ $t('utils.permalink') }}
 
-  h4.title.is-4 {{$t('routes.gb_investment_gb_chooser.hero.title')}}
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        gb-list-select#gbListSelect(:current="gb.key", @change="goTo($event)")
 
-  p {{$t($data.i18nPrefix + 'description.p1', { count: $n(maxConsideration) })}}
+  .t-content-container
+    h4.title {{ $t('routes.gb_investment_gb_chooser.hero.title') }}
 
-  p
-    b {{$t($data.i18nPrefix + 'takingPlaceInConsideration.form.no')}}
-    |  {{$t($data.i18nPrefix + 'takingPlaceInConsideration.description.no')}}
+    p {{ $t($data.i18nPrefix + 'description.p1', { count: $n(maxConsideration) }) }}
 
-  p
-    b {{$t($data.i18nPrefix + 'takingPlaceInConsideration.form.normal')}}
-    |  {{$t($data.i18nPrefix + 'takingPlaceInConsideration.description.normal')}}
+    p
+      b {{ $t($data.i18nPrefix + 'takingPlaceInConsideration.form.no') }}
+      |
+      | {{ $t($data.i18nPrefix + 'takingPlaceInConsideration.description.no') }}
 
-  p
-    b {{$t($data.i18nPrefix + 'takingPlaceInConsideration.form.optimal')}}
-    |  {{$t($data.i18nPrefix + 'takingPlaceInConsideration.description.optimal')}}
+    p
+      b {{ $t($data.i18nPrefix + 'takingPlaceInConsideration.form.normal') }}
+      |
+      | {{ $t($data.i18nPrefix + 'takingPlaceInConsideration.description.normal') }}
 
-  div.columns
-    div.column.is-half
-      t-label(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
-        numberinput(inputId="previsionFrom" :min="0" :max="to - 1" v-model.number="fromInput" name="previsionFrom")
-    div.column.is-half
-      t-label(:label="$t('utils.To', { max: maxLevel })" label-for="previsionTo" :type="haveError('to')")
-        numberinput(inputId="previsionTo" :min="from" :max="maxLevel" v-model.number="to" name="previsionTo")
+    p
+      b {{ $t($data.i18nPrefix + 'takingPlaceInConsideration.form.optimal') }}
+      |
+      | {{ $t($data.i18nPrefix + 'takingPlaceInConsideration.description.optimal') }}
 
-  div.columns
-    div.column.is-half
-      t-label(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giiYourArcBonus" :type="haveError('yourArcBonus')")
-        numberinput(inputId="giiYourArcBonus" :min="0" v-model.number="yourArcBonus" :step="0.1" :precision="1" name="your-arc-bonus")
+    .t-columns.mb-4.space-x-4
+      .w-full(class="sm:w-1/2")
+        t-label(:label="$t('utils.From')", label-for="previsionFrom", :type="haveError('from')")
+          numberinput(
+            inputId="previsionFrom",
+            :min="0",
+            :max="to - 1",
+            v-model.number="fromInput",
+            name="previsionFrom"
+          )
+      .w-full(class="sm:w-1/2")
+        t-label(:label="$t('utils.To', { max: maxLevel })", label-for="previsionTo", :type="haveError('to')")
+          numberinput(inputId="previsionTo", :min="from", :max="maxLevel", v-model.number="to", name="previsionTo")
 
-  div.columns(v-show="takingPlaceInConsideration === 2")
-    div.column.is-half
-      yes-no(v-model="customPercentage" :label="$t('components.gb_forecast_cost.custom_percentage')")
+    .t-columns.mb-4.space-x-4
+      .w-full(class="sm:w-1/2")
+        t-label(
+          :label="$t('components.secure_position.block_place.your_arc_bonus')",
+          label-for="giiYourArcBonus",
+          :type="haveError('yourArcBonus')"
+        )
+          numberinput(
+            inputId="giiYourArcBonus",
+            :min="0",
+            v-model.number="yourArcBonus",
+            :step="0.1",
+            :precision="1",
+            name="your-arc-bonus"
+          )
 
-    div.column.is-half(v-show="!customPercentage")
-      t-label(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-        numberinput(inputId="previsionInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal")
+    .t-columns.mb-4.space-x-4(v-show="takingPlaceInConsideration === 2")
+      .w-full(class="sm:w-1/2")
+        yes-no(v-model="customPercentage", :label="$t('components.gb_forecast_cost.custom_percentage')")
 
-  div.table-wrapper(v-show="takingPlaceInConsideration === 2 && customPercentage")
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth
-      thead
+      .w-full(class="sm:w-1/2", v-show="!customPercentage")
+        t-label(
+          :label="$t('components.gb_investment.gb_investment.form.investor_percentage')",
+          label-for="previsionInvestorPercentageGlobal",
+          :type="haveError('investorPercentageGlobal')"
+        )
+          numberinput(
+            inputId="previsionInvestorPercentageGlobal",
+            :min="0",
+            :step="0.1",
+            :precision="1",
+            v-model.number="investorPercentageGlobal",
+            name="investorPercentageGlobal"
+          )
+
+      .w-full(class="sm:w-1/2", v-show="customPercentage")
+        .overflow-x-auto.rounded-lg.shadow
+          table.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-600")
+            thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
+              tr
+                th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+                  scope="col",
+                  class="dark:text-white"
+                ) {{ $t('components.gb_investment.gb_investment.table.thead.th1') }}
+                th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+                  scope="col",
+                  class="dark:text-white"
+                ) {{ $t('components.gb_investment.gb_investment.table.thead.th5') }}
+            tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-800 dark:divide-gray-600")
+              tr(v-for="i in 5")
+                td.px-6.py-4.whitespace-nowrap.text-right {{ i }}
+                td.px-6.py-4.whitespace-nowrap.text-right
+                  numberinput(
+                    :min="0",
+                    :step="0.1",
+                    :precision="1",
+                    v-model.number="investorPercentageCustom[i - 1]",
+                    :name="'investorPercentageCustom_' + i"
+                  )
+
+    .t-columns.mb-4.space-x-4
+      .w-full(class="sm:w-1/2")
+        .mb-2
+          t-label(
+            :label="$t(i18nPrefix + 'takingPlaceInConsideration.label')",
+            :type="haveError('takingPlaceInConsideration')"
+          )
+        div
+          t-button(
+            :title="$t(i18nPrefix + 'takingPlaceInConsideration.form.no')",
+            :label="$t(i18nPrefix + 'takingPlaceInConsideration.form.no')",
+            @click="takingPlaceInConsideration = 0",
+            :borderRight="false",
+            :roundedTopRight="false",
+            :roundedBottomRight="false",
+            :type="takingPlaceInConsideration === 0 ? 'danger' : 'default'"
+          )
+          t-button(
+            :title="$t(i18nPrefix + 'takingPlaceInConsideration.form.normal')",
+            :label="$t(i18nPrefix + 'takingPlaceInConsideration.form.normal')",
+            @click="takingPlaceInConsideration = 1",
+            :borderRight="false",
+            :borderLeft="false",
+            :roundedTopRight="false",
+            :roundedBottomRight="false",
+            :roundedTopLeft="false",
+            :roundedBottomLeft="false",
+            :type="takingPlaceInConsideration === 1 ? 'info' : 'default'"
+          )
+          t-button(
+            :title="$t(i18nPrefix + 'takingPlaceInConsideration.form.optimal')",
+            :label="$t(i18nPrefix + 'takingPlaceInConsideration.form.optimal')",
+            @click="takingPlaceInConsideration = 2",
+            :borderLeft="false",
+            :roundedTopLeft="false",
+            :roundedBottomLeft="false",
+            :type="takingPlaceInConsideration === 2 ? 'success' : 'default'"
+          )
+
+      .w-full(class="sm:w-1/2")
+        t-label(:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
+        div
+          t-label.inline-flex.mx-2.items-center.align-middle(v-for="(value, index) in showPlace", :key="index")
+            t-checkbox(v-model="showPlace[index]")
+            span.ml-2.cursor-pointer.mt-2 {{ index + 1 }}
+
+  .overflow-x-auto.rounded-lg.shadow.mt-8
+    table.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-600", v-if="result !== null")
+      thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
         tr
-          th {{$t('components.gb_investment.gb_investment.table.thead.th1')}}
-          th {{$t('components.gb_investment.gb_investment.table.thead.th5')}}
-      tbody
-        tr(v-for="i in 5")
-          td.has-text-right {{i}}
-          td
-            numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
-
-  div.columns
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'takingPlaceInConsideration.label')" :type="haveError('takingPlaceInConsideration')")
-      div
-        t-button(
-          :title="$t(i18nPrefix + 'takingPlaceInConsideration.form.no')"
-          :label="$t(i18nPrefix + 'takingPlaceInConsideration.form.no')"
-          @click="takingPlaceInConsideration = 0"
-          :borderRight="false"
-          :roundedTopRight="false"
-          :roundedBottomRight="false"
-          :type=`takingPlaceInConsideration === 0 ? "danger" : "default"`)
-        t-button(
-          :title="$t(i18nPrefix + 'takingPlaceInConsideration.form.normal')"
-          :label="$t(i18nPrefix + 'takingPlaceInConsideration.form.normal')"
-          @click="takingPlaceInConsideration = 1"
-          :borderRight="false"
-          :borderLeft="false"
-          :roundedTopRight="false"
-          :roundedBottomRight="false"
-          :roundedTopLeft="false"
-          :roundedBottomLeft="false"
-          :type=`takingPlaceInConsideration === 1 ? "info" : "default"`)
-        t-button(
-          :title="$t(i18nPrefix + 'takingPlaceInConsideration.form.optimal')"
-          :label="$t(i18nPrefix + 'takingPlaceInConsideration.form.optimal')"
-          @click="takingPlaceInConsideration = 2"
-          :borderLeft="false"
-          :roundedTopLeft="false"
-          :roundedBottomLeft="false"
-          :type=`takingPlaceInConsideration === 2 ? "success" : "default"`)
-
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'takingPlaceInConsideration.form.show_place')")
-      div.block
-        t-label.inline-flex.mx-2(v-for="(value, index) in showPlace" :key="index")
-          t-checkbox(v-model="showPlace[index]")
-          span.ml-2.cursor-pointer {{ index + 1 }}
-
-  div.table-wrapper(style="overflow-y:auto;")
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-if="result !== null")
-      thead
-        tr
-          th(rowspan=2)
-            p {{$t("utils.graph.gb_level")}}
-          th(rowspan=2)
-            p {{$t("components.gb_investment.gb_investment.table.tfoot.level_cost")}}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white",
+            rowspan=2
+          )
+            p {{ $t('utils.graph.gb_level') }}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white",
+            rowspan=2
+          )
+            p {{ $t('components.gb_investment.gb_investment.table.tfoot.level_cost') }}
           template(v-for="(value, index) in showPlace")
-            th(colspan=3 v-show="showPlace[index]")
-              p {{$t(i18nPrefix + "table.thead.th_place", { count: $n(index + 1) })}}
+            th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              colspan=3,
+              v-show="showPlace[index]"
+            )
+              p {{ $t(i18nPrefix + 'table.thead.th_place', { count: $n(index + 1) }) }}
         tr
           template(v-for="(value, index) in showPlace")
-            th(v-show="showPlace[index]")
-              p {{$t("utils.Rewards")}}
-            th(v-show="showPlace[index]")
-              p {{$t("utils.Cost")}}
-            th(v-show="showPlace[index]")
-              p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
+            th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              v-show="showPlace[index]"
+            )
+              p {{ $t('utils.Rewards') }}
+            th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              v-show="showPlace[index]"
+            )
+              p {{ $t('utils.Cost') }}
+            th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              v-show="showPlace[index]"
+            )
+              p {{ $t(i18nPrefix + 'table.thead.th_profit_loss') }}
 
-      tbody
+      tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-800 dark:divide-gray-600")
         tr(v-for="(line, lineIndex) in result.slice(from - 1, to)")
-          td.has-text-right
-            p {{$n(lineIndex + from - 1)}} → {{$n(lineIndex + from)}}
-          td.has-text-right
-            p {{$n(line.cost)}}
+          td.px-6.py-4.whitespace-nowrap.text-right
+            p {{ $n(lineIndex + from - 1) }} → {{ $n(lineIndex + from) }}
+          td.px-6.py-4.whitespace-nowrap.text-right
+            p {{ $n(line.cost) }}
 
           template(v-for="(value, index) in showPlace")
-            td.has-text-right(v-show="showPlace[index]")
-              p(v-if="takingPlaceInConsideration === 2") {{$n(line.investment[index].reward) + " ("}}
-                span(v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.expected_participation') }") {{$n(line.investment[index].participation)}}
+            td.px-6.py-4.whitespace-nowrap.text-right(v-show="showPlace[index]")
+              template(v-if="line.investment[index].reward === 0") 0
+              template(v-else-if="takingPlaceInConsideration === 2") {{ $n(line.investment[index].reward) + ' (' }}
+                span(
+                  v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.expected_participation') }"
+                ) {{ $n(line.investment[index].participation) }}
                 | &nbsp;|&nbsp;
-                span(v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.real_participation') }") {{$n(line.investment[index].realParticipation)}}
+                span(
+                  v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.real_participation') }"
+                ) {{ $n(line.investment[index].realParticipation) }}
                 | )
-              p(v-else) {{$n(line.investment[index].reward) + (line.investment[index].participation ? " (" + $n(line.investment[index].participation) + ")" : "") }}
-            td.has-text-right(v-show="showPlace[index]")
-              p(v-if="takingPlaceInConsideration === 2") {{$n(line.investment[index].participation) + " ("}}
-                span(v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.th3') }") {{$n(line.investment[index].preparation)}}
+              template(v-else) {{ $n(line.investment[index].reward) + (line.investment[index].participation ? ' (' + $n(line.investment[index].participation) + ')' : '') }}
+            td.px-6.py-4.whitespace-nowrap.text-right(v-show="showPlace[index]")
+              template(v-if="line.investment[index].reward === 0") 0
+              template(v-else-if="takingPlaceInConsideration === 2") {{ $n(line.investment[index].participation) + ' (' }}
+                span(v-tippy="{ content: $t('components.gb_investment.gb_investment.table.thead.th3') }") {{ $n(line.investment[index].preparation) }}
                 | )
-              p(v-else) {{$n(line.investment[index].fp)}}
-            td.has-text-right(v-show="showPlace[index]")
-              p(v-if="line.investment[index].roi > 0")
-                span.icon.is-medium.has-text-success(style="vertical-align: middle;")
-                  i.fas.fa-arrow-up
-                | {{$n(Math.abs(line.investment[index].roi))}}
-              p(v-else-if="line.investment[index].roi < 0")
-                span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
-                  i.fas.fa-arrow-down
-                | {{$n(Math.abs(line.investment[index].roi))}}
-              p(v-else)
-                span.icon.is-medium(style="vertical-align: middle;")
-                  i.fas.fa-exchange-alt
+              template(v-else) {{ $n(line.investment[index].fp) }}
+            td.px-6.py-4.whitespace-nowrap.text-right(v-show="showPlace[index]")
+              template(v-if="line.investment[index].roi > 0")
+                font-awesome-icon.cursor-pointer.mr-1.text-green-500(:icon="['fas', 'arrow-up']")
+                | {{ $n(Math.abs(line.investment[index].roi)) }}
+              template(v-else-if="line.investment[index].roi < 0")
+                font-awesome-icon.cursor-pointer.mr-1.text-red-500(:icon="['fas', 'arrow-down']")
+                | {{ $n(Math.abs(line.investment[index].roi)) }}
+              template(v-else)
+                font-awesome-icon.cursor-pointer.mr-1(:icon="['fas', 'exchange-alt']")
 
-      tfoot
+      tfoot.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
         tr
-          th(colspan=2)
-            p {{$t(i18nPrefix + "table.thead.th_profit_loss")}}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white",
+            colspan=2
+          )
+            p {{ $t(i18nPrefix + 'table.thead.th_profit_loss') }}
           template(v-for="(value, index) in showPlace")
-            td.has-text-right(v-show="showPlace[index]" colspan=3)
-              p(v-if="result.globalProfitLoss[index] > 0")
-                span.icon.is-medium.has-text-success(style="vertical-align: middle;")
-                  i.fas.fa-arrow-up
+            td.text-center(v-show="showPlace[index]", colspan=3)
+              span(v-if="result.globalProfitLoss[index] > 0")
+                font-awesome-icon.cursor-pointer.mr-1.text-green-500(:icon="['fas', 'arrow-up']")
                 | {{ $n(Math.abs(result.globalProfitLoss[index])) }}
-              p(v-else-if="result.globalProfitLoss[index] < 0")
-                span.icon.is-medium.has-text-danger(style="vertical-align: middle;")
-                  i.fas.fa-arrow-down
+              span(v-else-if="result.globalProfitLoss[index] < 0")
+                font-awesome-icon.cursor-pointer.mr-1.text-red-500(:icon="['fas', 'arrow-down']")
                 | {{ $n(Math.abs(result.globalProfitLoss[index])) }}
-              p(v-else)
-                span.icon.is-medium(style="vertical-align: middle;")
-                  i.fas.fa-exchange-alt
+              span(v-else)
+                font-awesome-icon.cursor-pointer.ml-1(:icon="['fas', 'exchange-alt']")

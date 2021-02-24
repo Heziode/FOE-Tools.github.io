@@ -1,20 +1,53 @@
 div
-  h4.title.is-4.margin-top-one-em {{$t($data.i18nPrefix + 'title')}}
+  h4.title {{ $t($data.i18nPrefix + 'title') }}
 
-  div.columns
-    div.column
-      t-label(:label="$t('components.promotion_message_builder.config')" label-for="ipmConfig" :type="{ 'is-danger': errors.template.found }" :message="errors.template.found ? errors.template.message : ''")
-        t-input(inputId="ipmConfig" v-model.trim="template" name="config" :placeholder="$t(i18nPrefix + 'config_placeholder')" :isInvalid="errors.template.found")
+  .mt-4
+    t-label(
+      :label="$t('components.promotion_message_builder.config')",
+      label-for="ipmConfig",
+      :type="{ 'is-danger': errors.template.found }",
+      :message="errors.template.found ? errors.template.message : ''"
+    )
+      t-input(
+        inputId="ipmConfig",
+        v-model.trim="template",
+        name="config",
+        :placeholder="$t(i18nPrefix + 'config_placeholder')",
+        :isInvalid="errors.template.found"
+      )
 
-  div.columns
-    div.column
-      t-label(:label="$t('components.promotion_message_builder.message_preview')" label-for="ipmMessagePreview")
-        t-input(inputId="ipmMessagePreview" :as="nbMultiLine(resultMessage) ? 'textarea' : 'input'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : undefined" v-model.trim="resultMessage" name="ipmMessagePreview" isDisabled)
+  .mt-4
+    t-label(:label="$t('components.promotion_message_builder.message_preview')", label-for="ipmMessagePreview")
+      t-input(
+        inputId="ipmMessagePreview",
+        :as="nbMultiLine(resultMessage) ? 'textarea' : 'input'",
+        :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : undefined",
+        v-model.trim="resultMessage",
+        name="ipmMessagePreview",
+        isDisabled
+      )
 
-  div.mb-2
-    t-label(:label="$t('components.promotion_message_builder.template_name')" label-for="ipmTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
-  div.columns
-    div.column.is-half
-      t-input(inputId="ipmTemplateName" type="text" v-model.trim="templateName" name="ipmTemplateName" :isInvalid="errors.templateName.found")
-    div.column.is-half
-      t-button(type="success" @click="save" :disabled="!template || !template.length || errors.template.found || !templateName || !templateName.length || errors.templateName.found" expanded) {{$t('utils.Save')}}
+  .mt-4.mb-2
+    t-label(
+      :label="$t('components.promotion_message_builder.template_name')",
+      label-for="ipmTemplateName",
+      :type="{ 'is-danger': errors.templateName.found }",
+      :message="errors.templateName.found ? errors.templateName.message : ''"
+    )
+
+  .t-columns.mb-4.space-x-4
+    .w-full(class="sm:w-1/2")
+      t-input(
+        inputId="ipmTemplateName",
+        type="text",
+        v-model.trim="templateName",
+        name="ipmTemplateName",
+        :isInvalid="errors.templateName.found"
+      )
+    .w-full(class="sm:w-1/2")
+      t-button(
+        type="success",
+        @click="save",
+        :disabled="!template || !template.length || errors.template.found || !templateName || !templateName.length || errors.templateName.found",
+        expanded
+      ) {{ $t('utils.Save') }}

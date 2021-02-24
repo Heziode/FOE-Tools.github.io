@@ -53,6 +53,11 @@ export default {
     },
   },
   watch: {
+    current(val) {
+      if (this.selected !== val) {
+        this.selected = val;
+      }
+    },
     selected(val) {
       if (val in gbs) {
         this.$nextTick(() => {

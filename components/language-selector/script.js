@@ -1,8 +1,11 @@
-import { mixin as clickaway } from "vue-clickaway";
+import clickOutside from "~/scripts/clickOutside.js";
+import ArrowSvg from "~/assets/arrow.svg?inline";
 
 export default {
   name: "LanguageSelector",
-  mixins: [clickaway],
+  directives: {
+    clickOutside,
+  },
   data() {
     const supportedLocales = [];
     for (const key of this.$store.get("supportedLocales")) {
@@ -67,5 +70,8 @@ export default {
       this.$i18n.setLocale(locale);
       this.hideDropdown();
     },
+  },
+  components: {
+    ArrowSvg,
   },
 };

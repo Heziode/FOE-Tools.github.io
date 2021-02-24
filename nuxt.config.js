@@ -523,14 +523,12 @@ export default {
     "cookie-universal-nuxt",
     "nuxt-i18n",
     "@nuxtjs/axios",
-    "nuxt-buefy",
     { src: "~/modules/foe-data/module.js" },
     { src: "~/modules/cname/module.js" },
     "@nuxtjs/pwa",
     "@nuxtjs/sentry",
   ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
-  buefy: { defaultIconPack: "fas", materialDesignIcons: false },
   target: "static",
   ssr: false,
   hooks(hook) {
@@ -559,13 +557,7 @@ export default {
     script: [],
   },
 
-  css: [
-    "~assets/newStyle.scss",
-    "~assets/theme/light/theme.scss",
-    "~assets/theme/dark/theme.scss",
-    "~assets/style.scss",
-    "@fortawesome/fontawesome-svg-core/styles.css",
-  ],
+  css: ["~/assets/style.scss", "@fortawesome/fontawesome-svg-core/styles.css"],
 
   axios: {
     host: process.env.DEPLOY_ENV === "GH_PAGES" ? prodUrl : "localhost",
@@ -637,30 +629,95 @@ export default {
     config: {
       darkMode: "class",
       theme: {
-        colors: {
-          ...colors,
+        extend: {
+          colors: {
+            ...colors,
+          },
+          minHeight: {
+            ...tailwindConf.theme.minHeight,
+            5: "1.25rem",
+            8: "2rem",
+          },
+          maxHeight: (theme) => ({
+            ...tailwindConf.theme.maxHeight(theme),
+            5: "1.25rem",
+            48: "12rem",
+          }),
+          minWidth: {
+            ...tailwindConf.theme.minWidth,
+            5: "1.25rem",
+            12: "3rem",
+            48: "12rem",
+            md: "28rem",
+          },
+          maxWidth: (theme, { breakpoints }) => ({
+            ...tailwindConf.theme.maxWidth(theme, { breakpoints }),
+            5: "1.25rem",
+          }),
+          typography: (theme) => ({
+            light: {
+              css: [
+                {
+                  color: theme("colors.gray.400"),
+                  '[class~="lead"]': {
+                    color: theme("colors.gray.300"),
+                  },
+                  a: {
+                    color: theme("colors.white"),
+                  },
+                  strong: {
+                    color: theme("colors.white"),
+                  },
+                  "ol > li::before": {
+                    color: theme("colors.gray.400"),
+                  },
+                  "ul > li::before": {
+                    backgroundColor: theme("colors.gray.600"),
+                  },
+                  hr: {
+                    borderColor: theme("colors.gray.200"),
+                  },
+                  blockquote: {
+                    color: theme("colors.gray.200"),
+                    borderLeftColor: theme("colors.gray.600"),
+                  },
+                  h1: {
+                    color: theme("colors.white"),
+                  },
+                  h2: {
+                    color: theme("colors.white"),
+                  },
+                  h3: {
+                    color: theme("colors.white"),
+                  },
+                  h4: {
+                    color: theme("colors.white"),
+                  },
+                  "figure figcaption": {
+                    color: theme("colors.gray.400"),
+                  },
+                  code: {
+                    color: theme("colors.white"),
+                  },
+                  "a code": {
+                    color: theme("colors.white"),
+                  },
+                  pre: {
+                    color: theme("colors.gray.200"),
+                    backgroundColor: theme("colors.gray.800"),
+                  },
+                  thead: {
+                    color: theme("colors.white"),
+                    borderBottomColor: theme("colors.gray.400"),
+                  },
+                  "tbody tr": {
+                    borderBottomColor: theme("colors.gray.600"),
+                  },
+                },
+              ],
+            },
+          }),
         },
-        minHeight: {
-          ...tailwindConf.theme.minHeight,
-          5: "1.25rem",
-          8: "2rem",
-        },
-        maxHeight: (theme) => ({
-          ...tailwindConf.theme.maxHeight(theme),
-          5: "1.25rem",
-          48: "12rem",
-        }),
-        minWidth: {
-          ...tailwindConf.theme.minWidth,
-          5: "1.25rem",
-          12: "3rem",
-          48: "12rem",
-          md: "28rem",
-        },
-        maxWidth: (theme, { breakpoints }) => ({
-          ...tailwindConf.theme.maxWidth(theme, { breakpoints }),
-          5: "1.25rem",
-        }),
       },
       variants: {
         extend: {
@@ -670,9 +727,10 @@ export default {
           backgroundOpacity: ["dark"],
           opacity: ["disabled"],
           cursor: ["disabled"],
+          typography: ["dark"],
         },
       },
-      plugins: [require("@tailwindcss/forms")],
+      plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
       purge: {
         keyframes: true,
         enabled: process.env.NODE_ENV === "production",
@@ -693,8 +751,8 @@ export default {
 
   purgeCSS: {
     keyframes: true,
-    // enabled: process.env.NODE_ENV === "production",
-    enabled: true,
+    enabled: process.env.NODE_ENV === "production",
+    // enabled: true,
     content: [
       "components/**/*.{vue,js,pug,scss,sass,css}",
       "layouts/**/*.{vue,js,pug,scss,sass,css}",
@@ -706,43 +764,12 @@ export default {
       "nuxt.config.ts",
     ],
     whitelistPatterns: [
-      /mdi/,
-      /icon/,
-      /is-grouped/,
-      /tooltip.*/,
-      /navbar.*/,
-      /control.*/,
-      /progress.*/,
-      /svg.*/,
-      /fa.*/,
-      /notices/,
-      /notification.*/,
-      /is-top-right/,
-      /is-top/,
-      /shepherd.*/,
-      /is-delete/,
-      /dark-mode/,
-      /is-expanded/,
-      /is-clearfix/,
-      /has-addons/,
       // Fontawesome
       /svg.*/,
       /fa.*/,
+      /border-gb-.*/,
     ],
-    whitelistPatternsChildren: [
-      /select/,
-      /switch/,
-      /modal/,
-      /autocomplete/,
-      /dropdown/,
-      /progress.*/,
-      /is-top-right/,
-      /is-top/,
-      /shepherd.*/,
-      /is-expanded/,
-      /is-clearfix/,
-      /has-addons/,
-    ],
+    whitelistPatternsChildren: [/select/, /switch/, /modal/, /autocomplete/, /dropdown/, /progress.*/, /shepherd.*/],
   },
 
   sentry: {

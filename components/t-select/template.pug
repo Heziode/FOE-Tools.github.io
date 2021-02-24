@@ -1,8 +1,11 @@
-div.flex
+.flex
   slot(name="before")
-  select(v-model="newValue" :id="id" :class=`{
+  select(
+    v-model="newValue",
+    :id="id",
+    :class=`{
     // Background
-    "bg-white dark:bg-blueGray-800": true,
+    "bg-white dark:bg-gray-700 dark:bg-opacity-50": true,
     // Default borders
     "border-t": borderTop,
     "border-b": borderBottom,
@@ -24,12 +27,13 @@ div.flex
     // Text
     "placeholder-gray-400 text-gray-700 dark:text-gray-300": true,
     // Rounded borders
-    "rounded-tl": roundedTopLeft,
-    "rounded-tr": roundedTopRight,
-    "rounded-bl": roundedBottomLeft,
-    "rounded-br": roundedBottomRight,
+    "rounded-tl-lg": roundedTopLeft,
+    "rounded-tr-lg": roundedTopRight,
+    "rounded-bl-lg": roundedBottomLeft,
+    "rounded-br-lg": roundedBottomRight,
     // Width
     "w-full": true,
-  }`)
+  }`
+  )
     slot
   slot(name="after")

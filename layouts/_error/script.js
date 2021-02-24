@@ -5,6 +5,7 @@ function sCode(error) {
 }
 
 export default {
+  layout: "default",
   props: ["error"],
   head /* istanbul ignore next */: function () {
     return {

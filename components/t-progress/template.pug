@@ -1,5 +1,5 @@
-.t-progress-wrapper(:class='wrapperClasses')
-  progress.t-progress(v-if='isNative' ref='progress' :class='newType' :max='max' :value='value') {{ newValue }}
-  slot(v-else='' name='bar')
-  p.t-progress-value(v-if='isNative && showValue' :class='newTypeText' ref="content")
+.t-progress-wrapper(:class="wrapperClasses")
+  progress.t-progress(v-if="isNative", ref="progress", :class="newType", :max="max", :value="value") {{ newValue }}
+  slot(v-else="", name="bar")
+  p.t-progress-value(v-if="isNative && showValue", :class="newTypeText", ref="content")
     slot {{ newValue }}

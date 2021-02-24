@@ -1,24 +1,26 @@
-ValidationProvider(v-slot="{ invalid }" :rules="'between:' + min + ',' + max")
-  TNumberInput(v-model.number="newValue"
-    :name="inputId"
-    :value="value"
-    :defaultValue="defaultValue"
-    :focusInputOnChange="focusInputOnChange"
-    :clampValueOnBlur="clampValueOnBlur"
-    :keepWithinRange="keepWithinRange"
-    :min="min"
-    :max="max"
-    :step="step"
-    :precision="precision"
-    :getAriaValueText="getAriaValueText"
-    :isReadOnly="isReadOnly"
-    :isInvalid="isInvalid || invalid"
-    :isDisabled="isDisabled"
-    :isFullWidth="isFullWidth"
-    :size="size"
-    :inputId="inputId")
-    slot(name="before" v-bind:isInvalid="invalid" v-bind:isDisabled="isDisabled")
+ValidationProvider(v-slot="{ invalid }", :rules="'between:' + min + ',' + max")
+  TNumberInput(
+    v-model.number="newValue",
+    :name="inputId",
+    :value="value",
+    :defaultValue="defaultValue",
+    :focusInputOnChange="focusInputOnChange",
+    :clampValueOnBlur="clampValueOnBlur",
+    :keepWithinRange="keepWithinRange",
+    :min="min",
+    :max="max",
+    :step="step",
+    :precision="precision",
+    :getAriaValueText="getAriaValueText",
+    :isReadOnly="isReadOnly",
+    :isInvalid="isInvalid || invalid",
+    :isDisabled="isDisabled",
+    :isFullWidth="isFullWidth",
+    :size="size",
+    :inputId="inputId"
+  )
+    slot(name="before", v-bind:isInvalid="invalid", v-bind:isDisabled="isDisabled")
       TNumberDecrementStepper(v-if="showIncDec")
-    TNumberInputField(type="number" :isInvalid="isInvalid || invalid")
-    slot(name="after" v-bind:isInvalid="invalid" v-bind:isDisabled="isDisabled")
+    TNumberInputField(type="number", :isInvalid="isInvalid || invalid")
+    slot(name="after", v-bind:isInvalid="invalid", v-bind:isDisabled="isDisabled")
       TNumberIncrementStepper(v-if="showIncDec")

@@ -1,4 +1,9 @@
-component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners" :class=`{
+component(
+  :is="computedTag",
+  v-bind="$attrs",
+  :type="nativeType",
+  v-on="$listeners",
+  :class=`{
     ...typeClass,
     // Alignment
     "align-middle": true,
@@ -24,21 +29,22 @@ component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners"
     // Padding
     "py-2 px-4": true,
     // Rounded borders
-    "rounded-tl": roundedTopLeft,
-    "rounded-tr": roundedTopRight,
-    "rounded-bl": roundedBottomLeft,
-    "rounded-br": roundedBottomRight,
+    "rounded-tl-lg": roundedTopLeft,
+    "rounded-tr-lg": roundedTopRight,
+    "rounded-bl-lg": roundedBottomLeft,
+    "rounded-br-lg": roundedBottomRight,
     // Flex
     "flex-shrink-0 flex-wrap inline-flex": true,
     // Text cannot be selected
     "select-none": true,
     // Width
     "w-full": expanded
-}`)
-  span.icon.inline-block(v-if="iconLeft")
+}`
+)
+  span.mr-2(v-if="iconLeft", class="last:mr-0")
     i(:class="iconLeft")
   span(v-if="label") {{ label }}
   span(v-else-if="$slots.default")
     slot
-  span.icon.inline-block(v-if="iconRight")
+  span.ml-2(v-if="iconRight", class="first:ml-0")
     i(:class="iconRight")

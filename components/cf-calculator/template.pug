@@ -1,116 +1,186 @@
 div
-  div.columns
-    div.column.is-half
-      div.field
-        h3.title.is-3 {{$t($data.i18nPrefix + 'block_cfc.title')}}
-    div.column.is-half(v-show="canPermalink")
-      div.field
-        nuxt-link#permalink.level-right(:to="localePath(permaLink)" exact)
-          span.icon
-            i.fas.fa-link
-          | &nbsp;{{$t('utils.permalink')}}
-      div.field(style="text-align:right !important;")
-        div.content
-          a.is-text.has-text-white(@click.prevent="startTour")
-            article.tutorial-button(style="display:inline-block;")
-              span.icon.is-icon-2rem
-                font-awesome-icon(icon="question")
-              span.has-text-centered <br /> {{$t('utils.Tutorial')}}
+  .t-content-container
+    .t-columns.mb-4
+      .flex-shrink-1.flex-grow-1.w-full
+        h3.title.mb-0 {{ $t(i18nPrefix + 'block_cfc.title') }}
+      .flex-shrink-0.flex-grow-0.mt-2(class="sm:mt-0")
+        nuxt-link#permalink(:to="localePath(permaLink)", exact)
+          i.fas.fa-link
+          | &nbsp;{{ $t('utils.permalink') }}
+    .text-right
+      a.text-white(href="#", @click.prevent="startTour", class="hover:text-gray-100 dark:hover:text-gray-100")
+        article.tutorial-button(style="display: inline-block")
+          font-awesome-icon(icon="question", size="2x")
+          span.text-center <br /> {{ $t('utils.Tutorial') }}
 
-  p {{$t('utils.description.p1')}}
+    p {{ $t('utils.description.p1') }}
 
-  // Row 1
-  div.columns
-    div.column.is-half
-      t-label#your-age-container(:label="$t(i18nPrefix + 'block_cfc.your_age')" label-for="your-age" :type="haveError('yourAge')")
-        t-select#your-age.mt-2(v-model="yourAge" name="your-age")
-          option(v-for="age in questData.ages" :value="age.key" :key="age.key" :selected="yourAge == age.key" :id="'option_' + age.key" autocomplete="off") {{$t('foe_data.age.' + age.key)}}
-    div.column.is-half
-      t-label#your-cf-boost-container(:label="$t(i18nPrefix + 'block_cfc.your_cf_boost')" label-for="your-cf-boost" :type="haveError('yourCfBoost')")
-        numberinput(inputId="your-cf-boost" :min="0" v-model.number="yourCfBoost" name="your-cf-boost" )
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      .w-full(class="sm:w-1/2")
+        t-label#your-age-container(
+          :label="$t(i18nPrefix + 'block_cfc.your_age')",
+          label-for="your-age",
+          :type="haveError('yourAge')"
+        )
+          t-select#your-age.mt-2(v-model="yourAge", name="your-age")
+            option(
+              v-for="age in questData.ages",
+              :value="age.key",
+              :key="age.key",
+              :selected="yourAge == age.key",
+              :id="'option_' + age.key",
+              autocomplete="off"
+            ) {{ $t('foe_data.age.' + age.key) }}
+      .w-full(class="sm:w-1/2")
+        t-label#your-cf-boost-container(
+          :label="$t(i18nPrefix + 'block_cfc.your_cf_boost')",
+          label-for="your-cf-boost",
+          :type="haveError('yourCfBoost')"
+        )
+          numberinput(inputId="your-cf-boost", :min="0", v-model.number="yourCfBoost", name="your-cf-boost")
 
-  div.columns
-    div.column.is-half
-      t-label#coins-container(:label="$t(i18nPrefix + 'block_cfc.coins_to_use')" label-for="coins" :type="haveError('coins')")
-        template(slot="labelAfter")
-          span.icon(v-tippy="{ content: $t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minCoins }) }")
-            i.far.fa-question-circle
-        numberinput(inputId="coins" :min="minCoins" :step="1000" v-model.number="coins" name="coins" )
-    div.column.is-half
-      t-label#supplies-container(:label="$t(i18nPrefix + 'block_cfc.supplies_to_use')" label-for="supplies" :type="haveError('supplies')")
-        template(slot="labelAfter")
-          span.icon(v-tippy="{ content: $t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minSupplies }) }")
-            i.far.fa-question-circle
-        numberinput(inputId="supplies" :min="minSupplies" :step="1000" v-model.number="supplies" name="supplies" )
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      .w-full(class="sm:w-1/2")
+        t-label#coins-container(
+          :label="$t(i18nPrefix + 'block_cfc.coins_to_use')",
+          label-for="coins",
+          :type="haveError('coins')"
+        )
+          template(slot="labelAfter")
+            span.icon(v-tippy="{ content: $t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minCoins }) }")
+              i.far.fa-question-circle
+          numberinput(inputId="coins", :min="minCoins", :step="1000", v-model.number="coins", name="coins")
+      .w-full(class="sm:w-1/2")
+        t-label#supplies-container(
+          :label="$t(i18nPrefix + 'block_cfc.supplies_to_use')",
+          label-for="supplies",
+          :type="haveError('supplies')"
+        )
+          template(slot="labelAfter")
+            span.icon(v-tippy="{ content: $t(i18nPrefix + 'block_cfc.coins_supplies_info', { min: minSupplies }) }")
+              i.far.fa-question-circle
+          numberinput(inputId="supplies", :min="minSupplies", :step="1000", v-model.number="supplies", name="supplies")
 
-  div.columns
-    div.column.is-half
-      t-label#goods-container(:label="$t(i18nPrefix + 'block_cfc.gb_plunder_goods')" label-for="goods" :type="haveError('goods')")
-        numberinput(inputId="goods" :min="0" :step="1000" v-model.number="goods" name="goods" )
-    div.column.is-half
-      t-label#fp-by-24h-container(:label="$t(i18nPrefix + 'block_cfc.fp_by_24h')" label-for="fp-by-24h" :type="haveError('fpBy24h')")
-        numberinput(inputId="fp-by-24h" :min="0" v-model.number="fpBy24h" name="fp-by-24h" )
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      .w-full(class="sm:w-1/2")
+        t-label#goods-container(
+          :label="$t(i18nPrefix + 'block_cfc.gb_plunder_goods')",
+          label-for="goods",
+          :type="haveError('goods')"
+        )
+          numberinput(inputId="goods", :min="0", :step="1000", v-model.number="goods", name="goods")
+      .w-full(class="sm:w-1/2")
+        t-label#fp-by-24h-container(
+          :label="$t(i18nPrefix + 'block_cfc.fp_by_24h')",
+          label-for="fp-by-24h",
+          :type="haveError('fpBy24h')"
+        )
+          numberinput(inputId="fp-by-24h", :min="0", v-model.number="fpBy24h", name="fp-by-24h")
 
-  div.columns
-    div.column.is-half
-      yes-no#checkSecondQuest(v-show="checkSecondQuest || tutoMode" v-model="secondRq" :label="$t(i18nPrefix + 'block_cfc.second_rq')")
-    div.column.is-half
-      t-label#supplies-gathered-container(v-show="(checkSecondQuest && secondRq) || tutoMode" :label="$t(i18nPrefix + 'block_cfc.supplies_gathered')" label-for="supplies-gathered" :type="haveError('suppliesGathered')")
-        numberinput(inputId="supplies-gathered" :min="0" :step="10" v-model.number="suppliesGathered" name="supplies-gathered" )
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      .w-full(class="sm:w-1/2")
+        yes-no#checkSecondQuest(
+          v-show="checkSecondQuest || tutoMode",
+          v-model="secondRq",
+          :label="$t(i18nPrefix + 'block_cfc.second_rq')"
+        )
+      .w-full(class="sm:w-1/2")
+        t-label#supplies-gathered-container(
+          v-show="(checkSecondQuest && secondRq) || tutoMode",
+          :label="$t(i18nPrefix + 'block_cfc.supplies_gathered')",
+          label-for="supplies-gathered",
+          :type="haveError('suppliesGathered')"
+        )
+          numberinput(
+            inputId="supplies-gathered",
+            :min="0",
+            :step="10",
+            v-model.number="suppliesGathered",
+            name="supplies-gathered"
+          )
 
-  div.columns
-    div.column.is-half
-      t-label#other-rq-container(:label="$t(i18nPrefix + 'block_cfc.other_rq')" label-for="other-rq" :type="haveError('otherRq')")
-        numberinput(inputId="other-rq" :min="0" v-model.number="otherRq" name="other-rq" )
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      .w-full(class="sm:w-1/2")
+        t-label#other-rq-container(
+          :label="$t(i18nPrefix + 'block_cfc.other_rq')",
+          label-for="other-rq",
+          :type="haveError('otherRq')"
+        )
+          numberinput(inputId="other-rq", :min="0", v-model.number="otherRq", name="other-rq")
 
-  div#infinityGenerator.mb-8(v-show="infinityGenerator || tutoMode")
-    t-message.mb-4(:title="$t('utils.Information')" type="info" has-icon :closable="false") {{$t(i18nPrefix + 'block_cfc.infinity_generator.message')}}
+    #infinityGenerator.mt-2(v-show="infinityGenerator || tutoMode")
+      t-message.mb-4(:title="$t('utils.Information')", type="info", has-icon, :closable="false") {{ $t(i18nPrefix + 'block_cfc.infinity_generator.message') }}
 
-    div.columns
-      div.column.is-half
-        t-label#cumulativeQuest-container(:label="$t(i18nPrefix + 'block_cfc.infinity_generator.label')" label-for="cumulativeQuest" :type="haveError('cumulativeQuest')")
-          numberinput(inputId="cumulativeQuest" :min="1" v-model.number="cumulativeQuest" name="cumulativeQuest" )
+      .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+        .w-full(class="sm:w-1/2")
+          t-label#cumulativeQuest-container(
+            :label="$t(i18nPrefix + 'block_cfc.infinity_generator.label')",
+            label-for="cumulativeQuest",
+            :type="haveError('cumulativeQuest')"
+          )
+            numberinput(inputId="cumulativeQuest", :min="1", v-model.number="cumulativeQuest", name="cumulativeQuest")
 
-  div.table-wrapper
-    table#tableReward.table.is-bordered.is-striped.is-narrow.is-fullwidth
-      thead
+  .overflow-x-auto.rounded-lg.mt-8.shadow-lg.mx-0(class="md:mx-16 lg:mx-32 xl:mx-64")
+    table#tableReward.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-600")
+      thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
         tr
-          th.has-text-centered(colspan=4) {{$t(i18nPrefix + 'block_cfc.table_reward.title')}}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white",
+            colspan=4
+          ) {{ $t(i18nPrefix + 'block_cfc.table_reward.title') }}
         tr
-          th.has-text-centered {{$t(i18nPrefix + 'block_cfc.table_reward.thead.th1')}}
-          th.has-text-centered {{$t(i18nPrefix + 'block_cfc.table_reward.thead.th2')}}
-          th.has-text-centered {{$t(i18nPrefix + 'block_cfc.table_reward.thead.th3')}}
-          th.has-text-centered {{$t(i18nPrefix + 'block_cfc.table_reward.thead.th4')}}
-      tbody
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white"
+          ) {{ $t(i18nPrefix + 'block_cfc.table_reward.thead.th1') }}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white"
+          ) {{ $t(i18nPrefix + 'block_cfc.table_reward.thead.th2') }}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white"
+          ) {{ $t(i18nPrefix + 'block_cfc.table_reward.thead.th3') }}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white"
+          ) {{ $t(i18nPrefix + 'block_cfc.table_reward.thead.th4') }}
+      tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-800 dark:divide-gray-600")
         tr
-          td.has-text-right {{$n(result.bp)}}
-          td.has-text-right {{$n(result.medals)}}
-          td.has-text-right {{$n(result.goods)}}
-          td.has-text-right {{$n(result.fp)}}
+          td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.bp) }}
+          td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.medals) }}
+          td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.goods) }}
+          td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.fp) }}
 
-  div.columns
-    div.column.is-one-third
-      div.field
-        p#totalGoods {{$t(i18nPrefix + 'block_cfc.reward_message.total_goods', {count: $n(result.totalGoods)})}}
-        p#dailyUbq {{$t(i18nPrefix + 'block_cfc.reward_message.daily_ubq', {count: $n(result.dailyUbq)})}}
-    div.column.is-one-third
-      div.field
-        p#totalFp {{$t(i18nPrefix + 'block_cfc.reward_message.total_fp', {count: $n(result.totalFp)})}}
-        p#bonusUbq {{$t(i18nPrefix + 'block_cfc.reward_message.bonus_ubq', {count: $n(result.bonusUbq)})}}
-    div.column.is-one-third
-      div.field
-        p#totalRqCompleted {{$t(i18nPrefix + 'block_cfc.reward_message.total_rq_completed', {count: $n(infinityGenerator ? cumulativeQuest : result.totalRqCompleted)})}}
-        p#secondRqCompleted(v-show="secondRq || tutoMode") {{$t(i18nPrefix + 'block_cfc.reward_message.second_rq_completed', {count: $n(result.secondRqCompleted)})}}
+  .t-content-container
+    .grid.grid-cols-1.gap-6.mt-4(class="sm:grid-cols-2 xl:grid-cols-3")
+      p#totalGoods {{ $t(i18nPrefix + 'block_cfc.reward_message.total_goods', { count: $n(result.totalGoods) }) }}
+      p#totalFp {{ $t(i18nPrefix + 'block_cfc.reward_message.total_fp', { count: $n(result.totalFp) }) }}
+      p#totalRqCompleted {{ $t(i18nPrefix + 'block_cfc.reward_message.total_rq_completed', { count: $n(infinityGenerator ? cumulativeQuest : result.totalRqCompleted) }) }}
 
-  div.table-wrapper(v-show="(!result.coinSupplyReturn.length <= 0) || tutoMode")
-    table#coinSupplyReturn.table.is-bordered.is-striped.is-narrow.is-fullwidth
-      thead
+      p#dailyUbq {{ $t(i18nPrefix + 'block_cfc.reward_message.daily_ubq', { count: $n(result.dailyUbq) }) }}
+      p#bonusUbq {{ $t(i18nPrefix + 'block_cfc.reward_message.bonus_ubq', { count: $n(result.bonusUbq) }) }}
+      p#secondRqCompleted(v-show="secondRq || tutoMode") {{ $t(i18nPrefix + 'block_cfc.reward_message.second_rq_completed', { count: $n(result.secondRqCompleted) }) }}
+
+  .overflow-x-auto.rounded-lg.mt-8.shadow-lg.mx-0(class="md:mx-16 lg:mx-32 xl:mx-64")
+    table#coinSupplyReturn.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-600")
+      thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
         tr
-          th.has-text-centered {{$t(i18nPrefix + 'block_cfc.table_return.thead.th_level')}}
-          th.has-text-centered {{$t(i18nPrefix + 'block_cfc.table_return.thead.th_coin')}}
-          th.has-text-centered {{$t(i18nPrefix + 'block_cfc.table_return.thead.th_supply')}}
-      tbody
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white"
+          ) {{ $t(i18nPrefix + 'block_cfc.table_return.thead.th_level') }}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white"
+          ) {{ $t(i18nPrefix + 'block_cfc.table_return.thead.th_coin') }}
+          th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            scope="col",
+            class="dark:text-white"
+          ) {{ $t(i18nPrefix + 'block_cfc.table_return.thead.th_supply') }}
+      tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-800 dark:divide-gray-600")
         tr(v-for="(data, index) in result.coinSupplyReturn")
-          td.has-text-right {{$n(index + 1)}}
-          td.has-text-right {{$n(data.coin)}}
-          td.has-text-right {{$n(data.supply)}}
+          td.px-6.py-4.whitespace-nowrap.text-right {{ $n(index + 1) }}
+          td.px-6.py-4.whitespace-nowrap.text-right {{ $n(data.coin) }}
+          td.px-6.py-4.whitespace-nowrap.text-right {{ $n(data.supply) }}

@@ -1,158 +1,240 @@
-div.content
-  div.columns
-    div.column.is-half
-      div.field
-        h3.title.is-3 {{$t(i18nPrefix + 'block_place.title')}}
-    div.column.is-half(v-show="canPermalink")
-      div.field
-        nuxt-link#permalink.level-right(:to="localePath(permaLink)" exact)
-          span.icon
-            i.fas.fa-link
-          | &nbsp;{{$t('utils.permalink')}}
+div
+  .t-content-container
+    .t-columns.mb-4
+      .flex-shrink-1.flex-grow-1.w-full
+        h3.title.mb-0 {{ $t(i18nPrefix + 'block_place.title') }}
+      .flex-shrink-0.flex-grow-0.mt-2(class="sm:mt-0")
+        nuxt-link#permalink(:to="localePath(permaLink)", exact)
+          i.fas.fa-link
+          | &nbsp;{{ $t('utils.permalink') }}
 
-  div.columns
-    div.column
-      div.field
-        p {{$t('utils.description.p1')}}
+    .mb-4.inline-flex.w-full.flex-col(class="sm:flex-row")
+      .column
+        .field
+          p {{ $t('utils.description.p1') }}
+          p
+            t-button(type="danger", @click.prevent="resetValues") {{ $t('utils.Reset_values') }}
+
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        t-label(
+          :label="$t(i18nPrefix + 'block_place.level_cost')",
+          label-for="splevelCost",
+          :type="haveError('levelCost')"
+        )
+      .w-full(class="sm:w-1/2")
+        numberinput(
+          :min="0",
+          v-model.number="levelCost",
+          name="level-cost",
+          inputId="splevelCost",
+          :isDisabled="haveInputLevelCost()",
+          :showIncDec="true"
+        )
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        t-label(
+          :label="$t(i18nPrefix + 'block_place.current_deposits')",
+          label-for="spCurrentDeposits",
+          :type="haveError('currentDeposits')"
+        )
+      .w-full(class="sm:w-1/2")
+        numberinput(
+          :min="0",
+          v-model.number="currentDeposits",
+          name="current-deposits",
+          inputId="spCurrentDeposits",
+          :showIncDec="true"
+        )
+
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        t-label(
+          :label="$t(i18nPrefix + 'block_place.your_participation')",
+          label-for="spYourParticipation",
+          :type="haveError('yourParticipation')"
+        )
+      .w-full(class="sm:w-1/2")
+        numberinput(
+          :min="0",
+          v-model.number="yourParticipation",
+          name="your-participation",
+          inputId="spYourParticipation",
+          autocomplete="off",
+          :showIncDec="true"
+        )
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        t-label(
+          :label="$t(i18nPrefix + 'block_place.other_participation')",
+          label-for="spOtherParticipation",
+          :type="haveError('otherParticipation')"
+        )
+      .w-full(class="sm:w-1/2")
+        numberinput(
+          :min="0",
+          v-model.number="otherParticipation",
+          name="other-participation",
+          inputId="spOtherParticipation",
+          :showIncDec="true"
+        )
+
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        t-label(
+          :label="$t(i18nPrefix + 'block_place.your_arc_bonus')",
+          label-for="spYourArcBonus",
+          :type="haveError('yourArcBonus')"
+        )
+      .w-full(class="sm:w-1/2")
+        numberinput(
+          :min="0",
+          v-model.number="yourArcBonus",
+          :step="0.1",
+          :precision="1",
+          name="your-arc-bonus",
+          inputId="spYourArcBonus",
+          :isDisabled="$props.canCustomYourArcBonus",
+          :showIncDec="true"
+        )
+    .t-columns.mb-4
+      template(v-if="haveInputLevelCost()")
+        .w-full(class="sm:w-1/2")
+          t-label(
+            :label="$t(i18nPrefix + 'block_place.target_reward')",
+            label-for="fpTargetReward",
+            :type="haveError('fpTargetReward')"
+          )
+        .w-full(class="sm:w-1/2")
+          t-select#fpTargetReward(v-model="fpTargetReward", name="fp-target-reward")
+            option(
+              v-for="(place, i) in levelData.investment",
+              :value="place.reward",
+              :key="i",
+              :id="'option_' + i",
+              autocomplete="off"
+            ) {{ $tc(i18nPrefix + 'block_place.place', place.reward, { place: i + 1, count: $n(place.reward) }) }}
+      template(v-else)
+        .w-full(class="sm:w-1/2")
+          t-label(
+            :label="$t(i18nPrefix + 'block_place.fp_target_reward')",
+            label-for="spFpTargetReward",
+            :type="haveError('fpTargetReward')"
+          )
+        .w-full(class="sm:w-1/2")
+          numberinput(
+            :min="0",
+            v-model.number="fpTargetReward",
+            :step="5",
+            name="fp-target-reward",
+            inputId="spFpTargetReward",
+            :showIncDec="true"
+          )
+
+  .t-content-container(v-if="levelCost && getNumberOfRemainingPoints()")
+    h4.title {{ $t('utils.Result') }}
+
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        p {{ $tc(i18nPrefix + 'block_place.fp_to_complete_level', getNumberOfRemainingPoints(), { count: $n(getNumberOfRemainingPoints()) }) }}
+      .w-full(class="sm:w-1/2")
         p
-          button.button.is-danger(@click.prevent="resetValues") {{$t('utils.Reset_values')}}
-
-  div.columns
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'block_place.level_cost')" label-for="splevelCost" :type="haveError('levelCost')")
-    div.column.is-half
-      numberinput(:min="0" v-model.number="levelCost" name="level-cost" inputId="splevelCost"  :isDisabled="haveInputLevelCost()" :showIncDec="true")
-  div.columns
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'block_place.current_deposits')" label-for="spCurrentDeposits" :type="haveError('currentDeposits')")
-    div.column.is-half
-      numberinput(:min="0" v-model.number="currentDeposits" name="current-deposits" inputId="spCurrentDeposits"  :showIncDec="true")
-
-  div.columns
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'block_place.your_participation')" label-for="spYourParticipation" :type="haveError('yourParticipation')")
-    div.column.is-half
-      numberinput(:min="0" v-model.number="yourParticipation" name="your-participation" inputId="spYourParticipation" autocomplete="off"  :showIncDec="true")
-  div.columns
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'block_place.other_participation')" label-for="spOtherParticipation" :type="haveError('otherParticipation')")
-    div.column.is-half
-      numberinput(:min="0" v-model.number="otherParticipation" name="other-participation" inputId="spOtherParticipation"  :showIncDec="true")
-
-  div.columns
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'block_place.your_arc_bonus')" label-for="spYourArcBonus" :type="haveError('yourArcBonus')")
-    div.column.is-half
-      numberinput(:min="0" v-model.number="yourArcBonus" :step="0.1" :precision="1" name="your-arc-bonus" inputId="spYourArcBonus" :isDisabled="$props.canCustomYourArcBonus"  :showIncDec="true")
-  div.columns
-    template(v-if="haveInputLevelCost()")
-      div.column.is-half
-        t-label(:label="$t(i18nPrefix + 'block_place.target_reward')" label-for="fpTargetReward" :type="haveError('fpTargetReward')")
-      div.column.is-half
-        t-select#fpTargetReward(v-model="fpTargetReward" name="fp-target-reward")
-          option(v-for="(place, i) in levelData.investment" :value="place.reward" :key="i" :id="'option_' + i" autocomplete="off") {{$tc(i18nPrefix + 'block_place.place', place.reward, { place: i + 1, count: $n(place.reward) })}}
-    template(v-else)
-      div.column.is-half
-        t-label(:label="$t(i18nPrefix + 'block_place.fp_target_reward')" label-for="spFpTargetReward" :type="haveError('fpTargetReward')")
-      div.column.is-half
-        numberinput(:min="0" v-model.number="fpTargetReward" :step="5" name="fp-target-reward" inputId="spFpTargetReward"  :showIncDec="true")
-
-  template(v-if="levelCost && getNumberOfRemainingPoints()")
-    h4.title.is-4 {{$t('utils.Result')}}
-
-    div.columns
-      div.column.is-half
-        p {{$tc(i18nPrefix + 'block_place.fp_to_complete_level', getNumberOfRemainingPoints(), { count: $n(getNumberOfRemainingPoints()) })}}
-      div.column.is-half
-        p
-          b {{$n(getNumberOfRemainingPoints())}}
-    div.columns
-      div.column.is-half
-        p {{$tc(i18nPrefix + 'block_place.result.fp_need_to_lock', 42, { count: $n(42) })}}
-      div.column.is-half
+          strong {{ $n(getNumberOfRemainingPoints()) }}
+    .t-columns.mb-4
+      .w-full(class="sm:w-1/2")
+        p {{ $tc(i18nPrefix + 'block_place.result.fp_need_to_lock', 42, { count: $n(42) }) }}
+      .w-full(class="sm:w-1/2")
         template(v-if="fp > 0")
           p(v-if="fp <= yourParticipation")
-            span.icon.is-small(style="vertical-align: middle;")
-              i.fas.fa-lock
+            i.fas.fa-lock
           p(v-else)
-            b {{$n(fp)}}
-            template(v-if="((fp >= yourParticipation) && (fp - yourParticipation) > 0) && (yourParticipation > 0)")
+            strong {{ $n(fp) }}
+            template(v-if="fp >= yourParticipation && fp - yourParticipation > 0 && yourParticipation > 0")
               | &nbsp;(
-              span(v-tippy="{ content: $t(i18nPrefix + 'block_place.result.still_to_put') }") {{$n(fp - yourParticipation)}}
+              span(v-tippy="{ content: $t(i18nPrefix + 'block_place.result.still_to_put') }") {{ $n(fp - yourParticipation) }}
               | )
             template(v-if="roi > 0")
               | &nbsp;(
-              span.icon.is-small.has-text-success(style="vertical-align: middle;")
+              span.text-green-500.mr-1
                 i.fas.fa-arrow-up
-              | {{$n(Math.abs(roi))}})
+              | {{ $n(Math.abs(roi)) }})
             template(v-else-if="roi === 0")
               | &nbsp;(
-              span.icon.is-small(style="vertical-align: middle;")
+              span
                 i.fas.fa-exchange-alt
               | )
             template(v-else)
               | &nbsp;(
-              span.icon.is-small.has-text-danger(style="vertical-align: middle;")
+              span.text-red-500.mr-1
                 i.fas.fa-arrow-down
-              | {{$n(Math.abs(roi))}})
-        p(v-else) {{$t(i18nPrefix + 'block_place.result.cant_block')}}
+              | {{ $n(Math.abs(roi)) }})
+        p(v-else) {{ $t(i18nPrefix + 'block_place.result.cant_block') }}
 
-  div.margin-top-one-em(v-show="(fp > 0) && (yourArcBonus >= 0) && (fpTargetReward > 0)")
-    h5.title.is-5 {{$t(i18nPrefix + 'block_place.various_rate')}}
-    div.is-hidden-mobile
-      div.columns
-        div.column.is-half
-          h6.title.is-6 {{$t(i18nPrefix + 'block_place.rate')}}
-        div.column.is-one-quarter
-          h6.title.is-6 {{$t(i18nPrefix + 'block_place.fp_according_rate')}}
-        div.column.is-one-quarter
-          h6.title.is-6 {{$t(i18nPrefix + 'block_place.fp_to_lock')}}
-    div.columns(v-for="(value, index) in variousRate" v-show="value !== yourArcBonus" v-if="value.rate !== yourArcBonus")
-      div.column.is-half
-        p
-        span.title.is-6.is-hidden-tablet {{$t(i18nPrefix + 'block_place.rate')}}:&nbsp;
-        | {{value.displayRate}}
-      div.column.is-one-quarter
-        template(v-if="value.result && value.result.fp !== null")
-          p(v-if="value.result.roi > 0")
-            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_according_rate')}}:&nbsp;
-            b {{ $n(value.result.fp) }}
-            | &nbsp;(
-            span.icon.is-small.has-text-success(style="vertical-align: middle;")
-              i.fas.fa-arrow-up
-            | {{$n(Math.abs(value.result.roi))}})
-          p(v-else-if="value.result.roi === 0")
-            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_according_rate')}}:&nbsp;
-            b {{$n(value.result.fp)}} (
-            span.icon.is-small(style="vertical-align: middle;")
-              i.fas.fa-exchange-alt
-            | )
-          p(v-else)
-            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_according_rate')}}:&nbsp;
-            b {{$n(value.result.fp)}}
-            | &nbsp;(
-            span.icon.is-small.has-text-danger(style="vertical-align: middle;")
-              i.fas.fa-arrow-down
-            | {{$n(Math.abs(value.result.roi))}})
-      div.column.is-one-quarter
-        template(v-if="value.result && value.result.fp !== null")
-          p(v-if="value.result.roiSnipe > 0")
-            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_to_lock')}}:&nbsp;
-            b {{ $n(value.result.fpSnipe) }}
-            | &nbsp;(
-            span.icon.is-small.has-text-success(style="vertical-align: middle;")
-              i.fas.fa-arrow-up
-            | {{$n(Math.abs(value.result.roiSnipe))}})
-          p(v-else-if="value.result.roiSnipe === 0")
-            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_to_lock')}}:&nbsp;
-            b {{$n(value.result.fpSnipe)}} (
-            span.icon.is-small(style="vertical-align: middle;")
-              i.fas.fa-exchange-alt
-            | )
-          p(v-else)
-            span.is-hidden-tablet {{$t(i18nPrefix + 'block_place.fp_to_lock')}}:&nbsp;
-            b {{$n(value.result.fpSnipe)}}
-            | &nbsp;(
-            span.icon.is-small.has-text-danger(style="vertical-align: middle;")
-              i.fas.fa-arrow-down
-            | {{$n(Math.abs(value.result.roiSnipe))}})
+  .mx-0.mt-8(v-show="(fp > 0) && (yourArcBonus >= 0) && (fpTargetReward > 0)", class="md:mx-16 lg:mx-32 xl:mx-64")
+    h4.title.mb-6 {{ $t(i18nPrefix + 'block_place.various_rate') }}
+    .flex.flex-col.mb-4
+      .-my-2
+        .shadow-lg.rounded-lg.align-middle.inline-block.min-w-full
+          .overflow-hidden.border-b.border-gray-200.rounded-lg.transition-light-dark(class="dark:border-gray-600")
+            table.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-600")
+              thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
+                tr
+                  th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+                    scope="col",
+                    class="dark:text-white"
+                  ) {{ $t(i18nPrefix + 'block_place.rate') }}
+                  th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+                    scope="col",
+                    class="dark:text-white"
+                  ) {{ $t(i18nPrefix + 'block_place.fp_according_rate') }}
+                  th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+                    scope="col",
+                    class="dark:text-white"
+                  ) {{ $t(i18nPrefix + 'block_place.fp_to_lock') }}
+              tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-800 dark:divide-gray-600")
+                tr(
+                  v-for="(value, index) in variousRate",
+                  v-show="value !== yourArcBonus",
+                  v-if="value.rate !== yourArcBonus"
+                )
+                  td.px-6.py-4.whitespace-nowrap {{ $n(value.displayRate) }}
+                  td.px-6.py-4.whitespace-nowrap
+                    template(v-if="value.result && value.result.fp !== null")
+                      p(v-if="value.result.roi > 0")
+                        strong {{ $n(value.result.fp) }}
+                        | &nbsp;(
+                        span.text-green-500.mr-1
+                          i.fas.fa-arrow-up
+                        | {{ $n(Math.abs(value.result.roi)) }})
+                      p(v-else-if="value.result.roi === 0")
+                        strong {{ $n(value.result.fp) }}
+                        | &nbsp;(
+                        span
+                          i.fas.fa-exchange-alt
+                        | )
+                      p(v-else)
+                        strong {{ $n(value.result.fp) }}
+                        | &nbsp;(
+                        span.text-red-500.mr-1
+                          i.fas.fa-arrow-down
+                        | {{ $n(Math.abs(value.result.roi)) }})
+                  td.px-6.py-4.whitespace-nowrap
+                    template(v-if="value.result && value.result.fp !== null")
+                      p(v-if="value.result.roiSnipe > 0")
+                        strong {{ $n(value.result.fpSnipe) }}
+                        | &nbsp;(
+                        span.text-green-500.mr-1
+                          i.fas.fa-arrow-up
+                        | {{ $n(Math.abs(value.result.roiSnipe)) }})
+                      p(v-else-if="value.result.roiSnipe === 0")
+                        strong {{ $n(value.result.fpSnipe) }}
+                        | &nbsp;(
+                        span
+                          i.fas.fa-exchange-alt
+                        | )
+                      p(v-else)
+                        strong {{ $n(value.result.fpSnipe) }}
+                        | &nbsp;(
+                        span.text-red-500.mr-1
+                          i.fas.fa-arrow-down
+                        | {{ $n(Math.abs(value.result.roiSnipe)) }})

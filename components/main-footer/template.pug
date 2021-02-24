@@ -1,19 +1,35 @@
-footer.footer.has-text-centered
-  div.container
-    div.columns
-      div.column.is-8-desktop.is-offset-2-desktop
-        nav.breadcrumb.has-dot-separator.is-centered.is-marginless(aria-label="breadcrumbs")
-          ul
-            li(v-for="footerLink in footerLinks" :class="{ 'is-active': isActive(footerLink.link) }")
-              nuxt-link(:to="localePath({ name: footerLink.link })" exact) {{$t('footer_menu.' + footerLink.key)}}
-        p
-          small(v-html="$t('components.site_layout.footer.license_html')")
-        p {{$t('components.site_layout.footer.version', {version: siteVersion})}}
-
-    div.columns
-      div.column.is-8-desktop.is-offset-2-desktop
-        div
-          a(href="https://vercel.com/?utm_source=foe-tools&utm_campaign=oss" target="_blank")
-            figure.image.is-100xauto.has-text-centered.is-centered(style="margin: auto")
-              figcaption Powered by
-              img(:src="$store.get('isDarkTheme') ? '/vercel-light.svg' : '/vercel-dark.svg'")
+footer.bg-white.pt-4.mt-8.transition-light-dark(class="dark:text-gray-100 dark:bg-gray-800")
+  .container.px-5.py-6.mx-auto.flex.items-center.flex-col.space-y-2.justify-center.footer-breadcrumb(
+    class="sm:flex-row sm:space-y-0 sm:space-x-3"
+  )
+    nuxt-link.transition-light-dark(
+      v-for="footerLink in footerLinks",
+      :to="localePath({ name: footerLink.link })",
+      :key="footerLink.key",
+      exact
+    ) {{ $t('footer_menu.' + footerLink.key) }}
+  p.text-gray-700.text-center.-mt-4.text-sm.transition-light-dark(
+    class="dark:text-gray-300",
+    v-html="$t('components.site_layout.footer.license_html')"
+  )
+  p.text-gray-700.text-center.text-sm.transition-light-dark(class="dark:text-gray-300") {{ $t('components.site_layout.footer.version', { version: siteVersion }) }}
+  .container.px-5.py-6.mx-auto.flex.items-center.flex-col.space-y-2.justify-center(
+    class="sm:flex-row sm:space-y-0 sm:space-x-6"
+  )
+    a.bg-black.inline-flex.rounded-lg.text-white.transition-light-dark.select-none(
+      href="https://vercel.com/?utm_source=foe-tools&utm_campaign=oss",
+      target="_blank",
+      class="hover:text-white dark:hover:text-black dark:text-black dark:bg-white"
+    )
+      span.border-gray-500.border-r.px-4.py-2
+        EquilateralTriangle.w-5.h-6
+      span.font-light.px-4.py-2.text-center Powered by
+        span.font-medium Vercel
+    a.ml-4.bg-black.inline-flex.rounded-lg.text-white.h-10.transition-light-dark.select-none(
+      href="https://github.com/FOE-Tools/FOE-Tools.github.io",
+      target="_blank",
+      class="hover:text-white dark:hover:text-black dark:text-black dark:bg-white"
+    )
+      span.border-gray-500.border-r.px-4.py-3.block
+        i.fab.fa-github(style="vertical-align: top")
+      span.font-medium.px-4.py-2.text-center GitHub

@@ -136,7 +136,7 @@ export default {
               ageFrom: this.$t("foe_data.age_short." + currentAge),
               valueTo: this.$n(result[0].to),
               ageTo: this.$t("foe_data.age_short." + age),
-              secondPart: this.$t(i18nPrefix + "split_message.common", {
+              secondPart: this.$t("components.trade.split_message.common", {
                 count: 1,
                 valueFrom: this.$n(result[1].from),
                 valueTo: this.$n(result[1].to),

@@ -1,44 +1,213 @@
-header
-  b-navbar.has-shadow(:fixed-top="$store.get('global/fixedMainMenu')" :class="{'hidden-navbar': $store.get('global/fixedMainMenu') && !showNavbar}")
-    template(slot="brand")
-      b-navbar-item(tag="router-link" :to="localePath({ name: 'Home' })")
-        img(src="/icon.png" alt="FOE-Tools logo" width="28" height="28")
+header.z-30(
+  class="md:pt-8",
+  :class=`{
+      "sticky top-0 md:-top-8": fixedMainMenu,
+      "-top-16": $store.get('global/fixedMainMenu') && !showNavbar
+    }`,
+  style="transition: top 500ms ease-in-out 0"
+)
+  nav.mx-auto.rounded-b-xl.shadow-lg.bg-coolGray-800.transition-light-dark(
+    class="dark:bg-coolGray-100 lg:w-4/5 md:rounded-t-xl"
+  )
+    .mx-auto.px-2(class="sm:px-6 lg:px-8")
+      .relative.flex.items-center.justify-between.h-16
+        .absolute.inset-y-0.left-0.flex.items-center(class="sm:hidden")
+          // Mobile menu button
+          button.inline-flex.items-center.justify-center.p-2.text-gray-400.rounded-lg(
+            class="hover:text-white hover:bg-coolGray-700 dark:hover:bg-coolGray-300 focus:outline-none focus:ring",
+            aria-expanded="false",
+            @click="toggleMenu"
+          )
+            span.sr-only Open main menu
+            // Icon when menu is closed.
+            //
+              Heroicon name: outline/menu
+              Menu open: "hidden", Menu closed: "block"
+            svg.block.h-6.w-6(
+              xmlns="http://www.w3.org/2000/svg",
+              fill="none",
+              viewbox="0 0 24 24",
+              stroke="currentColor",
+              aria-hidden="true",
+              :class="{ hidden: burgerMenuVisible, block: !burgerMenuVisible }"
+            )
+              path(stroke-linecap="round", stroke-linejoin="round", stroke-width="2", d="M4 6h16M4 12h16M4 18h16")
+            // Icon when menu is open.
+            //
+              Heroicon name: outline/x
+              Menu open: "block", Menu closed: "hidden"
+            svg.h-6.w-6(
+              xmlns="http://www.w3.org/2000/svg",
+              fill="none",
+              viewbox="0 0 24 24",
+              stroke="currentColor",
+              aria-hidden="true",
+              :class="{ hidden: !burgerMenuVisible, block: burgerMenuVisible }"
+            )
+              path(stroke-linecap="round", stroke-linejoin="round", stroke-width="2", d="M6 18L18 6M6 6l12 12")
+        .flex-1.flex.items-center.justify-center(class="sm:items-stretch sm:justify-start")
+          nuxt-link(
+            :class=`{
+              "flex flex-shrink-0 items-center": ['GbInvestment'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) < 0,
+              "hidden sm:flex sm:flex-shrink-0 sm:items-center": ['GbInvestment'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) >= 0
+            }`,
+            :to="localePath({ name: 'Home' })"
+          )
+            img.block.h-8.w-auto(src="/icon.png", alt="Workflow")
+          .flex-shrink-0.flex.items-center(
+            v-if="['GbInvestment'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) >= 0",
+            class="sm:hidden",
+            style="max-width: 70%"
+          )
+            gb-list-select(:current="$route.params.gb", @change="goTo($event)", :only-selector="true")
+          .hidden(class="sm:block sm:ml-6")
+            .flex.space-x-4
+              template(v-for="value in mainMenu")
+                nuxt-link.navbar-item(
+                  v-if="value.children.length === 0",
+                  :to="localePath({ name: value.link })",
+                  :key="value.key",
+                  tabindex="0"
+                ) {{ $t(value.name) }}
+                .relative(v-else, v-click-outside="() => { hideDropdownMenuDesktop(value) }")
+                  button.navbar-item.flex.items-center.rounded-full.btn.btn-sm.btn-white(
+                    tabindex="0",
+                    @click="value.showDropdown = !value.showDropdown",
+                    @keydown.space.exact.prevent="hideDropdownMenuDesktop(value)",
+                    @keydown.esc.exact="hideDropdownMenuDesktop(value)",
+                    @keydown.shift.tab="hideDropdownMenuDesktop(value)",
+                    @keydown.up.exact.prevent="startArrowKeys(value)",
+                    @keydown.down.exact.prevent="startArrowKeys(value)"
+                  )
+                    | {{ $t(value.name) }}
+                    ArrowSvg.flex-none.w-4.h-4.ml-1.-mr-1.transition.duration-200.ease-out.transform(
+                      :class="{ 'rotate-180': value.showDropdown }"
+                    )
+                  transition(name="navbar-fade")
+                    .absolute.top-4.z-50.w-screen.max-w-sm.p-2.mx-0.my-12.text-sm.text-gray-800.rounded-xl.shadow-lg.transform.bg-white(
+                      v-show="value.showDropdown",
+                      class="dark:bg-coolGray-100 lg:left-1/2 lg:-translate-x-1/2"
+                    )
+                      .grid.grid-cols-1.gap-2.mb-2
+                        ul.space-y-1(:ref="'dropdown-desktop-' + value.name.replace(/\\./g, '_')")
+                          li(v-for="child in value.children")
+                            nuxt-link.px-3.py-2.transition.rounded-lg.block.navbar-dropdown-item-desktop(
+                              :to="localePath({ name: child.link })",
+                              @keydown.native.up.exact.prevent="focusedIndex === 0 ? '' : focusPrevious(value, true)",
+                              @keydown.native.down.exact.prevent="focusedIndex === value.children.length - 1 ? '' : focusNext(value, true)",
+                              @keydown.native.tab.exact="focusedIndex === value.children.length - 1 ? hideDropdownMenuDesktop(value) : focusNext(value, false)",
+                              @keydown.native.esc.exact="hideDropdownMenuDesktop(value)",
+                              @keydown.native.shift.tab="focusedIndex === value.children.length - 1 ? focusPrevious(value, false) : ''",
+                              exact
+                            )
+                              span.font-semibold {{ $t(child.name) }}
+        .absolute.inset-y-0.right-0.items-center.pr-2.hidden(class="sm:flex sm:static sm:inset-auto sm:ml-6 sm:pr-0")
+          language-selector
 
-      div.is-hidden-desktop(v-if="['GbInvestment'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) >= 0")
-        gb-list-select(:current="$route.params.gb" @change="goTo($event)" :only-selector="true")
+          .ml-3.hidden(class="md:block")
+            nuxt-link.donation.align-middle.duration-100.ease-in-out.transition.font-bold.h-full.items-center.justify-center.text-center.py-2.px-4.rounded-lg.flex-shrink-0.flex-wrap.inline-flex.select-none.w-full(
+              class="focus:outline-none focus:ring",
+              :to="localePath({ name: 'Donate' })",
+              tabindex="0",
+              exact
+            )
+              span {{ $t('utils.Donate') }}
+          .ml-3
+            button.hidden.bg-white.inline-flex.rounded-lg.text-black.w-10.h-10.transition-light-dark.select-none(
+              class="sm:block hover:text-black dark:hover:text-white dark:text-white dark:bg-black focus:outline-none focus:ring",
+              v-tippy="{ content: $t('components.site_layout.global_config') }",
+              @click="showGlobalSettings"
+            )
+              i.fas.fa-cog
 
-    template(slot="start")
-      template(v-for="value in mainMenu")
-        template(v-if="value.children.length === 0")
-          b-navbar-item(tag="nuxt-link" :class="{'is-active': isActive(value.link)}" :to="localePath({ name: value.link })") {{$t(value.name)}}
-        b-navbar-dropdown(v-else :key="value.slug" :label="$t(value.name)" hoverable)
-          template(v-for="child in value.children")
-            b-navbar-item(v-if="child.type.name === 'PAGE'" tag="nuxt-link" :class="{'is-active': isActive(child.link)}" :to="localePath({ name: child.link })" exact) {{$t(child.name)}}
-            hr.navbar-divider(v-else-if="child.type.name === 'SEPARATOR'")
+          // Profile dropdown
+          //.ml-3.relative
+            button.hidden.bg-white.inline-flex.rounded-lg.text-black.w-10.h-10(
+              class="sm:block hover:text-black dark:hover:text-white dark:text-white dark:bg-black transition-light-dark select-none focus:outline-none focus:ring"
+              v-tippy="{ content: 'Coming soon...' }")
+              i.fas.fa-user
+            //div
+              button.bg-white.inline-flex.text-sm.rounded-lg.w-10.h-10(class='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white' aria-haspopup='true')
+                // span.sr-only Open user menu
+                i.fas.fa-user
+                //svg.h-10.w-10.rounded-lg.bg-white.text-black(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24' stroke='currentColor')
+                  path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z')
+                //img.h-10.w-10.rounded-lg(src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80' alt='')
+            //
+              Profile dropdown panel, show/hide based on dropdown state.
+              Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+              Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+            //.origin-top-right.absolute.right-0.mt-2.w-48.rounded-md.shadow-lg.py-1.bg-white.ring-1.ring-black.ring-opacity-5(role='menu' aria-orientation='vertical' aria-labelledby='user-menu')
+              a.block.px-4.py-2.text-sm.text-gray-700(href='#' class='hover:bg-coolGray-100' role='menuitem') Your Profile
+              a.block.px-4.py-2.text-sm.text-gray-700(href='#' class='hover:bg-coolGray-100' role='menuitem') Settings
+              a.block.px-4.py-2.text-sm.text-gray-700(href='#' class='hover:bg-coolGray-100' role='menuitem') Sign out
+    //
+      Mobile menu, toggle classes based on menu state.
+      Menu open: "block", Menu closed: "hidden"
+    div(class="sm:hidden", :class="{ hidden: !burgerMenuVisible, block: burgerMenuVisible }")
+      .px-2.pt-2.pb-3.space-y-2
+        template(v-for="value in mainMenu")
+          nuxt-link.navbar-item.text-center.mx-auto.w-full.block(
+            v-if="value.children.length === 0",
+            :to="localePath({ name: value.link })",
+            :key="value.key",
+            tabindex="0"
+          ) {{ $t(value.name) }}
+          .block(v-else, v-click-outside="() => { hideDropdownMenuSmartphone(value) }")
+            button.justify-center.w-full.mx-auto.text-center.navbar-item.flex.items-center.rounded-full(
+              tabindex="0",
+              @click="value.showDropdown = !value.showDropdown",
+              @keydown.space.exact.prevent="hideDropdownMenuSmartphone(value)",
+              @keydown.esc.exact="hideDropdownMenuSmartphone(value)",
+              @keydown.shift.tab="hideDropdownMenuSmartphone(value)",
+              @keydown.up.exact.prevent="startArrowKeys(value)",
+              @keydown.down.exact.prevent="startArrowKeys(value)"
+            )
+              | {{ $t(value.name) }}
+              ArrowSvg.flex-none.w-4.h-4.ml-1.-mr-1.transition.duration-200.ease-out.transform(
+                :class="{ 'rotate-180': value.showDropdown }"
+              )
+            .p-2.mx-0.text-sm.text-gray-800(v-show="value.showDropdown")
+              .grid.grid-cols-1.gap-2.mb-2
+                ul.space-y-1(:ref="'dropdown-mobile-' + value.name.replace(/\\./g, '_')")
+                  li(v-for="child in value.children")
+                    nuxt-link.navbar-dropdown-item-smartphone.w-full.text-center.px-3.py-2.transition.rounded-lg.text-gray-300.block(
+                      class="hover:bg-gray-200 hover:text-coolGray-700",
+                      :to="localePath({ name: child.link })",
+                      @keydown.native.up.exact.prevent="focusedIndex === 0 ? '' : focusPrevious(value, true)",
+                      @keydown.native.down.exact.prevent="focusedIndex === value.children.length - 1 ? '' : focusNext(value, true)",
+                      @keydown.native.tab.exact="focusedIndex === value.children.length - 1 ? hideDropdownMenuSmartphone(value) : focusNext(value, false)",
+                      @keydown.native.esc.exact="hideDropdownMenuSmartphone(value)",
+                      @keydown.native.shift.tab="focusedIndex === value.children.length - 1 ? focusPrevious(value, false) : ''",
+                      exact
+                    )
+                      span.font-semibold {{ $t(child.name) }}
 
-    template(slot="end")
-
-      b-navbar-item(tag="div")
         language-selector
 
-      b-navbar-item(tag="div")
-        div.field.is-grouped
-          nuxt-link.button.donation(:to="localePath({ name: 'Donate' })" exact)
-            span {{$t('utils.Donate')}}
+        nuxt-link.donation.align-middle.duration-100.ease-in-out.transition.font-bold.h-full.items-center.justify-center.text-center.py-2.px-4.rounded-lg.flex-shrink-0.flex-wrap.inline-flex.select-none.w-full(
+          class="focus:outline-none focus:ring",
+          :to="localePath({ name: 'Donate' })",
+          tabindex="0",
+          exact
+        )
+          span {{ $t('utils.Donate') }}
 
-      b-navbar-item(tag="div")
-        div.field
-          .control.is-hidden-touch(v-tippy="{ content: $t('components.site_layout.global_config') }")
-            button.button(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
-              p.icon
-                i.fas.fa-cog
-          button.button.is-hidden-desktop(@click="showGlobalSettings" :class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'")
-            p.icon
-              i.fas.fa-cog
-            p {{$t('components.site_layout.global_config')}}
+        button.block.bg-white.inline-flex.rounded-lg.text-black.w-full.h-10.p-2.text-center.justify-center.transition-light-dark.select-none(
+          class="hover:text-black dark:hover:text-white dark:text-white dark:bg-black focus:outline-none focus:ring",
+          @click="showGlobalSettings",
+          tabindex="0"
+        )
+          p.icon.mr-2
+            i.fas.fa-cog
+          p {{ $t('components.site_layout.global_config') }}
 
-      b-navbar-item(tag="div")
-        div.field.is-grouped
-          a.button(href="https://github.com/FOE-Tools/FOE-Tools.github.io" target="_blank")
-            span.icon
-              i.fab.fa-github
+        //button.block.bg-white.inline-flex.rounded-lg.text-black.w-full.h-10.p-2.text-center.justify-center(
+          class="hover:text-black dark:hover:text-white dark:text-white dark:bg-black transition-light-dark select-none focus:outline-none focus:ring")
+          p.mr-2
+            i.fas.fa-user
+          p Coming soon...

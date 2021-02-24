@@ -1,5 +1,3 @@
-import Utils from "~/scripts/utils";
-
 export default {
   name: "ShowBookmarks",
   data() {
@@ -11,9 +9,6 @@ export default {
         .get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)
         .filter((elt) => elt.name === "GbInvestment");
       return r;
-    },
-    splitBookmarks: /* istanbul ignore next */ function () {
-      return Utils.transpose(Utils.splitArray(this.bookmarks, 3));
     },
   },
 };

@@ -1,52 +1,27 @@
 #app
   main-header
 
-  section.hero.is-dark-blue
-    div.hero-body
-      div.container
-        div.columns
-          div.column.is-8-desktop.is-offset-2-desktop
-            h1.title.is-2.is-spaced {{$t($store.get('hero@title'), $store.get('hero@titleConfig'))}}
-            h2.subtitle.is-4(v-html="$t($store.get('hero@subtitle'))")
+  //section.bg-blueGray-600.rounded-xl.py-8.text-white(class="w-1/2").m-auto
+  section.bg-white.py-8.mt-8.transition-light-dark.mx-auto.rounded-xl.shadow-lg(
+    class="dark:text-gray-100 dark:bg-gray-800 lg:w-4/5"
+  )
+    .container.px-8.mx-auto.text-center(class="lg:w-1/2")
+      h1.text-4xl.font-semibold {{ $t($store.get('hero@title'), $store.get('hero@titleConfig')) }}
+      h2.mt-2.text-xl(v-html="$t($store.get('hero@subtitle'))")
 
-  main.container.is-fullheight
-    .hero.main-hero
-      .hero-body
-        div.container
-          div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="isNewYear")
-            div.column.is-three-quarters
-              t-message(type="info" closable)
-                p.text-2xl 🎉&nbsp;&nbsp;{{$tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) })}}&nbsp;&nbsp;🍰
-          div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="hasSurvey")
-            div.column.is-three-quarters
-              t-message(type="info" :closable="false")
-                nuxt-link(:to="localePath({ name: 'Survey' })" style="text-decoration: underline;") {{$t(i18nPrefix + 'survey.message')}}
-          div.columns.is-centered.is-margin-top-one-em-touch.no-lr-margin(v-show="nbUpdateSinceLastVisit")
-            div.column.is-three-quarters
-              t-message(type="info" closable)
-                p {{$tc(i18nPrefix + 'update', nbUpdateSinceLastVisit, { count: $n(nbUpdateSinceLastVisit) })}}
-                nuxt-link(:to="localePath({ name: 'Changelog' })") {{$t(i18nPrefix + 'whats_new')}}
-          div.columns.is-centered.no-lr-margin
-            div.column.is-11-desktop.is-three-quarters-fullhd.is-three-quarters-widescreen.is-full-tablet.no-lr-padding
-              div(v-if="(['Home', 'GbInvestmentChooser', 'GbInvestment', 'Contributors'].indexOf(/^([^_]+)(?:___.+)?$/.exec($route.name)[1]) >= 0) && !$route.params.gb")
-                nuxt
-              div.card.article(v-else)
-                div.card-content
-                  div.content.article-body
-                    div.columns(v-show="isConversionDate")
-                      div.column
-                        t-message.mb-4(:title="$t('utils.Information')" type="info" has-icon @close="onCloseDonationMessage") {{this.$t("routes.donate.conversion")}}
-                          p
-                          p
-                            nuxt-link.font-bold(:to="localePath({ name: 'Donate' })" exact class="p-3 rounded bg-yellow-400 hover:bg-yellow-500 dark:hover:bg-yellow-300" style="color: black")
-                              | {{$t('utils.Donate')}}
-                    div.columns(v-show="isPermalink")
-                      div.column
-                        t-message.mb-4(:title="$t('utils.Information')" type="warning" has-icon) {{$t(i18nPrefix + 'permalink_info')}}
-                    nuxt
+  main
+    // Notifications
+    .container.m-auto.mt-4.space-y-4.px-0(class="md:px-32 lg:px-64")
+      t-message(type="info", v-show="isNewYear", closable)
+        p.text-2xl 🎉&nbsp;&nbsp;{{ $tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) }) }}&nbsp;&nbsp;🍰
+      t-message(type="info", :closable="false", v-show="hasSurvey")
+        nuxt-link(:to="localePath({ name: 'Survey' })", style="text-decoration: underline") {{ $t(i18nPrefix + 'survey.message') }}
+      t-message(type="info", v-show="nbUpdateSinceLastVisit", closable)
+        p {{ $tc(i18nPrefix + 'update', nbUpdateSinceLastVisit, { count: $n(nbUpdateSinceLastVisit) }) }}
+        nuxt-link(:to="localePath({ name: 'Changelog' })") {{ $t(i18nPrefix + 'whats_new') }}
 
-    span.button.scroll-to-top(:class="$store.get('isDarkTheme') ? 'is-light' : 'is-dark'" @click="backToTop")
-      span.icon
-        i.fas.fa-angle-double-up
+    // Content
+    .container.m-auto.mt-4
+      nuxt
 
   main-footer

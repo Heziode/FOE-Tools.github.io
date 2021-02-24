@@ -1,4 +1,5 @@
 import packageConfig from "~/package.json";
+import EquilateralTriangle from "~/assets/equilateral-triangle.svg?inline";
 
 export default {
   name: "MainFooter",
@@ -19,5 +20,8 @@ export default {
     isActive(key) {
       return this.$route.name.startsWith(`${key}___`);
     },
+  },
+  components: {
+    EquilateralTriangle,
   },
 };

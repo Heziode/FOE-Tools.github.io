@@ -77,7 +77,7 @@ export default {
         case "danger":
           return "bg-red-100";
         default:
-          return null;
+          return "bg-gray-50 dark:bg-gray-700";
       }
     },
     computedHeaderBg() {

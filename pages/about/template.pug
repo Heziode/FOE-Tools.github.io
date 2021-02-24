@@ -1,40 +1,48 @@
-div.content
-  h3.title.is-3 {{$t($data.i18nPrefix + 'title')}}
-  h4.title.is-4 {{$t($data.i18nPrefix + 'general_info.title')}}
+.t-content-container
+  h3.title {{ $t($data.i18nPrefix + 'title') }}
+  h4.title {{ $t($data.i18nPrefix + 'general_info.title') }}
 
   p(v-html="$t($data.i18nPrefix + 'general_info.p1_html')")
   p(v-html="$t($data.i18nPrefix + 'general_info.p2_html')")
   p(v-html="$t($data.i18nPrefix + 'general_info.p3_html')")
 
-  h4.title.is-4#cookies {{$t($data.i18nPrefix + 'cookie.title')}}
+  h4#cookies.title {{ $t($data.i18nPrefix + 'cookie.title') }}
 
-  p {{$t($data.i18nPrefix + 'cookie.p1')}}
-  p {{$t(i18nPrefix + 'cookie.table_message')}}
+  p {{ $t($data.i18nPrefix + 'cookie.p1') }}
+  p {{ $t(i18nPrefix + 'cookie.table_message') }}
 
-  div.table-wrapper
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth
-      thead
-        tr
-          th {{$t('utils.Name')}}
-          th {{$t('utils.Description')}}
-      tbody
-        tr(v-for="cookie in cookiesData" :key="cookie.name")
-          td {{cookie.name}}
-          td {{$t(i18nPrefix + 'cookie.info.' + cookie.name)}}
+  .flex.flex-col.mb-4
+    .-my-2.overflow-x-auto(class="sm:-mx-6 lg:-mx-8")
+      .py-2.align-middle.inline-block.min-w-full(class="sm:px-6 lg:px-8")
+        .shadow.overflow-hidden.border-b.border-gray-200.rounded-lg.transition-light-dark(class="dark:border-gray-500")
+          table.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-500")
+            thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-700")
+              tr
+                th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+                  scope="col",
+                  class="dark:text-white"
+                ) {{ $t('utils.Name') }}
+                th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+                  scope="col",
+                  class="dark:text-white"
+                ) {{ $t('utils.Description') }}
+            tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-600 dark:divide-gray-500")
+              tr(v-for="cookie in cookiesData", :key="cookie.name")
+                td.px-6.py-4.whitespace-nowrap {{ cookie.name }}
+                td.px-6.py-4.whitespace-nowrap {{ $t(i18nPrefix + 'cookie.info.' + cookie.name) }}
 
-  p {{$t($data.i18nPrefix + 'cookie.p2')}}
-  ul
+  p {{ $t($data.i18nPrefix + 'cookie.p2') }}
+  ul.list-inside.list-disc.mb-4
     li
-      nuxt-link(:to="localePath({ name: 'PrivacyPolicy' })") {{$t('footer_menu.privacy_policy')}}
+      nuxt-link(:to="localePath({ name: 'PrivacyPolicy' })") {{ $t('footer_menu.privacy_policy') }}
     li
-      nuxt-link(:to="localePath({ name: 'CookiePolicy' })") {{$t('footer_menu.cookie_policy')}}
+      nuxt-link(:to="localePath({ name: 'CookiePolicy' })") {{ $t('footer_menu.cookie_policy') }}
 
-  h4.title.is-4 {{$t($data.i18nPrefix + 'dev_info.title')}}
+  h4.title {{ $t($data.i18nPrefix + 'dev_info.title') }}
 
-  p {{$t($data.i18nPrefix + 'dev_info.p1')}}
+  p {{ $t($data.i18nPrefix + 'dev_info.p1') }}
   p(v-html="$t($data.i18nPrefix + 'dev_info.p2_html')")
   p(v-html="$t($data.i18nPrefix + 'dev_info.p3_html')")
 
-  article.message
-    div.message-body
-      i(v-html="$t($data.i18nPrefix + 'dev_info.message_info_github_issue')")
+  t-message(:closable="false")
+    i(v-html="$t($data.i18nPrefix + 'dev_info.message_info_github_issue')")

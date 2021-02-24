@@ -1,23 +1,32 @@
-.items-center.flex.flex-wrap.justify-start(v-if='attached && closable')
-  span(:class=`{
+.items-center.flex.flex-wrap.justify-start(v-if="attached && closable")
+  span(
+    :class=`{
     ...typeClass,
     // Rounded borders
-    "rounded-tl": true,
-    "rounded-tr": !closable,
-    "rounded-bl": true,
-    "rounded-br": !closable,
+    "rounded-tl-lg": true,
+    "rounded-tr-lg": !closable,
+    "rounded-bl-lg": true,
+    "rounded-br-lg": !closable,
     // Padding
     "px-3 py-1": true,
     "border-t": true,
     "border-b": true,
     "border-l": true,
     "border-r": !closable
-  }`)
+  }`
+  )
     slot
-  button(role='button' :aria-label='ariaCloseLabel' :tabindex='tabstop ? 0 : false' :disabled='disabled' :class=`{
+  button(
+    role="button",
+    :aria-label="ariaCloseLabel",
+    :tabindex="tabstop ? 0 : false",
+    :disabled="disabled",
+    :class=`{
+    // Height
+    "h-full": true,
     // Rounded borders
-    "rounded-tr": true,
-    "rounded-br": true,
+    "rounded-tr-lg": true,
+    "rounded-br-lg": true,
     // Padding
     "px-1 py-1": true,
     // Background
@@ -27,25 +36,37 @@
     // Focus
     "focus:border focus:outline-none focus:ring": true,
     "focus:border-blue-300": true,
-  }` @click='close' @keyup.delete.prevent='close')
-    span.icon.inline-block
+  }`,
+    @click="close",
+    @keyup.delete.prevent="close"
+  )
+    span.icon.inline-block.px-2
       i.fas.fa-times
-span.items-center.inline-flex.flex-wrap.justify-start(v-else='' :class=`{
+span.items-center.inline-flex.flex-wrap.justify-start(
+  v-else="",
+  :class=`{
     ...typeClass,
     // Rounded borders
-    "rounded-tl": true,
-    "rounded-tr": !closable,
-    "rounded-bl": true,
-    "rounded-br": !closable,
+    "rounded-tl-lg": true,
+    "rounded-tr-lg": !closable,
+    "rounded-bl-lg": true,
+    "rounded-br-lg": !closable,
     // Padding
     "px-3 py-1": true,
     "border-t": true,
     "border-b": true,
     "border-l": true,
     "border-r": !closable
-  }`)
+  }`
+)
   slot
-  button(role='button' :aria-label='ariaCloseLabel' :tabindex='tabstop ? 0 : false' :disabled='disabled' :class=`{
+  button(
+    v-if="closable",
+    role="button",
+    :aria-label="ariaCloseLabel",
+    :tabindex="tabstop ? 0 : false",
+    :disabled="disabled",
+    :class=`{
       // Rounded borders
       "rounded-full": true,
       // Background
@@ -57,6 +78,9 @@ span.items-center.inline-flex.flex-wrap.justify-start(v-else='' :class=`{
       // Focus
       "focus:border focus:outline-none focus:ring": true,
       "focus:border-blue-300": true,
-    }` @click='close' @keyup.delete.prevent='close')
-    span.icon.inline-block
+    }`,
+    @click="close",
+    @keyup.delete.prevent="close"
+  )
+    span.icon.inline-block.px-2
       i.fas.fa-times

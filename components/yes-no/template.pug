@@ -1,23 +1,27 @@
-div.field
-  label(:class="[defaultLabelClass, customLabelClass]") {{label}}
+.field
+  t-label(:class="[defaultLabelClass, customLabelClass]") {{ label }}
   .mt-2
-    div.inline-flex(:id="id")
+    .inline-flex(:id="id")
       t-button(
-        :title="$t('utils.No')"
-        :label="$t('utils.No')"
-        @click="newValue = false"
-        iconLeft="fas fa-times"
-        :borderRight="false"
-        :roundedTopRight="false"
-        :roundedBottomRight="false"
-        :type=`newValue ? "default" : "danger"` ref="no")
+        :title="$t('utils.No')",
+        :label="$t('utils.No')",
+        @click="newValue = false",
+        iconLeft="fas fa-times",
+        :borderRight="false",
+        :roundedTopRight="false",
+        :roundedBottomRight="false",
+        :type="newValue ? 'default' : 'danger'",
+        ref="no"
+      )
 
       t-button(
-        :title="$t('utils.Yes')"
-        :label="$t('utils.Yes')"
-        @click="newValue = true"
-        iconLeft="fas fa-check"
-        :borderLeft="false"
-        :roundedTopLeft="false"
-        :roundedBottomLeft="false"
-        :type=`newValue ? "success" : "default"` ref="yes")
+        :title="$t('utils.Yes')",
+        :label="$t('utils.Yes')",
+        @click="newValue = true",
+        iconLeft="fas fa-check",
+        :borderLeft="false",
+        :roundedTopLeft="false",
+        :roundedBottomLeft="false",
+        :type="newValue ? 'success' : 'default'",
+        ref="yes"
+      )

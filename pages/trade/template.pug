@@ -1,15 +1,18 @@
 t-tabs(v-model="tab")
-  t-tab-list
-    t-tab {{$t(i18nPrefix + 'tab.trade_2_1.title')}}
-    t-tab {{$t(i18nPrefix + 'tab.fair_trade.title')}}
+  .m-auto.mx-0.mt-8.-mb-4(class="md:mx-16 lg:mx-32 xl:mx-64")
+    t-tab-list
+      t-tab {{ $t(i18nPrefix + 'tab.trade_2_1.title') }}
+      t-tab {{ $t(i18nPrefix + 'tab.fair_trade.title') }}
   t-tab-panels
     t-tab-panel
-      h3.title.is-3 {{$t(i18nPrefix + 'tab.trade_2_1.title')}}
-      p {{$t(i18nPrefix + 'tab.trade_2_1.message')}}
+      .t-content-container
+        h3.title {{ $t(i18nPrefix + 'tab.trade_2_1.title') }}
+        p {{ $t(i18nPrefix + 'tab.trade_2_1.message') }}
       complex-trade(:trade-input="{ age: true, value: simpleTradeArray, type: TradeArrayType.SIMPLE }")
       simple-trade(:trade-array="simpleTradeArray")
     t-tab-panel
-      h3.title.is-3 {{$t(i18nPrefix + 'tab.fair_trade.title')}}
-      p {{$t(i18nPrefix + 'tab.fair_trade.message')}}
+      .t-content-container
+        h3.title {{ $t(i18nPrefix + 'tab.fair_trade.title') }}
+        p {{ $t(i18nPrefix + 'tab.fair_trade.message') }}
       complex-trade(:trade-input="{ age: true, value: fairTradeArray, type: TradeArrayType.FAIR }")
       simple-trade(:trade-array="fairTradeArray")
