@@ -1,9 +1,7 @@
 import { sync } from "vuex-pathify";
-import Utils from "~/scripts/utils";
 import ShowBookmarks from "~/components/show-bookmarks/ShowBookmarks";
 
 const i18nPrefix = "routes.gb_investment_gb_chooser.";
-let gbList = {};
 
 export default {
   name: "GbInvestmentChooser",
