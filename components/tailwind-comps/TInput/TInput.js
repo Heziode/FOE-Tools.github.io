@@ -58,7 +58,7 @@ const TInput = {
       {
         class: {
           // eslint-disable-next-line max-len
-          "py-2 px-4 text-gray-700 dark:text-gray-300 border-t first:border-l first:rounded-l last:border-r last:rounded-r border-b block placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus-shadow-none": true,
+          "py-2 px-4 text-gray-700 dark:text-gray-300 border-t first:border-l first:rounded-l-lg last:border-r last:rounded-r-lg border-b block placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus-shadow-none": true,
           // Animation
           "duration-100 ease-in-out transition": true,
           // eslint-disable-next-line max-len
@@ -69,8 +69,9 @@ const TInput = {
             .formControl.isInvalid,
           "number-appearance-textfield": this.hasIncDecButtons,
           "w-full min-w-0": this.isFullWidth,
-          "bg-blueGray-50 dark:bg-blueGray-700 dark:text-gray-500 cursor-not-allowed": this.formControl.isDisabled,
-          "dark:bg-blueGray-800": !this.formControl.isDisabled && !this.formControl.isInvalid,
+          "bg-coolGray-400 dark:bg-gray-700 bg-opacity-10 text-opacity-50 dark:text-gray-500 cursor-not-allowed": this
+            .formControl.isDisabled,
+          "dark:bg-gray-700 dark:bg-opacity-50": !this.formControl.isDisabled && !this.formControl.isInvalid,
         },
         domProps: {
           value: this.value,
