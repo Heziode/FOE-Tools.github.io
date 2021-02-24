@@ -512,12 +512,12 @@ const TNumberInput = {
       "div",
       {
         class: {
-          "inline-flex t-input ": true,
+          "inline-flex t-input rounded-lg": true,
           // Animation
           "duration-100 ease-in-out transition": true,
           "w-full": this.isFullWidth,
-          "ring rounded": this.isFocused,
-          "ring-red-300 dark:ring-red-900 rounded": this.isFocused && this.isInvalid,
+          ring: this.isFocused,
+          "ring-red-300 dark:ring-red-900": this.isFocused && this.isInvalid,
         },
         props: {
           align: "stretch",
@@ -624,6 +624,8 @@ const TStepperButton = {
       "button",
       {
         class: {
+          // Animation
+          "transition-light-dark": true,
           // Alignment
           "align-middle": true,
           // Focus
@@ -644,7 +646,7 @@ const TStepperButton = {
           "border-t border-b": true,
           "border-red-500": this.context.isInvalid,
           "border-gray-300 dark:border-gray-600": !this.context.isInvalid,
-          "bg-oldGray-200 dark:bg-oldGray-500 text-gray-400 dark:text-gray-600 cursor-not-allowed": isDisabled,
+          "bg-blueGray-200 dark:bg-blueGray-400 text-gray-400 dark:text-gray-400 cursor-not-allowed bg-opacity-50 dark:bg-opacity-50 text-opacity-50": isDisabled,
           "bg-blueGray-200 hover:bg-blueGray-300 dark:hover:bg-blueGray-100 text-gray-700": !isDisabled,
         },
         domProps: {
@@ -683,7 +685,7 @@ const TNumberIncrementStepper = {
     return h(
       TStepperButton,
       {
-        class: "rounded-r border-r",
+        class: "rounded-r-lg border-r",
         attrs: {
           ...this.$attrs,
         },
@@ -717,7 +719,7 @@ const TNumberDecrementStepper = {
     return h(
       TStepperButton,
       {
-        class: "rounded-l border-l",
+        class: "rounded-l-lg border-l",
         attrs: {
           ...this.$attrs,
         },
