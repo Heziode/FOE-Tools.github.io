@@ -20,12 +20,10 @@ export default {
       ],
       htmlAttrs: {
         lang: this.lang,
-        class: this.$store.get("isDarkTheme") ? "dark-theme dark" : "light-theme",
+        class: this.$store.get("isDarkTheme") ? "bg-gray-800 dark" : "bg-white",
       },
       bodyAttrs: {
-        class:
-          (this.$store.get("global/fixedMainMenu") ? "has-navbar-fixed-top " : "") +
-          (this.$store.get("isDarkTheme") ? "dark-theme dark-mode" : "light-theme light-mode"),
+        class: "bg-coolGray-100 dark:bg-gray-700 dark:text-white transition-light-dark",
       },
     };
   },
