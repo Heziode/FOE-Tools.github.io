@@ -1,89 +1,86 @@
 div
-  h4.title.is-4.margin-top-one-em {{$t($data.i18nPrefix + 'title')}}
+  h4.title {{$t($data.i18nPrefix + 'title')}}
 
   p {{$t($data.i18nPrefix + 'note')}}
 
-  template(v-if="customTemplates.length")
-    div.columns
-      div.column
-        t-label(:label="$t(i18nPrefix + 'action')")
-        ul.list-none(style="list-style-type: none; margin:0;")
-          li.mt-2(class="first:mt-0")
-            t-label
-              input(type="radio" v-model="action" value="create")
-              span.ml-3 {{$t(i18nPrefix + 'actions.create')}}
-          li.mt-2(class="first:mt-0")
-            t-label
-              input(type="radio" v-model="action" value="update")
-              span.ml-3 {{$t(i18nPrefix + 'actions.update')}}
-          li.mt-2(class="first:mt-0")
-            t-label
-              input(type="radio" v-model="action" value="delete")
-              span.ml-3 {{$t(i18nPrefix + 'actions.delete')}}
+  .mb-4(v-if="customTemplates.length")
+    div.mb-2
+      t-label(:label="$t(i18nPrefix + 'action')")
+    ul.list-none(style="list-style-type: none; margin:0;")
+      li.mt-2(class="first:mt-0")
+        t-label
+          input(type="radio" v-model="action" value="create")
+          span.ml-3 {{$t(i18nPrefix + 'actions.create')}}
+      li.mt-2(class="first:mt-0")
+        t-label
+          input(type="radio" v-model="action" value="update")
+          span.ml-3 {{$t(i18nPrefix + 'actions.update')}}
+      li.mt-2(class="first:mt-0")
+        t-label
+          input(type="radio" v-model="action" value="delete")
+          span.ml-3 {{$t(i18nPrefix + 'actions.delete')}}
 
-  div.columns
-    div.column
-      t-label(:label="selectLabel" label-for="pmbStartFromTemplate")
-        t-select.mt-2#pmbStartFromTemplate(v-model.trim="startFromTemplate" name="startFromTemplate" autocomplete="off" expanded)
-          template(v-if="action === 'create'")
-            optgroup(:label="$t(i18nPrefix + 'templates.default')")
-              option(v-for="template in defaultTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
-            optgroup(v-if="customTemplates.length" :label="$t(i18nPrefix + 'templates.custom')")
-              option(v-for="template in customTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
-          option(v-else v-for="template in customTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
+  .mb-4
+    t-label(:label="selectLabel" label-for="pmbStartFromTemplate")
+      t-select.mt-2#pmbStartFromTemplate(v-model.trim="startFromTemplate" name="startFromTemplate" autocomplete="off" expanded)
+        template(v-if="action === 'create'")
+          optgroup(:label="$t(i18nPrefix + 'templates.default')")
+            option(v-for="template in defaultTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
+          optgroup(v-if="customTemplates.length" :label="$t(i18nPrefix + 'templates.custom')")
+            option(v-for="template in customTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
+        option(v-else v-for="template in customTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
 
   template(v-if="action !== 'delete'")
-    div.columns
-      div.column
-        t-label(:label="$t(i18nPrefix + 'config')" label-for="pmbConfig")
-          template(slot="labelAfter")
-            span.icon(v-tippy="{ content: $t(i18nPrefix + 'info') }")
-              i.far.fa-question-circle
-          t-input(inputId="pmbConfig" type="text" :value.trim="resultString" name="config" isDisabled)
-            template(#after)
-              t-button(
-                v-clipboard="resultString"
-                @success="successCopy('config')"
-                :title="$t('utils.Copy')"
-                iconLeft="far fa-copy"
-                :borderLeft="false"
-                :roundedTopLeft="false"
-                :roundedBottomLeft="false"
-                v-tippy="{ content: $t('utils.Copyed'), trigger: 'click' }")
+    .mb-4
+      t-label(:label="$t(i18nPrefix + 'config')" label-for="pmbConfig")
+        template(slot="labelAfter")
+          span(v-tippy="{ content: $t(i18nPrefix + 'info') }")
+            i.far.fa-question-circle
+        t-input(inputId="pmbConfig" type="text" :value.trim="resultString" name="config" isDisabled)
+          template(#after)
+            t-button(
+              v-clipboard="resultString"
+              @success="successCopy('config')"
+              :title="$t('utils.Copy')"
+              iconLeft="far fa-copy"
+              :borderLeft="false"
+              :roundedTopLeft="false"
+              :roundedBottomLeft="false"
+              v-tippy="{ content: $t('utils.Copyed'), trigger: 'click' }")
 
-    div.columns
-      div.column.is-half
+    .t-columns.mb-4.space-x-4
+      div(class="w-full sm:w-1/2")
         t-label(:label="$t('utils.Prefix')" label-for="pmbPrefix")
           t-input(inputId="pmbPrefix" type="text" v-model.trim="result.prefix" name="prefix" :placeholder="$t('components.gb_investment.promotion.prefix_placeholder')")
-      div.column.is-half
+      div(class="w-full sm:w-1/2")
         t-label(:label="$t('utils.Suffix')" label-for="pmbSuffix")
           t-input(inputId="pmbSuffix" type="text" v-model.trim="result.suffix" name="suffix" :placeholder="$t('components.gb_investment.promotion.suffix_placeholder')")
 
-    div.columns
-      div.column.is-half
+    .t-columns.mb-4.space-x-4
+      div(class="w-full sm:w-1/2")
         yes-no(v-model="result.useShortGbName" :label="$t(i18nPrefix + 'use_short_name')")
-      div.column.is-half
+      div(class="w-full sm:w-1/2")
         yes-no(v-model="result.reversePlacesOrder" :label="$t(i18nPrefix + 'reverse_place_order')")
 
-    div.columns
-      div.column.is-half
+    .t-columns.mb-4.space-x-4
+      div(class="w-full sm:w-1/2")
         t-message(type="info" :closable="false")
           p {{$t($data.i18nPrefix + 'available_variables')}}
           ul
             li
               b ${LF}
               | : {{$t($data.i18nPrefix + 'variables.message.LF')}}
-      div.column.is-half
+      div(class="w-full sm:w-1/2")
         t-label(:label="$t(i18nPrefix + 'place_separator')" label-for="pmbPlaceSeparator")
           t-input(inputId="pmbPlaceSeparator" type="text" v-model="result.placeSeparator" name="placeSeparator")
 
-    h6.title.is-6.margin-top-one-em {{$t($data.i18nPrefix + 'add_field_title')}}
+    h6.title {{$t($data.i18nPrefix + 'add_field_title')}}
 
-    div.columns
-      div.column.is-half
+    .t-columns.mb-4.space-x-4
+      div(class="w-full sm:w-1/2")
         t-label(:label="$t(i18nPrefix + 'add_field.name')" label-for="pmbAddFieldName" :type="haveError('addFieldName')" :message="getErrorMessage('addFieldName')")
           t-input(inputId="pmbAddFieldName" type="text" v-model="addFieldName" name="addFieldName" :isInvalid="errors.addFieldName.found")
-      div.column.is-half
+      div(class="w-full sm:w-1/2")
         t-label(:label="$t(i18nPrefix + 'add_field.value')" label-for="pmbAddFieldValue")
           t-input(inputId="pmbAddFieldValue" type="text" v-model="addFieldValue" @keyup.enter.native="addCustomField" name="addFieldValue")
             template(#after)
@@ -96,16 +93,16 @@ div
                 :roundedBottomLeft="false")
 
     template(v-if="customFields.length")
-      h6.title.is-6.margin-top-one-em {{$t($data.i18nPrefix + 'custom_field_title')}}
+      h6.title {{$t($data.i18nPrefix + 'custom_field_title')}}
 
-      div.columns
-        div.column.is-half
+      .t-columns.mb-4.space-x-4
+        div(class="w-full sm:w-1/2")
           t-label(:label="$t(i18nPrefix + 'add_field.name')")
-        div.column.is-half
+        div(class="w-full sm:w-1/2")
           t-label(:label="$t(i18nPrefix + 'add_field.value')")
 
-      div.columns(v-for="(customField, index) in customFields")
-        div.column.is-half
+      .t-columns.mb-4.space-x-4(v-for="customField in customFields")
+        div(class="w-full sm:w-1/2")
           t-input(type="text" v-model="customField.key")
             template(#before)
               t-button(
@@ -116,10 +113,10 @@ div
                 :roundedTopRight="false"
                 :roundedBottomRight="false" type="danger"
                 v-tippy="{ content: $t('utils.Remove') }")
-        div.column.is-half
+        div(class="w-full sm:w-1/2")
           t-input(type="text" v-model="customField.placeholder")
 
-    h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'place_builder_title')}}
+    h5.title {{$t($data.i18nPrefix + 'place_builder_title')}}
 
     t-message.mb-4(type="info" :closable="false")
       p {{$t($data.i18nPrefix + 'available_variables')}}
@@ -145,19 +142,19 @@ div
         li
           b ${PP}
           | : {{$t($data.i18nPrefix + 'variables.place.PP')}}
-        li(v-for="(customField, index) in customFields")
+        li(v-for="customField in customFields")
           b {{"${" + customField.key + "}"}}
           | : {{customField.placeholder}}
 
-    div.columns
-      div.column.is-half
+    .t-columns.mb-4.space-x-4
+      div(class="w-full sm:w-1/2")
         t-label(:label="$t(i18nPrefix + 'place_builder')" label-for="pmbPlaceBuilder")
           t-input(inputId="pmbPlaceBuilder" type="text" v-model.trim="result.place" name="pmbPlaceBuilder")
-      div.column.is-half
+      div(class="w-full sm:w-1/2")
         t-label(:label="$t(i18nPrefix + 'place_preview')" label-for="pmbPlacePreview")
           t-input(inputId="pmbPlacePreview" :as="nbMultiLine(placePreview) ? 'textarea' : 'input'" :rows="nbMultiLine(placePreview) ? nbMultiLine(placePreview) : undefined" :value.trim="placePreview" name="pmbPlacePreview" isDisabled)
 
-    h5.title.is-5.margin-top-one-em {{$t($data.i18nPrefix + 'message_builder_title')}}
+    h5.title {{$t($data.i18nPrefix + 'message_builder_title')}}
 
     t-message.mb-4(type="info" :closable="false")
       p {{$t($data.i18nPrefix + 'available_variables')}}
@@ -189,28 +186,24 @@ div
         li
           b ${LC}
           | : {{$t($data.i18nPrefix + 'variables.message.LC')}}
-        li(v-for="(customField, index) in customFields")
+        li(v-for="customField in customFields")
           b {{"${" + customField.key + "}"}}
           | : {{customField.placeholder}}
 
-    div.columns
-      div.column
-        t-label(:label="$t(i18nPrefix + 'message_builder')" label-for="pmbMessageBuilder")
-          t-input(inputId="pmbMessageBuilder" type="text" v-model.trim="result.message" name="pmbMessageBuilder")
-    div.columns
-      div.column
-        t-label(:label="$t(i18nPrefix + 'message_preview')" label-for="pmbMessagePreview")
-          t-input(inputId="pmbMessagePreview" :as="nbMultiLine(resultMessage) ? 'textarea' : 'input'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : undefined" :value.trim="resultMessage" name="pmbMessagePreview" isDisabled)
+    .mb-4
+      t-label(:label="$t(i18nPrefix + 'message_builder')" label-for="pmbMessageBuilder")
+        t-input(inputId="pmbMessageBuilder" type="text" v-model.trim="result.message" name="pmbMessageBuilder")
+
+    .mb-4
+      t-label(:label="$t(i18nPrefix + 'message_preview')" label-for="pmbMessagePreview")
+        t-input(inputId="pmbMessagePreview" :as="nbMultiLine(resultMessage) ? 'textarea' : 'input'" :rows="nbMultiLine(resultMessage) ? nbMultiLine(resultMessage) : undefined" :value.trim="resultMessage" name="pmbMessagePreview" isDisabled)
 
     div.mb-2
       t-label(:label="$t(i18nPrefix + 'template_name')" label-for="pmbTemplateName" :type="{ 'is-danger': errors.templateName.found }" :message="errors.templateName.found ? errors.templateName.message : ''")
-    div.columns
-      div.column.is-half
+    .t-columns.mb-4.space-x-4
+      div(class="w-full sm:w-1/2")
         t-input(inputId="pmbTemplateName" type="text" v-model.trim="templateName" name="pmbTemplateName" :isInvalid="errors.templateName.found")
-      div.column.is-half
+      div(class="w-full sm:w-1/2")
         t-button(type="info" @click="save" :disabled="errors.templateName.found" expanded) {{$t('utils.Save')}}
 
-  template(v-else)
-    div.columns
-      div.column.is-half.is-offset-3
-        t-button(type="danger" @click="deleteTemplate" :disabled="!startFromTemplate" expanded) {{$t('utils.Remove')}}
+  t-button(v-else type="danger" @click="deleteTemplate" :disabled="!startFromTemplate" expanded) {{$t('utils.Remove')}}
