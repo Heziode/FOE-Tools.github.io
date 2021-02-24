@@ -175,6 +175,12 @@ export default {
         query: this.$store.getters.getUrlQuery("gbii"),
       };
     },
+    isBookmarked() {
+      const bookmarks = this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`);
+      return !!bookmarks.find(
+        (elt) => elt.name === "GbInvestment" && elt.params && elt.params.gb && elt.params.gb === this.$route.params.gb
+      );
+    },
   },
   watch: {
     from(val, oldVal) {
@@ -594,6 +600,25 @@ export default {
 
       Vue.set(this.$data, "result", result);
       this.updateGlobalProfitLoss();
+    },
+    toggleFavourite() {
+      const bookmarks = this.$clone(
+        this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`)
+      );
+      if (this.isBookmarked) {
+        // Remove from bookmarks
+        const index = bookmarks.findIndex(
+          (elt) => elt.name === "GbInvestment" && elt.params && elt.params.gb && elt.params.gb === this.$route.params.gb
+        );
+        bookmarks.splice(index, 1);
+      } else {
+        // Add in bookmarks
+        bookmarks.push({
+          name: this.$route.name.replace(/___.*$/, ""),
+          params: this.$route.params,
+        });
+      }
+      this.$store.set(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`, bookmarks);
     },
   },
   mounted() {
