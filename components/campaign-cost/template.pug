@@ -1,211 +1,174 @@
 div
-  h4.title.is-4 {{$t(i18nPrefix + 'title')}}
+  .t-content-container
+    h4.title {{$t(i18nPrefix + 'title')}}
 
-  div.columns(v-show="haveUnknownCosts")
-    div.column
-      t-message.mb-4(:title="$t('utils.Information')" type="warning" has-icon) {{$t(i18nPrefix + 'message.haveUnknownCosts')}}
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      div(class="w-full sm:w-1/2")
+        t-label#current-age-container(:label="$t('utils.choose_age')" label-for="current-age" :type="haveError('currentAge')")
+          t-select.mt-2#current-age(v-model="currentAge" name="current-age")
+            option(value="__all__" :selected="currentAge == '__all__'" :id="'option_all'" autocomplete="off") {{$t(i18nPrefix + 'all_ages')}}
+            option(v-for="age in ages" :value="age.key" :key="age.key" :selected="currentAge == age.key" :id="'option_' + age.key" autocomplete="off") {{$t('foe_data.age.' + age.key)}}
 
-  div.columns
-    div.column.is-half
-      t-label#current-age-container(:label="$t('utils.choose_age')" label-for="current-age" :type="haveError('currentAge')")
-        t-select.mt-2#current-age(v-model="currentAge" name="current-age")
-          option(value="__all__" :selected="currentAge == '__all__'" :id="'option_all'" autocomplete="off") {{$t(i18nPrefix + 'all_ages')}}
-          option(v-for="age in ages" :value="age.key" :key="age.key" :selected="currentAge == age.key" :id="'option_' + age.key" autocomplete="off") {{$t('foe_data.age.' + age.key)}}
+      div(class="w-full sm:w-1/2" v-if="!errors.currentAge && currentAge !== '__all__'")
+        t-label(:label="$t(i18nPrefix + 'choose_province')" label-for="provinceContainer" :type="haveError('province')")
+          t-select.mt-2#provinceContainer(v-model="province")
+            option(value="__all__" :selected="province.key == '__all__'" :id="'option_all'" autocomplete="off") {{$t(i18nPrefix + 'all_provinces')}}
+            option(v-if="campaignCost !== null" v-for="value of sortProvinceArray(campaignCost, currentAge)" :key="value.key" :selected="province.key === value.key" :value="value") {{$t('foe_data.province.' + value.key)}}
 
-    div.column.is-half(v-if="!errors.currentAge && currentAge !== '__all__'")
-      t-label(:label="$t(i18nPrefix + 'choose_province')" label-for="provinceContainer" :type="haveError('province')")
-        t-select.mt-2#provinceContainer(v-model="province")
-          option(value="__all__" :selected="province.key == '__all__'" :id="'option_all'" autocomplete="off") {{$t(i18nPrefix + 'all_provinces')}}
-          option(v-if="campaignCost !== null" v-for="value of sortProvinceArray(campaignCost, currentAge)" :key="value.key" :selected="province.key === value.key" :value="value") {{$t('foe_data.province.' + value.key)}}
+  t-message.my-8.shadow-lg(v-show="haveUnknownCosts" class="mx-0 md:mx-16 lg:mx-32 xl:mx-64" :title="$t('utils.Information')" type="warning" has-icon :closable="false") {{$t(i18nPrefix + 'message.haveUnknownCosts')}}
 
-  div.table-wrapper.table-container
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-if="currentAge === '__all__'")
-      thead
+  // All ages
+  .overflow-x-auto.rounded-lg.mt-8.shadow-lg(v-if="currentAge === '__all__'")
+    table.min-w-full.divide-y.divide-gray-200(class="dark:divide-gray-600 transition-light-dark")
+      thead.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
         tr
-          th(:colspan="nbColumns")
-            p {{$t(i18nPrefix + 'all_ages')}}
+          th(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" :colspan="nbColumns") {{$t(i18nPrefix + 'all_ages')}}
         tr
-          th(rowspan=2)
-            p {{$t('components.simple_trade.table.thead.th1')}}
-          th(rowspan=2)
-            p {{$t('utils.Conquered')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" rowspan=2) {{$t('components.simple_trade.table.thead.th1')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" rowspan=2) {{$t('utils.Conquered')}}
           template(v-for="age in ages")
-            th(v-if="age.key in campaignTotalCost._totalCost" colspan=5)
-              p {{$t('foe_data.age.' + age.key)}}
-          th(v-for="specialGood in campaignTotalCost._totalCost._specialGoods")
-            p {{$t("foe_data.goods." + specialGood.key)}}
+            th(v-if="age.key in campaignTotalCost._totalCost" colspan=5 scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('foe_data.age.' + age.key)}}
+          th(v-for="specialGood in campaignTotalCost._totalCost._specialGoods" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t("foe_data.goods." + specialGood.key)}}
         tr
-          th(v-for="value in getGoodsOrSpecialGoods(true)")
-            figure.image-inherit.image.is-24x24
+          th(v-for="value in getGoodsOrSpecialGoods(true)" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider")
+            figure.w-6.h-6.m-auto
               img(:src="'/img/foe/goods/' + value.key + '.png'" :alt="value.displayName" :title='$t("foe_data.goods." + value.key)')
-          th(v-for="value in getGoodsOrSpecialGoods(false)")
-            figure.image-inherit.image.is-24x24
+          th(v-for="value in getGoodsOrSpecialGoods(false)" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider")
+            figure.w-6.h-6.m-auto
               img(:src="'/img/foe/special_goods/' + value.key + '.png'" :alt="value.displayName" :title='$t("foe_data.goods." + value.key)')
 
-      tbody
+      tbody(class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-600 transition-light-dark")
         tr(v-for="(age, ageKey) in campaignTotalCost" v-if="ageKey in ages")
-          th {{$t('foe_data.age.' + ageKey)}}
-          td
+          th.px-6.py-4.whitespace-nowrap.text-center(scope="row" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('foe_data.age.' + ageKey)}}
+          td.px-6.py-4.whitespace-nowrap.text-center
             t-checkbox(:checked=`campaignConquired[ageKey]._state === 1 ? true : (campaignConquired[ageKey]._state === 0 ? false : undefined)`
               :indeterminate="campaignConquired[ageKey]._state === -1"
               @input="switchConquired({ age: ageKey }, $event ? 1 : 0)")
-
           template(v-for="(cost, age) in campaignTotalCost._totalCost" v-if="age in ages")
             template(v-if="age in campaignTotalCost[ageKey]._totalCost")
-              td(v-for="(cost, key) in campaignTotalCost[ageKey]._totalCost[age]")
-                p {{$n(cost.value)}}
-            template(v-else)
-              td(v-for="i in 5")
-          template(v-for="(cost, age) in campaignTotalCost._totalCost._specialGoods")
-            td(v-if="cost.key in campaignTotalCost[ageKey]._totalCost._specialGoods")
-              p {{$n(campaignTotalCost[ageKey]._totalCost._specialGoods[cost.key].value)}}
-            td(v-else)
+              td.px-6.py-4.whitespace-nowrap.text-center(v-for="(cost, key) in campaignTotalCost[ageKey]._totalCost[age]") {{$n(cost.value)}}
+            td.td.px-6.py-4(v-else v-for="i in 5")
+          td.px-6.py-4.whitespace-nowrap.text-center(v-for="(cost, age) in campaignTotalCost._totalCost._specialGoods")
+            span(v-if="cost.key in campaignTotalCost[ageKey]._totalCost._specialGoods") {{$n(campaignTotalCost[ageKey]._totalCost._specialGoods[cost.key].value)}}
 
-      tfoot
-        th(colspan="2")
-          p {{$t('utils.Total')}}
-
-        th(v-for="good in getGoodsOrSpecialGoods(true)")
-          p {{$n(good.value)}}
-
-        th(v-for="specialGood in getGoodsOrSpecialGoods(false)")
-          p {{$n(specialGood.value)}}
-
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-else-if="province === '__all__'")
-      thead
+      tfoot.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
         tr
-          th(:colspan="nbColumns")
-            p {{$t('foe_data.age.' + currentAge)}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" colspan=2) {{$t('utils.Total')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-for="good in getGoodsOrSpecialGoods(true)") {{$n(good.value)}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-for="specialGood in getGoodsOrSpecialGoods(false)") {{$n(specialGood.value)}}
+
+
+  // All provinces
+  .overflow-x-auto.rounded-lg.mt-8.shadow-lg(v-else-if="province === '__all__'")
+    table.min-w-full.divide-y.divide-gray-200(class="dark:divide-gray-600 transition-light-dark")
+      thead.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
         tr
-          th(rowspan=2)
-            p {{$t(i18nPrefix + 'provinces')}}
-          th(rowspan=2)
-            p {{$t('utils.Conquered')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" :colspan="nbColumns") {{$t('foe_data.age.' + currentAge)}}
+        tr
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" rowspan=2) {{$t(i18nPrefix + 'provinces')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" rowspan=2) {{$t('utils.Conquered')}}
           template(v-for="age in ages")
-            th(v-if="age.key in campaignTotalCost[currentAge]._totalCost" colspan=5)
-              p {{$t('foe_data.age.' + age.key)}}
-          th(v-for="specialGood in campaignTotalCost[currentAge]._totalCost._specialGoods")
-            p {{$t("foe_data.goods." + specialGood.key)}}
+            th(v-if="age.key in campaignTotalCost[currentAge]._totalCost" colspan=5 scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('foe_data.age.' + age.key)}}
+          th(v-for="specialGood in campaignTotalCost[currentAge]._totalCost._specialGoods" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t("foe_data.goods." + specialGood.key)}}
         tr
-          th(v-for="value in getGoodsOrSpecialGoods(true)")
-            figure.image-inherit.image.is-24x24
+          th(v-for="value in getGoodsOrSpecialGoods(true)" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider")
+            figure.w-6.h-6.m-auto
               img(:src="'/img/foe/goods/' + value.key + '.png'" :alt="value.displayName" :title='$t("foe_data.goods." + value.key)')
-          th(v-for="value in getGoodsOrSpecialGoods(false)")
-            figure.image-inherit.image.is-24x24
+          th(v-for="value in getGoodsOrSpecialGoods(false)" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider")
+            figure.w-6.h-6.m-auto
               img(:src="'/img/foe/special_goods/' + value.key + '.png'" :alt="value.displayName" :title='$t("foe_data.goods." + value.key)')
 
-      tbody
+      tbody(class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-600 transition-light-dark")
         tr(v-for="(index, province) in campaignTotalCost[currentAge].provinces")
-          th
-            p {{$t('foe_data.province.' + province)}}
-          td
+          th.px-6.py-4.whitespace-nowrap.text-center(scope="row" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('foe_data.province.' + province)}}
+          td.px-6.py-4.whitespace-nowrap.text-center
             t-checkbox(:checked=`campaignConquired[currentAge][province]._state === 1 ? true : (campaignConquired[currentAge][province]._state === 0 ? false : undefined)`
               :indeterminate="campaignConquired[currentAge][province]._state === -1"
               @input="switchConquired({ age: currentAge, province: province }, $event ? 1 : 0)")
-
           template(v-for="(cost, age) in campaignTotalCost[currentAge]._totalCost" v-if="age in ages")
             template(v-if="age in campaignTotalCost[currentAge].provinces[province]._totalCost")
-              td(v-for="(cost, key) in campaignTotalCost[currentAge].provinces[province]._totalCost[age]")
-                p {{$n(cost.value)}}
-            template(v-else)
-              td(v-for="i in 5")
-          template(v-for="(cost, age) in campaignTotalCost[currentAge]._totalCost._specialGoods")
-            td(v-if="cost.key in campaignTotalCost[currentAge].provinces[province]._totalCost._specialGoods")
-              p {{$n(campaignTotalCost[currentAge].provinces[province]._totalCost._specialGoods[cost.key].value)}}
-            td(v-else)
+              td.px-6.py-4.whitespace-nowrap.text-center(v-for="(cost, key) in campaignTotalCost[currentAge].provinces[province]._totalCost[age]") {{$n(cost.value)}}
+          td.px-6.py-4.whitespace-nowrap.text-center(v-for="(cost, age) in campaignTotalCost[currentAge]._totalCost._specialGoods")
+            span(v-if="cost.key in campaignTotalCost[currentAge].provinces[province]._totalCost._specialGoods") {{$n(campaignTotalCost[currentAge].provinces[province]._totalCost._specialGoods[cost.key].value)}}
 
-      tfoot
-        th(colspan="2")
-          p {{$t('utils.Total')}}
-
-        th(v-for="good in getGoodsOrSpecialGoods(true)")
-          p {{$n(good.value)}}
-
-        th(v-for="specialGood in getGoodsOrSpecialGoods(false)")
-          p {{$n(specialGood.value)}}
-
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth(v-else-if="!errors.currentAge && !errors.province")
-      thead
+      tfoot.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
         tr
-          th(:colspan="nbColumns")
-            p {{$t('foe_data.province.' + province.key)}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" colspan=2) {{$t('utils.Total')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-for="good in getGoodsOrSpecialGoods(true)") {{$n(good.value)}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-for="specialGood in getGoodsOrSpecialGoods(false)") {{$n(specialGood.value)}}
+
+  // Sector view
+  .overflow-x-auto.rounded-lg.mt-8.shadow-lg(v-else-if="!errors.currentAge && !errors.province")
+    table.min-w-full.divide-y.divide-gray-200(class="dark:divide-gray-600 transition-light-dark")
+      thead.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
         tr
-          th(rowspan=2)
-            p {{$t('utils.Rewards')}}
-          th(rowspan=2)
-            p {{$t('utils.Conquered')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" :colspan="nbColumns") {{$t('foe_data.province.' + province.key)}}
+        tr
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" rowspan=2) {{$t('utils.Rewards')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" rowspan=2) {{$t('utils.Conquered')}}
           template(v-for="age in ages")
-            th(v-if="age.key in campaignTotalCost[currentAge].provinces[province.key]._totalCost" colspan=5)
-              p {{$t('foe_data.age.' + age.key)}}
-          th(v-for="specialGood in campaignTotalCost[currentAge].provinces[province.key]._totalCost._specialGoods")
-            p {{$t("foe_data.goods." + specialGood.key)}}
+            th(v-if="age.key in campaignTotalCost[currentAge].provinces[province.key]._totalCost" colspan=5 scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('foe_data.age.' + age.key)}}
+          th(v-for="specialGood in campaignTotalCost[currentAge].provinces[province.key]._totalCost._specialGoods" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t("foe_data.goods." + specialGood.key)}}
         tr
-          th(v-for="value in getGoodsOrSpecialGoods(true)")
-            figure.image-inherit.image.is-24x24
+          th(v-for="value in getGoodsOrSpecialGoods(true)" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider")
+            figure.w-6.h-6.m-auto
               img(:src="'/img/foe/goods/' + value.key + '.png'" :alt="value.displayName" :title='$t("foe_data.goods." + value.key)')
-          th(v-for="value in getGoodsOrSpecialGoods(false)")
-            figure.image-inherit.image.is-24x24
+          th(v-for="value in getGoodsOrSpecialGoods(false)" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider")
+            figure.w-6.h-6.m-auto
               img(:src="'/img/foe/special_goods/' + value.key + '.png'" :alt="value.displayName" :title='$t("foe_data.goods." + value.key)')
 
-      tbody
+      tbody(class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-600 transition-light-dark")
         tr(v-for="(sector, index) in province.sectors")
-          td
-            div.media(v-for="reward in sector.reward")
-              div.media-left(v-if="reward.type !== 'good_bonus'" style="margin-right: 0em !important;")
-                figure.image-inherit.image.is-24x24(style="margin-left: .5em !important; margin-right: 1em !important;")
+          td.px-6.py-4.whitespace-nowrap.text-center
+            div.inline-flex(v-for="reward in sector.reward")
+              div(v-if="reward.type !== 'good_bonus'")
+                figure.w-6.h-6(style="margin-left: .5em !important; margin-right: 1em !important;")
                   img(:src="'/img/foe/bonus/' + reward.type + '.png'" :alt="$t('foe_data.bonus.' + reward.type + '.name')" :title="$t('foe_data.bonus.' + reward.type + '.name')")
-              div.media-content
-                p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
-                p(v-else) {{$n(reward.value)}}
-          td
+              div
+                span(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
+                span(v-else) {{$n(reward.value)}}
+          td.px-6.py-4.whitespace-nowrap.text-center
             t-checkbox(:checked=`campaignConquired[currentAge][province.key].sectors[index]`
               @input="switchConquired({ age: currentAge, province: province.key, sector: index }, $event)")
-
-          td(v-for="value in getGoodsOrSpecialGoods(true)")
+          td.px-6.py-4.whitespace-nowrap.text-center(v-for="value in getGoodsOrSpecialGoods(true)")
             template(v-if="Object.keys(sector).indexOf('cost') >= 0")
               div(v-for="good in sector.cost")
                 p(v-if="good.key === value.key")
-                  s(v-if="campaignConquired[currentAge][province.key].sectors[index]") {{$n(good.value)}}
+                  strike(v-if="campaignConquired[currentAge][province.key].sectors[index]") {{$n(good.value)}}
+                  span(v-else) {{$n(good.value)}}
+            div(v-else)
+              p ?
+          td.px-6.py-4.whitespace-nowrap.text-center(v-for="value in getGoodsOrSpecialGoods(false)")
+            template(v-if="Object.keys(sector).indexOf('cost') >= 0")
+              div(v-for="good in sector.cost")
+                p(v-if="good.key === value.key")
+                  strike(v-if="campaignConquired[currentAge][province.key].sectors[index]") {{$n(good.value)}}
                   span(v-else) {{$n(good.value)}}
             div(v-else)
               p ?
 
-          td(v-for="value in getGoodsOrSpecialGoods(false)")
-            template(v-if="Object.keys(sector).indexOf('cost') >= 0")
-              div(v-for="good in sector.cost")
-                p(v-if="good.key === value.key")
-                  s(v-if="campaignConquired[currentAge][province.key].sectors[index]") {{$n(good.value)}}
-                  span(v-else) {{$n(good.value)}}
-            div(v-else)
-              p ?
-      tfoot
+      tfoot.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
         tr
-          th
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider space-y-2 flex flex-col items-center")
             template(v-for="reward in province.reward")
-              div.media(v-if="reward.type !== 'good'")
-                div.media-left(v-if="reward.type !== 'good_bonus'" style="margin-right: 0em !important;")
-                  figure.image-inherit.image(style="margin-left: .5em !important; margin-right: 1em !important;" :class="reward.type !== 'pvp_tower' ? 'is-24x24' : 'is-30xauto'")
+              div.inline-flex.space-x-2.items-center(v-if="reward.type !== 'good'")
+                div(v-if="reward.type !== 'good_bonus'")
+                  figure(:class="reward.type !== 'pvp_tower' ? 'w-6 h-6' : 'w-8 h-8'")
                     img(v-if="reward.type !== 'pvp_tower'" :src="'/img/foe/bonus/' + reward.type + '.png'" :alt="$t('foe_data.bonus.' + reward.type + '.name')" :title="$t('foe_data.bonus.' + reward.type + '.name')")
                     img(v-else :src="'/img/foe/bonus/' + currentAge + '_tower.png'" :alt="$t('foe_data.bonus.' + reward.type + '.name')" :title="$t('foe_data.bonus.' + reward.type + '.name')")
-                div.media-content(:style="{ overflow: ((reward.type === 'good_bonus') && reward.age ? 'unset' : 'hidden') }")
-                  p(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
+                div
+                  span(v-if="reward.type === 'good_bonus'") {{$t('foe_data.bonus.good_bonus.name')}}
                     template(v-if="reward.age")
                       | &nbsp;
                       span(v-tippy="{ content: $t('foe_data.age.' + reward.age) }") {{$t('foe_data.age_short.' + reward.age)}}
-                  p(v-else-if="reward.value && reward.value > 0") {{$n(reward.value)}}
+                  span(v-else-if="reward.value && reward.value > 0") {{$n(reward.value)}}
               template(v-else)
-                div.media(v-for="good in agesGoods[currentAge].goods" :key="good.key")
-                  div.media-left(v-if="reward.type !== 'good_bonus'" style="margin-right: 0em !important;")
-                    figure.image-inherit.image.is-24x24(style="margin-left: .5em !important; margin-right: 1em !important;")
+                div.inline-flex.space-x-2.items-center(v-for="good in agesGoods[currentAge].goods" :key="good.key")
+                  template(v-if="reward.type !== 'good_bonus'")
+                    figure.w-6.h-6
                       img(:src="'/img/foe/goods/' + good.key + '.png'" :alt="$t('foe_data.goods.' + good.key)" :title="$t('foe_data.goods.' + good.key)")
-                  div.media-content
-                    p {{$n(reward.value)}}
-
-          th
-            p {{$t('utils.Total')}}
-
-          th(v-for="good in getGoodsOrSpecialGoods(true)")
-            p {{$n(good.value)}}
-
-          th(v-for="specialGood in getGoodsOrSpecialGoods(false)")
-            p {{$n(specialGood.value)}}
+                  div
+                    span {{$n(reward.value)}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('utils.Total')}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-for="good in getGoodsOrSpecialGoods(true)") {{$n(good.value)}}
+          th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-for="specialGood in getGoodsOrSpecialGoods(false)") {{$n(specialGood.value)}}
