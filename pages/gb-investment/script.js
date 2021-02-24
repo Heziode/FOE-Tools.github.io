@@ -1,3 +1,4 @@
+import { sync } from "vuex-pathify";
 import Utils from "~/scripts/utils";
 import ShowBookmarks from "~/components/show-bookmarks/ShowBookmarks";
 
@@ -23,16 +24,27 @@ export default {
     }
   },
   data() {
-    gbList = this.$store.get("foe/gbs@gbList");
+    const gbs = this.$store.get("foe/gbs@gbs");
+    const gbList = this.$store.get("foe/gbs@gbList");
+
+    const gbListAlpha = Object.keys(gbs)
+      .map((k) => {
+        return { value: k, text: this.$t("foe_data.gb." + k) };
+      })
+      .sort((a, b) => (a.text > b.text ? 1 : b.text > a.text ? -1 : 0));
 
     return {
       i18nPrefix,
-      GBsByAge: Utils.splitArray(gbList, 2, true),
+      gbList,
+      gbListAlpha,
     };
+  },
+  computed: {
+    gbSelectSortMode: sync("global/gbSelectSortMode"),
   },
   methods: {
     getGbStyle(key) {
-      return key + "-header";
+      return "border-gb-" + key;
     },
   },
   components: {
