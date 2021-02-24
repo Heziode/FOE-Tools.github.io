@@ -1,36 +1,41 @@
 div
-  h4.title.is-4.margin-top-one-em {{$t(i18nPrefix + 'title')}}
+  .t-content-container
+    h4.title {{$t(i18nPrefix + 'title')}}
 
-  div.columns
-    div.column.is-half
-      yes-no(v-model="split" :label="$t(i18nPrefix + 'slpit')")
-      yes-no(v-model="showRatio" :label="$t(i18nPrefix + 'show_ratio')")
+    .t-columns
+      div(class="w-full sm:w-1/2")
+        yes-no(v-model="split" :label="$t(i18nPrefix + 'slpit')")
 
-    div.column.is-half
-      t-label(v-show="split" :label="$t('components.trade.split_value', { count: $n(maxSplitValue) })" :label-for="splitValueId" :type="haveError('splitValue')")
-        numberinput(:inputId="splitValueId" :min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue")
+      div(class="w-full mt-4 sm:mt-0 sm:w-1/2")
+        t-label(v-show="split" :label="$t('components.trade.split_value', { count: $n(maxSplitValue) })" :label-for="splitValueId" :type="haveError('splitValue')")
+          numberinput(:inputId="splitValueId" :min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue")
 
-  div.table-wrapper
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth.trade
-      thead
+    .t-columns.my-4
+      div(class="w-full sm:w-1/2")
+        yes-no(v-model="showRatio" :label="$t(i18nPrefix + 'show_ratio')")
+
+  .overflow-x-auto.rounded-lg.mt-8.shadow-lg(class="md:w-10/12 md:mx-auto")
+    table.min-w-full.divide-y.divide-gray-200(class="dark:divide-gray-600 transition-light-dark")
+      thead.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
         tr
-          th {{$t(i18nPrefix + 'table.thead.th1')}}
-          th {{$t(i18nPrefix + 'table.thead.th2')}}
-          th {{$t(i18nPrefix + 'table.thead.th3')}}
-          th {{$t(i18nPrefix + 'table.thead.th4')}}
-          th(v-show="showRatio") {{$t(i18nPrefix + 'table.thead.ratio')}}
-          th(v-show="split") {{$t(i18nPrefix + 'table.thead.split')}}
-      tbody
+          th(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t(i18nPrefix + 'table.thead.th1')}}
+          th.hidden(scope="col" class="sm:table-cell px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t(i18nPrefix + 'table.thead.th2')}}
+          th.min-w-48(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t(i18nPrefix + 'table.thead.th3')}}
+          th(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t(i18nPrefix + 'table.thead.th4')}}
+          th(v-show="showRatio" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t(i18nPrefix + 'table.thead.ratio')}}
+          th(v-show="split" scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t(i18nPrefix + 'table.thead.split')}}
+      tbody(class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-600 transition-light-dark")
         tr(v-for="(value, key) in agesGoods" :key="key")
-          td {{$t("foe_data.age." + key)}}
-          td.has-text-centered
-            figure.image-inherit.image.is-24x24(v-for="good in value.goods")
-              img(:src="'/img/foe/goods/' + good.key + '.png'" :alt="$t('foe_data.goods.' + good.key)" :title="$t('foe_data.goods.' + good.key)")
-          td
+          td.px-6.py-4.whitespace-nowrap {{$t("foe_data.age." + key)}}
+          td.hidden.px-6.py-4.whitespace-nowrap(class="sm:table-cell")
+            div.inline-flex.flex-row.space-x-2
+              figure.w-6.h-6(v-for="good in value.goods")
+                img(:src="'/img/foe/goods/' + good.key + '.png'" :alt="$t('foe_data.goods.' + good.key)" :title="$t('foe_data.goods.' + good.key)")
+          td.px-6.py-4.whitespace-nowrap.min-w-48
             numberinput(:min="0" v-model.number="values[key]" :name="key + '_value'" @input="$event > 0 ? getBestRates(key) : resetFormIfAllZero(key)")
-          td
-            p(v-if="$data.results[key].show") {{$data.results[key].value}}
-          td(v-show="showRatio")
-            p {{$data.results[key].ratio}}
-          td(v-show="split")
-            p(v-if="$data.results[key].show") {{$data.results[key].split}}
+          td.px-6.py-4.whitespace-nowrap
+            template(v-if="$data.results[key].show") {{$n($data.results[key].value)}}
+          td.px-6.py-4.whitespace-nowrap(v-show="showRatio")
+            template(v-if="$data.results[key].ratio > 0") {{$n($data.results[key].ratio)}}
+          td.px-6.py-4(v-show="split")
+            template(v-if="$data.results[key].show") {{$data.results[key].split}}
