@@ -1,22 +1,20 @@
-div.content
-  h3.title.is-3 {{$t('main_menu.help_to_translate_the_site')}}
+div.t-content-container
+  h3.title {{$t('main_menu.help_to_translate_the_site')}}
 
   p {{$t(i18nPrefix + 'p1')}}
 
-  h4.title.is-4 {{$t($data.i18nPrefix + 'how_to_join_the_team')}}
+  h4.title {{$t($data.i18nPrefix + 'how_to_join_the_team')}}
 
   p(v-html="$t($data.i18nPrefix + 'p2_html')")
 
-  p {{$t($data.i18nPrefix + 'state_of_translation')}}
+  h4.title {{$t($data.i18nPrefix + 'state_of_translation')}}
 
-  div.has-text-centered
-    .columns
-      .column.is-three-fifths.is-offset-one-fifth
-        t-progress(v-for="elt in sortedLocales"
-          :value="$store.get(`translationState@${elt}`)"
-          size="h-5"
-          text-size="leading-5 text-sm font-bold"
-          :type="getType($store.get(`translationState@${elt}`))"
-          show-value :key=`elt + "-2"`)
-          template(v-if="elt !== 'en'") {{$t('common.lang.' + elt.replace("_", "-") + '.en')}} ({{$t('common.lang.' + elt.replace("_", "-") + '.original')}}): {{$n($store.get(`translationState@${elt}`))}}
-          template(v-else) {{$t('common.lang.' + elt.replace("_", "-") + '.original')}}: {{$n($store.get(`translationState@${elt}`))}}
+  div.mt-8(class="px-0 md:px-16 2xl:px-48")
+    t-progress(v-for="elt in sortedLocales"
+      :value="$store.get(`translationState@${elt}`)"
+      size="h-5"
+      text-size="leading-5 text-sm font-bold"
+      :type="getType($store.get(`translationState@${elt}`))"
+      show-value :key=`elt + "-2"`)
+      template(v-if="elt !== 'en'") {{$t('common.lang.' + elt.replace("_", "-") + '.en')}} ({{$t('common.lang.' + elt.replace("_", "-") + '.original')}}): {{$n($store.get(`translationState@${elt}`))}}
+      template(v-else) {{$t('common.lang.' + elt.replace("_", "-") + '.original')}}: {{$n($store.get(`translationState@${elt}`))}}
