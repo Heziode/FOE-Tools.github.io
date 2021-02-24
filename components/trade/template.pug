@@ -1,34 +1,34 @@
-div
-  h4.title.is-4 {{$t(i18nPrefix + 'title')}}
+.t-content-container
+  h4.title {{$t(i18nPrefix + 'title')}}
 
-  div.columns
-    div.column.is-half
+  .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+    div(class="w-full sm:w-1/2")
       t-label(:label="$t(i18nPrefix + 'label.i_have')" :label-for="iHaveId")
         t-select.mt-2(:id="iHaveId" v-model="iHave")
           option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
-    div.column.is-half
+    div(class="w-full sm:w-1/2")
       t-label(:label="$t(i18nPrefix + 'split_value', { count: $n(maxSplitValue) })" :label-for="splitValueId" :type="haveError('splitValue')")
         numberinput(:inputId="splitValueId" :min="0" :max="maxSplitValue" v-model.number="splitValue" name="splitValue")
 
-  div.columns
-    div.column.is-half
+  .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+    div(class="w-full sm:w-1/2")
       t-label(:label="$t(i18nPrefix + 'label.i_want')" :label-for="iWantId")
         t-select.mt-2(:id="iWantId" v-model="iWant")
           option(v-for="(value, key) in tradeInput.value" :key="key" :value="key") {{$t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + key)}}
 
-    div.column.is-half
+    div(class="w-full sm:w-1/2")
       t-label(:label="$t(i18nPrefix + 'label.amount')" :type="haveError('value')" :label-for="valueId")
         numberinput(:inputId="valueId" :min="0" v-model.number="value" :name="valueId")
 
   p(v-if="result.length > 0") {{$t(i18nPrefix + 'message.result', { from: $n(result[0].amount), to: $n(value), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + iHave), ageTo: $t('foe_data.' + (tradeInput.age ? 'age' : 'goods') + '.' + iWant), count: $n(splitValue) })}}
 
-  ul(v-if="result.length > 1")
+  ul.list-inside.list-disc.mb-4(v-if="result.length > 1")
     li(v-for="(value, key) in result" :key="key" v-if="key < (result.length - 1)")
       span(v-if="value.split[1].from > 0") {{$t(i18nPrefix + 'split_message.multi', { count: $n(value.split[0].count), valueFrom: $n(value.split[0].from), valueTo: $n(value.split[0].to), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + value.key), ageTo: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[key + 1].key), secondPart: $t(i18nPrefix + 'split_message.common', { count: 1, valueFrom: $n(value.split[1].from), valueTo: $n(value.split[1].to), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + value.key), ageTo: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[key + 1].key) })})}} {{$t(i18nPrefix + 'message.total', { amount: $n(value.amount), key: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + value.key) })}}
       span(v-else="value.split[1].from > 0") {{$t(i18nPrefix + 'split_message.common', { count: $n(value.split[0].count), valueFrom: $n(value.split[0].from), valueTo: $n(value.split[0].to), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + value.key), ageTo: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[key + 1].key), valueFromSingle: $n(value.split[1].from), valueToSingle: $n(value.split[1].to) })}} {{$t(i18nPrefix + 'message.total', { amount: $n(value.amount), key: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + value.key) })}}
 
-  ul(v-if="result.length === 1")
+  ul.list-inside.list-disc.mb-4(v-if="result.length === 1")
     li
       span(v-if="result[0].split[1].from > 0") {{$t(i18nPrefix + 'split_message.multi', { count: $n(result[0].split[0].count), valueFrom: $n(result[0].split[0].from), valueTo: $n(result[0].split[0].to), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key), ageTo: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key), secondPart: $t(i18nPrefix + 'split_message.common', { count: 1, valueFrom: $n(result[0].split[1].from), valueToSingle: $n(result[0].split[1].to), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key), ageTo: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key) })})}} {{$t(i18nPrefix + 'message.total', { amount: $n(result[0].amount), key: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key) })}}
       span(v-else="") {{$t(i18nPrefix + 'split_message.common', { count: $n(result[0].split[0].count), valueFrom: $n(result[0].split[0].from), valueTo: $n(result[0].split[0].to), ageFrom: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key), ageTo: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key), valueFromSingle: $n(result[0].split[1].from), valueToSingle: $n(result[0].split[1].to) })}} {{$t(i18nPrefix + 'message.total', { amount: $n(result[0].amount), key: $t('foe_data.' + (tradeInput.age ? 'age_short' : 'goods') + '.' + result[0].key) })}}
