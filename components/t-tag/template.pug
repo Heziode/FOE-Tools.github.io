@@ -1,5 +1,6 @@
-.items-center.flex.flex-wrap.justify-start(v-if='attached && closable')
-  span(:class=`{
+.items-center.flex.flex-wrap.justify-start(v-if="attached && closable")
+  span(
+    :class=`{
     ...typeClass,
     // Rounded borders
     "rounded-tl-lg": true,
@@ -12,9 +13,15 @@
     "border-b": true,
     "border-l": true,
     "border-r": !closable
-  }`)
+  }`
+  )
     slot
-  button(role='button' :aria-label='ariaCloseLabel' :tabindex='tabstop ? 0 : false' :disabled='disabled' :class=`{
+  button(
+    role="button",
+    :aria-label="ariaCloseLabel",
+    :tabindex="tabstop ? 0 : false",
+    :disabled="disabled",
+    :class=`{
     // Height
     "h-full": true,
     // Rounded borders
@@ -29,10 +36,15 @@
     // Focus
     "focus:border focus:outline-none focus:ring": true,
     "focus:border-blue-300": true,
-  }` @click='close' @keyup.delete.prevent='close')
+  }`,
+    @click="close",
+    @keyup.delete.prevent="close"
+  )
     span.icon.inline-block.px-2
       i.fas.fa-times
-span.items-center.inline-flex.flex-wrap.justify-start(v-else='' :class=`{
+span.items-center.inline-flex.flex-wrap.justify-start(
+  v-else="",
+  :class=`{
     ...typeClass,
     // Rounded borders
     "rounded-tl-lg": true,
@@ -45,9 +57,16 @@ span.items-center.inline-flex.flex-wrap.justify-start(v-else='' :class=`{
     "border-b": true,
     "border-l": true,
     "border-r": !closable
-  }`)
+  }`
+)
   slot
-  button(v-if="closable" role='button' :aria-label='ariaCloseLabel' :tabindex='tabstop ? 0 : false' :disabled='disabled' :class=`{
+  button(
+    v-if="closable",
+    role="button",
+    :aria-label="ariaCloseLabel",
+    :tabindex="tabstop ? 0 : false",
+    :disabled="disabled",
+    :class=`{
       // Rounded borders
       "rounded-full": true,
       // Background
@@ -59,6 +78,9 @@ span.items-center.inline-flex.flex-wrap.justify-start(v-else='' :class=`{
       // Focus
       "focus:border focus:outline-none focus:ring": true,
       "focus:border-blue-300": true,
-    }` @click='close' @keyup.delete.prevent='close')
+    }`,
+    @click="close",
+    @keyup.delete.prevent="close"
+  )
     span.icon.inline-block.px-2
       i.fas.fa-times

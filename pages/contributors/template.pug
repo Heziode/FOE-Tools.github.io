@@ -1,18 +1,25 @@
-div.mx-0(class="md:mx-16 lg:mx-32 xl:mx-64")
-  h3.title {{$t(i18nPrefix + "hero.title")}} ({{$n(allContributorsrc.contributors.length)}})
+.mx-0(class="md:mx-16 lg:mx-32 xl:mx-64")
+  h3.title {{ $t(i18nPrefix + 'hero.title') }} ({{ $n(allContributorsrc.contributors.length) }})
 
   .grid.grid-cols-1.gap-6.mt-4(class="md:grid-cols-2")
-    article(v-for="user in allContributorsrc.contributors" class="mt-8 rounded-lg p-6 shadow-lg bg-white transition-light-dark dark:bg-gray-800")
+    article.mt-8.rounded-lg.p-6.shadow-lg.bg-white.transition-light-dark(
+      v-for="user in allContributorsrc.contributors",
+      class="dark:bg-gray-800"
+    )
       .inline-flex
         .flex-shrink-0.flex-grow-0
           figure.w-12.h-12
-            a(v-if="user.profile" :href="user.profile" target="_blank")
-              img(:src="user.avatar_url" :alt="user.login + ' avatar'")
+            a(v-if="user.profile", :href="user.profile", target="_blank")
+              img(:src="user.avatar_url", :alt="user.login + ' avatar'")
             template(v-else)
-              img(:src="user.avatar_url" :alt="user.login + ' avatar'")
+              img(:src="user.avatar_url", :alt="user.login + ' avatar'")
         .flex-shrink-1.flex-grow-1
           h4.title.ml-4
-            a(v-if="user.profile" :href="user.profile" target="_blank") {{user.name}}
-            template(v-else) {{user.name}}
-      div.space-x-2.mt-2
-        span(v-for="contribution in user.contributions" :key="contribution" v-tippy="{ content: $t('contributions.' + contribution) }") {{allContributorsrc.types[contribution].symbol}}
+            a(v-if="user.profile", :href="user.profile", target="_blank") {{ user.name }}
+            template(v-else) {{ user.name }}
+      .space-x-2.mt-2
+        span(
+          v-for="contribution in user.contributions",
+          :key="contribution",
+          v-tippy="{ content: $t('contributions.' + contribution) }"
+        ) {{ allContributorsrc.types[contribution].symbol }}

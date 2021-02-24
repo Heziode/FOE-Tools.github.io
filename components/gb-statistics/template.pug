@@ -2,28 +2,34 @@ div
   .t-content-container
     .t-columns.mb-4
       .flex-shrink-1.flex-grow-1.w-full
-        h3.title.mb-0 {{$t(i18nPrefix + 'title')}}
+        h3.title.mb-0 {{ $t(i18nPrefix + 'title') }}
       .flex-shrink-0.flex-grow-0.mt-2(class="sm:mt-0")
-        nuxt-link#permalink(:to="localePath(permaLink)" exact)
+        nuxt-link#permalink(:to="localePath(permaLink)", exact)
           i.fas.fa-link
-          | &nbsp;{{$t('utils.permalink')}}
+          | &nbsp;{{ $t('utils.permalink') }}
 
-    p {{$t(i18nPrefix + 'p1')}}
+    p {{ $t(i18nPrefix + 'p1') }}
 
-    p {{$t(i18nPrefix + 'represent')}}
+    p {{ $t(i18nPrefix + 'represent') }}
     ul
-      li.mt-2(class="first:mt-0" v-for="(value, key, index) in graphType" :key="key")
+      li.mt-2(class="first:mt-0", v-for="(value, key, index) in graphType", :key="key")
         t-label
-          input(type="radio" v-model="statSelector" :value="key")
-          span.ml-3 {{value.title}}
+          input(type="radio", v-model="statSelector", :value="key")
+          span.ml-3 {{ value.title }}
 
     .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
-      div(class="w-full sm:w-1/2")
-        t-label(:label="$t('utils.From')" label-for="gbStatisticsFrom" :type="haveError('from')")
-          numberinput(inputId="gbStatisticsFrom" :min="1" :max="to" v-model.number="from" name="from")
-      div(class="w-full sm:w-1/2")
-        t-label(:label="$t('utils.To', { max: maxLevelGraph })" label-for="gbStatisticsTo" :type="haveError('to')")
-          numberinput(inputId="gbStatisticsTo" :min="from" :max="maxLevelGraph" v-model.number="to" name="to")
+      .w-full(class="sm:w-1/2")
+        t-label(:label="$t('utils.From')", label-for="gbStatisticsFrom", :type="haveError('from')")
+          numberinput(inputId="gbStatisticsFrom", :min="1", :max="to", v-model.number="from", name="from")
+      .w-full(class="sm:w-1/2")
+        t-label(:label="$t('utils.To', { max: maxLevelGraph })", label-for="gbStatisticsTo", :type="haveError('to')")
+          numberinput(inputId="gbStatisticsTo", :min="from", :max="maxLevelGraph", v-model.number="to", name="to")
 
   .t-content-container
-    graph-canvas(gtype="line" id="graph" :goptions="options" :labels="labels" :datasets="datasets" @switchVisibility="switchVisibility($event)")
+    graph-canvas#graph(
+      gtype="line",
+      :goptions="options",
+      :labels="labels",
+      :datasets="datasets",
+      @switchVisibility="switchVisibility($event)"
+    )

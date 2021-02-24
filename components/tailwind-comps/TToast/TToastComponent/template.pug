@@ -1,5 +1,5 @@
 div(class="md:p-4")
-  .flex.w-full.mx-auto.bg-white.shadow-md.rounded-lg.overflow-hidden(class='dark:bg-gray-800 md:max-w-md md:min-w-md')
+  .flex.w-full.mx-auto.bg-white.shadow-md.rounded-lg.overflow-hidden(class="dark:bg-gray-800 md:max-w-md md:min-w-md")
     .flex.justify-center.items-center.w-12.min-w-12.text-white(:class="bgColor")
       i.fas.fa-check-circle.h-6.w-6.fa-lg(v-if="status === 'success'")
       i.fas.fa-info-circle.h-6.w-6.fa-lg(v-if="status === 'info'")
@@ -7,8 +7,12 @@ div(class="md:p-4")
       i.fas.fa-exclamation-circle.h-6.w-6.fa-lg(v-if="status === 'error'")
     .-mx-3.py-3.px-4.flex-grow
       .mx-3
-        span.font-semibold(v-if="title && title.length" :class="textColor") {{title}}
-        p.text-gray-600.text-sm(v-if="description && description.length" class='dark:text-gray-200') {{description}}
+        span.font-semibold(v-if="title && title.length", :class="textColor") {{ title }}
+        p.text-gray-600.text-sm(v-if="description && description.length", class="dark:text-gray-200") {{ description }}
 
-    button.mt-2.mr-2.bg-opacity-20.min-h-5.max-h-5.min-w-5.max-w-5.rounded-full.w-5.h-5.align-middle.align-center.text-white.bg-trueGray-900(v-if="isClosable" type='button' @click='onClose')
+    button.mt-2.mr-2.bg-opacity-20.min-h-5.max-h-5.min-w-5.max-w-5.rounded-full.w-5.h-5.align-middle.align-center.text-white.bg-trueGray-900(
+      v-if="isClosable",
+      type="button",
+      @click="onClose"
+    )
       i.fas.fa-times(style="vertical-align: initial")

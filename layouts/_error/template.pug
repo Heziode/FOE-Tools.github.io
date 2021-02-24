@@ -1,7 +1,7 @@
 #error-page.t-content-container
-  section(class="grid grid-cols-1 md:grid-cols-6 gap-4")
+  section.grid.grid-cols-1.gap-4(class="md:grid-cols-6")
     .text-center.flex.items-center.justify-center(class="md:col-start-1 md:col-end-2")
-      font-awesome-icon(icon="exclamation-circle" spin size="5x")
+      font-awesome-icon(icon="exclamation-circle", spin, size="5x")
     .text-center(class="md:col-start-2 md:col-end-6")
-      h1.title {{statusCode}}
-      p.subtitle {{message}}
+      h1.title {{ statusCode }}
+      p.subtitle {{ message }}

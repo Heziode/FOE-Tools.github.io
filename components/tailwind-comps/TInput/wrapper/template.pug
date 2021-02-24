@@ -1,24 +1,28 @@
-div.inline-flex.w-full.t-input(:class=`{
+.inline-flex.w-full.t-input(
+  :class=`{
   "ring border-blue-300": inputFocused,
   // Animation
   "duration-100 ease-in-out transition rounded-lg": true,
-}`)
-  slot(name="before" :isInvalid="isInvalid" :isDisabled="isDisabled" :inputFocused="inputFocused")
-  LegacyTNumberInput(v-model="newValue"
-    :as="as"
-    :name="inputId"
-    :value="value"
-    :isReadOnly="isReadOnly"
-    :isInvalid="isInvalid"
-    :isDisabled="isDisabled"
-    :isFullWidth="isFullWidth"
+}`
+)
+  slot(name="before", :isInvalid="isInvalid", :isDisabled="isDisabled", :inputFocused="inputFocused")
+  LegacyTNumberInput(
+    v-model="newValue",
+    :as="as",
+    :name="inputId",
+    :value="value",
+    :isReadOnly="isReadOnly",
+    :isInvalid="isInvalid",
+    :isDisabled="isDisabled",
+    :isFullWidth="isFullWidth",
     :isRequired="isRequired",
-    :inputId="inputId"
-    :placeholder="placeholder"
-    :type="type"
-    :autoComplete="autoComplete"
-    :maxlength="maxlength"
-    :rows="rows"
-    @focus="focused"
-    @blur="onBlur")
-  slot(name="after" v-bind:isInvalid="isInvalid" v-bind:isDisabled="isDisabled" v-bind:inputFocused="inputFocused")
+    :inputId="inputId",
+    :placeholder="placeholder",
+    :type="type",
+    :autoComplete="autoComplete",
+    :maxlength="maxlength",
+    :rows="rows",
+    @focus="focused",
+    @blur="onBlur"
+  )
+  slot(name="after", v-bind:isInvalid="isInvalid", v-bind:isDisabled="isDisabled", v-bind:inputFocused="inputFocused")

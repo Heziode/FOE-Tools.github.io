@@ -1,8 +1,8 @@
-div.t-content-container
-  h3.title {{$t($data.i18nPrefix + 'hero.subtitle')}}
+.t-content-container
+  h3.title {{ $t($data.i18nPrefix + 'hero.subtitle') }}
 
   p(v-html="$t(i18nPrefix + 'message_contact_html')")
   p
-    | {{$t(i18nPrefix + 'message_translate')}}&nbsp;
-    nuxt-link(:to="localePath({ name: 'HelpToTranslateTheSite' })") {{$t('routes.help_to_translate_the_site.hero.title')}}
+    | {{ $t(i18nPrefix + 'message_translate') }}&nbsp;
+    nuxt-link(:to="localePath({ name: 'HelpToTranslateTheSite' })") {{ $t('routes.help_to_translate_the_site.hero.title') }}
   p(v-html="$t(i18nPrefix + 'message_other_info_html')")

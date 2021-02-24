@@ -1,11 +1,13 @@
 .w-full.mt-8
-  h3.text-3xl.font-medium.ml-4(class="sm:ml-0") {{$t("utils.favourites")}}
+  h3.text-3xl.font-medium.ml-4(class="sm:ml-0") {{ $t('utils.favourites') }}
 
   .grid.grid-cols-1.gap-6.mt-4(class="sm:grid-cols-2 xl:grid-cols-3")
     nuxt-link.bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(
-      class="hover:shadow-md dark:bg-gray-800" style="transition: box-shadow 200ms, background-color 500ms, border-color 500ms, color 500ms, fill 500ms, stroke 500ms"
-      v-for="elt in bookmarks"
-      :key="elt.name + elt.params.gb"
-      :to="localePath(elt)"
-      exact)
-      p.font-semibold.text-lg.text-black(class="dark:text-white") {{$t('foe_data.gb.' + elt.params.gb)}}
+      class="hover:shadow-md dark:bg-gray-800",
+      style="transition: box-shadow 200ms, background-color 500ms, border-color 500ms, color 500ms, fill 500ms, stroke 500ms",
+      v-for="elt in bookmarks",
+      :key="elt.name + elt.params.gb",
+      :to="localePath(elt)",
+      exact
+    )
+      p.font-semibold.text-lg.text-black(class="dark:text-white") {{ $t('foe_data.gb.' + elt.params.gb) }}

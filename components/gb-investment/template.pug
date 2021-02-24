@@ -1,502 +1,772 @@
 #gbiContent
   .t-content-container
     .t-columns.mb-4.space-x-4
-      div(class="w-full sm:w-1/2")
+      .w-full(class="sm:w-1/2")
         .inline-flex.w-full
-          h3.title.mb-0.w-full {{$t('foe_data.gb.' + gb.key)}}
-          div.text-right#bookmark
-            a(@click="toggleFavourite" href="#" v-tippy="{ content: $t(i18nPrefix + (isBookmarked ? 'remove_favourite' : 'add_favourite')) }")
-              font-awesome-icon(:icon="[isBookmarked ? 'fas' : 'far', 'bookmark']" size="2x")
-      div(class="w-full sm:w-1/2")
+          h3.title.mb-0.w-full {{ $t('foe_data.gb.' + gb.key) }}
+          #bookmark.text-right
+            a(
+              @click="toggleFavourite",
+              href="#",
+              v-tippy="{ content: $t(i18nPrefix + (isBookmarked ? 'remove_favourite' : 'add_favourite')) }"
+            )
+              font-awesome-icon(:icon="[isBookmarked ? 'fas' : 'far', 'bookmark']", size="2x")
+      .w-full(class="sm:w-1/2")
         .text-right(v-show="canPermalink")
-          nuxt-link#permalink(:to="localePath(permaLink)" exact)
+          nuxt-link#permalink(:to="localePath(permaLink)", exact)
             span.icon
               i.fas.fa-link
-            | &nbsp;{{$t('utils.permalink')}}
+            | &nbsp;{{ $t('utils.permalink') }}
 
     .t-columns.mb-4
-      div(class="w-full sm:w-1/2")
-        gb-list-select#gbListSelect(:current="gb.key" @change="goTo($event)")
-      div(class="w-full sm:w-1/2")
+      .w-full(class="sm:w-1/2")
+        gb-list-select#gbListSelect(:current="gb.key", @change="goTo($event)")
+      .w-full(class="sm:w-1/2")
         .text-right
-          a.text-white(href="#" @click.prevent="startTour" class="hover:text-gray-100 dark:hover:text-gray-100")
-            article.tutorial-button(style="display:inline-block;")
-              font-awesome-icon(icon="question" size="2x")
-              span.text-center <br /> {{$t('utils.Tutorial')}}
-
+          a.text-white(href="#", @click.prevent="startTour", class="hover:text-gray-100 dark:hover:text-gray-100")
+            article.tutorial-button(style="display: inline-block")
+              font-awesome-icon(icon="question", size="2x")
+              span.text-center <br /> {{ $t('utils.Tutorial') }}
 
   template(v-if="dataReady")
     .t-content-container
-      h4.title {{$t($data.i18nPrefix + 'gb_investment.title')}}
+      h4.title {{ $t($data.i18nPrefix + 'gb_investment.title') }}
 
-      p {{$t($data.i18nPrefix + 'gb_investment.description.p1')}}
+      p {{ $t($data.i18nPrefix + 'gb_investment.description.p1') }}
 
       .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
-        div(class="w-full sm:w-1/2")
-          t-label#fieldId(:label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })" label-for="giLevel" :type="haveError('level')")
-            numberinput(inputId="giLevel" :min="1" :max="maxLevel" v-model.number="level" name="level"  showIncDec)
-        div#fieldInvestorPercentage(class="w-full sm:w-1/2")
-          t-label(:label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')" label-for="giInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-            numberinput(inputId="giInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal"  showIncDec)
+        .w-full(class="sm:w-1/2")
+          t-label#fieldId(
+            :label="$t(i18nPrefix + 'gb_investment.form.level', { level: levelNormalized, fromLevel: levelNormalized - 1, min: 1, max: maxLevel })",
+            label-for="giLevel",
+            :type="haveError('level')"
+          )
+            numberinput(inputId="giLevel", :min="1", :max="maxLevel", v-model.number="level", name="level", showIncDec)
+        #fieldInvestorPercentage.w-full(class="sm:w-1/2")
+          t-label(
+            :label="$t(i18nPrefix + 'gb_investment.form.investor_percentage')",
+            label-for="giInvestorPercentageGlobal",
+            :type="haveError('investorPercentageGlobal')"
+          )
+            numberinput(
+              inputId="giInvestorPercentageGlobal",
+              :min="0",
+              :step="0.1",
+              :precision="1",
+              v-model.number="investorPercentageGlobal",
+              name="investorPercentageGlobal",
+              showIncDec
+            )
 
-      .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0" v-if="result !== null")
-        div(class="w-full sm:w-1/2")#fieldOwnerInvestment
-          t-label(:label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })" label-for="giOwnerInvestment" :type="haveError('ownerInvestment')")
-            numberinput(inputId="giOwnerInvestment" :min=0 :max="result.cost - investorParticipationNormalizedSum" v-model.number="ownerInvestment" name="ownerInvestment" showIncDec)
-        div(class="w-full sm:w-1/2")
-          t-label#fieldAddInvestors(:label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })" label-for="giAddInvestors" :type="haveError('addInvestors')")
-            numberinput(inputId="giAddInvestors" :min="0" :max="maxInvestment" v-model.number="addInvestors" @keyup.native.enter="addInvestor" name="addInvestors" :isDisabled="maxInvestment <= 0")
+      .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0", v-if="result !== null")
+        #fieldOwnerInvestment.w-full(class="sm:w-1/2")
+          t-label(
+            :label="$t(i18nPrefix + 'gb_investment.form.owner_investment', { max: result.cost - investorParticipationNormalizedSum })",
+            label-for="giOwnerInvestment",
+            :type="haveError('ownerInvestment')"
+          )
+            numberinput(
+              inputId="giOwnerInvestment",
+              :min="0",
+              :max="result.cost - investorParticipationNormalizedSum",
+              v-model.number="ownerInvestment",
+              name="ownerInvestment",
+              showIncDec
+            )
+        .w-full(class="sm:w-1/2")
+          t-label#fieldAddInvestors(
+            :label="$t(i18nPrefix + 'gb_investment.form.add_investors', { min: 1, max: maxInvestment })",
+            label-for="giAddInvestors",
+            :type="haveError('addInvestors')"
+          )
+            numberinput(
+              inputId="giAddInvestors",
+              :min="0",
+              :max="maxInvestment",
+              v-model.number="addInvestors",
+              @keyup.native.enter="addInvestor",
+              name="addInvestors",
+              :isDisabled="maxInvestment <= 0"
+            )
               template(#after="{ isDisabled, isInvalid }")
                 t-button(
-                  :title="$t('utils.Add')"
-                  @click="addInvestor"
-                  :disabled="maxInvestment <= 0"
-                  iconLeft="fas fa-user-plus"
-                  :borderLeft="false"
-                  :roundedTopLeft="false"
-                  :roundedBottomLeft="false")
-      .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0" v-if="result !== null")
+                  :title="$t('utils.Add')",
+                  @click="addInvestor",
+                  :disabled="maxInvestment <= 0",
+                  iconLeft="fas fa-user-plus",
+                  :borderLeft="false",
+                  :roundedTopLeft="false",
+                  :roundedBottomLeft="false"
+                )
+      .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0", v-if="result !== null")
         // Investor participation
-        div.w-full(v-if="investorParticipation.length > 0")
+        .w-full(v-if="investorParticipation.length > 0")
           t-label(:label="$t(i18nPrefix + 'gb_investment.form.investors_list')")
           .flex.flex-wrap.justify-start.flex-row.space-x-3
-            t-tag.mt-3(v-for="(investor,index) in investorParticipation" :type="isNaN(investor.value) ? 'danger' : 'info'" attached closable @close="removeInvestor(index)" :key="index" size="is-medium") {{investor.value}}
+            t-tag.mt-3(
+              v-for="(investor, index) in investorParticipation",
+              :type="isNaN(investor.value) ? 'danger' : 'info'",
+              attached,
+              closable,
+              @close="removeInvestor(index)",
+              :key="index",
+              size="is-medium"
+            ) {{ investor.value }}
 
       .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
-        div(class="w-full sm:w-1/2")
-          yes-no#fieldShowSnipe(v-model="showSnipe" :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
-        div#fieldYourArcBonus(class="w-full sm:w-1/2" v-if="showSnipe || tutoMode")
-          t-label(:label="$t('components.secure_position.block_place.your_arc_bonus')" label-for="giYourArcBonus" :type="haveError('yourArcBonus')")
-            numberinput(inputId="giYourArcBonus" :min="0" v-model.number="yourArcBonus" :step="0.1" :precision="1" name="your-arc-bonus" showIncDec)
+        .w-full(class="sm:w-1/2")
+          yes-no#fieldShowSnipe(v-model="showSnipe", :label="$t(i18nPrefix + 'gb_investment.form.show_snipe')")
+        #fieldYourArcBonus.w-full(class="sm:w-1/2", v-if="showSnipe || tutoMode")
+          t-label(
+            :label="$t('components.secure_position.block_place.your_arc_bonus')",
+            label-for="giYourArcBonus",
+            :type="haveError('yourArcBonus')"
+          )
+            numberinput(
+              inputId="giYourArcBonus",
+              :min="0",
+              v-model.number="yourArcBonus",
+              :step="0.1",
+              :precision="1",
+              name="your-arc-bonus",
+              showIncDec
+            )
 
       div(:class="vueCardClass")
         .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
-          div(class="w-full sm:w-1/2")
-            yes-no#fieldDisplayCard(v-model="displayTableCard" :label="$t(i18nPrefix + 'gb_investment.form.display_card')")
+          .w-full(class="sm:w-1/2")
+            yes-no#fieldDisplayCard(
+              v-model="displayTableCard",
+              :label="$t(i18nPrefix + 'gb_investment.form.display_card')"
+            )
 
     ///////////////////////////
     // Desktop table version //
     ///////////////////////////
 
-    .overflow-x-auto.rounded-lg.mt-8.shadow-lg(v-if="result !== null" :class="displayTableCard ? 'hidden lg:block' : ''")
-      table.gbiTable.min-w-full.divide-y.divide-gray-200(class="dark:divide-gray-600 transition-light-dark")
-        thead.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
+    .overflow-x-auto.rounded-lg.mt-8.shadow-lg(
+      v-if="result !== null",
+      :class="displayTableCard ? 'hidden lg:block' : ''"
+    )
+      table.gbiTable.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-600")
+        thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
           tr
-            th(scope="col" class="px-6 py-3 text-center text-lg font-medium text-gray-500 dark:text-white tracking-wider" :colspan="tutoMode ? maxColumns : nbColumns")
-              | {{$t($data.i18nPrefix + 'gb_investment.table.title', {gb_key: $t('foe_data.gb.' + gb.key), level: result.level, fromLevel: (result.level - 1)})}}
+            th.px-6.py-3.text-center.text-lg.font-medium.text-gray-500.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              :colspan="tutoMode ? maxColumns : nbColumns"
+            )
+              | {{ $t($data.i18nPrefix + 'gb_investment.table.title', { gb_key: $t('foe_data.gb.' + gb.key), level: result.level, fromLevel: result.level - 1 }) }}
           tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
-            th(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white tracking-wider" :colspan="tutoMode ? maxColumns : nbColumns")
-              t-progress(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized"
-                :max="result.cost" style="margin-bottom: 0;"
-                size="h-5"
-                text-size="leading-5 text-sm font-bold"
-                type="is-success"
-                show-value)
-                | {{$n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost)}} ({{$n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
+            th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              :colspan="tutoMode ? maxColumns : nbColumns"
+            )
+              t-progress(
+                :value="investorParticipationNormalizedSum + ownerInvestmentNormalized",
+                :max="result.cost",
+                style="margin-bottom: 0",
+                size="h-5",
+                text-size="leading-5 text-sm font-bold",
+                type="is-success",
+                show-value
+              )
+                | {{ $n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost) }} ({{ $n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized)) }})
           tr
-            th.tableDataPlace(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th1')}}
-            th.tableDataDefaultRewards(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th2')}}
-            th.tableDataFpToPutByTheOwner(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th3')}}
-            th.tableDataRewardsWithRate(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th4')}}
-            th.tableDataNumberOfFPAlreadyIn(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-show="investorParticipationNormalizedSum || tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
-            th.tableDataSpotSnipe(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-show="showSnipe || tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')}}
-            th.tableDataPercentageInvestors.min-w-48(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
-            th.tableDataIsSniper(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" v-show="investorParticipationNormalizedSum || tutoMode") {{$t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper')}}
-            th.tableDataIncludeInCopyBoxes(scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" width="100px") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th6')}}
-        tbody(class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-600 transition-light-dark")
+            th.tableDataPlace.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th1') }}
+            th.tableDataDefaultRewards.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th2') }}
+            th.tableDataFpToPutByTheOwner.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th3') }}
+            th.tableDataRewardsWithRate.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
+            th.tableDataNumberOfFPAlreadyIn.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              v-show="investorParticipationNormalizedSum || tutoMode"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
+            th.tableDataSpotSnipe.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              v-show="showSnipe || tutoMode"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe') }}
+            th.tableDataPercentageInvestors.min-w-48.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th5') }}
+            th.tableDataIsSniper.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              v-show="investorParticipationNormalizedSum || tutoMode"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
+            th.tableDataIncludeInCopyBoxes.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              width="100px"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th6') }}
+        tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-800 dark:divide-gray-600")
           tr(v-for="(place, i) in result.investment")
             // Place
-            td.px-6.py-4.whitespace-nowrap.text-right {{$n(i + 1)}}
+            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(i + 1) }}
             // Default reward
-            td.px-6.py-4.whitespace-nowrap.text-right {{$n(place.reward)}}
+            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(place.reward) }}
             // Owner preparation
             td.px-6.py-4.whitespace-nowrap.text-right
-              span(v-if="(place.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$n(place.preparation)}} (
+              span(v-if="place.preparation > 0 && ownerInvestmentNormalized > 0") {{ $n(place.preparation) }} (
                 template(v-if="place.preparation - ownerInvestmentNormalized > 0")
-                  span.text-red-500(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment') }") {{$n(place.preparation - ownerInvestmentNormalized)}}
+                  span.text-red-500(
+                    v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment') }"
+                  ) {{ $n(place.preparation - ownerInvestmentNormalized) }}
                   | )
-                  font-awesome-icon.cursor-pointer.ml-1(
-                    :icon="['fas', 'plus-square']"
-                    class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-                    @click.prevent="ownerInvestment = place.preparation")
+                  font-awesome-icon.cursor-pointer.ml-1.text-blue-500(
+                    :icon="['fas', 'plus-square']",
+                    class="hover:text-blue-600 dark:hover:text-blue-400",
+                    @click.prevent="ownerInvestment = place.preparation"
+                  )
                 template(v-else)
-                  span.text-green-500 {{$t('utils.Secured')}}
+                  span.text-green-500 {{ $t('utils.Secured') }}
                   | )
-              span(v-else) {{$n(place.preparation)}}
+              span(v-else) {{ $n(place.preparation) }}
                 template(v-if="place.preparation === 0")
                   | &nbsp;(
-                  span.text-green-500 {{$t('utils.Secured')}}
+                  span.text-green-500 {{ $t('utils.Secured') }}
                   | )
-                font-awesome-icon.cursor-pointer.ml-1(
-                  v-else
-                  :icon="['fas', 'plus-square']"
-                  class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-                  @click.prevent="ownerInvestment = place.preparation")
+                font-awesome-icon.cursor-pointer.ml-1.text-blue-500(
+                  v-else,
+                  :icon="['fas', 'plus-square']",
+                  class="hover:text-blue-600 dark:hover:text-blue-400",
+                  @click.prevent="ownerInvestment = place.preparation"
+                )
             // Reward with arc bonus
-            td.px-6.py-4.whitespace-nowrap.text-right {{$n(place.expectedParticipation)}}
-              font-awesome-icon.cursor-pointer.ml-1(
-                :icon="['fas', 'plus-square']"
-                class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-                @click.prevent="addSpecificInvestor(place.expectedParticipation)")
+            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(place.expectedParticipation) }}
+              font-awesome-icon.cursor-pointer.ml-1.text-blue-500(
+                :icon="['fas', 'plus-square']",
+                class="hover:text-blue-600 dark:hover:text-blue-400",
+                @click.prevent="addSpecificInvestor(place.expectedParticipation)"
+              )
             // Current participation
             td.px-6.py-4.whitespace-nowrap.text-right(v-show="investorParticipationNormalizedSum || tutoMode")
               template(v-if="place.isInvestorParticipation")
-                span {{$n(place.participation)}} (
+                span {{ $n(place.participation) }} (
                   template(v-if="place.roi > 0")
                     font-awesome-icon.text-green-500.mr-1(:icon="['fas', 'arrow-up']")
-                    span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }") {{$n(Math.abs(place.roi))}}
+                    span(
+                      v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }"
+                    ) {{ $n(Math.abs(place.roi)) }}
 
                   template(v-else-if="place.roi < 0")
                     font-awesome-icon.text-red-500.mr-1(:icon="['fas', 'arrow-down']")
-                    span(v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.roi), { count: $n(Math.abs(place.roi)) }) }") {{$n(Math.abs(place.roi))}}
+                    span(
+                      v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.roi), { count: $n(Math.abs(place.roi)) }) }"
+                    ) {{ $n(Math.abs(place.roi)) }}
 
-                  font-awesome-icon(v-else :icon="['fas', 'exchange-alt']" v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }")
+                  font-awesome-icon(
+                    v-else,
+                    :icon="['fas', 'exchange-alt']",
+                    v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }"
+                  )
                   | )
               template(v-else)
                 span 0
                   template(v-if="place.participation > 0") &nbsp;(
-                    span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }") {{$n(place.participation)}}
+                    span(
+                      v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }"
+                    ) {{ $n(place.participation) }}
                     | )
             // Spot / Snipe
             td.px-6.py-4.whitespace-nowrap.text-right(v-show="showSnipe || tutoMode")
               template(v-if="place.snipe.fp === -1")
                 font-awesome-icon(:icon="['fas', 'lock']")
 
-              span.snipe.fp(v-else-if="place.snipe.fp > 0") {{$n(place.snipe.fp)}} (
+              span.snipe.fp(v-else-if="place.snipe.fp > 0") {{ $n(place.snipe.fp) }} (
                 template(v-if="place.snipe.roi > 0")
                   font-awesome-icon.text-green-500.mr-1(:icon="['fas', 'arrow-up']")
-                  span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }") {{$n(Math.abs(place.snipe.roi))}}
+                  span(
+                    v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }"
+                  ) {{ $n(Math.abs(place.snipe.roi)) }}
 
                 template(v-else-if="place.snipe.roi < 0")
                   font-awesome-icon.text-red-500.mr-1(:icon="['fas', 'arrow-down']")
-                  span(v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.snipe.roi), { count: $n(Math.abs(place.snipe.roi)) }) }") {{$n(Math.abs(place.snipe.roi))}}
+                  span(
+                    v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.snipe.roi), { count: $n(Math.abs(place.snipe.roi)) }) }"
+                  ) {{ $n(Math.abs(place.snipe.roi)) }}
 
-                font-awesome-icon(v-else :icon="['fas', 'exchange-alt']" v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }")
+                font-awesome-icon(
+                  v-else,
+                  :icon="['fas', 'exchange-alt']",
+                  v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }"
+                )
                 | )
             // Custom arc bonus
             td.px-6.py-4.whitespace-nowrap.text-center
-              numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i]" :name="'investorPercentageCustom_' + i")
+              numberinput(
+                :min="0",
+                :step="0.1",
+                :precision="1",
+                v-model.number="investorPercentageCustom[i]",
+                :name="'investorPercentageCustom_' + i"
+              )
             // Potential sniper switch
             td.px-6.py-4.whitespace-nowrap.text-center(v-show="investorParticipationNormalizedSum || tutoMode")
-              t-checkbox(v-if="place.defaultParticipationIndex >= 0" v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)")
+              t-checkbox(
+                v-if="place.defaultParticipationIndex >= 0",
+                v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper",
+                @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)"
+              )
             // Place free
             td.px-6.py-4.whitespace-nowrap.text-center
-              t-checkbox(v-model="placeFree[i].state" @input="changePlaceFree(i, $event)")
+              t-checkbox(v-model="placeFree[i].state", @input="changePlaceFree(i, $event)")
 
           // Extra investors
           template(v-if="(result.otherInvestment.length && showExtraInvestors) || tutoMode")
             tr(v-for="(place, i) in result.otherInvestment")
               // Place
-              td.px-6.py-4.whitespace-nowrap.text-right {{$n(i + result.investment.length + 1)}}
+              td.px-6.py-4.whitespace-nowrap.text-right {{ $n(i + result.investment.length + 1) }}
               // Skip useless columns
               td(colspan=3)
               // Current participation
               td.px-6.py-4.whitespace-nowrap.text-right
                 template(v-if="place.isInvestorParticipation")
-                  span {{$n(place.participation)}}
+                  span {{ $n(place.participation) }}
                 template(v-else)
                   span 0
                     template(v-if="place.participation > 0") &nbsp;(
-                      span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }") {{$n(place.participation)}}
+                      span(
+                        v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }"
+                      ) {{ $n(place.participation) }}
                       | )
-              td(:colspan="nbColumns-7")
+              td(:colspan="nbColumns - 7")
               // Potential sniper switch
               td.px-6.py-4.whitespace-nowrap.text-center
-                t-checkbox(v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)")
+                t-checkbox(
+                  v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper",
+                  @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)"
+                )
               td
-        tfoot.bg-gray-50(class="dark:bg-gray-900 transition-light-dark")
-          tr.border-b.border-gray-200(class="dark:border-gray-600" v-if="result.otherInvestment.length")
-            th.text-center(:colspan="tutoMode ? maxColumns : nbColumns" scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider")
-              t-button(type="info" v-if="!showExtraInvestors" @click="showExtraInvestors = true")
+        tfoot.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
+          tr.border-b.border-gray-200(class="dark:border-gray-600", v-if="result.otherInvestment.length")
+            th.text-center.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              :colspan="tutoMode ? maxColumns : nbColumns",
+              scope="col",
+              class="dark:text-white"
+            )
+              t-button(type="info", v-if="!showExtraInvestors", @click="showExtraInvestors = true")
                 font-awesome-icon.mr-1(:icon="['fas', 'eye']")
-                | {{$tc(i18nPrefix + 'gb_investment.table.tbody.button_show_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) })}}
-              t-button(type="info" v-else @click="showExtraInvestors = false")
+                | {{ $tc(i18nPrefix + 'gb_investment.table.tbody.button_show_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) }) }}
+              t-button(type="info", v-else, @click="showExtraInvestors = false")
                 font-awesome-icon.mr-1(:icon="['fas', 'eye-slash']")
-                | {{$tc(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) })}}
+                | {{ $tc(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) }) }}
 
           tr.border-b.border-gray-200(class="dark:border-gray-600")
-            th(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" :colspan="tutoMode ? maxColumns -1 : nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
-            td.px-6.py-4.whitespace-nowrap.text-right {{$n(result.totalPreparations)}}
-              template(v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0") &nbsp;(
-                span.text-red-500(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment') }") {{$n(result.totalPreparations - ownerInvestmentNormalized)}}
+            th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              :colspan="tutoMode ? maxColumns - 1 : nbColumns - 1"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation') }}
+            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.totalPreparations) }}
+              template(
+                v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0"
+              ) &nbsp;(
+                span.text-red-500(
+                  v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment') }"
+                ) {{ $n(result.totalPreparations - ownerInvestmentNormalized) }}
                 | )
           tr
-            th(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider" :colspan="tutoMode ? maxColumns -1 : nbColumns - 1") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
-            td.px-6.py-4.whitespace-nowrap.text-right {{$n(result.cost)}}
+            th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+              scope="col",
+              class="dark:text-white",
+              :colspan="tutoMode ? maxColumns - 1 : nbColumns - 1"
+            ) {{ $t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost') }}
+            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.cost) }}
 
     //////////////////////////
     // Mobile table version //
     //////////////////////////
 
-    .mt-8.space-y-4(v-if="result !== null && displayTableCard" class="lg:hidden")
-      .bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(class="dark:bg-gray-800" v-for="(place, i) in result.investment")
-        section(class="grid grid-cols-6 gap-4")
+    .mt-8.space-y-4(v-if="result !== null && displayTableCard", class="lg:hidden")
+      .bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(class="dark:bg-gray-800", v-for="(place, i) in result.investment")
+        section.grid.grid-cols-6.gap-4
           template(v-if="i === 0")
             .col-start-1.col-end-7.text-center
-              h5.title {{$t($data.i18nPrefix + 'gb_investment.table.title', {gb_key: $t('foe_data.gb.' + gb.key), level: result.level, fromLevel: (result.level - 1)})}}
+              h5.title {{ $t($data.i18nPrefix + 'gb_investment.table.title', { gb_key: $t('foe_data.gb.' + gb.key), level: result.level, fromLevel: result.level - 1 }) }}
             .col-start-1.col-end-7
-              t-progress(:value="investorParticipationNormalizedSum + ownerInvestmentNormalized"
-                :max="result.cost" style="margin-bottom: 0;"
-                size="h-5"
-                text-size="leading-5 text-sm font-bold"
-                type="is-success"
-                show-value)
-                | {{$n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost)}} ({{$n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized))}})
+              t-progress(
+                :value="investorParticipationNormalizedSum + ownerInvestmentNormalized",
+                :max="result.cost",
+                style="margin-bottom: 0",
+                size="h-5",
+                text-size="leading-5 text-sm font-bold",
+                type="is-success",
+                show-value
+              )
+                | {{ $n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost) }} ({{ $n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized)) }})
 
           // Place
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th1')}}
-          .col-span-2.text-right {{$n(i + 1)}}
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th1') }}
+          .col-span-2.text-right {{ $n(i + 1) }}
 
           // Default reward
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th2')}}
-          .col-span-2.text-right {{$n(place.reward)}}
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th2') }}
+          .col-span-2.text-right {{ $n(place.reward) }}
 
           // Owner preparation
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th3')}}
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th3') }}
           .col-span-2.text-right
-            span(v-if="(place.preparation > 0) && (ownerInvestmentNormalized > 0)") {{$n(place.preparation)}} (
+            span(v-if="place.preparation > 0 && ownerInvestmentNormalized > 0") {{ $n(place.preparation) }} (
               template(v-if="place.preparation - ownerInvestmentNormalized > 0")
-                span.text-red-500(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment') }") {{$n(place.preparation - ownerInvestmentNormalized)}}
+                span.text-red-500(
+                  v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_owner_investment') }"
+                ) {{ $n(place.preparation - ownerInvestmentNormalized) }}
                 | )
-                font-awesome-icon.cursor-pointer.ml-1(
-                  :icon="['fas', 'plus-square']"
-                  class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-                  @click.prevent="ownerInvestment = place.preparation")
+                font-awesome-icon.cursor-pointer.ml-1.text-blue-500(
+                  :icon="['fas', 'plus-square']",
+                  class="hover:text-blue-600 dark:hover:text-blue-400",
+                  @click.prevent="ownerInvestment = place.preparation"
+                )
               template(v-else)
-                span.text-green-500 {{$t('utils.Secured')}}
+                span.text-green-500 {{ $t('utils.Secured') }}
                 | )
-            span(v-else) {{$n(place.preparation)}}
+            span(v-else) {{ $n(place.preparation) }}
               template(v-if="place.preparation === 0")
                 | &nbsp;(
-                span.text-green-500 {{$t('utils.Secured')}}
+                span.text-green-500 {{ $t('utils.Secured') }}
                 | )
-              font-awesome-icon.cursor-pointer.ml-1(
-                v-else
-                :icon="['fas', 'plus-square']"
-                class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-                @click.prevent="ownerInvestment = place.preparation")
+              font-awesome-icon.cursor-pointer.ml-1.text-blue-500(
+                v-else,
+                :icon="['fas', 'plus-square']",
+                class="hover:text-blue-600 dark:hover:text-blue-400",
+                @click.prevent="ownerInvestment = place.preparation"
+              )
 
           // Reward with arc bonus
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th4')}}
-          .col-span-2.text-right {{$n(place.expectedParticipation)}}
-            font-awesome-icon.cursor-pointer.ml-1(
-              :icon="['fas', 'plus-square']"
-              class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-              @click.prevent="addSpecificInvestor(place.expectedParticipation)")
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
+          .col-span-2.text-right {{ $n(place.expectedParticipation) }}
+            font-awesome-icon.cursor-pointer.ml-1.text-blue-500(
+              :icon="['fas', 'plus-square']",
+              class="hover:text-blue-600 dark:hover:text-blue-400",
+              @click.prevent="addSpecificInvestor(place.expectedParticipation)"
+            )
 
           // Current participation
           template(v-if="investorParticipationNormalizedSum || tutoMode")
-            .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
+            .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
             .col-span-2.text-right
               template(v-if="place.isInvestorParticipation")
-                span {{$n(place.participation)}} (
+                span {{ $n(place.participation) }} (
                   template(v-if="place.roi > 0")
                     font-awesome-icon.text-green-500.mr-1(:icon="['fas', 'arrow-up']")
-                    span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }") {{$n(Math.abs(place.roi))}}
+                    span(
+                      v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }"
+                    ) {{ $n(Math.abs(place.roi)) }}
 
                   template(v-else-if="place.roi < 0")
                     font-awesome-icon.text-red-500.mr-1(:icon="['fas', 'arrow-down']")
-                    span(v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.roi), { count: $n(Math.abs(place.roi)) }) }") {{$n(Math.abs(place.roi))}}
+                    span(
+                      v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.roi), { count: $n(Math.abs(place.roi)) }) }"
+                    ) {{ $n(Math.abs(place.roi)) }}
 
-                  font-awesome-icon(v-else :icon="['fas', 'exchange-alt']" v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }")
+                  font-awesome-icon(
+                    v-else,
+                    :icon="['fas', 'exchange-alt']",
+                    v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }"
+                  )
                   | )
               template(v-else)
                 span 0
                   template(v-if="place.participation > 0") &nbsp;(
-                    span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }") {{$n(place.participation)}}
+                    span(
+                      v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }"
+                    ) {{ $n(place.participation) }}
                     | )
 
           // Spot / Snipe
           template(v-if="showSnipe || tutoMode")
-            .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe')}}
+            .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe') }}
             .col-span-2.text-right
               template(v-if="place.snipe.fp === -1")
                 font-awesome-icon(:icon="['fas', 'lock']")
 
-              span.snipe.fp(v-else-if="place.snipe.fp > 0") {{$n(place.snipe.fp)}} (
+              span.snipe.fp(v-else-if="place.snipe.fp > 0") {{ $n(place.snipe.fp) }} (
                 template(v-if="place.snipe.roi > 0")
                   font-awesome-icon.text-green-500.mr-1(:icon="['fas', 'arrow-up']")
-                  span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }") {{$n(Math.abs(place.snipe.roi))}}
+                  span(
+                    v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.profit', { count: $n(Math.abs(place.roi)) }) }"
+                  ) {{ $n(Math.abs(place.snipe.roi)) }}
 
                 template(v-else-if="place.snipe.roi < 0")
                   font-awesome-icon.text-red-500.mr-1(:icon="['fas', 'arrow-down']")
-                  span(v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.snipe.roi), { count: $n(Math.abs(place.snipe.roi)) }) }") {{$n(Math.abs(place.snipe.roi))}}
+                  span(
+                    v-tippy="{ content: $tc(i18nPrefix + 'gb_investment.table.tbody.loss', Math.abs(place.snipe.roi), { count: $n(Math.abs(place.snipe.roi)) }) }"
+                  ) {{ $n(Math.abs(place.snipe.roi)) }}
 
-                font-awesome-icon(v-else :icon="['fas', 'exchange-alt']" v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }")
+                font-awesome-icon(
+                  v-else,
+                  :icon="['fas', 'exchange-alt']",
+                  v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.neutral') }"
+                )
                 | )
 
           // Custom arc bonus
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th5')}}
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th5') }}
           .col-span-2.text-right
-            numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i]" :name="'investorPercentageCustom_' + i")
+            numberinput(
+              :min="0",
+              :step="0.1",
+              :precision="1",
+              v-model.number="investorPercentageCustom[i]",
+              :name="'investorPercentageCustom_' + i"
+            )
 
           // Potential sniper switch
           template(v-if="(investorParticipationNormalizedSum && place.defaultParticipationIndex >= 0) || tutoMode")
-            .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper')}}
+            .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
             .col-span-2.text-right
-              t-checkbox(v-if="place.defaultParticipationIndex >= 0" v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)")
+              t-checkbox(
+                v-if="place.defaultParticipationIndex >= 0",
+                v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper",
+                @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)"
+              )
 
           // Place free
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th6')}}
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th6') }}
           .col-span-2.text-right
-            t-checkbox(v-model="placeFree[i].state" @input="changePlaceFree(i, $event)")
+            t-checkbox(v-model="placeFree[i].state", @input="changePlaceFree(i, $event)")
 
       // Extra investors
       template(v-if="(result.otherInvestment.length && showExtraInvestors) || tutoMode")
-        .bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(class="dark:bg-gray-800" v-for="(place, i) in result.otherInvestment")
-          section(class="grid grid-cols-6 gap-4")
+        .bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(class="dark:bg-gray-800", v-for="(place, i) in result.otherInvestment")
+          section.grid.grid-cols-6.gap-4
             // Place
-            .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.th1')}}
-            .col-span-2.text-right {{$n(i + result.investment.length + 1)}}
+            .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th1') }}
+            .col-span-2.text-right {{ $n(i + result.investment.length + 1) }}
 
             // Current participation
             template(v-if="investorParticipationNormalizedSum || tutoMode")
-              .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin')}}
+              .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
               .col-span-2.text-right
                 template(v-if="place.isInvestorParticipation")
-                  span {{$n(place.participation)}}
+                  span {{ $n(place.participation) }}
                 template(v-else)
                   span 0
                     template(v-if="place.participation > 0") &nbsp;(
-                      span(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }") {{$n(place.participation)}}
+                      span(
+                        v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tbody.tooltip_expected_investment') }"
+                      ) {{ $n(place.participation) }}
                       | )
 
             // Potential sniper switch
             template(v-if="(investorParticipationNormalizedSum && place.defaultParticipationIndex >= 0) || tutoMode")
-              .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper')}}
+              .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
               .col-span-2.text-right
-                t-checkbox(v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper" @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)")
+                t-checkbox(
+                  v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper",
+                  @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)"
+                )
 
       // Footer
       .bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(class="dark:bg-gray-800")
-        section(class="grid grid-cols-6 gap-4")
+        section.grid.grid-cols-6.gap-4
           .col-start-1.col-end-7.text-center
-            t-button(type="info" v-if="!showExtraInvestors" @click="showExtraInvestors = true")
+            t-button(type="info", v-if="!showExtraInvestors", @click="showExtraInvestors = true")
               font-awesome-icon.mr-2(:icon="['fas', 'eye']")
-              | {{$tc(i18nPrefix + 'gb_investment.table.tbody.button_show_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) })}}
-            t-button(type="info" v-else @click="showExtraInvestors = false")
+              | {{ $tc(i18nPrefix + 'gb_investment.table.tbody.button_show_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) }) }}
+            t-button(type="info", v-else, @click="showExtraInvestors = false")
               font-awesome-icon.mr-2(:icon="['fas', 'eye-slash']")
-              | {{$tc(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) })}}
+              | {{ $tc(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) }) }}
 
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation')}}
-          .col-span-2.text-right {{$n(result.totalPreparations)}}
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation') }}
+          .col-span-2.text-right {{ $n(result.totalPreparations) }}
             template(v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0") &nbsp;(
-              span.text-red-500(v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment') }") {{$n(result.totalPreparations - ownerInvestmentNormalized)}}
+              span.text-red-500(
+                v-tippy="{ content: $t(i18nPrefix + 'gb_investment.table.tfoot.tooltip_owner_investment') }"
+              ) {{ $n(result.totalPreparations - ownerInvestmentNormalized) }}
               | )
 
-          .col-span-4(class="py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost')}}
-          .col-span-2.text-right {{$n(result.cost)}}
+          .col-span-4.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(class="dark:text-white") {{ $t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost') }}
+          .col-span-2.text-right {{ $n(result.cost) }}
 
     ///////////////////////////////
     // Promotion Message Section //
     ///////////////////////////////
 
-    div#giPromotionMessage
+    #giPromotionMessage
       t-tabs(v-model="promotionMessageTab")
-        div#giPromotionMessageTab(class="m-auto mx-0 md:mx-16 lg:mx-32 xl:mx-64 mt-8 -mb-4")
+        #giPromotionMessageTab.m-auto.mx-0.mt-8.-mb-4(class="md:mx-16 lg:mx-32 xl:mx-64")
           t-tab-list
-            t-tab {{$t(i18nPrefix + 'promotion.title')}}
-            t-tab {{$t('components.import_promotion_message.title')}}
-            t-tab {{$t('components.promotion_message_builder.title')}}
+            t-tab {{ $t(i18nPrefix + 'promotion.title') }}
+            t-tab {{ $t('components.import_promotion_message.title') }}
+            t-tab {{ $t('components.promotion_message_builder.title') }}
         t-tab-panels
           t-tab-panel
             .t-content-container
-              h4.title {{$t(i18nPrefix + 'promotion.title')}}
+              h4.title {{ $t(i18nPrefix + 'promotion.title') }}
 
               .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
-                div#pmPrefix(class="w-full sm:w-1/2")
-                  t-label(:label="$t('utils.Prefix')" label-for="giPrefix")
-                  t-input(inputId="giPrefix" type="text" v-model.trim="prefix" name="prefix" :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')")
+                #pmPrefix.w-full(class="sm:w-1/2")
+                  t-label(:label="$t('utils.Prefix')", label-for="giPrefix")
+                  t-input(
+                    inputId="giPrefix",
+                    type="text",
+                    v-model.trim="prefix",
+                    name="prefix",
+                    :placeholder="$t($data.i18nPrefix + 'promotion.prefix_placeholder')"
+                  )
                     template(#after)
                       t-button(
-                        :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')"
-                        @click="switchPrefix"
-                        :borderLeft="false"
-                        :roundedTopLeft="false"
-                        :roundedBottomLeft="false"
-                        v-tippy="{ content: showPrefix ? $t('utils.Hide') : $t('utils.Show') }")
-                        font-awesome-icon(v-if="showPrefix" :icon="['fas', 'eye']")
-                        font-awesome-icon(v-else :icon="['fas', 'eye-slash']")
+                        :title="showPrefix ? $t('utils.Hide') : $t('utils.Show')",
+                        @click="switchPrefix",
+                        :borderLeft="false",
+                        :roundedTopLeft="false",
+                        :roundedBottomLeft="false",
+                        v-tippy="{ content: showPrefix ? $t('utils.Hide') : $t('utils.Show') }"
+                      )
+                        font-awesome-icon(v-if="showPrefix", :icon="['fas', 'eye']")
+                        font-awesome-icon(v-else, :icon="['fas', 'eye-slash']")
 
-                div(class="w-full sm:w-1/2")#pmSuffix
-                  t-label(:label="$t('utils.Suffix')" label-for="giSuffix")
-                  t-input(inputId="giSuffix" type="text" v-model.trim="suffix" name="suffix" :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')")
+                #pmSuffix.w-full(class="sm:w-1/2")
+                  t-label(:label="$t('utils.Suffix')", label-for="giSuffix")
+                  t-input(
+                    inputId="giSuffix",
+                    type="text",
+                    v-model.trim="suffix",
+                    name="suffix",
+                    :placeholder="$t($data.i18nPrefix + 'promotion.suffix_placeholder')"
+                  )
                     template(#after)
                       t-button(
-                        :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')"
-                        @click="switchSuffix"
-                        :borderLeft="false"
-                        :roundedTopLeft="false"
-                        :roundedBottomLeft="false"
-                        v-tippy="{ content: showSuffix ? $t('utils.Hide') : $t('utils.Show') }")
-                        font-awesome-icon(v-if="showSuffix" :icon="['fas', 'eye']")
-                        font-awesome-icon(v-else :icon="['fas', 'eye-slash']")
+                        :title="showSuffix ? $t('utils.Hide') : $t('utils.Show')",
+                        @click="switchSuffix",
+                        :borderLeft="false",
+                        :roundedTopLeft="false",
+                        :roundedBottomLeft="false",
+                        v-tippy="{ content: showSuffix ? $t('utils.Hide') : $t('utils.Show') }"
+                      )
+                        font-awesome-icon(v-if="showSuffix", :icon="['fas', 'eye']")
+                        font-awesome-icon(v-else, :icon="['fas', 'eye-slash']")
 
               .grid.grid-cols-1.mb-8(class="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4")
-                yes-no#pmDisplayGbName(v-model="displayGbName" :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')")
-                yes-no#pmShortName(v-model="shortName" :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
-                yes-no#pmShowLevel(v-model="showLevel" :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
-                yes-no#pmShowOnlySecuredPlaces(v-model="showOnlySecuredPlaces" :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')")
+                yes-no#pmDisplayGbName(
+                  v-model="displayGbName",
+                  :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')"
+                )
+                yes-no#pmShortName(v-model="shortName", :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
+                yes-no#pmShowLevel(v-model="showLevel", :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
+                yes-no#pmShowOnlySecuredPlaces(
+                  v-model="showOnlySecuredPlaces",
+                  :label="$t(i18nPrefix + 'gb_investment.form.show_only_secured_places')"
+                )
 
               div(v-if="result !== null")
                 template(v-for="(value, i) in promotion")
                   // Show custom fields
-                  template(v-if="promotionMessageList[promotionMessageList.map(val => val.name).indexOf(value.name)].config.customFields")
-                    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0" v-for="line in getSplittedCustomFields(value.name)")
-                      div(class="w-full sm:w-1/2" v-for="elt in line")
-                        t-label.custom_field(:label="elt.key" :label-for="'custom_field_' + elt.key")
-                        t-input(:inputId="'custom_field_' + elt.key" type="text" :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder" v-model.trim="promotionMessageList[i].config.customFields[elt.key].value" :name="'custom_field_' + elt.key")
+                  template(
+                    v-if="promotionMessageList[promotionMessageList.map((val) => val.name).indexOf(value.name)].config.customFields"
+                  )
+                    .t-columns.my-4.space-y-4(
+                      class="sm:space-x-8 sm:space-y-0",
+                      v-for="line in getSplittedCustomFields(value.name)"
+                    )
+                      .w-full(class="sm:w-1/2", v-for="elt in line")
+                        t-label.custom_field(:label="elt.key", :label-for="'custom_field_' + elt.key")
+                        t-input(
+                          :inputId="'custom_field_' + elt.key",
+                          type="text",
+                          :placeholder="promotionMessageList[i].config.customFields[elt.key].placeholder",
+                          v-model.trim="promotionMessageList[i].config.customFields[elt.key].value",
+                          :name="'custom_field_' + elt.key"
+                        )
                           template(#after)
                             t-button(
-                              :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')"
-                              @click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show"
-                              :borderLeft="false"
-                              :roundedTopLeft="false"
-                              :roundedBottomLeft="false"
-                              v-tippy="{ content: promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show') }")
-                              font-awesome-icon(v-if="promotionMessageList[i].config.customFields[elt.key].show" :icon="['fas', 'eye']")
-                              font-awesome-icon(v-else :icon="['fas', 'eye-slash']")
+                              :title="promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show')",
+                              @click="promotionMessageList[i].config.customFields[elt.key].show = !promotionMessageList[i].config.customFields[elt.key].show",
+                              :borderLeft="false",
+                              :roundedTopLeft="false",
+                              :roundedBottomLeft="false",
+                              v-tippy="{ content: promotionMessageList[i].config.customFields[elt.key].show ? $t('utils.Hide') : $t('utils.Show') }"
+                            )
+                              font-awesome-icon(
+                                v-if="promotionMessageList[i].config.customFields[elt.key].show",
+                                :icon="['fas', 'eye']"
+                              )
+                              font-awesome-icon(v-else, :icon="['fas', 'eye-slash']")
                   // Show value
                   .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
                     .w-full
-                      t-input(:as="nbMultiLine(value.message) ? 'textarea' : 'input'" :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : undefined" :value="value.message" isReadOnly)
+                      t-input(
+                        :as="nbMultiLine(value.message) ? 'textarea' : 'input'",
+                        :rows="nbMultiLine(value.message) ? nbMultiLine(value.message) : undefined",
+                        :value="value.message",
+                        isReadOnly
+                      )
                         template(#before)
                           t-button(
-                            :title="$t('utils.Remove')"
-                            @click="removePromotionMessage(i)"
-                            iconLeft="fas fa-trash"
-                            :borderRight="false"
-                            :roundedTopRight="false"
-                            :roundedBottomRight="false" type="danger"
-                            v-tippy="{ content: $t('utils.Remove') }")
+                            :title="$t('utils.Remove')",
+                            @click="removePromotionMessage(i)",
+                            iconLeft="fas fa-trash",
+                            :borderRight="false",
+                            :roundedTopRight="false",
+                            :roundedBottomRight="false",
+                            type="danger",
+                            v-tippy="{ content: $t('utils.Remove') }"
+                          )
                         template(#after)
                           t-button(
-                            v-clipboard="value.message"
-                            @success="successCopy(i)"
-                            :title="$t('utils.Copy')"
-                            iconLeft="far fa-copy"
-                            :borderLeft="false"
-                            :roundedTopLeft="false"
-                            :roundedBottomLeft="false"
-                            v-tippy="{ content: $t('utils.Copyed'), trigger: 'click' }")
+                            v-clipboard="value.message",
+                            @success="successCopy(i)",
+                            :title="$t('utils.Copy')",
+                            iconLeft="far fa-copy",
+                            :borderLeft="false",
+                            :roundedTopLeft="false",
+                            :roundedBottomLeft="false",
+                            v-tippy="{ content: $t('utils.Copyed'), trigger: 'click' }"
+                          )
 
               .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
-                div.w-full
+                .w-full
                   #pmAddMessage
-                    t-select#pmbTemplateToAdd(v-model.trim="templateToAdd" name="templateToAdd" autocomplete="off" :roundedTopRight="false" :roundedBottomRight="false")
+                    t-select#pmbTemplateToAdd(
+                      v-model.trim="templateToAdd",
+                      name="templateToAdd",
+                      autocomplete="off",
+                      :roundedTopRight="false",
+                      :roundedBottomRight="false"
+                    )
                       optgroup(:label="$t('components.promotion_message_builder.templates.default')")
-                        option(v-for="template in defaultPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
-                      optgroup(v-if="customPromotionMessagesTemplates.length" :label="$t('components.promotion_message_builder.templates.custom')")
-                        option(v-for="template in customPromotionMessagesTemplates" :key="template.id" :value="template.id") {{template.name}}: {{getTemplateSample(template.config)}}
+                        option(
+                          v-for="template in defaultPromotionMessagesTemplates",
+                          :key="template.id",
+                          :value="template.id"
+                        ) {{ template.name }}: {{ getTemplateSample(template.config) }}
+                      optgroup(
+                        v-if="customPromotionMessagesTemplates.length",
+                        :label="$t('components.promotion_message_builder.templates.custom')"
+                      )
+                        option(
+                          v-for="template in customPromotionMessagesTemplates",
+                          :key="template.id",
+                          :value="template.id"
+                        ) {{ template.name }}: {{ getTemplateSample(template.config) }}
 
                       template(#after)
                         t-button(
-                          :title="$t('utils.Add')"
-                          @click="addPromotionMessageTemplate"
-                          iconLeft="fas fa-plus"
-                          :borderLeft="false"
-                          :roundedTopLeft="false"
-                          :roundedBottomLeft="false" type="info") {{$t('utils.Add')}}
+                          :title="$t('utils.Add')",
+                          @click="addPromotionMessageTemplate",
+                          iconLeft="fas fa-plus",
+                          :borderLeft="false",
+                          :roundedTopLeft="false",
+                          :roundedBottomLeft="false",
+                          type="info"
+                        ) {{ $t('utils.Add') }}
           t-tab-panel
             .t-content-container
               ImportPromotionMessage
@@ -504,53 +774,65 @@
             .t-content-container
               PromotionMessageBuilder
 
-
     // Secure Position
 
-    div(v-if="result" style="margin-top: 2rem;")
-      secure-position(:levelData="result" ns="gbi" :customYourArcBonus="getCustomArcBonus" :canCustomYourArcBonus="showSnipe" @customYourArcBonus="yourArcBonus = $event")
+    div(v-if="result", style="margin-top: 2rem")
+      secure-position(
+        :levelData="result",
+        ns="gbi",
+        :customYourArcBonus="getCustomArcBonus",
+        :canCustomYourArcBonus="showSnipe",
+        @customYourArcBonus="yourArcBonus = $event"
+      )
 
   template(v-else)
-    ContentLoader(:speed=2 :width=525 :height=420 viewBox="0 0 525 420" backgroundColor="#eaeced" foregroundColor="#ffffff")
-      rect(x='25' y='15' rx='5' ry='5' width='220' height='10')
-      rect(x='25' y='45' rx='5' ry='5' width='220' height='10')
-      rect(x='285' y='45' rx='5' ry='5' width='220' height='10')
-      rect(x='285' y='15' rx='5' ry='5' width='220' height='10')
-      rect(x='25' y='75' rx='0' ry='0' width='480' height='45')
-      rect(x='25' y='75' rx='0' ry='0' width='2' height='327')
-      rect(x='505' y='75' rx='0' ry='0' width='2' height='327')
-      rect(x='35' y='140' rx='5' ry='5' width='68' height='15')
-      rect(x='113' y='140' rx='5' ry='5' width='68' height='15')
-      rect(x='191' y='140' rx='5' ry='5' width='68' height='15')
-      rect(x='269' y='140' rx='5' ry='5' width='68' height='15')
-      rect(x='347' y='140' rx='5' ry='5' width='68' height='15')
-      rect(x='425' y='140' rx='5' ry='5' width='68' height='15')
-      rect(x='25' y='175' rx='0' ry='0' width='480' height='2')
-      rect(x='35' y='195' rx='5' ry='5' width='68' height='15')
-      rect(x='113' y='195' rx='5' ry='5' width='68' height='15')
-      rect(x='191' y='195' rx='5' ry='5' width='68' height='15')
-      rect(x='269' y='195' rx='5' ry='5' width='68' height='15')
-      rect(x='347' y='195' rx='5' ry='5' width='68' height='15')
-      rect(x='425' y='195' rx='5' ry='5' width='68' height='15')
-      rect(x='25' y='230' rx='0' ry='0' width='480' height='2')
-      rect(x='35' y='250' rx='5' ry='5' width='68' height='15')
-      rect(x='113' y='250' rx='5' ry='5' width='68' height='15')
-      rect(x='191' y='250' rx='5' ry='5' width='68' height='15')
-      rect(x='269' y='250' rx='5' ry='5' width='68' height='15')
-      rect(x='347' y='250' rx='5' ry='5' width='68' height='15')
-      rect(x='425' y='250' rx='5' ry='5' width='68' height='15')
-      rect(x='25' y='285' rx='0' ry='0' width='480' height='2')
-      rect(x='35' y='305' rx='5' ry='5' width='68' height='15')
-      rect(x='113' y='305' rx='5' ry='5' width='68' height='15')
-      rect(x='191' y='305' rx='5' ry='5' width='68' height='15')
-      rect(x='269' y='305' rx='5' ry='5' width='68' height='15')
-      rect(x='347' y='305' rx='5' ry='5' width='68' height='15')
-      rect(x='425' y='305' rx='5' ry='5' width='68' height='15')
-      rect(x='25' y='340' rx='0' ry='0' width='480' height='2')
-      rect(x='35' y='365' rx='5' ry='5' width='68' height='15')
-      rect(x='113' y='365' rx='5' ry='5' width='68' height='15')
-      rect(x='191' y='365' rx='5' ry='5' width='68' height='15')
-      rect(x='269' y='365' rx='5' ry='5' width='68' height='15')
-      rect(x='347' y='365' rx='5' ry='5' width='68' height='15')
-      rect(x='425' y='365' rx='5' ry='5' width='68' height='15')
-      rect(x='25' y='400' rx='0' ry='0' width='480' height='2')
+    ContentLoader(
+      :speed="0",
+      :width="2",
+      :height="2",
+      viewBox="0 0 525 420",
+      backgroundColor="#eaeced",
+      foregroundColor="#ffffff"
+    )
+      rect(x="25", y="15", rx="5", ry="5", width="220", height="10")
+      rect(x="25", y="45", rx="5", ry="5", width="220", height="10")
+      rect(x="285", y="45", rx="5", ry="5", width="220", height="10")
+      rect(x="285", y="15", rx="5", ry="5", width="220", height="10")
+      rect(x="25", y="75", rx="0", ry="0", width="480", height="45")
+      rect(x="25", y="75", rx="0", ry="0", width="2", height="327")
+      rect(x="505", y="75", rx="0", ry="0", width="2", height="327")
+      rect(x="35", y="140", rx="5", ry="5", width="68", height="15")
+      rect(x="113", y="140", rx="5", ry="5", width="68", height="15")
+      rect(x="191", y="140", rx="5", ry="5", width="68", height="15")
+      rect(x="269", y="140", rx="5", ry="5", width="68", height="15")
+      rect(x="347", y="140", rx="5", ry="5", width="68", height="15")
+      rect(x="425", y="140", rx="5", ry="5", width="68", height="15")
+      rect(x="25", y="175", rx="0", ry="0", width="480", height="2")
+      rect(x="35", y="195", rx="5", ry="5", width="68", height="15")
+      rect(x="113", y="195", rx="5", ry="5", width="68", height="15")
+      rect(x="191", y="195", rx="5", ry="5", width="68", height="15")
+      rect(x="269", y="195", rx="5", ry="5", width="68", height="15")
+      rect(x="347", y="195", rx="5", ry="5", width="68", height="15")
+      rect(x="425", y="195", rx="5", ry="5", width="68", height="15")
+      rect(x="25", y="230", rx="0", ry="0", width="480", height="2")
+      rect(x="35", y="250", rx="5", ry="5", width="68", height="15")
+      rect(x="113", y="250", rx="5", ry="5", width="68", height="15")
+      rect(x="191", y="250", rx="5", ry="5", width="68", height="15")
+      rect(x="269", y="250", rx="5", ry="5", width="68", height="15")
+      rect(x="347", y="250", rx="5", ry="5", width="68", height="15")
+      rect(x="425", y="250", rx="5", ry="5", width="68", height="15")
+      rect(x="25", y="285", rx="0", ry="0", width="480", height="2")
+      rect(x="35", y="305", rx="5", ry="5", width="68", height="15")
+      rect(x="113", y="305", rx="5", ry="5", width="68", height="15")
+      rect(x="191", y="305", rx="5", ry="5", width="68", height="15")
+      rect(x="269", y="305", rx="5", ry="5", width="68", height="15")
+      rect(x="347", y="305", rx="5", ry="5", width="68", height="15")
+      rect(x="425", y="305", rx="5", ry="5", width="68", height="15")
+      rect(x="25", y="340", rx="0", ry="0", width="480", height="2")
+      rect(x="35", y="365", rx="5", ry="5", width="68", height="15")
+      rect(x="113", y="365", rx="5", ry="5", width="68", height="15")
+      rect(x="191", y="365", rx="5", ry="5", width="68", height="15")
+      rect(x="269", y="365", rx="5", ry="5", width="68", height="15")
+      rect(x="347", y="365", rx="5", ry="5", width="68", height="15")
+      rect(x="425", y="365", rx="5", ry="5", width="68", height="15")
+      rect(x="25", y="400", rx="0", ry="0", width="480", height="2")

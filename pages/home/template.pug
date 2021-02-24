@@ -1,10 +1,16 @@
-div.px-0(class="md:mx-16 lg:mx-32 xl:mx-64")
-  show-bookmarks(v-if="$store.get(`profile/profiles@[\"${this.$store.get(\"global/currentProfile\")}\"].bookmarks`).length")
+.px-0(class="md:mx-16 lg:mx-32 xl:mx-64")
+  show-bookmarks(v-if="$store.get(`profile/profiles@[${this.$store.get('global/currentProfile')}].bookmarks`).length")
 
-  div.mt-8(v-for="(data, i) in content" :key="i")
-    h3.text-3xl.font-medium.ml-4(class="sm:ml-0" :id="data.id") {{$t(data.title)}}
+  .mt-8(v-for="(data, i) in content", :key="i")
+    h3.text-3xl.font-medium.ml-4(class="sm:ml-0", :id="data.id") {{ $t(data.title) }}
 
     .grid.grid-cols-1.gap-6.mt-4(class="md:grid-cols-2")
-      nuxt-link.bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(class="hover:shadow-md dark:bg-gray-800" style="transition: box-shadow 200ms, background-color 500ms, border-color 500ms, color 500ms, fill 500ms, stroke 500ms" v-for="item of data.content" :key="item.id" :to="localePath({ name: item.link })")
-        p.font-semibold.text-xl.select-none.text-black(class="dark:text-white") {{$t(item.title)}}
-        p.text-coolGray-500.text-sm.mt-2.select-none(class="dark:text-coolGray-400") {{$t(item.subtitle)}}
+      nuxt-link.bg-white.p-4.rounded-lg.shadow-lg.ease-in-out(
+        class="hover:shadow-md dark:bg-gray-800",
+        style="transition: box-shadow 200ms, background-color 500ms, border-color 500ms, color 500ms, fill 500ms, stroke 500ms",
+        v-for="item of data.content",
+        :key="item.id",
+        :to="localePath({ name: item.link })"
+      )
+        p.font-semibold.text-xl.select-none.text-black(class="dark:text-white") {{ $t(item.title) }}
+        p.text-coolGray-500.text-sm.mt-2.select-none(class="dark:text-coolGray-400") {{ $t(item.subtitle) }}

@@ -1,6 +1,9 @@
-div.flex
+.flex
   slot(name="before")
-  select(v-model="newValue" :id="id" :class=`{
+  select(
+    v-model="newValue",
+    :id="id",
+    :class=`{
     // Background
     "bg-white dark:bg-gray-700 dark:bg-opacity-50": true,
     // Default borders
@@ -30,6 +33,7 @@ div.flex
     "rounded-br-lg": roundedBottomRight,
     // Width
     "w-full": true,
-  }`)
+  }`
+  )
     slot
   slot(name="after")
