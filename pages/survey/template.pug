@@ -45,7 +45,7 @@ div#surveyContainer
               tr(v-for="(row, index) in question.rows" :key="question.name + '__' + row.value")
                 td
                   p {{getSurveyLocal(row.text)}}
-                td.has-text-centered(v-for="(column, index) in question.columns" :key="question.name + '__' + row.value + '__' + column.value")
+                td.text-center(v-for="(column, index) in question.columns" :key="question.name + '__' + row.value + '__' + column.value")
                   input(type="radio" v-model="result[question.name][row.value]" :value="column.value" :disabled="loading")
 
       template(v-else-if="question.type === 'sortablelist' && checkCondition(question)")
@@ -55,6 +55,6 @@ div#surveyContainer
 
     hr
 
-    div.has-text-centered
+    div.text-center
       vue-hcaptcha(ref="invisibleHcaptcha" :sitekey="HCAPTCHA_SITEKEY" size="invisible" @verify="callback" @expired="onExpire")
       button.button.is-info(type="submit") {{$t("utils.Submit")}}
