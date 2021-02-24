@@ -1,9 +1,9 @@
 div.inline-flex.w-full.t-input(:class=`{
-  "ring border-blue-300 rounded": inputFocused,
+  "ring border-blue-300": inputFocused,
   // Animation
-  "duration-100 ease-in-out transition": true,
+  "duration-100 ease-in-out transition rounded-lg": true,
 }`)
-  slot(name="before" v-bind:isInvalid="isInvalid" v-bind:isDisabled="isDisabled" v-bind:inputFocused="inputFocused")
+  slot(name="before" :isInvalid="isInvalid" :isDisabled="isDisabled" :inputFocused="inputFocused")
   LegacyTNumberInput(v-model="newValue"
     :as="as"
     :name="inputId"
