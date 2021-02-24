@@ -338,7 +338,7 @@ const TTabList = {
       {
         class: {
           ...this.className,
-          "flex bg-gray-100 dark:bg-gray-700 p-1 rounded flex-wrap w-full divide-y-4": true,
+          "flex bg-white dark:bg-gray-800 p-1 rounded-lg flex-wrap w-full divide-y-4 shadow-lg": true,
         },
         attrs: {
           role: "tablist",
@@ -403,7 +403,7 @@ const TTab = {
       {
         class: {
           ...this.className,
-          "px-5 min-h-8 flex-grow rounded border-transparent border-none": true,
+          "px-5 min-h-8 flex-grow rounded-lg border-transparent border-none": true,
           "bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400 text-white": this.isSelected,
           "text-gray-500 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white": !this.isSelected,
           // Animation
