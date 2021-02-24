@@ -24,10 +24,10 @@ component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners"
     // Padding
     "py-2 px-4": true,
     // Rounded borders
-    "rounded-tl": roundedTopLeft,
-    "rounded-tr": roundedTopRight,
-    "rounded-bl": roundedBottomLeft,
-    "rounded-br": roundedBottomRight,
+    "rounded-tl-lg": roundedTopLeft,
+    "rounded-tr-lg": roundedTopRight,
+    "rounded-bl-lg": roundedBottomLeft,
+    "rounded-br-lg": roundedBottomRight,
     // Flex
     "flex-shrink-0 flex-wrap inline-flex": true,
     // Text cannot be selected
@@ -35,10 +35,10 @@ component(:is="computedTag" v-bind="$attrs" :type="nativeType" v-on="$listeners"
     // Width
     "w-full": expanded
 }`)
-  span.icon.inline-block(v-if="iconLeft")
+  span(v-if="iconLeft" class="last:mr-0 mr-2")
     i(:class="iconLeft")
   span(v-if="label") {{ label }}
   span(v-else-if="$slots.default")
     slot
-  span.icon.inline-block(v-if="iconRight")
+  span(v-if="iconRight" class="first:ml-0 ml-2")
     i(:class="iconRight")
