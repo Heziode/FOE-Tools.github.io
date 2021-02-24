@@ -19,7 +19,6 @@
     @icon-click="(event) => $emit('icon-click', event)")
   transition(name='fade')
     .t-dropdown-menu(
-      :class="{ 'is-opened-top': isOpenedTop && !appendToBody }"
       :style='style'
       v-show='isActive && (!isEmpty || hasEmptySlot || hasHeaderSlot)'
       ref='dropdown')
@@ -29,17 +28,17 @@
         template(v-for='(element, groupindex) in computedData')
           .t-dropdown-item(v-if='element.group' :key="groupindex + 'group'")
             slot(v-if='hasGroupSlot' name='group' :group='element.group' :index='groupindex')
-            span.has-text-weight-bold(v-else='')
+            span(v-else='')
               | {{ element.group }}
           a.t-dropdown-item(
+            href="#"
             v-for='(option, index) in element.items'
             :key="groupindex + ':' + index"
-            :class="{ 'is-hovered': option === hovered }"
             @click='setSelected(option, undefined, $event)')
             slot(v-if='hasDefaultSlot' :option='option' :index='index')
             span(v-else='')
               | {{ getValue(option, true) }}
-        .t-dropdown-item.is-disabled(v-if='isEmpty && hasEmptySlot')
+        .t-dropdown-item(v-if='isEmpty && hasEmptySlot')
           slot(name='empty')
         .t-dropdown-item(v-if='hasFooterSlot')
           slot(name='footer')
