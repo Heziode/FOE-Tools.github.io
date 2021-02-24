@@ -1,10 +1,10 @@
 div
-  .bg-gray-50.px-4.py-3(class='sm:px-6 sm:flex sm:flex-row sm:justify-between dark:bg-gray-600')
+  .bg-gray-50.px-4.py-3(class='sm:px-6 sm:flex sm:flex-row sm:justify-between dark:bg-gray-600 transition-light-dark')
     div(class="my-3 text-center sm:text-left w-full")
       div(class="text-lg leading-6 font-medium text-gray-900 dark:text-white text-center")
         h3(class="leading-6 font-medium text-gray-900 dark:text-white" style="font-size: 1.75rem; line-height: 1.75rem; font-weight: 500;") {{$t('components.site_layout.global_config')}}
 
-  .bg-white.px-4.pt-5.pb-4(class='sm:p-6 sm:pb-4 dark:bg-gray-700')
+  .bg-white.px-4.pt-5.pb-4.transition-light-dark(class='sm:p-6 sm:pb-4 dark:bg-gray-700')
     div(class='sm:flex sm:items-start sm:flex-col')
       div.mt-2(class="sm:ml-4")
         yes-no(v-model="fixedMainMenu" :label="$t(i18nPrefix + 'fixed_main_menu')" customLabelClass="text-xl")
@@ -26,7 +26,7 @@ div
               span.ml-3 {{style.text}}
 
         day-night(v-if="dayNightMode === 'auto'" @dayStartChange="$emit('dayStartChange')" @nightStartChange="$emit('nightStartChange')")
-  .bg-gray-50.px-4.py-3(class='sm:px-6 sm:flex sm:flex-row sm:justify-between space-x-0 space-y-4 sm:space-x-4 sm:space-y-0 dark:bg-gray-600')
+  .bg-gray-50.px-4.py-3(class='sm:px-6 sm:flex sm:flex-row sm:justify-between space-x-0 space-y-4 sm:space-x-4 sm:space-y-0 dark:bg-gray-600 transition-light-dark')
     t-button(
       :title="$t('utils.Reset')"
       :label="$t('utils.Reset')"

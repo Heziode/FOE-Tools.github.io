@@ -4,17 +4,23 @@ import GlobalSettings from "./components/dialogGlobalSettings/DialogGlobalSettin
 import languageSelector from "~/components/language-selector/LanguageSelector";
 import gbListSelect from "~/components/gb-list-select/GbListSelect";
 import Utils from "~/scripts/utils";
+import ArrowSvg from "~/assets/arrow.svg?inline";
+import clickOutside from "~/scripts/clickOutside.js";
 
-const OFFSET = 10;
+const OFFSET = 64;
 
 export default {
   name: "MainHeader",
+  directives: {
+    clickOutside,
+  },
   data() {
     return {
       burgerMenuVisible: false,
       showNavbar: true,
       lastScrollPosition: 0,
       scrollValue: 0,
+      focusedIndex: 0,
       mainMenu: [
         {
           ...this.$store.get("routes@home"),
@@ -24,6 +30,7 @@ export default {
         },
         {
           type: Utils.MenuRecordType.MENU_ENTRY,
+          showDropdown: false,
           name: "utils.content.tools",
           key: null,
           link: null,
@@ -62,6 +69,7 @@ export default {
         },
         {
           type: Utils.MenuRecordType.MENU_ENTRY,
+          showDropdown: false,
           name: "utils.content.statistics",
           link: null,
           key: null,
@@ -101,8 +109,31 @@ export default {
     fixedMainMenu: sync("global/fixedMainMenu"),
   },
   methods: {
+    buildHideDropdownMenuDesktop(value) {
+      return function () {
+        if (this.$data.burgerMenuVisible) {
+          return;
+        }
+        value.showDropdown = false;
+        this.focusedIndex = 0;
+      };
+    },
+    hideDropdownMenuDesktop(value) {
+      if (this.$data.burgerMenuVisible) {
+        return;
+      }
+      value.showDropdown = false;
+      this.focusedIndex = 0;
+    },
     toggleMenu() {
       Vue.set(this.$data, "burgerMenuVisible", !this.$data.burgerMenuVisible);
+    },
+    hideDropdownMenuSmartphone(value) {
+      if (!this.$data.burgerMenuVisible) {
+        return;
+      }
+      value.showDropdown = false;
+      this.focusedIndex = 0;
     },
     showGlobalSettings: /* istanbul ignore next */ function () {
       this.$modal({
@@ -127,6 +158,30 @@ export default {
       this.showNavbar = window.pageYOffset < this.lastScrollPosition;
       this.lastScrollPosition = window.pageYOffset;
     },
+    startArrowKeys(value) {
+      if (value.showDropdown) {
+        this.$refs[
+          "dropdown-" + (this.$data.burgerMenuVisible ? "mobile-" : "desktop-") + value.name.replace(/\./g, "_")
+        ][0].children[0].children[0].focus();
+      }
+    },
+    focusPrevious(value, isArrowKey) {
+      this.focusedIndex = this.focusedIndex - 1;
+      if (isArrowKey) {
+        this.focusItem(value);
+      }
+    },
+    focusNext(value, isArrowKey) {
+      this.focusedIndex = this.focusedIndex + 1;
+      if (isArrowKey) {
+        this.focusItem(value);
+      }
+    },
+    focusItem(value) {
+      this.$refs[
+        "dropdown-" + (this.$data.burgerMenuVisible ? "mobile-" : "desktop-") + value.name.replace(/\./g, "_")
+      ][0].children[this.focusedIndex].children[0].focus();
+    },
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
@@ -138,5 +193,6 @@ export default {
   components: {
     languageSelector,
     gbListSelect,
+    ArrowSvg,
   },
 };
