@@ -1,9 +1,7 @@
-#error-page
-  div.columns
-    div.column.is-one-fifth
-      div.content.has-text-centered
-        i.fas.fa-exclamation-circle.fa-5x.fa-spin
-    div.column
-      div.content
-        h1.title.is-1 {{statusCode}}
-        p.subtitle.is-4 {{message}}
+#error-page.t-content-container
+  section(class="grid grid-cols-1 md:grid-cols-6 gap-4")
+    .text-center.flex.items-center.justify-center(class="md:col-start-1 md:col-end-2")
+      font-awesome-icon(icon="exclamation-circle" spin size="5x")
+    .text-center(class="md:col-start-2 md:col-end-6")
+      h1.title {{statusCode}}
+      p.subtitle {{message}}
