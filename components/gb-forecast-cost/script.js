@@ -388,6 +388,9 @@ export default {
       }
     },
     alreadyInvested(val, oldVal) {
+      if (!val) {
+        return;
+      }
       if (
         Utils.handlerForm(this, "alreadyInvested", val.length === 0 ? 0 : val, oldVal, [0, this.maxCurrentLevel]) ===
         Utils.FormCheck.VALID

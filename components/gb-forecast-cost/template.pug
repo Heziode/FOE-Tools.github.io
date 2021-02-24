@@ -1,76 +1,74 @@
-div.content
-  div.columns
-    div.column
-      div.field.is-half
-        h3.title.is-3 {{$t(i18nPrefix + 'title')}}
-    div.column.is-half(v-show="canPermalink")
-      div.field
-        nuxt-link#permalink.level-right(:to="localePath(permaLink)" exact)
-          span.icon
-            i.fas.fa-link
+div
+  .t-content-container
+    .t-columns.mb-4
+      .flex-shrink-1.flex-grow-1.w-full
+        h3.title.mb-0 {{$t(i18nPrefix + 'title')}}
+      .flex-shrink-0.flex-grow-0.mt-2(class="sm:mt-0")
+        nuxt-link#permalink(:to="localePath(permaLink)" exact)
+          i.fas.fa-link
           | &nbsp;{{$t('utils.permalink')}}
 
-  div.columns
-    div.column
-      div.field
-        p {{$t(i18nPrefix + 'p1')}}
+    p {{$t(i18nPrefix + 'p1')}}
 
-  // GB Selector
-  div.columns
-    div.column.is-half
-      div.field
+    // GB Selector
+    .t-columns
+      div(class="w-full sm:w-1/2")
         gb-list-select(:current="gb.key" @change="changeGb($event)")
 
-  // Row 1
-  div.columns
-    div.column.is-half
-      t-label(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
-        numberinput(inputId="previsionFrom" :min="0" :max="maxLevel - 2" v-model.number="fromInput" name="previsionFrom")
-    div.column.is-half
-      t-label(:label="$t('utils.To', { max: maxLevel - 1 })" label-for="previsionTo" :type="haveError('to')")
-        numberinput(inputId="previsionTo" :min="1" :max="maxLevel - 1" v-model.number="toInput" name="previsionTo")
+    // Row 1
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      div(class="w-full sm:w-1/2")
+        t-label(:label="$t('utils.From')" label-for="previsionFrom" :type="haveError('from')")
+          numberinput(inputId="previsionFrom" :min="0" :max="maxLevel - 2" v-model.number="fromInput" name="previsionFrom")
+      div(class="w-full sm:w-1/2")
+        t-label(:label="$t('utils.To', { max: maxLevel - 1 })" label-for="previsionTo" :type="haveError('to')")
+          numberinput(inputId="previsionTo" :min="1" :max="maxLevel - 1" v-model.number="toInput" name="previsionTo")
 
-  // Row 2
-  div.columns
-    div.column.is-half
-      yes-no(v-model="customPercentage" :label="$t(i18nPrefix + 'custom_percentage')")
+    // Row 2
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      div(class="w-full sm:w-1/2")
+        yes-no(v-model="customPercentage" :label="$t(i18nPrefix + 'custom_percentage')")
 
-    div.column.is-half(v-show="!customPercentage")
-      t-label(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
-        numberinput(inputId="previsionInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal")
+      div(class="w-full sm:w-1/2" v-show="!customPercentage")
+        t-label(:label="$t('components.gb_investment.gb_investment.form.investor_percentage')" label-for="previsionInvestorPercentageGlobal" :type="haveError('investorPercentageGlobal')")
+          numberinput(inputId="previsionInvestorPercentageGlobal" :min="0" :step="0.1" :precision="1" v-model.number="investorPercentageGlobal" name="investorPercentageGlobal")
 
-  // Row 3
-  div.table-wrapper(v-show="customPercentage")
-    table.table.is-bordered.is-striped.is-narrow.is-fullwidth
-      thead
-        tr
-          th {{$t('components.gb_investment.gb_investment.table.thead.th1')}}
-          th {{$t('components.gb_investment.gb_investment.table.thead.th5')}}
-      tbody
-        tr(v-for="i in 5")
-          td.has-text-right {{i}}
-          td
-            numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
+    // Row 3
+    div(class="flex flex-col mb-4" v-show="customPercentage")
+      div(class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8")
+        div(class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8")
+          div.shadow.overflow-hidden.border-b.border-gray-200(class="rounded-lg dark:border-gray-500 transition-light-dark")
+            table.min-w-full.divide-y.divide-gray-200(class="dark:divide-gray-500 transition-light-dark")
+              thead.bg-gray-50(class="dark:bg-gray-700 transition-light-dark")
+                tr
+                  th(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('components.gb_investment.gb_investment.table.thead.th1')}}
+                  th(scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-white uppercase tracking-wider") {{$t('components.gb_investment.gb_investment.table.thead.th5')}}
+              tbody(class="bg-white dark:bg-gray-600 divide-y divide-gray-200 dark:divide-gray-500 transition-light-dark")
+                tr(v-for="i in 5" :key="i")
+                  td.px-6.py-4.whitespace-nowrap {{i}}
+                  td.px-6.py-4.whitespace-nowrap
+                    numberinput(:min="0" :step="0.1" :precision="1" v-model.number="investorPercentageCustom[i - 1]" :name="'investorPercentageCustom_' + i")
 
-  // Result
-  div(v-if="previsionResult !== null")
-    p(v-if="from === to || to < from") {{$t(i18nPrefix + 'message.single', { level: from - 1, preparation: $n(previsionResult.global.totalPreparations), gb: $t('foe_data.gb.' + gb.key), cost: $n(previsionResult.global.cost)})}}
-    p(v-else) {{$t(i18nPrefix + 'message.multi', { from: from - 1, to: to, preparation: $n(previsionResult.global.totalPreparations), gb: $t('foe_data.gb.' + gb.key), cost: $n(previsionResult.global.cost) })}}
-    p(v-if="previsionDefault.global.totalPreparations !== previsionResult.global.totalPreparations") {{$tc(i18nPrefix + 'message.diff', previsionDefault.global.totalPreparations - previsionResult.global.totalPreparations, { count: $n(previsionDefault.global.totalPreparations - previsionResult.global.totalPreparations)})}}
+    // Result
+    div(v-if="previsionResult !== null")
+      p(v-if="from === to || to < from") {{$t(i18nPrefix + 'message.single', { level: from - 1, preparation: $n(previsionResult.global.totalPreparations), gb: $t('foe_data.gb.' + gb.key), cost: $n(previsionResult.global.cost)})}}
+      p(v-else) {{$t(i18nPrefix + 'message.multi', { from: from - 1, to: to, preparation: $n(previsionResult.global.totalPreparations), gb: $t('foe_data.gb.' + gb.key), cost: $n(previsionResult.global.cost) })}}
+      p(v-if="previsionDefault.global.totalPreparations !== previsionResult.global.totalPreparations") {{$tc(i18nPrefix + 'message.diff', previsionDefault.global.totalPreparations - previsionResult.global.totalPreparations, { count: $n(previsionDefault.global.totalPreparations - previsionResult.global.totalPreparations)})}}
 
-  h4.margin-top-one-em {{$t(i18nPrefix + 'estimated_time')}}
+  .t-content-container
+    h4.title {{$t(i18nPrefix + 'estimated_time')}}
 
-  div.columns
-    div.column.is-half
-      t-label(:label="$t('components.cf_calculator.block_cfc.fp_by_24h')" label-for="previsionFpBy24h" :type="haveError('fpBy24h')")
-        numberinput(inputId="previsionFpBy24h" :min="0" v-model.number="fpBy24h" name="previsionFpBy24h")
-    div.column.is-half
-      t-label(:label="$t(i18nPrefix + 'prop_already_invested')" label-for="previsionAlreadyInvested" :type="haveError('alreadyInvested')")
-        numberinput(inputId="previsionAlreadyInvested" :min="0" :max="maxCurrentLevel" v-model.number="alreadyInvested" name="previsionAlreadyInvested")
+    .t-columns.my-4.space-y-4(class="sm:space-x-8 sm:space-y-0")
+      div(class="w-full sm:w-1/2")
+        t-label(:label="$t('components.cf_calculator.block_cfc.fp_by_24h')" label-for="previsionFpBy24h" :type="haveError('fpBy24h')")
+          numberinput(inputId="previsionFpBy24h" :min="0" v-model.number="fpBy24h" name="previsionFpBy24h")
+      div(class="w-full sm:w-1/2")
+        t-label(:label="$t(i18nPrefix + 'prop_already_invested')" label-for="previsionAlreadyInvested" :type="haveError('alreadyInvested')")
+          numberinput(inputId="previsionAlreadyInvested" :min="0" :max="maxCurrentLevel" v-model.number="alreadyInvested" name="previsionAlreadyInvested")
 
-  div(v-show="(previsionResult !== null) && (fpBy24h > 0)")
-    p {{$t(i18nPrefix + 'message.estimated_time', { time: estimatedTime })}}
-    p {{$t(i18nPrefix + 'message.estimated_time_swap_threads', { time: estimatedTimeSwapThreads })}}
+    div(v-show="(previsionResult !== null) && (fpBy24h > 0)")
+      p {{$t(i18nPrefix + 'message.estimated_time', { time: estimatedTime })}}
+      p {{$t(i18nPrefix + 'message.estimated_time_swap_threads', { time: estimatedTimeSwapThreads })}}
 
-  div(v-show="from !== to")
+  .t-content-container(v-show="from !== to")
     graph-canvas.margin-top-one-em(v-show="from < to" gtype="line" id="graph" :goptions="options" :labels="labels" :datasets="datasets")
