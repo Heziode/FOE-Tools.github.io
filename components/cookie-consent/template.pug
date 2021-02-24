@@ -4,7 +4,7 @@ section
       img(src="~assets/cookie.png", width="36", height="36")
 
   .fixed.bottom-2.left-2.z-1000.bg-white.w-cc.shadow-lg.cookie-consent(
-    :class="{ 'lg:rounded-lg dark:bg-blueGray-900 dark:text-white': true, 'translate-cc': !showDialog }",
+    :class="{ 'lg:rounded-lg dark:bg-gray-800 dark:text-white': true, 'translate-cc': !showDialog }",
     style="max-height: calc(100vh - 4.5rem)"
   )
     template(v-if="!customize")
@@ -37,7 +37,6 @@ section
     template(v-else)
       .overflow-y.p-5(style="max-height: calc(100vh - 14.5rem)")
         p.font-semibold.leading-tight.text-lg(class="lg:text-xl") {{ $t('cookieConsent.consentModal.title') }}
-
         p.text-sm.mt-2.text-gray-700(class="dark:text-gray-400") {{ $t('cookieConsent.consentModal.description') }}
         p.text-sm.mt-2.text-gray-700(class="dark:text-gray-400") {{ $t('routes.about.cookie.p2') }}
         ul

@@ -45,7 +45,7 @@
             )
               span.inline-flex.flex-start
                 span.flex-shrink-0.flex-grow-0.mr-4 {{ $t(`common.lang.${lang.key}.${lang.key === 'en' ? 'flag_GB' : 'flag'}`) }}
-                span {{ lang.displayName }}
+                span {{ lang.displayName }} - 
                   strong(
                     v-if="lang.key.replace('-', '_') in $store.get('translationState')",
                     style="color: currentColor"
