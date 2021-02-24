@@ -300,7 +300,7 @@ export default {
     },
     customPromotionMessagesTemplates: get("global/customPromotionMessagesTemplates"),
     vueCardClass() {
-      return this.$data.tutoMode ? [] : ["is-hidden-desktop", "is-hidden-widescreen"];
+      return this.$data.tutoMode ? [] : ["lg:hidden"];
     },
     isBookmarked() {
       const bookmarks = this.$store.get(`profile/profiles@["${this.$store.get("global/currentProfile")}"].bookmarks`);
@@ -1098,12 +1098,11 @@ export default {
         buttons: [
           {
             action: tour.back,
-            classes: "button is-info",
             text: this.$t("utils.Previous"),
           },
           {
             action: tour.next,
-            classes: "button is-info is-margin-left-auto",
+            classes: "is-margin-left-auto",
             text: this.$t("utils.Next"),
           },
         ],
@@ -1243,12 +1242,11 @@ export default {
         buttons: [
           {
             action: tour.cancel,
-            classes: "button is-link is-disabled",
             text: this.$t("utils.Exit"),
           },
           {
             action: tour.next,
-            classes: "button is-info is-margin-left-auto",
+            classes: "is-margin-left-auto",
             text: this.$t("utils.Next"),
           },
         ],
@@ -1407,12 +1405,12 @@ export default {
         buttons: [
           {
             action: tour.back,
-            classes: "button is-info",
+            classes: "is-info",
             text: this.$t("utils.Previous"),
           },
           {
             action: tour.next,
-            classes: "button is-link is-margin-left-auto",
+            classes: "is-margin-left-auto",
             text: this.$t("utils.Done"),
           },
         ],
