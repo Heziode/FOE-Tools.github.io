@@ -31,6 +31,7 @@ import {
   faBookmark as fasBookmark,
   faPlusSquare,
   faSortAlphaDown,
+  faUser,
   faUserPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -76,6 +77,7 @@ library.add(
   faPlusSquare,
   faSortAlphaDown,
   faBuilding,
+  faUser,
   faUserPlus
 );
 
