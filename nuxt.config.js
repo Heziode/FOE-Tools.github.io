@@ -768,6 +768,7 @@ export default {
       /svg.*/,
       /fa.*/,
       /border-gb-.*/,
+      /-webkit-scrollbar.*/,
     ],
     whitelistPatternsChildren: [/select/, /switch/, /modal/, /autocomplete/, /dropdown/, /progress.*/, /shepherd.*/],
   },
