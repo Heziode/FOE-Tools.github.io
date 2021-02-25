@@ -4,7 +4,7 @@ section
       img(src="~assets/cookie.png", width="36", height="36")
 
   .fixed.bottom-2.left-2.z-1000.bg-white.w-cc.shadow-lg.cookie-consent(
-    :class="{ 'lg:rounded-lg dark:bg-blueGray-900 dark:text-white': true, 'translate-cc': !showDialog }",
+    :class="{ 'lg:rounded-lg dark:bg-gray-800 dark:text-white': true, 'translate-cc': !showDialog }",
     style="max-height: calc(100vh - 4.5rem)"
   )
     template(v-if="!customize")
@@ -23,13 +23,13 @@ section
           i {{ $t('cookieConsent.consentNotice.changeDescription') }}
       .flex.items-stretch
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-gray-700.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-r-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-600",
           @click="customize = true"
         )
           template(v-if="formattedPurposes.length") {{ $t('cookieConsent.consentNotice.learnMore') }}
           template(v-else) {{ $t('cookieConsent.consentNotice.learnMore_nonTogglable') }}
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-br-lg.font-bold.cursor-pointer.text-orange-400.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-600",
           @click="acceptConsent"
         )
           template(v-if="formattedPurposes.length") {{ $t('cookieConsent.ok') }}
@@ -37,7 +37,6 @@ section
     template(v-else)
       .overflow-y.p-5(style="max-height: calc(100vh - 14.5rem)")
         p.font-semibold.leading-tight.text-lg(class="lg:text-xl") {{ $t('cookieConsent.consentModal.title') }}
-
         p.text-sm.mt-2.text-gray-700(class="dark:text-gray-400") {{ $t('cookieConsent.consentModal.description') }}
         p.text-sm.mt-2.text-gray-700(class="dark:text-gray-400") {{ $t('routes.about.cookie.p2') }}
         ul
@@ -98,15 +97,15 @@ section
 
       .flex.items-stretch
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-gray-700.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-r-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-600",
           @click="customize = false"
         ) {{ $t('cookieConsent.back') }}
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.font-bold.cursor-pointer.text-orange-400.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
           v-if="formattedPurposes.length",
-          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-600",
           @click="acceptAll"
         ) {{ $t('cookieConsent.acceptAll') }}
-        button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-gray-700.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-800",
+        button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-orange-400.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
+          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-orange-300 dark:border-gray-600",
           @click="acceptSelected"
         ) {{ $t('cookieConsent.acceptSelected') }}
