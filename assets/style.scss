@@ -1,6 +1,28 @@
 @import "~shepherd.js/dist/css/shepherd";
 
 /*
+ * Customize the scrollbar
+ */
+
+::-webkit-scrollbar {
+  @apply w-4;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full border-4 border-solid border-transparent;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fc6076), to(#ff9a44));
+  background-clip: padding-box;
+
+  &:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+  }
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-opacity-10 bg-black dark:bg-opacity-5 dark:bg-white p-1;
+}
+
+/*
  * Disable arrow spin of the browser.
  * This is used by number input when the number input add +/- buttons.
  */
