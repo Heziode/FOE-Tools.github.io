@@ -11,7 +11,7 @@
 
   main
     // Notifications
-    .container.m-auto.mt-4.space-y-4.px-0(class="md:px-32 lg:px-64")
+    .container.m-auto.mt-8.space-y-4.px-0(class="md:px-32 lg:px-64")
       t-message(type="info", v-show="isNewYear", closable)
         p.text-2xl 🎉&nbsp;&nbsp;{{ $tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) }) }}&nbsp;&nbsp;🍰
       t-message(type="info", :closable="false", v-show="hasSurvey")
