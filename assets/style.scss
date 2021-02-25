@@ -1,6 +1,28 @@
 @import "~shepherd.js/dist/css/shepherd";
 
 /*
+ * Customize the scrollbar
+ */
+
+::-webkit-scrollbar {
+  @apply w-4;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full border-4 border-solid border-transparent;
+  background: -webkit-gradient(linear, left top, left bottom, from(#fc6076), to(#ff9a44));
+  background-clip: padding-box;
+
+  &:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.2);
+  }
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-opacity-10 bg-black dark:bg-opacity-5 dark:bg-white p-1;
+}
+
+/*
  * Disable arrow spin of the browser.
  * This is used by number input when the number input add +/- buttons.
  */
@@ -124,6 +146,10 @@ p:not([class]) {
  * Navbar
  */
 
+.max-w-screen {
+  max-width: 100vw;
+}
+
 .navbar-item {
   @apply px-3 py-3 rounded-lg text-sm font-medium text-gray-300 dark:text-coolGray-800 hover:text-white focus:outline-none focus:ring transition-light-dark;
 
@@ -159,6 +185,17 @@ p:not([class]) {
 .navbar-fade-leave-to {
   opacity: 0;
   transform: translateX(var(--tw-translate-x)) translateY(-1rem);
+}
+
+/*
+ * Language selector
+ */
+
+@media (min-width: 640px) {
+  .language-selector-max-height {
+    // 7rem = 4rem (navbar height) + 2rem (navbar top) + 1rem (this dropdown top)
+    max-height: calc(100vh - 7rem);
+  }
 }
 
 /*
