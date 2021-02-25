@@ -23,13 +23,13 @@ section
           i {{ $t('cookieConsent.consentNotice.changeDescription') }}
       .flex.items-stretch
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-gray-700.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-r-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-600",
           @click="customize = true"
         )
           template(v-if="formattedPurposes.length") {{ $t('cookieConsent.consentNotice.learnMore') }}
           template(v-else) {{ $t('cookieConsent.consentNotice.learnMore_nonTogglable') }}
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-br-lg.font-bold.cursor-pointer.text-orange-400.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-600",
           @click="acceptConsent"
         )
           template(v-if="formattedPurposes.length") {{ $t('cookieConsent.ok') }}
@@ -97,15 +97,15 @@ section
 
       .flex.items-stretch
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-gray-700.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-r-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-600",
           @click="customize = false"
         ) {{ $t('cookieConsent.back') }}
         button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.font-bold.cursor-pointer.text-orange-400.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
           v-if="formattedPurposes.length",
-          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-800",
+          class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-600",
           @click="acceptAll"
         ) {{ $t('cookieConsent.acceptAll') }}
-        button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-gray-700.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
-          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-800",
+        button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-orange-400.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
+          class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-orange-300 dark:border-gray-600",
           @click="acceptSelected"
         ) {{ $t('cookieConsent.acceptSelected') }}
