@@ -33,7 +33,7 @@
           @dayStartChange="$emit('dayStartChange')",
           @nightStartChange="$emit('nightStartChange')"
         )
-  .bg-gray-50.px-4.py-3.space-x-0.space-y-4.transition-light-dark(
+  .bg-gray-50.px-4.py-3.space-x-0.space-y-4.transition-light-dark.flex.flex-col(
     class="sm:px-6 sm:flex sm:flex-row sm:justify-between sm:space-x-4 sm:space-y-0 dark:bg-gray-600"
   )
     t-button(:title="$t('utils.Reset')", :label="$t('utils.Reset')", @click="resetSettings()", type="danger")
