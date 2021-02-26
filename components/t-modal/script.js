@@ -116,9 +116,9 @@ export default {
 
       if (this.scroll === "clip") {
         if (this.isActive) {
-          document.documentElement.classList.add("is-clipped");
+          document.documentElement.classList.add("overflow-hidden");
         } else {
-          document.documentElement.classList.remove("is-clipped");
+          document.documentElement.classList.remove("overflow-hidden");
         }
         return;
       }
@@ -126,9 +126,9 @@ export default {
       this.savedScrollTop = !this.savedScrollTop ? document.documentElement.scrollTop : this.savedScrollTop;
 
       if (this.isActive) {
-        document.body.classList.add("is-noscroll");
+        document.body.classList.add("fixed", "overflow-y-hidden", "width-full");
       } else {
-        document.body.classList.remove("is-noscroll");
+        document.body.classList.remove("fixed", "overflow-y-hidden", "width-full");
       }
 
       if (this.isActive) {
@@ -219,9 +219,9 @@ export default {
     if (typeof window !== "undefined") {
       document.removeEventListener("keyup", this.keyPress);
       // reset scroll
-      document.documentElement.classList.remove("is-clipped");
+      document.documentElement.classList.remove("overflow-hidden");
       const savedScrollTop = !this.savedScrollTop ? document.documentElement.scrollTop : this.savedScrollTop;
-      document.body.classList.remove("is-noscroll");
+      document.body.classList.remove("fixed", "overflow-y-hidden", "width-full");
       document.documentElement.scrollTop = savedScrollTop;
       document.body.style.top = null;
     }
