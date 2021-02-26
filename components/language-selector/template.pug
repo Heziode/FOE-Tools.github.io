@@ -14,7 +14,7 @@
       span {{ $t('common.lang.' + $i18n.locale + '.original') }}
         span(
           v-if="$i18n.locale.replace('-', '_') in $store.get('translationState') && $store.get(`translationState@${$i18n.locale.replace('-', '_')}`) < 80"
-        ) ({{ $store.get(`translationState@${$i18n.locale.replace('-', '_')}`) }}%)
+        ) &nbsp;({{ $store.get(`translationState@${$i18n.locale.replace('-', '_')}`) }}%)
       span.ml-2(v-if="$i18n.locale === 'en'") {{ $t('common.lang.en.flag_US') }}
       ArrowSvg.flex-none.w-4.h-4.ml-1.-mr-1.transition.duration-200.ease-out.transform(
         :class="{ 'rotate-180': isVisible }"
@@ -45,7 +45,7 @@
             )
               span.inline-flex.flex-start
                 span.flex-shrink-0.flex-grow-0.mr-4 {{ $t(`common.lang.${lang.key}.${lang.key === 'en' ? 'flag_GB' : 'flag'}`) }}
-                span {{ lang.displayName }} -
+                span {{ lang.displayName }} -&nbsp;
                   strong(
                     v-if="lang.key.replace('-', '_') in $store.get('translationState')",
                     style="color: currentColor"

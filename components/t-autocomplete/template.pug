@@ -32,7 +32,7 @@
             href="#",
             v-for="(option, index) in element.items",
             :key="groupindex + ':' + index",
-            @click="setSelected(option, undefined, $event)"
+            @click.prevent="setSelected(option, undefined, $event)"
           )
             slot(v-if="hasDefaultSlot", :option="option", :index="index")
             span(v-else="")

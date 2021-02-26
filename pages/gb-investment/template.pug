@@ -2,11 +2,23 @@
   show-bookmarks(v-if="$store.get(`profile/profiles@[${this.$store.get('global/currentProfile')}].bookmarks`).length")
 
   h3.title.mt-8.mb-4
-    t-button.mr-2(@click.prevent="$store.set('global/gbSelectSortMode', gbSelectSortMode === 'age' ? 'alpha' : 'age')")
-      span.icon.inline-block(v-show="gbSelectSortMode === 'age'", style="margin: 0 !important")
-        i.far.fa-building
-      span.icon.inline-block(v-show="gbSelectSortMode === 'alpha'")
-        i.fas.fa-sort-alpha-down
+    .inline.block.mr-4
+      t-button(
+        iconLeft="far fa-building",
+        @click="$store.set('global/gbSelectSortMode', gbSelectSortMode === 'age' ? 'alpha' : 'age')",
+        :borderRight="false",
+        :roundedTopRight="false",
+        :roundedBottomRight="false",
+        :type="gbSelectSortMode === 'age' ? 'info' : 'default'"
+      )
+      t-button(
+        iconLeft="fas fa-sort-alpha-down",
+        @click="$store.set('global/gbSelectSortMode', gbSelectSortMode === 'age' ? 'alpha' : 'age')",
+        :borderLeft="false",
+        :roundedTopLeft="false",
+        :roundedBottomLeft="false",
+        :type="gbSelectSortMode === 'alpha' ? 'info' : 'default'"
+      )
     | {{ $t(i18nPrefix + 'choose_gb.title') }}
 
   .grid.grid-cols-1.gap-6.mt-4(v-if="gbSelectSortMode === 'age'", class="md:grid-cols-2")

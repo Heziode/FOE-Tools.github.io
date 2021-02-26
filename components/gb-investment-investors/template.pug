@@ -6,7 +6,7 @@ div
           h3.title.mb-0.w-full {{ $t('foe_data.gb.' + gb.key) }}
           #bookmark.text-right
             a(
-              @click="toggleFavourite",
+              @click.prevent="toggleFavourite",
               href="#",
               v-tippy="{ content: $t('components.gb_investment.' + (isBookmarked ? 'remove_favourite' : 'add_favourite')) }"
             )

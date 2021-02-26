@@ -37,7 +37,6 @@ $ageColors: (
 
 @each $key, $color in $ageColors {
   .border-gb-#{$key} {
-    @debug $key, $color;
     border-color: $color;
   }
 }
