@@ -306,7 +306,7 @@ p:not([class]) {
 .shepherd-header,
 .shepherd-has-title .shepherd-header,
 .shepherd-has-title .shepherd-content .shepherd-header {
-  @apply bg-gray-50 dark:bg-gray-600 transition-light-dark text-gray-900 dark:text-white p-4 rounded-t-lg;
+  @apply bg-coolGray-100 dark:bg-gray-600 transition-light-dark text-gray-900 dark:text-white p-4 rounded-t-lg;
 
   .shepherd-title {
     @apply dark:text-white;
@@ -314,7 +314,7 @@ p:not([class]) {
 }
 
 .shepherd-footer {
-  @apply bg-gray-50 dark:bg-gray-600 transition-light-dark text-gray-900 dark:text-white p-4 rounded-b-lg;
+  @apply bg-coolGray-100 dark:bg-gray-600 transition-light-dark text-gray-900 dark:text-white p-4 rounded-b-lg;
 }
 
 .shepherd-button {
