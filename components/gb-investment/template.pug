@@ -22,7 +22,7 @@
       .w-full(class="sm:w-1/2")
         gb-list-select#gbListSelect(:current="gb.key", @change="goTo($event)")
       .w-full(class="sm:w-1/2")
-        .text-right
+        .text-right.mt-4(class="sm:mt-0")
           a.text-white(href="#", @click.prevent="startTour", class="hover:text-gray-100 dark:hover:text-gray-100")
             article.tutorial-button(style="display: inline-block")
               font-awesome-icon(icon="question", size="2x")
@@ -50,22 +50,24 @@
           )
             template(#labelAfter)
               font-awesome-icon.cursor-pointer(
-                v-if="lockInvestorPercentage"
-                :icon="['fas', 'lock']"
-                @click="lockInvestorPercentage = false"
-                v-tippy="{ content: $t('utils.unlock') }")
+                v-if="lockInvestorPercentage",
+                :icon="['fas', 'lock']",
+                @click="lockInvestorPercentage = false",
+                v-tippy="{ content: $t('utils.unlock') }"
+              )
               font-awesome-icon.cursor-pointer(
-                v-else
-                :icon="['fas', 'lock-open']"
-                @click="lockInvestorPercentage = true"
-                v-tippy="{ content: $t('utils.lock') }")
+                v-else,
+                :icon="['fas', 'lock-open']",
+                @click="lockInvestorPercentage = true",
+                v-tippy="{ content: $t('utils.lock') }"
+              )
             numberinput(
               inputId="giInvestorPercentageGlobal",
               :min="0",
               :step="0.1",
               :precision="1",
               v-model.number="investorPercentageGlobal",
-              :isDisabled="lockInvestorPercentage"
+              :isDisabled="lockInvestorPercentage",
               name="investorPercentageGlobal",
               showIncDec
             )
@@ -219,15 +221,17 @@
               br
               .mt-2
                 font-awesome-icon.cursor-pointer(
-                  v-if="lockInvestorPercentage"
-                  :icon="['fas', 'lock']"
-                  @click="lockInvestorPercentage = false"
-                  v-tippy="{ content: $t('utils.unlock') }")
+                  v-if="lockInvestorPercentage",
+                  :icon="['fas', 'lock']",
+                  @click="lockInvestorPercentage = false",
+                  v-tippy="{ content: $t('utils.unlock') }"
+                )
                 font-awesome-icon.cursor-pointer(
-                  v-else
-                  :icon="['fas', 'lock-open']"
-                  @click="lockInvestorPercentage = true"
-                  v-tippy="{ content: $t('utils.lock') }")
+                  v-else,
+                  :icon="['fas', 'lock-open']",
+                  @click="lockInvestorPercentage = true",
+                  v-tippy="{ content: $t('utils.lock') }"
+                )
             th.tableDataIsSniper.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white",
@@ -338,7 +342,7 @@
                 :step="0.1",
                 :precision="1",
                 v-model.number="investorPercentageCustom[i]",
-                :isDisabled="lockInvestorPercentage"
+                :isDisabled="lockInvestorPercentage",
                 :name="'investorPercentageCustom_' + i"
               )
             // Potential sniper switch
@@ -547,21 +551,23 @@
             br
             .mt-2
               font-awesome-icon.cursor-pointer(
-                v-if="lockInvestorPercentage"
-                :icon="['fas', 'lock']"
-                @click="lockInvestorPercentage = false"
-                v-tippy="{ content: $t('utils.unlock') }")
+                v-if="lockInvestorPercentage",
+                :icon="['fas', 'lock']",
+                @click="lockInvestorPercentage = false",
+                v-tippy="{ content: $t('utils.unlock') }"
+              )
               font-awesome-icon.cursor-pointer(
-                v-else
-                :icon="['fas', 'lock-open']"
-                @click="lockInvestorPercentage = true"
-                v-tippy="{ content: $t('utils.lock') }")
+                v-else,
+                :icon="['fas', 'lock-open']",
+                @click="lockInvestorPercentage = true",
+                v-tippy="{ content: $t('utils.lock') }"
+              )
           .col-span-2.text-right
             numberinput(
               :min="0",
               :step="0.1",
               :precision="1",
-              :isDisabled="lockInvestorPercentage"
+              :isDisabled="lockInvestorPercentage",
               v-model.number="investorPercentageCustom[i]",
               :name="'investorPercentageCustom_' + i"
             )
