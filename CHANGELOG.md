@@ -4,26 +4,23 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.83.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.82.0...v2.83.0) (2021-02-28)
 
-
 ### Features
 
-* allow to disable notifications about update ([05cc348](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/05cc34805773cece6cf387a62c0747f96f849ed2))
-* offer users to install the FOE-Tools webapp ([f5f6e9a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f5f6e9a968e9120aa8b1b5c18a1013045e33f204))
-* **gb-investment:** add lock/unlock on investor percentage fields ([afe67b0](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/afe67b0e17786287a34fc22d77c270779fcf4466))
-* **style:** update UI ([b740c06](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b740c0660ed71be370799309e57d8afe9b12f97e))
-
+- allow to disable notifications about update ([05cc348](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/05cc34805773cece6cf387a62c0747f96f849ed2))
+- offer users to install the FOE-Tools webapp ([f5f6e9a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/f5f6e9a968e9120aa8b1b5c18a1013045e33f204))
+- **gb-investment:** add lock/unlock on investor percentage fields ([afe67b0](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/afe67b0e17786287a34fc22d77c270779fcf4466))
+- **style:** update UI ([b740c06](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b740c0660ed71be370799309e57d8afe9b12f97e))
 
 ### Bug Fixes
 
-* **cookie-consent:** set expire to 1 year instead of 1 month ([3993ae7](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3993ae7905f32aa17f620be446711d6cab16d42c))
-* **gb-list-select:** fix update of gb-list-select on navbar ([9865669](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/98656692413880aa7da96086558a932b10c9c401))
-* **modal:** fix modal overflow on small screen ([150bc3b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/150bc3b2f4449238a106548a45a964e3f7c31483))
-
+- **cookie-consent:** set expire to 1 year instead of 1 month ([3993ae7](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/3993ae7905f32aa17f620be446711d6cab16d42c))
+- **gb-list-select:** fix update of gb-list-select on navbar ([9865669](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/98656692413880aa7da96086558a932b10c9c401))
+- **modal:** fix modal overflow on small screen ([150bc3b](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/150bc3b2f4449238a106548a45a964e3f7c31483))
 
 ### Translation
 
-* Translated using Weblate (Greek) ([32eeffb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/32eeffbf33f5de64bc5a4e22363e5b6ddb051ddb))
-* Translated using Weblate (Russian) ([b57c0d2](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b57c0d21cd1765d658aaa8c80323dfcf46c1e237))
+- Translated using Weblate (Greek) ([32eeffb](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/32eeffbf33f5de64bc5a4e22363e5b6ddb051ddb))
+- Translated using Weblate (Russian) ([b57c0d2](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/b57c0d21cd1765d658aaa8c80323dfcf46c1e237))
 
 ## [2.82.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.81.1...v2.82.0) (2021-02-14)
 
