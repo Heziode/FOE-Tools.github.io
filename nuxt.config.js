@@ -649,6 +649,12 @@ export default {
             48: "12rem",
             md: "28rem",
           },
+          inset: {
+            18: "4.5rem",
+          },
+          spacing: {
+            128: "32rem",
+          },
           maxWidth: (theme, { breakpoints }) => ({
             ...tailwindConf.theme.maxWidth(theme, { breakpoints }),
             5: "1.25rem",
