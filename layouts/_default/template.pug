@@ -15,7 +15,7 @@
         p.text-2xl 🎉&nbsp;&nbsp;{{ $tc(i18nPrefix + 'new_year.message', nbYears, { count: $n(nbYears) }) }}&nbsp;&nbsp;🍰
       t-message(type="info", :closable="false", v-show="hasSurvey")
         nuxt-link(:to="localePath({ name: 'Survey' })", style="text-decoration: underline") {{ $t(i18nPrefix + 'survey.message') }}
-      t-message(type="info", v-show="nbUpdateSinceLastVisit", closable)
+      t-message(type="info", v-show="nbUpdateSinceLastVisit && !disableUpdateNotification", closable)
         p {{ $tc(i18nPrefix + 'update', nbUpdateSinceLastVisit, { count: $n(nbUpdateSinceLastVisit) }) }}
         nuxt-link(:to="localePath({ name: 'Changelog' })") {{ $t(i18nPrefix + 'whats_new') }}
 

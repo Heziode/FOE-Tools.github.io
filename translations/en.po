@@ -1023,6 +1023,9 @@ msgstr "System preference"
 msgid "components.site_layout.global_config_dialog.day_night_mode.Auto"
 msgstr "Automatic"
 
+msgid "components.site_layout.global_config_dialog.disable_update_notification"
+msgstr "Disable notifications about update"
+
 msgid "components.site_layout.switch_locale"
 msgstr "@:(common.site_title) is available in your language"
 

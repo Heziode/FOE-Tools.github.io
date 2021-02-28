@@ -1053,6 +1053,9 @@ msgstr "Préférence du système"
 msgid "components.site_layout.global_config_dialog.day_night_mode.Auto"
 msgstr "Automatique"
 
+msgid "components.site_layout.global_config_dialog.disable_update_notification"
+msgstr "Désactiver les notifications de mise à jour"
+
 msgid "components.site_layout.switch_locale"
 msgstr "@:(common.site_title) est disponible dans votre langue"
 

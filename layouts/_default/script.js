@@ -1,4 +1,4 @@
-import { get } from "vuex-pathify";
+import { get, sync } from "vuex-pathify";
 import packageConfig from "~/package.json";
 import mainHeader from "~/components/main-header/MainHeader";
 import mainFooter from "~/components/main-footer/MainFooter";
@@ -67,6 +67,7 @@ export default {
     localesNotCompleted() {
       return this.$store.get("localesNotCompleted");
     },
+    disableUpdateNotification: sync("global/disableUpdateNotification"),
   },
   watch: {
     localesNotCompleted(val) {

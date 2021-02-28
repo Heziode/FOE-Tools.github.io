@@ -5,6 +5,7 @@ import YesNo from "~/components/yes-no/YesNo";
 const i18nPrefix = "components.site_layout.global_config_dialog.";
 const defaultConfig = {
   fixedMainMenu: true,
+  disableUpdateNotification: false,
   gbSelectMode: "select", // datalist | select
   dayNightMode: "system", // day | night | auto | system
 };
@@ -33,6 +34,7 @@ export default {
   },
   computed: {
     fixedMainMenu: sync("global/fixedMainMenu"),
+    disableUpdateNotification: sync("global/disableUpdateNotification"),
     gbSelectMode: sync("global/gbSelectMode"),
     dayNightMode: sync("global/dayNightMode"),
   },
@@ -45,6 +47,7 @@ export default {
   methods: {
     resetSettings() {
       this.fixedMainMenu = defaultConfig.fixedMainMenu;
+      this.disableUpdateNotification = defaultConfig.disableUpdateNotification;
       this.gbSelectMode = defaultConfig.gbSelectMode;
       this.dayNightMode = defaultConfig.dayNightMode;
     },
