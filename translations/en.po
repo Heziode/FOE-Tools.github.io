@@ -3669,6 +3669,13 @@ msgstr "Favourites"
 msgid "utils.alpha_order"
 msgstr "Alphabetical order"
 
+msgid "utils.lock"
+msgstr "Lock"
+
+msgid "utils.unlock"
+msgstr "Unlock"
+
+
 msgid "contributions.blog"
 msgstr "Blogposts"
 

@@ -3715,6 +3715,12 @@ msgstr "Favoris"
 msgid "utils.alpha_order"
 msgstr "Ordre alphabétique"
 
+msgid "utils.lock"
+msgstr "Verrouiller"
+
+msgid "utils.unlock"
+msgstr "Déverrouiller"
+
 msgid "contributions.blog"
 msgstr "Articles de blog"
 

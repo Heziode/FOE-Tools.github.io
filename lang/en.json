@@ -1083,6 +1083,8 @@
   "utils.graph.gb_reward_1st_place": "Level reward (1st place)",
   "utils.favourites": "Favourites",
   "utils.alpha_order": "Alphabetical order",
+  "utils.lock": "Lock",
+  "utils.unlock": "Unlock",
   "contributions.blog": "Blogposts",
   "contributions.bug": "Bug reports",
   "contributions.code": "Code",
