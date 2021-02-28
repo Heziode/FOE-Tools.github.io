@@ -36,6 +36,7 @@ export default () => {
     }
   }
   config.purposes = Array.from(s);
+  const cm = new CookieConsent(config);
 
   const elt = document.createElement("div");
   elt.id = "#cookieConsent";
@@ -45,8 +46,9 @@ export default () => {
   const component = new DialogComponent({
     el: elt,
     propsData: {
-      cm: new CookieConsent(config),
+      cm,
     },
   });
+  Vue.prototype.$cookieConsentManager = cm;
   component.$forceUpdate();
 };

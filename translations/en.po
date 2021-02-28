@@ -3831,3 +3831,15 @@ msgstr "Performance Optimization"
 
 msgid "cookieConsent.purposes.quality"
 msgstr "Quality"
+
+msgid "addToHomeScreen.title"
+msgstr "Install FOE-Tools"
+
+msgid "addToHomeScreen.description"
+msgstr "Get FOE-Tools app. It won't take up space on your device (computer, smartphone, etc.) and let's you to quickly access to FOE-Tools from your home screen or desktop."
+
+msgid "addToHomeScreen.install"
+msgstr "Install"
+
+msgid "addToHomeScreen.dismiss"
+msgstr "Dismiss"

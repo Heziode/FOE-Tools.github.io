@@ -1136,5 +1136,9 @@
   "cookieConsent.purposes.functional.title": "Service Provision",
   "cookieConsent.purposes.performance.description": "These services process personal information to optimize the service that this website offers.",
   "cookieConsent.purposes.performance.title": "Performance Optimization",
-  "cookieConsent.purposes.quality": "Quality"
+  "cookieConsent.purposes.quality": "Quality",
+  "addToHomeScreen.title": "Install FOE-Tools",
+  "addToHomeScreen.description": "Get FOE-Tools app. It won't take up space on your device (computer, smartphone, etc.) and let's you to quickly access to FOE-Tools from your home screen or desktop.",
+  "addToHomeScreen.install": "Install",
+  "addToHomeScreen.dismiss": "Dismiss"
 }

@@ -9,6 +9,7 @@ export const state = () => ({
   disableUpdateNotification: false,
   haveReadLocaleInfoAvailable: false,
   haveReadLocaleNotComplete: false,
+  haveReadInstallApp: false,
   customPromotionMessagesTemplates: [],
   displayTableCard: false,
   dayNightMode: "system",

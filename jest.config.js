@@ -32,6 +32,7 @@ module.exports = {
     "!**/.eslintrc.js",
     "!**/components/graph-canvas/**",
     "!**/app/**",
+    "!**/components/add-to-home-screen/**",
     "!**/components/promotion-message-builder/**",
     "!**/components/import-promotion-message/**",
     "!**/components/main-footer/**",

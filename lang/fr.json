@@ -1137,5 +1137,9 @@
   "cookieConsent.purposes.functional.title": "Prestation de services",
   "cookieConsent.purposes.performance.description": "Ces services traitent les informations personnelles afin d'optimiser le service que ce site Web offre.",
   "cookieConsent.purposes.performance.title": "Optimisation de la performance",
-  "foe_data.gb.Galata_Tower": "Tour Galata"
+  "foe_data.gb.Galata_Tower": "Tour Galata",
+  "addToHomeScreen.title": "Installer FOE-Tools",
+  "addToHomeScreen.description": "Installer l'application FOE-Tools. Elle ne prendra pas de place sur votre appareil (ordinateur, smartphone, etc.) et vous permettra d'accéder rapidement à FOE-Tools depuis votre écran d'accueil ou votre bureau.",
+  "addToHomeScreen.install": "Installer",
+  "addToHomeScreen.dismiss": "Non merci"
 }

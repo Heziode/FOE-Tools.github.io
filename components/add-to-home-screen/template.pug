@@ -1,0 +1,33 @@
+section(v-if="true")
+  .fixed.bottom-16.left-4.z-5(style="width: auto")
+    a(href="#", @click.prevent="toggleModal()")
+      figure.w-10.h-10.m-auto
+        viewGridAdd
+
+  transition(
+    enter-active-class="transition-all ease-out duration-500 transform",
+    enter-class="opacity-0 -translate-x-full",
+    enter-to-class="opacity-100 translate-x-0",
+    leave-active-class="transition-all ease-in duration-500 transform",
+    leave-class="opacity-100 translate-x-0",
+    leave-to-class="opacity-0 -translate-x-full"
+  )
+    .fixed.bottom-0.left-0.z-1000.bg-white.w-full.shadow-lg(
+      v-if="showDialog",
+      class="lg:rounded-lg dark:bg-gray-800 dark:text-white lg:bottom-32 lg:left-4 lg:w-128",
+      style="max-height: calc(100vh - 4.5rem)"
+    )
+      template
+        .overflow-y-auto.p-5(style="max-height: calc(100vh - 14.5rem)")
+          h4.title {{ $t('addToHomeScreen.title') }}
+          p.text-sm.mt-4 {{ $t('addToHomeScreen.description') }}
+
+        .flex.items-stretch
+          button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-bl-lg.font-bold.cursor-pointer.text-gray-700.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-r-1.w-full(
+            class="hover:scale-110 focus:outline-none hover:text-gray-800 dark:hover:text-gray-400 dark:text-gray-200 dark:border-gray-600",
+            @click="dismiss"
+          ) {{ $t('addToHomeScreen.dismiss') }}
+          button.text-base.rounded-r-none.flex.justify-center.px-4.py-2.rounded-br-lg.font-bold.cursor-pointer.text-orange-400.duration-200.ease-in-out.transition.border-gray-200.border-t-2.border-l-1.w-full(
+            class="hover:scale-110 focus:outline-none hover:text-orange-300 dark:border-gray-600",
+            @click="install"
+          ) {{ $t('addToHomeScreen.install') }}

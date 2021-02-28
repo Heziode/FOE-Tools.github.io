@@ -3879,3 +3879,15 @@ msgstr "Optimisation de la performance"
 
 msgid "foe_data.gb.Galata_Tower"
 msgstr "Tour Galata"
+
+msgid "addToHomeScreen.title"
+msgstr "Installer FOE-Tools"
+
+msgid "addToHomeScreen.description"
+msgstr "Installer l'application FOE-Tools. Elle ne prendra pas de place sur votre appareil (ordinateur, smartphone, etc.) et vous permettra d'accéder rapidement à FOE-Tools depuis votre écran d'accueil ou votre bureau."
+
+msgid "addToHomeScreen.install"
+msgstr "Installer"
+
+msgid "addToHomeScreen.dismiss"
+msgstr "Non merci"
