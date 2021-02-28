@@ -525,7 +525,6 @@ export default {
     "@nuxtjs/axios",
     { src: "~/modules/foe-data/module.js" },
     { src: "~/modules/cname/module.js" },
-    "@nuxtjs/pwa",
     "@nuxtjs/sentry",
   ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
@@ -788,5 +787,12 @@ export default {
     },
   },
 
-  buildModules: ["@nuxtjs/router-extras", "@nuxtjs/svg", "@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "nuxt-purgecss"],
+  buildModules: [
+    "@nuxtjs/router-extras",
+    "@nuxtjs/pwa",
+    "@nuxtjs/svg",
+    "@nuxtjs/color-mode",
+    "@nuxtjs/tailwindcss",
+    "nuxt-purgecss",
+  ],
 };
