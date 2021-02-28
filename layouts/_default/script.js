@@ -2,6 +2,7 @@ import { get } from "vuex-pathify";
 import packageConfig from "~/package.json";
 import mainHeader from "~/components/main-header/MainHeader";
 import mainFooter from "~/components/main-footer/MainFooter";
+import scrollToTop from "~/components/scroll-to-top/ScrollToTop";
 
 const i18nPrefix = "components.site_layout.";
 
@@ -158,5 +159,6 @@ export default {
   components: {
     mainHeader,
     mainFooter,
+    scrollToTop,
   },
 };

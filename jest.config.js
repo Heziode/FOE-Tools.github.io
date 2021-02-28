@@ -36,6 +36,7 @@ module.exports = {
     "!**/components/import-promotion-message/**",
     "!**/components/main-footer/**",
     "!**/components/main-header/components/**",
+    "!**/components/scroll-to-top/**",
     "!**/components/sortable-item/**",
     "!**/components/sortable-list/**",
     "!**/components/t-autocomplete/**",
