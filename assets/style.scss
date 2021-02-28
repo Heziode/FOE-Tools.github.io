@@ -602,3 +602,27 @@ a.t-dropdown-item {
 .tippy-tooltip.custom-theme[data-animatefill] {
   @apply dark:bg-white bg-gray-800;
 }
+
+/*
+ * Custom helpers
+ */
+
+.-translate-x-full {
+  --tw-translate-x: -110%;
+}
+
+.z-5 {
+  z-index: 5;
+}
+
+.z-1000 {
+  z-index: 1000;
+}
+
+.border-l-1 {
+  border-left-width: 1px;
+}
+
+.border-r-1 {
+  border-right-width: 1px;
+}

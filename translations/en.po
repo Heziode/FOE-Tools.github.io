@@ -1023,6 +1023,9 @@ msgstr "System preference"
 msgid "components.site_layout.global_config_dialog.day_night_mode.Auto"
 msgstr "Automatic"
 
+msgid "components.site_layout.global_config_dialog.disable_update_notification"
+msgstr "Disable notifications about update"
+
 msgid "components.site_layout.switch_locale"
 msgstr "@:(common.site_title) is available in your language"
 
@@ -3669,6 +3672,13 @@ msgstr "Favourites"
 msgid "utils.alpha_order"
 msgstr "Alphabetical order"
 
+msgid "utils.lock"
+msgstr "Lock"
+
+msgid "utils.unlock"
+msgstr "Unlock"
+
+
 msgid "contributions.blog"
 msgstr "Blogposts"
 
@@ -3821,3 +3831,15 @@ msgstr "Performance Optimization"
 
 msgid "cookieConsent.purposes.quality"
 msgstr "Quality"
+
+msgid "addToHomeScreen.title"
+msgstr "Install FOE-Tools"
+
+msgid "addToHomeScreen.description"
+msgstr "Get FOE-Tools app. It won't take up space on your device (computer, smartphone, etc.) and let's you to quickly access to FOE-Tools from your home screen or desktop."
+
+msgid "addToHomeScreen.install"
+msgstr "Install"
+
+msgid "addToHomeScreen.dismiss"
+msgstr "Dismiss"

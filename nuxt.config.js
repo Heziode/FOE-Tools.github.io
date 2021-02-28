@@ -488,6 +488,7 @@ export default {
     { src: "~/plugins/tooltip.js" },
     { src: "~/plugins/moment.js" },
     { src: "~/plugins/cookieConsent.js" },
+    { src: "~/plugins/addToHomeScreen.js" },
     { src: "~/plugins/fontawesome.js" },
     { src: "~/plugins/tailwind-comps.js" },
     { src: "~/plugins/nuxtClientInit.js", mode: "client" }, // It must always be the last
@@ -525,7 +526,6 @@ export default {
     "@nuxtjs/axios",
     { src: "~/modules/foe-data/module.js" },
     { src: "~/modules/cname/module.js" },
-    "@nuxtjs/pwa",
     "@nuxtjs/sentry",
   ],
   robots: generateRobotTxt(`${hostname}/sitemap.xml`),
@@ -649,6 +649,12 @@ export default {
             12: "3rem",
             48: "12rem",
             md: "28rem",
+          },
+          inset: {
+            18: "4.5rem",
+          },
+          spacing: {
+            128: "32rem",
           },
           maxWidth: (theme, { breakpoints }) => ({
             ...tailwindConf.theme.maxWidth(theme, { breakpoints }),
@@ -788,5 +794,12 @@ export default {
     },
   },
 
-  buildModules: ["@nuxtjs/router-extras", "@nuxtjs/svg", "@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "nuxt-purgecss"],
+  buildModules: [
+    "@nuxtjs/router-extras",
+    "@nuxtjs/pwa",
+    "@nuxtjs/svg",
+    "@nuxtjs/color-mode",
+    "@nuxtjs/tailwindcss",
+    "nuxt-purgecss",
+  ],
 };

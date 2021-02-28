@@ -98,6 +98,13 @@ export default {
           }].ownerView.investorParticipation`
         )
       ),
+      lockInvestorPercentage: this.$clone(
+        this.$store.get(
+          `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb[${
+            this.$route.params.gb
+          }].ownerView.lockInvestorPercentage`
+        )
+      ),
       addInvestors: 0,
       showExtraInvestors: false,
       showSnipe: this.$clone(
@@ -470,6 +477,14 @@ export default {
         oldInvestorPercentageCustom = JSON.parse(JSON.stringify(val));
         this.calculate();
       }
+    },
+    lockInvestorPercentage(val) {
+      this.$store.set(
+        `profile/profiles@["${this.$store.get("global/currentProfile")}"].gb.${
+          this.$route.params.gb
+        }.ownerView.lockInvestorPercentage`,
+        !!this.$clone(val)
+      );
     },
     investorParticipation(val) {
       this.$store.commit("UPDATE_URL_QUERY", {

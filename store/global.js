@@ -6,8 +6,10 @@ export const state = () => ({
   gbSelectMode: "select", // select | datalist
   gbSelectSortMode: "age", // age | alpha
   fixedMainMenu: true,
+  disableUpdateNotification: false,
   haveReadLocaleInfoAvailable: false,
   haveReadLocaleNotComplete: false,
+  haveReadInstallApp: false,
   customPromotionMessagesTemplates: [],
   displayTableCard: false,
   dayNightMode: "system",

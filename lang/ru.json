@@ -861,7 +861,7 @@
   "foe_data.bonus.aid_goods.name": "Товары за помощь",
   "foe_data.bonus.relic_hunt.name": "foe_data.bonus.relic_hunt.name",
   "utils.Total": "utils.Total",
-  "utils.Result": "utils.Result",
+  "utils.Result": "Результат",
   "foe_data.bonus.guild_goods.name": "Товары гильдии",
   "foe_data.bonus.guild_goods.gb_description": "Производит товары текущей эпохи для казны вашей гильдии.",
   "foe_data.bonus.plunder_goods.name": "Товары за грабёж",

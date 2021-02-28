@@ -1,7 +1,8 @@
-import { get } from "vuex-pathify";
+import { get, sync } from "vuex-pathify";
 import packageConfig from "~/package.json";
 import mainHeader from "~/components/main-header/MainHeader";
 import mainFooter from "~/components/main-footer/MainFooter";
+import scrollToTop from "~/components/scroll-to-top/ScrollToTop";
 
 const i18nPrefix = "components.site_layout.";
 
@@ -66,6 +67,7 @@ export default {
     localesNotCompleted() {
       return this.$store.get("localesNotCompleted");
     },
+    disableUpdateNotification: sync("global/disableUpdateNotification"),
   },
   watch: {
     localesNotCompleted(val) {
@@ -158,5 +160,6 @@ export default {
   components: {
     mainHeader,
     mainFooter,
+    scrollToTop,
   },
 };

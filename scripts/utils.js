@@ -503,6 +503,7 @@ export default {
         ownerInvestment: 0,
         investorParticipation: [],
         investorPercentageGlobal: defaultInvestorPercentageGlobal,
+        lockInvestorPercentage: false,
         investorPercentageCustom: Array.from(new Array(5), () => defaultInvestorPercentageGlobal),
       },
       investorView: {

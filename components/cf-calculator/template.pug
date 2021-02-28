@@ -7,7 +7,7 @@ div
         nuxt-link#permalink(:to="localePath(permaLink)", exact)
           i.fas.fa-link
           | &nbsp;{{ $t('utils.permalink') }}
-    .text-right
+    .text-right.mt-4(class="sm:mt-0")
       a.text-white(href="#", @click.prevent="startTour", class="hover:text-gray-100 dark:hover:text-gray-100")
         article.tutorial-button(style="display: inline-block")
           font-awesome-icon(icon="question", size="2x")

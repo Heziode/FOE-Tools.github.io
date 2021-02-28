@@ -11,6 +11,12 @@
     div(class="sm:flex sm:items-start sm:flex-col")
       .mt-2(class="sm:ml-4")
         yes-no(v-model="fixedMainMenu", :label="$t(i18nPrefix + 'fixed_main_menu')", customLabelClass="text-xl")
+      .mt-2(class="sm:ml-4")
+        yes-no(
+          v-model="disableUpdateNotification",
+          :label="$t(i18nPrefix + 'disable_update_notification')",
+          customLabelClass="text-xl"
+        )
 
         .mt-4
         t-label.text-xl(:label="$t(i18nPrefix + 'select_gb_style')")

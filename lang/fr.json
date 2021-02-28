@@ -243,6 +243,7 @@
   "components.site_layout.global_config_dialog.day_night_mode.Night": "Nuit",
   "components.site_layout.global_config_dialog.day_night_mode.System": "Préférence du système",
   "components.site_layout.global_config_dialog.day_night_mode.Auto": "Automatique",
+  "components.site_layout.global_config_dialog.disable_update_notification": "Désactiver les notifications de mise à jour",
   "components.site_layout.switch_locale": "@:(common.site_title) est disponible dans votre langue",
   "components.site_layout.translation_not_completed.title": "Traduction non terminée",
   "components.site_layout.translation_not_completed.content": "Les traductions suivantes ne sont pas terminées et nécessitent des traducteurs :",
@@ -1083,6 +1084,8 @@
   "utils.graph.gb_reward_1st_place": "Gain du niveau (1er place)",
   "utils.favourites": "Favoris",
   "utils.alpha_order": "Ordre alphabétique",
+  "utils.lock": "Verrouiller",
+  "utils.unlock": "Déverrouiller",
   "contributions.blog": "Articles de blog",
   "contributions.bug": "Rapports de bogues",
   "contributions.code": "Code",
@@ -1134,5 +1137,9 @@
   "cookieConsent.purposes.functional.title": "Prestation de services",
   "cookieConsent.purposes.performance.description": "Ces services traitent les informations personnelles afin d'optimiser le service que ce site Web offre.",
   "cookieConsent.purposes.performance.title": "Optimisation de la performance",
-  "foe_data.gb.Galata_Tower": "Tour Galata"
+  "foe_data.gb.Galata_Tower": "Tour Galata",
+  "addToHomeScreen.title": "Installer FOE-Tools",
+  "addToHomeScreen.description": "Installer l'application FOE-Tools. Elle ne prendra pas de place sur votre appareil (ordinateur, smartphone, etc.) et vous permettra d'accéder rapidement à FOE-Tools depuis votre écran d'accueil ou votre bureau.",
+  "addToHomeScreen.install": "Installer",
+  "addToHomeScreen.dismiss": "Non merci"
 }
