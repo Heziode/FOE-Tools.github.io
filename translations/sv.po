@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:52.129Z\n"
-"PO-Revision-Date: 2021-01-19 05:41+0000\n"
+"PO-Revision-Date: 2021-03-01 03:18+0000\n"
 "Last-Translator: Magnus Beutner <magnus.beutner@gmail.com>\n"
 "Language-Team: Swedish <https://translate.foe.tools/projects/"
 "foe-tools-website/website/sv/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "mime-version: 1.0\n"
 
 msgid "main_menu.home"
@@ -4002,3 +4002,26 @@ msgstr "Få reda på mer"
 
 msgid "foe_data.gb_short.Galata_Tower"
 msgstr "GT"
+
+msgid "addToHomeScreen.dismiss"
+msgstr "Avböj"
+
+msgid "addToHomeScreen.install"
+msgstr "Installera"
+
+msgid "addToHomeScreen.description"
+msgstr ""
+"Skaffa FoE-Tools appen. Den tar inte mycket utrymme i din telefon eller "
+"dator och ger dig snabb access till FoE-Tools från din skärm eller skrivbord."
+
+msgid "addToHomeScreen.title"
+msgstr "Installera FoE-Tools"
+
+msgid "utils.unlock"
+msgstr "Lås upp"
+
+msgid "utils.lock"
+msgstr "Lås"
+
+msgid "components.site_layout.global_config_dialog.disable_update_notification"
+msgstr "Inaktivera notifikationer om uppdatering"
