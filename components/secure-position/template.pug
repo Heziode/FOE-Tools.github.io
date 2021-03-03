@@ -5,7 +5,7 @@ div
         h3.title.mb-0 {{ $t(i18nPrefix + 'block_place.title') }}
       .flex-shrink-0.flex-grow-0.mt-2(class="sm:mt-0")
         nuxt-link#permalink(:to="localePath(permaLink)", exact)
-          i.fas.fa-link
+          font-awesome-icon(:icon="['fas', 'link']")
           | &nbsp;{{ $t('utils.permalink') }}
 
     .mb-4.inline-flex.w-full.flex-col(class="sm:flex-row")
@@ -145,8 +145,7 @@ div
         p {{ $tc(i18nPrefix + 'block_place.result.fp_need_to_lock', 42, { count: $n(42) }) }}
       .w-full(class="sm:w-1/2")
         template(v-if="fp > 0")
-          p(v-if="fp <= yourParticipation")
-            i.fas.fa-lock
+          font-awesome-icon(v-if="fp <= yourParticipation", :icon="['fas', 'lock']")
           p(v-else)
             strong {{ $n(fp) }}
             template(v-if="fp >= yourParticipation && fp - yourParticipation > 0 && yourParticipation > 0")
@@ -156,17 +155,17 @@ div
             template(v-if="roi > 0")
               | &nbsp;(
               span.text-green-500.mr-1
-                i.fas.fa-arrow-up
+                font-awesome-icon(:icon="['fas', 'arrow-up']")
               | {{ $n(Math.abs(roi)) }})
             template(v-else-if="roi === 0")
               | &nbsp;(
               span
-                i.fas.fa-exchange-alt
+                font-awesome-icon(:icon="['fas', 'exchange-alt']")
               | )
             template(v-else)
               | &nbsp;(
               span.text-red-500.mr-1
-                i.fas.fa-arrow-down
+                font-awesome-icon(:icon="['fas', 'arrow-down']")
               | {{ $n(Math.abs(roi)) }})
         p(v-else) {{ $t(i18nPrefix + 'block_place.result.cant_block') }}
 
@@ -204,19 +203,19 @@ div
                         strong {{ $n(value.result.fp) }}
                         | &nbsp;(
                         span.text-green-500.mr-1
-                          i.fas.fa-arrow-up
+                          font-awesome-icon(:icon="['fas', 'arrow-up']")
                         | {{ $n(Math.abs(value.result.roi)) }})
                       p(v-else-if="value.result.roi === 0")
                         strong {{ $n(value.result.fp) }}
                         | &nbsp;(
                         span
-                          i.fas.fa-exchange-alt
+                          font-awesome-icon(:icon="['fas', 'exchange-alt']")
                         | )
                       p(v-else)
                         strong {{ $n(value.result.fp) }}
                         | &nbsp;(
                         span.text-red-500.mr-1
-                          i.fas.fa-arrow-down
+                          font-awesome-icon(:icon="['fas', 'arrow-down']")
                         | {{ $n(Math.abs(value.result.roi)) }})
                   td.px-6.py-4.whitespace-nowrap
                     template(v-if="value.result && value.result.fp !== null")
@@ -224,17 +223,17 @@ div
                         strong {{ $n(value.result.fpSnipe) }}
                         | &nbsp;(
                         span.text-green-500.mr-1
-                          i.fas.fa-arrow-up
+                          font-awesome-icon(:icon="['fas', 'arrow-up']")
                         | {{ $n(Math.abs(value.result.roiSnipe)) }})
                       p(v-else-if="value.result.roiSnipe === 0")
                         strong {{ $n(value.result.fpSnipe) }}
                         | &nbsp;(
                         span
-                          i.fas.fa-exchange-alt
+                          font-awesome-icon(:icon="['fas', 'exchange-alt']")
                         | )
                       p(v-else)
                         strong {{ $n(value.result.fpSnipe) }}
                         | &nbsp;(
                         span.text-red-500.mr-1
-                          i.fas.fa-arrow-down
+                          font-awesome-icon(:icon="['fas', 'arrow-down']")
                         | {{ $n(Math.abs(value.result.roiSnipe)) }})
