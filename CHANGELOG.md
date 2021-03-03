@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.83.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.0...v2.83.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* **secure-position:** fix incorect results ([25a6174](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/25a6174fa76ead7b91089a2eb565248761e76395)), closes [#433](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/433)
+* fix "add" participation button that doesn't disappear ([1834fff](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/1834fff0eaa3fd8839b67b771b09f776a3d39de5)), closes [#434](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/434)
+* fix Galata Tower due to InnoGames change ([abaa354](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/abaa3542fe94dfbe08b600aace8e321c3ae929ce))
+
 ## [2.83.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.82.0...v2.83.0) (2021-02-28)
 
 ### Features
