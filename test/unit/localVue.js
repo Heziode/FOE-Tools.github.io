@@ -38,6 +38,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCopy, faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
 import moment from "dayjs";
 import duration from "dayjs/plugin/duration";
+import VueTippy from "vue-tippy";
 import TAutocomplete from "../../components/t-autocomplete/TAutocomplete";
 import TButton from "../../components/t-button/TButton";
 import TCheckbox from "../../components/t-checkbox/TCheckbox";
@@ -61,6 +62,7 @@ import * as storeProfilesStructure from "~/store/profile";
 import * as storeGlobalStructure from "~/store/global";
 import * as storeStructure from "~/store/index";
 import { defaultPromotionMessages } from "~/scripts/promotion-message-builder";
+import Vue from "vue";
 moment.extend(duration);
 
 const url = "https://test.foe-tools.github.io";
@@ -203,6 +205,20 @@ export function getView(storeConf) {
 
   // Register the component globally
   localVue.component("FontAwesomeIcon", FontAwesomeIcon);
+
+  localVue.use(VueTippy, {
+    directive: "tippy", // => v-tippy
+    theme: "custom",
+    flipDuration: 0,
+    arrow: true,
+    popperOptions: {
+      modifiers: {
+        preventOverflow: {
+          enabled: true,
+        },
+      },
+    },
+  });
 
   dom.watch();
 
