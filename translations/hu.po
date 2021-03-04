@@ -3,15 +3,15 @@ msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "Report-Msgid-Bugs-To: contact@foe.tools\n"
 "POT-Creation-Date: 2020-08-21T21:00:51.372Z\n"
-"PO-Revision-Date: 2021-01-21 02:09+0000\n"
-"Last-Translator: Tóth Norbert <xnorbi9@gmail.com>\n"
+"PO-Revision-Date: 2021-03-04 18:30+0000\n"
+"Last-Translator: Pusztai Gergely <pg.postalada@gmail.com>\n"
 "Language-Team: Hungarian <https://translate.foe.tools/projects/"
 "foe-tools-website/website/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.1.1\n"
+"X-Generator: Weblate 4.4.2\n"
 "mime-version: 1.0\n"
 
 msgid "main_menu.home"
@@ -544,8 +544,8 @@ msgstr "Éjszaka kezdete"
 
 msgid "components.site_layout.day_night.Auto"
 msgstr ""
-"Autómatikus@:(components.site_layout.day_night.Day)/@:(components.site_"
-"layout.day_night.Night)"
+"Automatikus @:(components.site_layout.day_night.Day)/@:(components."
+"site_layout.day_night.Night)"
 
 msgid "components.site_layout.global_config"
 msgstr "Általános beállítások"
@@ -1101,25 +1101,25 @@ msgid "foe_data.gb.Space_Carrier"
 msgstr "Teherűrhajó"
 
 msgid "foe_data.gb_short.Observatory"
-msgstr "Obs"
+msgstr "Obszi"
 
 msgid "foe_data.gb_short.Temple_of_Relics"
-msgstr "ToR"
+msgstr "Ereklye"
 
 msgid "foe_data.gb_short.Oracle_of_Delphi"
-msgstr "OoD"
+msgstr "Jósda"
 
 msgid "foe_data.gb_short.Tower_of_Babel"
-msgstr "Babel"
+msgstr "Bábel"
 
 msgid "foe_data.gb_short.Statue_of_Zeus"
-msgstr "Zeus"
+msgstr "Zeusz"
 
 msgid "foe_data.gb_short.Colosseum"
-msgstr "Colosseum"
+msgstr "Kolosszeum"
 
 msgid "foe_data.gb_short.Lighthouse_of_Alexandria"
-msgstr "Lighthouse"
+msgstr "Alex"
 
 msgid "foe_data.gb_short.Hagia_Sophia"
 msgstr "Hagia"
@@ -1128,13 +1128,13 @@ msgid "foe_data.gb_short.Cathedral_of_Aachen"
 msgstr "Aachen"
 
 msgid "foe_data.gb_short.St_Mark_s_Basilica"
-msgstr "St. Mark's"
+msgstr "Bazilika"
 
 msgid "foe_data.gb_short.Notre_Dame"
 msgstr "Notre Dame"
 
 msgid "foe_data.gb_short.Saint_Basil_s_Cathedral"
-msgstr "St. Basil's"
+msgstr "Vazul"
 
 msgid "foe_data.gb_short.Castel_del_Monte"
 msgstr "Castel"
@@ -1143,16 +1143,16 @@ msgid "foe_data.gb_short.Deal_Castle"
 msgstr "Deal"
 
 msgid "foe_data.gb_short.Frauenkirche_of_Dresden"
-msgstr "Dresden"
+msgstr "Drezda"
 
 msgid "foe_data.gb_short.Capitol"
-msgstr "Capitol"
+msgstr "Kapitólium"
 
 msgid "foe_data.gb_short.Royal_Albert_Hall"
-msgstr "RAH"
+msgstr "Albi"
 
 msgid "foe_data.gb_short.Chateau_Frontenac"
-msgstr "Frontenac"
+msgstr "Fronti"
 
 msgid "foe_data.gb_short.Alcatraz"
 msgstr "Alca"
@@ -2662,19 +2662,19 @@ msgid "foe_data.gb_short.Atlantis_Museum"
 msgstr "Atlantisz"
 
 msgid "foe_data.gb_short.Himeji_Castle"
-msgstr "Himedzsi"
+msgstr "Himi"
 
 msgid "foe_data.gb_short.Space_Carrier"
 msgstr "Teher"
 
 msgid "foe_data.gb_short.The_Virgo_Project"
-msgstr "Virgo"
+msgstr "Szűz"
 
 msgid "foe_data.gb_short.Terracotta_Army"
 msgstr "Agyag"
 
 msgid "foe_data.gb_short.The_Blue_Galaxy"
-msgstr "KG"
+msgstr "Galaxis"
 
 msgid "foe_data.gb_short.Seed_Vault"
 msgstr "Magbank"
@@ -2683,7 +2683,7 @@ msgid "foe_data.gb_short.Gaea_Statue"
 msgstr "Gaia"
 
 msgid "foe_data.gb_short.Arctic_Orangery"
-msgstr "AO"
+msgstr "Sarkköri"
 
 msgid "foe_data.gb.Galata_Tower"
 msgstr "Galata torony"
@@ -2857,14 +2857,14 @@ msgstr "Rablás (nindzsázás)"
 
 msgid "components.gb_investment.tutorial.rush_1_9.content"
 msgstr ""
-"A @:(foe_data.gb.The_Arc) egy olyan nevezetes épület, aminek a bónusza "
-"megnöveli a jutalmat, amit akkor kapsz, ha valaki más nevezetesét támogatod "
-"és megszerzed benne az 1.-5. helyek valamelyikét. Minél magasabb a bárkád "
-"szintje, annál több extra jutalmat kapsz.\n"
+"@:(foe_data.gb.The_Arc) egy olyan nevezetes épület, aminek a bónusza "
+"megnöveli azt a jutalmat, amit akkor kapsz, ha valaki más nevezetesét "
+"támogatod és megszerzed benne az 1.-5. helyek valamelyikét. Minél magasabb a "
+"Bárkád szintje, annál több extra jutalmat kapsz.\n"
 "\n"
-"Ez az, amiért 1,8, 1,9, stb építésről beszélünk. Valójában ez a bárka-bónusz."
-"\n"
-"Lényegében, 1.0 jelenti az alap jutalmat, 1.8 jelenti a 70-es szintű "
+"Ez az, amiért 1.8, 1.9, stb. építésről beszélünk. Valójában ez a Bárka "
+"bónusz.\n"
+"Lényegében az 1.0 jelenti az alap jutalmat, 1.8 jelenti a 70-es szintű "
 "bárkával kapott jutalmat (80%-kal több jutalmat ad ezen a szinten) és 1.9 "
 "jelenti a 80-as szintű bárkával kapott jutalmat (90%-kal több jutalom).\n"
 "\n"
@@ -2873,8 +2873,8 @@ msgstr ""
 "elven alapul, így csökkenti a konfliktusokat a céhtagok vagy a barátok "
 "között azzal, hogy nem szereznek extra profitot a nevezetes építésével. A "
 "pontcserés építőláncoktól (10, 50, 100, stb.) eltérően további előnye az "
-"1,8, 1,9, stb. láncoknak, hogy időt takarít meg az építtető számára. Ez "
-"azért van, mert a tulajdonosnak csak a 80-as (1,9-es esetén) bárkával "
+"1.8, 1.9, stb. láncoknak, hogy időt takarít meg az építtető számára. Ez "
+"azért van, mert a tulajdonosnak csak a 80-as Bárkával (1.9-es esetén) "
 "építendő helyek biztosításához szükséges mennyiségű FP-t kell betennie a "
 "nevezetesébe.\n"
 "\n"
@@ -2890,7 +2890,7 @@ msgstr ""
 "strong>, hogy elérd a 60-as szintet. Napi {fp50} bevétellel számolva, ez "
 "<strong>2 évbe és 17 napba</strong> fog telni.\n"
 "\n"
-"Ha viszont 1,9 építést használsz, akkor <strong>csak {fp12363}-t kell "
+"Ha viszont 1.9-es építést használsz, akkor <strong>csak {fp12363}-t kell "
 "beletenned</strong>, ahhoz, hogy elérd a 60-as szintet, így <strong>a "
 "megtakarításod {fp24957}!</strong>.\n"
 "Míg {fp50} bevétellel számolva 2 év és 17 nap helyett <strong>8 hónap és 5 "
@@ -2928,7 +2928,7 @@ msgstr ""
 msgid "components.gb_investment.gb_list_select.info"
 msgstr ""
 "Az általános beállításokban megváltoztathatod a választó stílusát (régi "
-"fajta, vagy automatikus kiegészítés)."
+"fajta, vagy automatikus kiegészítés)"
 
 msgid "components.cf_calculator.tutorial.coinSupplyReturn"
 msgstr ""
@@ -3048,7 +3048,7 @@ msgstr ""
 "{videoAutoComplete}"
 
 msgid "components.gb_investment.tutorial.rush_1_9.title"
-msgstr "Igény 1.9, 1,8, stb."
+msgstr "Igény 1.9, 1.8, stb."
 
 msgid ""
 "components.gb_investment.tutorial.promotion_message.show_only_"
@@ -3233,7 +3233,7 @@ msgid "components.promotion_message_builder.place_builder_title"
 msgstr "Épület letétele"
 
 msgid "components.promotion_message_builder.place_builder"
-msgstr "Helyépítő"
+msgstr "Helyezés készítő"
 
 msgid "components.site_layout.new_year.message"
 msgid_plural "components.site_layout.new_year.message"
@@ -3267,3 +3267,65 @@ msgstr ""
 "your_arc_bonus)\" -ban megadott érték alapján), hogy hány FP-t kell "
 "elhelyeznie a GB-on a hely biztosításához.\n"
 "Ez azt is jelzi, hogy milyen profitot vagy veszteséget fog elérni."
+
+msgid "components.site_layout.global_config_dialog.disable_update_notification"
+msgstr "Frissítésekkel kapcsolatos értesítések kikapcsolása"
+
+msgid "foe_data.goods.lubricants"
+msgstr "Kenőanyagok"
+
+msgid "foe_data.goods.mars_microbes"
+msgstr "Marsi mikróbák"
+
+msgid "foe_data.goods.nickel"
+msgstr "Nikkel"
+
+msgid "foe_data.goods.bromine"
+msgstr "Bróm"
+
+msgid "contributions.blog"
+msgstr "Blog bejegyzések"
+
+msgid "utils.graph.gb_reward_1st_place"
+msgstr "Szint jutalma (1. hely)"
+
+msgid "utils.favourites"
+msgstr "Kedvencek"
+
+msgid "addToHomeScreen.install"
+msgstr "Telepít"
+
+msgid "addToHomeScreen.dismiss"
+msgstr "Elutasít"
+
+msgid "cookieConsent.purposes.advertising.title"
+msgstr "Hirdetés"
+
+msgid "cookieConsent.consentNotice.edit"
+msgstr ""
+"Ez így megfelelő számodra? Később bármikor megváltoztathatod vagy "
+"visszavonhatod a beleegyezésedet."
+
+msgid "cookieConsent.acceptSelected"
+msgstr "Befejez"
+
+msgid "cookieConsent.title"
+msgstr "Halihó! Mi vagyunk azok… a sütik!"
+
+msgid "cookieConsent.back"
+msgstr "Vissza"
+
+msgid "cookieConsent.acceptAll"
+msgstr "Mindet elfogadom"
+
+msgid "cookieConsent.ok"
+msgstr "Rendben"
+
+msgid "foe_data.gb_short.Galata_Tower"
+msgstr "Galata"
+
+msgid "foe_data.gb_short.Star_Gazer"
+msgstr "Csillag"
+
+msgid "components.promotion_message_builder.variables.place.PI"
+msgstr "Helyezés sorszáma"
