@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.83.5](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.4...v2.83.5) (2021-03-05)
 
-
 ### Bug Fixes
 
-* **trade:** fix display when amount is > 1000 ([9a6612a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9a6612a0ff7d01f250350927b9b1e03c46df9e19)), closes [#436](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/436)
+- **trade:** fix display when amount is > 1000 ([9a6612a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/9a6612a0ff7d01f250350927b9b1e03c46df9e19)), closes [#436](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/436)
 
 ### [2.83.4](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.3...v2.83.4) (2021-03-05)
 
