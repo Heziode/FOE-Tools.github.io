@@ -488,7 +488,7 @@ export default {
     { src: "~/plugins/tooltip.js" },
     { src: "~/plugins/moment.js" },
     { src: "~/plugins/cookieConsent.js" },
-    { src: "~/plugins/addToHomeScreen.js" },
+    // { src: "~/plugins/addToHomeScreen.js" },
     { src: "~/plugins/fontawesome.js" },
     { src: "~/plugins/tailwind-comps.js" },
     { src: "~/plugins/nuxtClientInit.js", mode: "client" }, // It must always be the last
