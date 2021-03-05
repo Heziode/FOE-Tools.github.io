@@ -4,11 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.83.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.1...v2.83.2) (2021-03-05)
 
-
 ### Bug Fixes
 
-* disable add to home screen button due to strange issue ([fba1733](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fba1733ec2f2ae09a7cd0f8b4cf1467358e79aeb)), closes [#437](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/437)
-* **gb-investment:** call calculate in next tick to prevent no rendering ([22377ca](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/22377cae08c68e78afa3a0c1f5ebb7e065d91d6a))
+- disable add to home screen button due to strange issue ([fba1733](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/fba1733ec2f2ae09a7cd0f8b4cf1467358e79aeb)), closes [#437](https://github.com/FOE-Tools/FOE-Tools.github.io/issues/437)
+- **gb-investment:** call calculate in next tick to prevent no rendering ([22377ca](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/22377cae08c68e78afa3a0c1f5ebb7e065d91d6a))
 
 ### [2.83.1](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.0...v2.83.1) (2021-03-03)
 
