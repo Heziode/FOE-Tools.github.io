@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.83.3](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.2...v2.83.3) (2021-03-05)
+
+
+### Bug Fixes
+
+* **gb-investment:** fix card view on smartphone ([c2737a4](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c2737a44aec6868caebc662f4df02ffcf1857ef5))
+
 ### [2.83.2](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.1...v2.83.2) (2021-03-05)
 
 ### Bug Fixes
