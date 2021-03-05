@@ -1465,7 +1465,9 @@ export default {
     },
   },
   mounted() {
-    this.calculate();
+    this.$nextTick(() => {
+      this.calculate();
+    });
   },
   components: {
     securePosition,

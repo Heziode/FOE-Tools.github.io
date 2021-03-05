@@ -75,6 +75,7 @@ module.exports = {
     "!**/scripts/tutorial.js",
     "!**/store/global.js",
     "!**/store/profile.js",
+    "!**/.scripts/**",
     "!**/lib/vuex-pathify/**",
   ],
   coverageReporters: ["html", "text", "text-summary"],

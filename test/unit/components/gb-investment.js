@@ -211,15 +211,18 @@ describe("GbInvestment", () => {
       },
     });
 
-    expect(wrapper.vm.ownerInvestment).toBe(402);
-    expect(wrapper.vm.showOnlySecuredPlaces).toBe(true);
-    expect(wrapper.vm.placeFree).toEqual([
-      { state: true },
-      { state: true },
-      { state: false },
-      { state: false },
-      { state: false },
-    ]);
+    wrapper.vm.$nextTick(() => {
+      expect(wrapper.vm.ownerInvestment).toBe(402);
+      expect(wrapper.vm.showOnlySecuredPlaces).toBe(true);
+      expect(wrapper.vm.placeFree).toEqual([
+        { state: true },
+        { state: true },
+        { state: false },
+        { state: false },
+        { state: false },
+      ]);
+      done();
+    });
   });
 
   test('Change "level" value', () => {
@@ -642,21 +645,25 @@ describe("GbInvestment", () => {
       otherInvestment: [],
       totalPreparations: 430,
     };
-    expect(wrapper.vm.result).toEqual(defaultResult);
-    wrapper.vm.result = newValue;
     wrapper.vm.$nextTick(() => {
-      expect({ result: wrapper.vm.result, promotion: wrapper.vm.promotion }).toMatchSnapshot();
+      expect(wrapper.vm.result).toEqual(defaultResult);
+      wrapper.vm.result = newValue;
+      wrapper.vm.$nextTick(() => {
+        expect({ result: wrapper.vm.result, promotion: wrapper.vm.promotion }).toMatchSnapshot();
+      });
     });
   });
 
   test('Change "result" value with null value', () => {
     const wrapper = factory();
     const newValue = null;
-    expect(wrapper.vm.result).toEqual(defaultResult);
-    wrapper.vm.result = newValue;
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.result).toEqual(null);
-      expect(wrapper.vm.promotion).toEqual([]);
+      expect(wrapper.vm.result).toEqual(defaultResult);
+      wrapper.vm.result = newValue;
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.vm.result).toEqual(null);
+        expect(wrapper.vm.promotion).toEqual([]);
+      });
     });
   });
 
@@ -748,22 +755,26 @@ describe("GbInvestment", () => {
 
   test('Call "addInvestor"', () => {
     const wrapper = factory();
-    expect(wrapper.vm.investorParticipation).toEqual([]);
-    wrapper.vm.addInvestors = 1;
-    wrapper.vm.addInvestor();
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.investorParticipation).toMatchSnapshot();
+      expect(wrapper.vm.investorParticipation).toEqual([]);
+      wrapper.vm.addInvestors = 1;
+      wrapper.vm.addInvestor();
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.vm.investorParticipation).toMatchSnapshot();
+      });
     });
   });
 
   test('Call "addInvestor" with big value', () => {
     const wrapper = factory();
-    expect(wrapper.vm.investorParticipation).toEqual([]);
-    wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
-    wrapper.vm.addInvestor();
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.investorParticipation).toMatchSnapshot();
-      expect(wrapper.vm.addInvestors).toBe(null);
+      expect(wrapper.vm.investorParticipation).toEqual([]);
+      wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
+      wrapper.vm.addInvestor();
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.vm.investorParticipation).toMatchSnapshot();
+        expect(wrapper.vm.addInvestors).toBe(null);
+      });
     });
   });
 
@@ -789,68 +800,76 @@ describe("GbInvestment", () => {
 
   test('Call "removeInvestor"', () => {
     const wrapper = factory();
-    expect(wrapper.vm.investorParticipation).toEqual([]);
-    wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
-    wrapper.vm.addInvestor();
-    wrapper.vm.addInvestors = 5;
-    wrapper.vm.addInvestor();
-    wrapper.vm.addInvestors = 1;
-    wrapper.vm.addInvestor();
-    expect(wrapper.vm.investorParticipation).toEqual([
-      { value: 326, isPotentialSniper: true },
-      { value: 5, isPotentialSniper: true },
-      { value: 1, isPotentialSniper: true },
-    ]);
-    wrapper.vm.removeInvestor(1);
     wrapper.vm.$nextTick(() => {
+      expect(wrapper.vm.investorParticipation).toEqual([]);
+      wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
+      wrapper.vm.addInvestor();
+      wrapper.vm.addInvestors = 5;
+      wrapper.vm.addInvestor();
+      wrapper.vm.addInvestors = 1;
+      wrapper.vm.addInvestor();
       expect(wrapper.vm.investorParticipation).toEqual([
         { value: 326, isPotentialSniper: true },
+        { value: 5, isPotentialSniper: true },
         { value: 1, isPotentialSniper: true },
       ]);
+      wrapper.vm.removeInvestor(1);
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.vm.investorParticipation).toEqual([
+          { value: 326, isPotentialSniper: true },
+          { value: 1, isPotentialSniper: true },
+        ]);
+      });
     });
   });
 
   test('Call "removeInvestor" with invalid index', () => {
     const wrapper = factory();
-    expect(wrapper.vm.investorParticipation).toEqual([]);
-    wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
-    wrapper.vm.addInvestor();
-    wrapper.vm.addInvestors = 5;
-    wrapper.vm.addInvestor();
-    expect(wrapper.vm.investorParticipation).toMatchSnapshot();
-    wrapper.vm.removeInvestor(-1);
     wrapper.vm.$nextTick(() => {
+      expect(wrapper.vm.investorParticipation).toEqual([]);
+      wrapper.vm.addInvestors = defaultGb.levels[9].cost / 2 + 1;
+      wrapper.vm.addInvestor();
+      wrapper.vm.addInvestors = 5;
+      wrapper.vm.addInvestor();
       expect(wrapper.vm.investorParticipation).toMatchSnapshot();
+      wrapper.vm.removeInvestor(-1);
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.vm.investorParticipation).toMatchSnapshot();
+      });
     });
   });
 
   test('Call "calculate" with maxInvestment < 0', () => {
     const wrapper = factory({ gb: gbsData.Himeji_Castle });
-    expect(wrapper.vm.investorParticipation).toEqual([]);
-    wrapper.vm.ownerInvestment = 500;
-    wrapper.vm.addInvestors = 10;
-    wrapper.vm.addInvestor();
-    wrapper.vm.addInvestors = 100;
-    wrapper.vm.addInvestor();
-    wrapper.vm.addInvestors = 500;
-    wrapper.vm.addInvestor();
-    wrapper.vm.ownerInvestment = 1000;
-    wrapper.vm.calculate();
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.result).toMatchSnapshot();
+      expect(wrapper.vm.investorParticipation).toEqual([]);
+      wrapper.vm.ownerInvestment = 500;
+      wrapper.vm.addInvestors = 10;
+      wrapper.vm.addInvestor();
+      wrapper.vm.addInvestors = 100;
+      wrapper.vm.addInvestor();
+      wrapper.vm.addInvestors = 500;
+      wrapper.vm.addInvestor();
+      wrapper.vm.ownerInvestment = 1000;
+      wrapper.vm.calculate();
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.vm.result).toMatchSnapshot();
+      });
     });
   });
 
   test("Call 'changeIsPotentialSniper'", () => {
     const wrapper = factory();
-    const index = 0;
-    const value = false;
-    wrapper.vm.addInvestors = 1;
-    wrapper.vm.addInvestor();
-    expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: true }]);
-    wrapper.vm.changeIsPotentialSniper(index, value);
     wrapper.vm.$nextTick(() => {
-      expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: false }]);
+      const index = 0;
+      const value = false;
+      wrapper.vm.addInvestors = 1;
+      wrapper.vm.addInvestor();
+      expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: true }]);
+      wrapper.vm.changeIsPotentialSniper(index, value);
+      wrapper.vm.$nextTick(() => {
+        expect(wrapper.vm.investorParticipation).toEqual([{ value: 1, isPotentialSniper: false }]);
+      });
     });
   });
 
