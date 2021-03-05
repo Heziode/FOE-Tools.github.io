@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.83.4](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.3...v2.83.4) (2021-03-05)
+
+
+### Bug Fixes
+
+* **Galata:** fix Galata level cost from 0 to 9 ([99d7346](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/99d73463357b40d2b55bdba5115a8bd535056c6c))
+
 ### [2.83.3](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.2...v2.83.3) (2021-03-05)
 
 ### Bug Fixes
