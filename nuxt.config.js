@@ -781,6 +781,7 @@ export default {
 
   sentry: {
     dsn: "https://4088bc858d3d4dd3859d9b214d21720a@sentry.foe.tools/2",
+    disableServerSide: true,
     config: {
       lazy: true,
     },
