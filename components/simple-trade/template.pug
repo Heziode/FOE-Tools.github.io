@@ -74,7 +74,7 @@ div
               @input="$event > 0 ? getBestRates(key) : resetFormIfAllZero(key)"
             )
           td.px-6.py-4.whitespace-nowrap
-            template(v-if="$data.results[key].show") {{ $n($data.results[key].value) }}
+            template(v-if="$data.results[key].show") {{ $data.results[key].value }}
           td.px-6.py-4.whitespace-nowrap(v-show="showRatio")
             template(v-if="$data.results[key].ratio > 0") {{ $n($data.results[key].ratio) }}
           td.px-6.py-4(v-show="split")
