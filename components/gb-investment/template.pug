@@ -165,14 +165,14 @@
       table.gbiTable.min-w-full.divide-y.divide-gray-200.transition-light-dark(class="dark:divide-gray-600")
         thead.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
           tr
-            th.px-6.py-3.text-center.text-lg.font-medium.text-gray-500.tracking-wider(
+            th.px-6.py-2.text-center.text-lg.font-medium.text-gray-500.tracking-wider(
               scope="col",
               class="dark:text-white",
               :colspan="tutoMode ? maxColumns : nbColumns"
             )
               | {{ $t($data.i18nPrefix + 'gb_investment.table.title', { gb_key: $t('foe_data.gb.' + gb.key), level: result.level, fromLevel: result.level - 1 }) }}
           tr(v-if="investorParticipationNormalizedSum || ownerInvestmentNormalized")
-            th.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.tracking-wider(
+            th.px-6.py-2.text-center.text-xs.font-medium.text-gray-500.tracking-wider(
               scope="col",
               class="dark:text-white",
               :colspan="tutoMode ? maxColumns : nbColumns"
@@ -188,33 +188,33 @@
               )
                 | {{ $n(investorParticipationNormalizedSum + ownerInvestmentNormalized) + '/' + $n(result.cost) }} ({{ $n(result.cost - (investorParticipationNormalizedSum + ownerInvestmentNormalized)) }})
           tr
-            th.tableDataPlace.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataPlace.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th1') }}
-            th.tableDataDefaultRewards.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataDefaultRewards.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th2') }}
-            th.tableDataFpToPutByTheOwner.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataFpToPutByTheOwner.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th3') }}
-            th.tableDataRewardsWithRate.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataRewardsWithRate.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th4') }}
-            th.tableDataNumberOfFPAlreadyIn.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataNumberOfFPAlreadyIn.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white",
               v-show="investorParticipationNormalizedSum || tutoMode"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.fp_already_putin') }}
-            th.tableDataSpotSnipe.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataSpotSnipe.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white",
               v-show="showSnipe || tutoMode"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.spot_snipe') }}
-            th.tableDataPercentageInvestors.min-w-48.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataPercentageInvestors.min-w-48.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.th5') }}
@@ -232,12 +232,12 @@
                   @click="lockInvestorPercentage = true",
                   v-tippy="{ content: $t('utils.lock') }"
                 )
-            th.tableDataIsSniper.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataIsSniper.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white",
               v-show="investorParticipationNormalizedSum || tutoMode"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.thead.is_sniper') }}
-            th.tableDataIncludeInCopyBoxes.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.tableDataIncludeInCopyBoxes.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white",
               width="100px"
@@ -245,11 +245,11 @@
         tbody.bg-white.divide-y.divide-gray-200.transition-light-dark(class="dark:bg-gray-800 dark:divide-gray-600")
           tr(v-for="(place, i) in result.investment")
             // Place
-            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(i + 1) }}
+            td.px-6.py-2.whitespace-nowrap.text-right {{ $n(i + 1) }}
             // Default reward
-            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(place.reward) }}
+            td.px-6.py-2.whitespace-nowrap.text-right {{ $n(place.reward) }}
             // Owner preparation
-            td.px-6.py-4.whitespace-nowrap.text-right
+            td.px-6.py-2.whitespace-nowrap.text-right
               span(v-if="place.preparation > 0 && ownerInvestmentNormalized > 0") {{ $n(place.preparation) }} (
                 template(v-if="place.preparation - ownerInvestmentNormalized > 0")
                   span.text-red-500(
@@ -276,7 +276,7 @@
                   @click.prevent="ownerInvestment = place.preparation"
                 )
             // Reward with arc bonus
-            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(place.expectedParticipation) }}
+            td.px-6.py-2.whitespace-nowrap.text-right {{ $n(place.expectedParticipation) }}
               font-awesome-icon.cursor-pointer.ml-1.text-blue-500(
                 v-if="!place.isInvestorParticipation",
                 :icon="['fas', 'plus-square']",
@@ -284,7 +284,7 @@
                 @click.prevent="addSpecificInvestor(place.expectedParticipation)"
               )
             // Current participation
-            td.px-6.py-4.whitespace-nowrap.text-right(v-show="investorParticipationNormalizedSum || tutoMode")
+            td.px-6.py-2.whitespace-nowrap.text-right(v-show="investorParticipationNormalizedSum || tutoMode")
               template(v-if="place.isInvestorParticipation")
                 span {{ $n(place.participation) }} (
                   template(v-if="place.roi > 0")
@@ -313,7 +313,7 @@
                     ) {{ $n(place.participation) }}
                     | )
             // Spot / Snipe
-            td.px-6.py-4.whitespace-nowrap.text-right(v-show="showSnipe || tutoMode")
+            td.px-6.py-2.whitespace-nowrap.text-right(v-show="showSnipe || tutoMode")
               template(v-if="place.snipe.fp === -1")
                 font-awesome-icon(:icon="['fas', 'lock']")
 
@@ -337,7 +337,7 @@
                 )
                 | )
             // Custom arc bonus
-            td.px-6.py-4.whitespace-nowrap.text-center
+            td.px-6.py-2.whitespace-nowrap.text-center
               numberinput(
                 :min="0",
                 :step="0.1",
@@ -347,25 +347,25 @@
                 :name="'investorPercentageCustom_' + i"
               )
             // Potential sniper switch
-            td.px-6.py-4.whitespace-nowrap.text-center(v-show="investorParticipationNormalizedSum || tutoMode")
+            td.px-6.py-2.whitespace-nowrap.text-center(v-show="investorParticipationNormalizedSum || tutoMode")
               t-checkbox(
                 v-if="place.defaultParticipationIndex >= 0",
                 v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper",
                 @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)"
               )
             // Place free
-            td.px-6.py-4.whitespace-nowrap.text-center
+            td.px-6.py-2.whitespace-nowrap.text-center
               t-checkbox(v-model="placeFree[i].state", @input="changePlaceFree(i, $event)")
 
           // Extra investors
           template(v-if="(result.otherInvestment.length && showExtraInvestors) || tutoMode")
             tr(v-for="(place, i) in result.otherInvestment")
               // Place
-              td.px-6.py-4.whitespace-nowrap.text-right {{ $n(i + result.investment.length + 1) }}
+              td.px-6.py-2.whitespace-nowrap.text-right {{ $n(i + result.investment.length + 1) }}
               // Skip useless columns
               td(colspan=3)
               // Current participation
-              td.px-6.py-4.whitespace-nowrap.text-right
+              td.px-6.py-2.whitespace-nowrap.text-right
                 template(v-if="place.isInvestorParticipation")
                   span {{ $n(place.participation) }}
                 template(v-else)
@@ -377,7 +377,7 @@
                       | )
               td(:colspan="nbColumns - 7")
               // Potential sniper switch
-              td.px-6.py-4.whitespace-nowrap.text-center
+              td.px-6.py-2.whitespace-nowrap.text-center
                 t-checkbox(
                   v-model="investorParticipation[place.defaultParticipationIndex].isPotentialSniper",
                   @input="changeIsPotentialSniper(place.defaultParticipationIndex, $event)"
@@ -385,7 +385,7 @@
               td
         tfoot.bg-gray-50.transition-light-dark(class="dark:bg-gray-900")
           tr.border-b.border-gray-200(class="dark:border-gray-600", v-if="result.otherInvestment.length")
-            th.text-center.px-6.py-3.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.text-center.px-6.py-1.text-center.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               :colspan="tutoMode ? maxColumns : nbColumns",
               scope="col",
               class="dark:text-white"
@@ -398,12 +398,12 @@
                 | {{ $tc(i18nPrefix + 'gb_investment.table.tbody.button_hide_extra_investor', result.otherInvestment.length, { count: $n(result.otherInvestment.length) }) }}
 
           tr.border-b.border-gray-200(class="dark:border-gray-600")
-            th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.px-6.py-2.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white",
               :colspan="tutoMode ? maxColumns - 1 : nbColumns - 1"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.tfoot.total_preparation') }}
-            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.totalPreparations) }}
+            td.px-6.py-2.whitespace-nowrap.text-right {{ $n(result.totalPreparations) }}
               template(
                 v-if="ownerInvestmentNormalized > 0 && result.totalPreparations - ownerInvestmentNormalized > 0"
               ) &nbsp;(
@@ -412,12 +412,12 @@
                 ) {{ $n(result.totalPreparations - ownerInvestmentNormalized) }}
                 | )
           tr
-            th.px-6.py-3.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
+            th.px-6.py-2.text-left.text-xs.font-medium.text-gray-500.uppercase.tracking-wider(
               scope="col",
               class="dark:text-white",
               :colspan="tutoMode ? maxColumns - 1 : nbColumns - 1"
             ) {{ $t($data.i18nPrefix + 'gb_investment.table.tfoot.level_cost') }}
-            td.px-6.py-4.whitespace-nowrap.text-right {{ $n(result.cost) }}
+            td.px-6.py-2.whitespace-nowrap.text-right {{ $n(result.cost) }}
 
     //////////////////////////
     // Mobile table version //
