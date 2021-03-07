@@ -49,7 +49,7 @@
               t-label(:labelFor="'customGbName_' + gb.value") {{ $t('foe_data.gb.' + gb.value) }}
             .w-full(class="sm:w-1/2")
               t-input(
-                :inputId="'customGbName_' + gb.value"
+                :inputId="'customGbName_' + gb.value",
                 :value="$store.get('global/customGbName@' + gb.value)",
                 @input="updateCustomGbName(gb.value, $event)",
                 :placeholder="$t('foe_data.gb_short.' + gb.value)"
