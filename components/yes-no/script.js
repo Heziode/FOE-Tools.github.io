@@ -12,6 +12,7 @@ export default {
       default: "t-label font-bold",
     },
     customLabelClass: String,
+    labelAfter: String,
   },
   data() {
     return {

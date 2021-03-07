@@ -20,6 +20,7 @@ export const state = () => ({
   donationConversion: "",
   currentProfile: "",
   profiles: [],
+  customGbName: {},
 });
 
 export const mutations = {

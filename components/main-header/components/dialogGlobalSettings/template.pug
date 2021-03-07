@@ -39,6 +39,22 @@
           @dayStartChange="$emit('dayStartChange')",
           @nightStartChange="$emit('nightStartChange')"
         )
+
+      // Custom GB Names
+      .ml-4.mt-4
+        t-label.text-xl {{ $t(i18nPrefix + 'custom_gb_names') }}
+        .space-y-2
+          .t-columns(v-for="gb in gbListAlpha", :key="gb.value")
+            .w-full(class="sm:w-1/2")
+              t-label(:labelFor="'customGbName_' + gb.value") {{ $t('foe_data.gb.' + gb.value) }}
+            .w-full(class="sm:w-1/2")
+              t-input(
+                :inputId="'customGbName_' + gb.value"
+                :value="$store.get('global/customGbName@' + gb.value)",
+                @input="updateCustomGbName(gb.value, $event)",
+                :placeholder="$t('foe_data.gb_short.' + gb.value)"
+              )
+
   .bg-coolGray-100.px-4.py-3.space-x-0.space-y-4.transition-light-dark.flex.flex-col(
     class="sm:px-6 sm:flex sm:flex-row sm:justify-between sm:space-x-4 sm:space-y-0 dark:bg-gray-600"
   )

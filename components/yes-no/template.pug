@@ -1,5 +1,8 @@
 .field
   t-label(:class="[defaultLabelClass, customLabelClass]") {{ label }}
+    | &nbsp;
+    span(v-if="labelAfter", v-tippy="{ content: labelAfter }")
+      i.far.fa-question-circle
   .mt-2
     .inline-flex(:id="id")
       t-button(

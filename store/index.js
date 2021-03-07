@@ -95,6 +95,11 @@ export const state = () => ({
    * Contains all locale that is currently partially translated and related to user/browser translation preferences
    */
   localesNotCompleted: [],
+
+  /**
+   * Contains all short GB Name, that is used by default for custom GB names
+   */
+  defaultCustomGbName: {},
 });
 
 export const mutations = {

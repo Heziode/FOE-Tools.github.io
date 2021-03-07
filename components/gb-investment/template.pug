@@ -706,7 +706,11 @@
                   v-model="displayGbName",
                   :label="$t($data.i18nPrefix + 'gb_investment.display_gb_name')"
                 )
-                yes-no#pmShortName(v-model="shortName", :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')")
+                yes-no#pmShortName(
+                  v-model="shortName",
+                  :label="$t($data.i18nPrefix + 'gb_investment.use_short_name')",
+                  :labelAfter="$t(i18nPrefix + 'custom_name')"
+                )
                 yes-no#pmShowLevel(v-model="showLevel", :label="$t($data.i18nPrefix + 'gb_investment.show_level')")
                 yes-no#pmShowOnlySecuredPlaces(
                   v-model="showOnlySecuredPlaces",
