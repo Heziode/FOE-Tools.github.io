@@ -1,6 +1,6 @@
 import Shepherd from "shepherd.js";
 import { ContentLoader } from "vue-content-loader";
-import { get } from "vuex-pathify";
+import { get, sync } from "vuex-pathify";
 import * as Errors from "../../scripts/errors";
 import Utils from "~/scripts/utils";
 import gbProcess from "~/lib/foe-compute-process/gb-investment";
@@ -315,6 +315,7 @@ export default {
         (elt) => elt.name === "GbInvestment" && elt.params && elt.params.gb && elt.params.gb === this.$route.params.gb
       );
     },
+    customGbName: sync("global/customGbName"),
   },
   watch: {
     level(val, oldVal) {
@@ -665,6 +666,9 @@ export default {
         this.updatePromotionMessage();
       },
       deep: true,
+    },
+    customGbName() {
+      this.updatePromotionMessage();
     },
   },
   methods: {
