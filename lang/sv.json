@@ -1179,5 +1179,12 @@
   "cookieConsent.back": "Tillbaka",
   "cookieConsent.foe-tools.description": "All data relaterad till din konfiguration (MB's nivåer, investerare, Ark bonus, etc.)",
   "cookieConsent.consentNotice.learnMore_nonTogglable": "Få reda på mer",
-  "foe_data.gb_short.Galata_Tower": "GT"
+  "foe_data.gb_short.Galata_Tower": "GT",
+  "addToHomeScreen.dismiss": "Avböj",
+  "addToHomeScreen.install": "Installera",
+  "addToHomeScreen.description": "Skaffa FoE-Tools appen. Den tar inte mycket utrymme i din telefon eller dator och ger dig snabb access till FoE-Tools från din skärm eller skrivbord.",
+  "addToHomeScreen.title": "Installera FoE-Tools",
+  "utils.unlock": "Lås upp",
+  "utils.lock": "Lås",
+  "components.site_layout.global_config_dialog.disable_update_notification": "Inaktivera notifikationer om uppdatering"
 }
