@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.84.0](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.5...v2.84.0) (2021-03-07)
+
+
+### Features
+
+* allow to customize GB names ([e38e66f](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/e38e66fe5d722ddfd12c4856b74ebca035c0e7e6))
+* update translation ([c45e3c0](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/c45e3c00ae713b4bb6525aedf951089dca4cad85))
+
+
+### Translation
+
+* Translated using Weblate (Hungarian) ([23d2c8a](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/23d2c8ab2fbfd32e1783fd5399a6e30b7dd9d650))
+* Translated using Weblate (Swedish) ([14c961e](https://github.com/FOE-Tools/FOE-Tools.github.io/commit/14c961e9cffef7f4dca68b7f3e19836e61847f91))
+
 ### [2.83.5](https://github.com/FOE-Tools/FOE-Tools.github.io/compare/v2.83.4...v2.83.5) (2021-03-05)
 
 ### Bug Fixes
