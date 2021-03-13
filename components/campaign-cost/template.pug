@@ -119,6 +119,8 @@ div
               td.px-6.py-4.whitespace-nowrap.text-center(
                 v-for="(cost, key) in campaignTotalCost[ageKey]._totalCost[age]"
               ) {{ $n(cost.value) }}
+            template(v-else)
+              td.px-6.py-4(v-for="i in 5")
             td.td.px-6.py-4(v-else, v-for="i in 5")
           td.px-6.py-4.whitespace-nowrap.text-center(v-for="(cost, age) in campaignTotalCost._totalCost._specialGoods")
             span(v-if="cost.key in campaignTotalCost[ageKey]._totalCost._specialGoods") {{ $n(campaignTotalCost[ageKey]._totalCost._specialGoods[cost.key].value) }}
@@ -215,6 +217,8 @@ div
               td.px-6.py-4.whitespace-nowrap.text-center(
                 v-for="(cost, key) in campaignTotalCost[currentAge].provinces[province]._totalCost[age]"
               ) {{ $n(cost.value) }}
+            template(v-else)
+              td.px-6.py-4(v-for="i in 5")
           td.px-6.py-4.whitespace-nowrap.text-center(
             v-for="(cost, age) in campaignTotalCost[currentAge]._totalCost._specialGoods"
           )
