@@ -600,6 +600,13 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/46401854?v=4",
       "profile": "https://github.com/FJduFou",
       "contributions": ["design"]
+    },
+    {
+      "login": "CaioMario (PT)",
+      "name": "CaioMario (PT)",
+      "avatar_url": "https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png",
+      "profile": "",
+      "contributions": ["bug"]
     }
   ],
   "commitConvention": "none"

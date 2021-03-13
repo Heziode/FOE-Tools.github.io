@@ -98,6 +98,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><img src="https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png?s=100" width="100px;" alt=""/><br /><sub><b>ax1z (HU)</b></sub><br /><a href="#translation-ax1z (HU)" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/JhonnyBn"><img src="https://avatars1.githubusercontent.com/u/29382833?v=4?s=100" width="100px;" alt=""/><br /><sub><b>JhonnyBn</b></sub></a><br /><a href="#translation-JhonnyBn" title="Translation">🌍</a></td>
     <td align="center"><a href="https://github.com/FJduFou"><img src="https://avatars0.githubusercontent.com/u/46401854?v=4?s=100" width="100px;" alt=""/><br /><sub><b>François-Joseph du Fou</b></sub></a><br /><a href="#design-FJduFou" title="Design">🎨</a></td>
+    <td align="center"><img src="https://forum.en.forgeofempires.com/styles/game/avatars/avatar.png?s=100" width="100px;" alt=""/><br /><sub><b>CaioMario (PT)</b></sub><br /><a href="#bug-CaioMario (PT)" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 
